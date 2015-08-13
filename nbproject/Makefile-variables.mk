@@ -1,0 +1,13 @@
+#
+# Generated - do not edit!
+#
+# NOCDDL
+#
+CND_BASEDIR=`pwd`
+# LazySwitch_PIC18f24J10 configuration
+CND_ARTIFACT_DIR_LazySwitch_PIC18f24J10=dist/LazySwitch_PIC18f24J10/production
+CND_ARTIFACT_NAME_LazySwitch_PIC18f24J10=PIC_LazySwitch.production.hex
+CND_ARTIFACT_PATH_LazySwitch_PIC18f24J10=dist/LazySwitch_PIC18f24J10/production/PIC_LazySwitch.production.hex
+CND_PACKAGE_DIR_LazySwitch_PIC18f24J10=${CND_DISTDIR}/LazySwitch_PIC18f24J10/package
+CND_PACKAGE_NAME_LazySwitch_PIC18f24J10=piclazyswitch.tar
+CND_PACKAGE_PATH_LazySwitch_PIC18f24J10=${CND_DISTDIR}/LazySwitch_PIC18f24J10/package/piclazyswitch.tar
