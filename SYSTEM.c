@@ -43,10 +43,11 @@
 /******************************************************************************/
 /* SYS_ConfigureOscillator
  *
- * The function waits for the high frequency occilator to be working and stable.
+ * The function configures the oscillator.
 /******************************************************************************/
 void SYS_ConfigureOscillator(void)
 {
+    /* This functionality is done in the configuration bits */
     Nop();
 }
 

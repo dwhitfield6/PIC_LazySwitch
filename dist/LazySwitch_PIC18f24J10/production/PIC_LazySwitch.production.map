@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.34\dat\en_msgs.txt -cs \
   -h+dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.sym \
   --cmf=dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.cmf \
-  -z -Q18F24J10 -oC:\Users\DWHITF~1\AppData\Local\Temp\s6ss.6 \
+  -z -Q18F24J10 -oC:\Users\DWHITF~1\AppData\Local\Temp\s4go.6 \
   -Mdist/LazySwitch_PIC18f24J10/production/PIC_LazySwitch.production.map \
   -E1 -ver=XC8 -ASTACK=080h-03ffh -pstack=STACK -ACODE=00h-03FF7h \
   -ACONST=00h-03FF7h -ASMALLCONST=0400h-04FFhx59,03F00h-03FF7h \
@@ -21,7 +21,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\DWHITF~1\AppData\Local\Temp\s6ss.obj \
+  C:\Users\DWHITF~1\AppData\Local\Temp\s4go.obj \
   dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj 
 
 Object code version is 3.11
@@ -34,21 +34,24 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\DWHITF~1\AppData\Local\Temp\s6ss.obj
+C:\Users\DWHITF~1\AppData\Local\Temp\s4go.obj
                 end_init                             A2       A2        4        C       0
                 reset_vec                             0        0        4        0       0
                 config                             3FF8     3FF8        6     3FF8       0
 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
                 intcodelo                            18       18       8A        C       0
                 intcode                               8        8       10        4       0
-                smallconst                          400      400        C      200       0
-                intcode_body                        40C      40C       66      206       0
-                text3                               472      472       34      206       0
-                text2                               4CA      4CA        2      206       0
-                text1                               4C6      4C6        4      206       0
-                text0                               4A6      4A6       12      206       0
-                cstackCOMRAM                          1        1       1F        1       1
-                cinit                               4B8      4B8        E      206       0
+                smallconst                          400      400       44      200       0
+                intcode_body                        4AA      4AA       66      222       0
+                text5                               546      546       34      222       0
+                text4                               5B0      5B0        2      222       0
+                text3                               444      444       66      222       0
+                text2                               510      510       36      222       0
+                text1                               5AC      5AC        4      222       0
+                text0                               57A      57A       20      222       0
+                cstackCOMRAM                          1        1       2C        1       1
+                bssCOMRAM                            2D       2D        2        1       1
+                cinit                               59A      59A       12      222       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -58,22 +61,25 @@ TOTAL           Name                               Link     Load   Length     Sp
                 intcodelo                            18       18       8A         0
                 intcode                               8        8       10         0
                 reset_vec                             0        0        4         0
-                intcode_body                        40C      40C       66         0
-                text3                               472      472       34         0
-                text2                               4CA      4CA        2         0
-                text1                               4C6      4C6        4         0
-                text0                               4A6      4A6       12         0
-                cinit                               4B8      4B8        E         0
+                intcode_body                        4AA      4AA       66         0
+                text5                               546      546       34         0
+                text4                               5B0      5B0        2         0
+                text3                               444      444       66         0
+                text2                               510      510       36         0
+                text1                               5AC      5AC        4         0
+                text0                               57A      57A       20         0
+                cinit                               59A      59A       12         0
 
         CLASS   CONST          
 
         CLASS   SMALLCONST     
-                smallconst                          400      400        C         0
+                smallconst                          400      400       44         0
 
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                cstackCOMRAM                          1        1       1F         1
+                cstackCOMRAM                          1        1       2C         1
+                bssCOMRAM                            2D       2D        2         1
 
         CLASS   ABS1           
 
@@ -103,11 +109,11 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
-                cstackCOMRAM                   000001  00001F  000020         1       1  COMRAM  
+                cstackCOMRAM                   000001  00002E  00002F         1       1  COMRAM  
                 intcode                        000008  000010  000018         4       0  CODE    
                 intcodelo                      000018  00008E  0000A6         C       0  CODE    
-                smallconst                     000400  00000C  00040C       200       0  SMALLCON
-                intcode_body                   00040C  0000C0  0004CC       206       0  CODE    
+                smallconst                     000400  000044  000444       200       0  SMALLCON
+                text3                          000444  00016E  0005B2       222       0  CODE    
                 config                         003FF8  000006  003FFE      3FF8       0  CONFIG  
 
 
@@ -118,29 +124,35 @@ UNUSED ADDRESS RANGES
         BANK1            00100-001FF             100
         BANK2            00200-002FF             100
         BANK3            00300-003FF             100
-        BIGRAM           00020-003FF             3E0
+        BIGRAM           0002F-003FF             3D1
         CODE             00004-00007               4
                          000A6-003FF             35A
-                         004CC-03FF7            3B2C
-        COMRAM           00020-0007F              60
+                         005B2-03FF7            3A46
+        COMRAM           0002F-0007F              51
         CONST            00004-00007               4
                          000A6-003FF             35A
-                         004CC-03FF7            3B2C
-        MEDIUMCONST      004CC-03FF7            3B2C
+                         005B2-03FF7            3A46
+        MEDIUMCONST      005B2-03FF7            3A46
         RAM              00080-003FF             100
         SFR              00F80-00FFF              80
-        SMALLCONST       004CC-03FF7             100
+        SMALLCONST       005B2-03FF7             100
         STACK            00080-003FF             380
 
                                   Symbol Table
 
-_Init_App                         text3         00472
-_Init_System                      text2         004CA
+MSC_BlinkLED@blink                cstackCOMRAM  00029
+MSC_BlinkLED@i                    cstackCOMRAM  0002B
+MSC_DelayUS@US                    cstackCOMRAM  00020
+MSC_DelayUS@i                     cstackCOMRAM  00025
+_Init_App                         text5         00546
+_Init_System                      text4         005B0
 _LATA                             (abs)         00F89
 _LATB                             (abs)         00F8A
 _LATC                             (abs)         00F8B
+_MSC_BlinkLED                     text2         00510
+_MSC_DelayUS                      text3         00444
 _PCB_Version                      smallconst    00401
-_SYS_ConfigureOscillator          text1         004C6
+_SYS_ConfigureOscillator          text1         005AC
 _TRISAbits                        (abs)         00F92
 _TRISBbits                        (abs)         00F93
 _TRISCbits                        (abs)         00F94
@@ -164,6 +176,7 @@ __Hbigbss                         bigbss        00000
 __Hbigdata                        bigdata       00000
 __Hbigram                         bigram        00000
 __Hbss                            bss           00000
+__HbssCOMRAM                      bssCOMRAM     00000
 __Hcinit                          cinit         00000
 __Hclrtext                        clrtext       00000
 __Hcomram                         comram        00000
@@ -201,9 +214,9 @@ __Hrdata                          rdata         00000
 __Hreset_vec                      reset_vec     00004
 __Hrparam                         rparam        00000
 __Hsfr                            sfr           00000
-__Hsmallconst                     smallconst    0040C
+__Hsmallconst                     smallconst    00444
 __Hspace_0                        (abs)         03FFE
-__Hspace_1                        (abs)         00020
+__Hspace_1                        (abs)         0002F
 __Hspace_2                        (abs)         00000
 __Hstack                          stack         00000
 __Hstruct                         struct        00000
@@ -213,6 +226,8 @@ __Htext0                          text0         00000
 __Htext1                          text1         00000
 __Htext2                          text2         00000
 __Htext3                          text3         00000
+__Htext4                          text4         00000
+__Htext5                          text5         00000
 __LRAM                            (abs)         00001
 __Labs1                           abs1          00000
 __Lbank0                          bank0         00000
@@ -223,6 +238,7 @@ __Lbigbss                         bigbss        00000
 __Lbigdata                        bigdata       00000
 __Lbigram                         bigram        00000
 __Lbss                            bss           00000
+__LbssCOMRAM                      bssCOMRAM     00000
 __Lcinit                          cinit         00000
 __Lclrtext                        clrtext       00000
 __Lcomram                         comram        00000
@@ -272,8 +288,10 @@ __Ltext0                          text0         00000
 __Ltext1                          text1         00000
 __Ltext2                          text2         00000
 __Ltext3                          text3         00000
+__Ltext4                          text4         00000
+__Ltext5                          text5         00000
 __S0                              (abs)         03FFE
-__S1                              (abs)         00020
+__S1                              (abs)         0002F
 __S2                              (abs)         00000
 ___extmem_base                    (abs)         20000
 ___inthi_sp                       stack         00000
@@ -283,39 +301,49 @@ ___rparam_used                    (abs)         00001
 ___sp                             stack         00000
 __accesstop                       (abs)         00080
 __activetblptr                    (abs)         00001
-__end_of_Init_App                 text3         004A6
-__end_of_Init_System              text2         004CC
+__end_of_Init_App                 text5         0057A
+__end_of_Init_System              text4         005B2
+__end_of_MSC_BlinkLED             text2         00546
+__end_of_MSC_DelayUS              text3         004AA
 __end_of_PCB_Version              smallconst    0040A
-__end_of_SYS_ConfigureOscillator  text1         004CA
-__end_of__initialization          cinit         004B8
-__end_of_high_isr                 intcode_body  00472
+__end_of_SYS_ConfigureOscillator  text1         005B0
+__end_of__initialization          cinit         0059E
+__end_of_high_isr                 intcode_body  00510
 __end_of_low_isr                  intcodelo     000A2
-__end_of_main                     text0         004B8
-__initialization                  cinit         004B8
+__end_of_main                     text0         0059A
+__end_ofexp@coeff                 smallconst    00428
+__end_oflog@coeff                 smallconst    00443
+__initialization                  cinit         0059A
 __mediumconst                     mediumconst   00000
-__pcinit                          cinit         004B8
+__pbssCOMRAM                      bssCOMRAM     0002D
+__pcinit                          cinit         0059A
 __pcstackCOMRAM                   cstackCOMRAM  00001
 __pintcode                        intcode       00008
-__pintcode_body                   intcode_body  0040C
+__pintcode_body                   intcode_body  004AA
 __pintcodelo                      intcodelo     00018
 __psmallconst                     smallconst    00400
-__ptext0                          text0         004A6
-__ptext1                          text1         004C6
-__ptext2                          text2         004CA
-__ptext3                          text3         00472
+__ptext0                          text0         0057A
+__ptext1                          text1         005AC
+__ptext2                          text2         00510
+__ptext3                          text3         00444
+__ptext4                          text4         005B0
+__ptext5                          text5         00546
 __ramtop                          ramtop        00400
 __size_of_Init_App                (abs)         00000
 __size_of_Init_System             (abs)         00000
+__size_of_MSC_BlinkLED            (abs)         00000
+__size_of_MSC_DelayUS             (abs)         00000
 __size_of_SYS_ConfigureOscillator (abs)         00000
 __size_of_high_isr                (abs)         00000
 __size_of_low_isr                 (abs)         00000
 __size_of_main                    (abs)         00000
 __smallconst                      smallconst    00400
+_errno                            bssCOMRAM     0002D
 _high_isr                         intcode       00008
 _low_isr                          intcodelo     00018
-_main                             text0         004A6
-end_of_initialization             cinit         004B8
-int_func                          intcode_body  0040C
+_main                             text0         0057A
+end_of_initialization             cinit         0059E
+int_func                          intcode_body  004AA
 intlevel0                         text          00000
 intlevel1                         text          00000
 intlevel2                         text          00000
@@ -323,22 +351,22 @@ intlevel3                         text          00000
 stackhi                           (abs)         003FF
 stacklo                           (abs)         00080
 start                             init          000A2
-start_initialization              cinit         004B8
+start_initialization              cinit         0059A
 
 
 FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 54 in file "main.c"
+		line 55 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
-                  2    8[None  ] int 
+                  2   12[None  ] int 
  Registers used:
-		wreg, status,2, cstack
+		wreg, status,2, status,0, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -349,10 +377,11 @@ FUNCTION INFORMATION:
       Temps:          0       0       0       0       0
       Totals:         0       0       0       0       0
 Total ram usage:        0 bytes
- Hardware stack levels required when called:    3
+ Hardware stack levels required when called:    4
  This function calls:
 		_Init_App
 		_Init_System
+		_MSC_BlinkLED
 		_SYS_ConfigureOscillator
  This function is called by:
 		Startup code after reset
@@ -389,9 +418,69 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
+ *************** function _MSC_BlinkLED *****************
+ Defined at:
+		line 1135 in file "MISC.c"
+ Parameters:    Size  Location     Type
+  blink           2   40[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  i               2   42[COMRAM] unsigned int 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
+      Params:         2       0       0       0       0
+      Locals:         2       0       0       0       0
+      Temps:          0       0       0       0       0
+      Totals:         4       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_MSC_DelayUS
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _MSC_DelayUS *****************
+ Defined at:
+		line 47 in file "MISC.c"
+ Parameters:    Size  Location     Type
+  US              4   31[COMRAM] long 
+ Auto vars:     Size  Location     Type
+  i               4   36[COMRAM] long 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
+      Params:         4       0       0       0       0
+      Locals:         4       0       0       0       0
+      Temps:          1       0       0       0       0
+      Totals:         9       0       0       0       0
+Total ram usage:        9 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_MSC_BlinkLED
+ This function uses a non-reentrant model
+
+
  *************** function _Init_System *****************
  Defined at:
-		line 102 in file "USER.c"
+		line 142 in file "USER.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -513,19 +602,27 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 SYSTEM.c
-		_SYS_ConfigureO		CODE           	04C6	0000	5
+		_SYS_ConfigureO		CODE           	05AC	0000	5
 
 SYSTEM.c estimated size: 5
 
 shared
+		exp@coeff      		SMALLCONST     	0000	0000	0
 		_PCB_Version   		SMALLCONST     	0401	0000	10
-		__initializatio		CODE           	04B8	0000	1
+		__initializatio		CODE           	059A	0000	5
+		log@coeff      		SMALLCONST     	0000	0000	0
 
-shared estimated size: 11
+shared estimated size: 15
+
+MISC.c
+		_MSC_DelayUS   		CODE           	0444	0000	103
+		_MSC_BlinkLED  		CODE           	0510	0000	55
+
+MISC.c estimated size: 158
 
 USER.c
-		_Init_App      		CODE           	0472	0000	53
-		_Init_System   		CODE           	04CA	0000	3
+		_Init_App      		CODE           	0546	0000	53
+		_Init_System   		CODE           	05B0	0000	3
 
 USER.c estimated size: 56
 
@@ -536,7 +633,7 @@ INTERRUPTS.c
 INTERRUPTS.c estimated size: 258
 
 main.c
-		_main          		CODE           	04A6	0000	19
+		_main          		CODE           	057A	0000	33
 
-main.c estimated size: 19
+main.c estimated size: 33
 

@@ -1,43 +1,4 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"630 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
-[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
-"754
-[v _LATB `Vuc ~T0 @X0 0 e@3978 ]
-"886
-[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
-"1403
-[s S72 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S72 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"1413
-[s S73 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S73 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"1402
-[u S71 `S72 1 `S73 1 ]
-[n S71 . . . ]
-"1424
-[v _TRISCbits `VS71 ~T0 @X0 0 e@3988 ]
-"1029
-[s S60 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S60 . TRISA0 TRISA1 TRISA2 TRISA3 . TRISA5 ]
-"1037
-[s S61 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S61 . RA0 RA1 RA2 RA3 . RA5 ]
-"1028
-[u S59 `S60 1 `S61 1 ]
-[n S59 . . . ]
-"1046
-[v _TRISAbits `VS59 ~T0 @X0 0 e@3986 ]
-"1182
-[s S66 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S66 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
-"1192
-[s S67 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S67 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"1181
-[u S65 `S66 1 `S67 1 ]
-[n S65 . . . ]
-"1203
-[v _TRISBbits `VS65 ~T0 @X0 0 e@3987 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f24j10.h: 49: extern volatile unsigned char PORTA @ 0xF80;
@@ -3752,109 +3713,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 66: extern char * strrichr(const char *, int);
 [; ;USER.h: 178: void Init_App(void);
 [; ;USER.h: 179: void Init_System (void);
-"43 USER.c
-[v _PCB_Version `Cuc ~T0 @X0 -> 0 `x e ]
-[i _PCB_Version
-:U ..
--> 80 `c
--> 67 `c
--> 66 `c
--> 32 `c
--> 114 `c
--> 101 `c
--> 118 `c
--> 65 `c
--> 0 `c
-..
-]
-[; ;USER.c: 43: const unsigned char PCB_Version[] = "PCB revA";
-"63
-[v _Init_App `(v ~T0 @X0 1 ef ]
-"64
+"55 RF.c
+[v _InitRF `(v ~T0 @X0 1 ef ]
+"56
 {
-[; ;USER.c: 63: void Init_App(void)
-[; ;USER.c: 64: {
-[e :U _Init_App ]
+[; ;RF.c: 55: void InitRF(void)
+[; ;RF.c: 56: {
+[e :U _InitRF ]
 [f ]
-[; ;USER.c: 65: LATA = 0;
-"65
-[e = _LATA -> -> 0 `i `uc ]
-[; ;USER.c: 66: LATB = 0;
-"66
-[e = _LATB -> -> 0 `i `uc ]
-[; ;USER.c: 67: LATC = 0;
-"67
-[e = _LATC -> -> 0 `i `uc ]
-[; ;USER.c: 70: TRISCbits.TRISC0 = 1;
-"70
-[e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
-[; ;USER.c: 71: TRISCbits.TRISC1 = 1;
-"71
-[e = . . _TRISCbits 0 1 -> -> 1 `i `uc ]
-[; ;USER.c: 74: TRISAbits.TRISA0 = 1;
-"74
-[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
-[; ;USER.c: 78: TRISAbits.TRISA1 = 1;
-"78
-[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
-[; ;USER.c: 81: TRISAbits.TRISA2 = 0;
-"81
-[e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
-[; ;USER.c: 84: TRISAbits.TRISA5 = 0;
-"84
-[e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
-[; ;USER.c: 87: TRISBbits.TRISB1 = 1;
-"87
-[e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
-[; ;USER.c: 88: TRISBbits.TRISB2 = 1;
-"88
-[e = . . _TRISBbits 0 2 -> -> 1 `i `uc ]
-[; ;USER.c: 92: TRISBbits.TRISB3 = 0;
-"92
-[e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
-[; ;USER.c: 95: TRISCbits.TRISC2 = 0;
-"95
-[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-[; ;USER.c: 99: TRISCbits.TRISC3 = 0;
-"99
-[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
-[; ;USER.c: 102: TRISCbits.TRISC5 = 0;
-"102
-[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-[; ;USER.c: 106: TRISCbits.TRISC4 = 0;
-"106
-[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
-[; ;USER.c: 110: TRISBbits.TRISB0 = 1;
-"110
-[e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
-[; ;USER.c: 111: TRISBbits.TRISB4 = 1;
-"111
-[e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
-[; ;USER.c: 115: TRISBbits.TRISB5 = 1;
-"115
-[e = . . _TRISBbits 0 5 -> -> 1 `i `uc ]
-[; ;USER.c: 119: TRISAbits.TRISA3 = 1;
-"119
-[e = . . _TRISAbits 0 3 -> -> 1 `i `uc ]
-[; ;USER.c: 131: TRISCbits.TRISC6 = 0;
-"131
-[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-[; ;USER.c: 132: TRISCbits.TRISC7 = 0;
-"132
-[e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
-[; ;USER.c: 135: }
-"135
+[; ;RF.c: 58: }
+"58
 [e :UE 430 ]
-}
-"142
-[v _Init_System `(v ~T0 @X0 1 ef ]
-"143
-{
-[; ;USER.c: 142: void Init_System(void)
-[; ;USER.c: 143: {
-[e :U _Init_System ]
-[f ]
-[; ;USER.c: 145: }
-"145
-[e :UE 431 ]
 }

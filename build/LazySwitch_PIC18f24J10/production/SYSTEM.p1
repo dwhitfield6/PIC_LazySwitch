@@ -3751,10 +3751,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SYSTEM.c: 49: {
 [e :U _SYS_ConfigureOscillator ]
 [f ]
-[; ;SYSTEM.c: 50: __nop();
-"50
-[e ( ___nop ..  ]
-[; ;SYSTEM.c: 51: }
+[; ;SYSTEM.c: 51: __nop();
 "51
+[e ( ___nop ..  ]
+[; ;SYSTEM.c: 52: }
+"52
 [e :UE 430 ]
 }

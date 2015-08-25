@@ -4955,13 +4955,53 @@ void Init_System (void);
 # 54 "SYSTEM.h"
 void SYS_ConfigureOscillator(void);
 
-# 54 "main.c"
+# 67 "MISC.h"
+void MSC_DelayUS(long US);
+unsigned char MSC_IsCharacter(unsigned char data);
+void MSC_CleanBuffer(unsigned char* data, unsigned int count);
+void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
+double MSC_Round(double input);
+void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
+unsigned char MSC_StringMatch(const unsigned char* This, const unsigned char* That);
+unsigned char MSC_StringMatchCaseInsensitive(const unsigned char* This, const unsigned char* That);
+unsigned char MSC_StringContains(const unsigned char* This, const unsigned char* That);
+unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
+void MSC_LowercaseChar(unsigned char* Input);
+void MSC_LowercaseString(unsigned char* Input);
+void MSC_DelayNOP(unsigned char NOPs);
+unsigned char MSC_ReverseByte(unsigned char This);
+unsigned int MSC_ReverseInt(unsigned int This);
+unsigned long MSC_ReverseLong(unsigned long This);
+unsigned char MSC_GetNumber(unsigned char* This, unsigned char CommaNumber, long* result);
+unsigned char MSC_StringAddEqual(unsigned char* Input);
+unsigned char MSC_GetStringAfterComma(unsigned char* This, unsigned char CommaNumber, unsigned char* result);
+unsigned char MSC_GetNumberUnsigned(unsigned char* This, unsigned char CommaNumber, unsigned long* result);
+unsigned char MSC_IsAlphaNumericString(unsigned char* data);
+unsigned char MSC_IsAlphaNumeric(unsigned char data);
+unsigned char MSC_IsNumber(unsigned char data);
+double MSC_DB_Round(double Input);
+long MSC_Scale(long Input, long InputRangeLow, long InputRangeHigh, long OutputRangeLow, long OutputRangeHigh);
+unsigned int MSC_BCDtoHEX(unsigned int input);
+unsigned int MSC_HEXtoBCD(unsigned int input);
+unsigned char MSC_BufferMatch(unsigned char* This, unsigned char* That, unsigned int size);
+long MSC_LG_Round(long Input,unsigned char places);
+void MSC_TestFunctionPointer(void);
+unsigned int MSC_EndianInt(unsigned int number);
+unsigned int MSC_EndianIntArray(unsigned char* buffer);
+unsigned long MSC_EndianLong(unsigned long number);
+unsigned long MSC_EndianLongArray(unsigned char* buffer);
+void MSC_BlinkLED(unsigned int blink);
+
+# 55 "main.c"
 int main (void)
 {
 
 SYS_ConfigureOscillator();
 Init_App();
 Init_System();
+
+MSC_BlinkLED(15);
+(LATC &= ~0x10);
 
 while(1)
 {

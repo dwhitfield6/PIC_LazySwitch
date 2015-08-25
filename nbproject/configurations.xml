@@ -6,6 +6,11 @@
                    projectFiles="true">
       <itemPath>SYSTEM.h</itemPath>
       <itemPath>USER.h</itemPath>
+      <itemPath>RF.h</itemPath>
+      <itemPath>MOTOR.h</itemPath>
+      <itemPath>IR.h</itemPath>
+      <itemPath>LDO.h</itemPath>
+      <itemPath>MISC.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -19,6 +24,11 @@
       <itemPath>CONFIGURATION.c</itemPath>
       <itemPath>USER.c</itemPath>
       <itemPath>SYSTEM.c</itemPath>
+      <itemPath>RF.c</itemPath>
+      <itemPath>MOTOR.c</itemPath>
+      <itemPath>IR.c</itemPath>
+      <itemPath>LDO.c</itemPath>
+      <itemPath>MISC.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

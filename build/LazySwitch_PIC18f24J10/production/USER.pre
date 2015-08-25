@@ -4930,32 +4930,66 @@ LATA = 0;
 LATB = 0;
 LATC = 0;
 
+
 TRISCbits.TRISC0 = 1;
 TRISCbits.TRISC1 = 1;
+
+
 TRISAbits.TRISA0 = 1;
+
+
+
 TRISAbits.TRISA1 = 1;
+
+
 TRISAbits.TRISA2 = 0;
+
+
 TRISAbits.TRISA5 = 0;
-TRISBbits.TRISB3 = 0;
-TRISCbits.TRISC2 = 0;
-TRISCbits.TRISC3 = 0;
-TRISCbits.TRISC5 = 0;
-TRISCbits.TRISC4 = 0;
+
+
 TRISBbits.TRISB1 = 1;
 TRISBbits.TRISB2 = 1;
-TRISAbits.TRISA3 = 1;
+
+
+
+TRISBbits.TRISB3 = 0;
+
+
+TRISCbits.TRISC2 = 0;
+
+
+
+TRISCbits.TRISC3 = 0;
+
+
+TRISCbits.TRISC5 = 0;
+
+
+
+TRISCbits.TRISC4 = 0;
+
+
+
 TRISBbits.TRISB0 = 1;
 TRISBbits.TRISB4 = 1;
+
+
+
 TRISBbits.TRISB5 = 1;
 
 
-TRISCbits.TRISC6 = 0;
-TRISCbits.TRISC7 = 1;
 
-# 95
+TRISAbits.TRISA3 = 1;
+
+# 131
+TRISCbits.TRISC6 = 0;
+TRISCbits.TRISC7 = 0;
+
+
 }
 
-# 102
+# 142
 void Init_System(void)
 {
 

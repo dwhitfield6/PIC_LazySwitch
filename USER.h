@@ -45,7 +45,7 @@
  * Uncomment if the optional UART is being used. If this is being used,
  *  populate R9 or R12 and R6 or R7 and remove R13 and R15 (See PCB manual).
 /******************************************************************************/
-#define OPTIONAL_UART
+//#define OPTIONAL_UART
 
 /******************************************************************************/
 /* Version
@@ -81,9 +81,9 @@
 
 /************* Voltage Monitoring *************/
 /* Connected to the voltage divider connected to VIN */
-#define VINTris	TRISAbits.TRISA0
-#define VIN 0x01    //RA0 used as AN0
-#define VIN_AN  0   //AN0
+#define ADC_VINTris	TRISAbits.TRISA0
+#define ADC_VIN 0x01    //RA0 used as AN0
+#define ADC_VIN_AN  0   //AN0
 
 /************* RF Module *************/
 /* Connected to the analog RSSI diagnostic */
@@ -154,8 +154,8 @@
 
 /************* LED *************/
 /* Connected to the LED indicator */
-#define LEDTris	TRISCbits.TRISC4
-#define LED 0x10    //RC4
+#define REDLEDTris	TRISCbits.TRISC4
+#define REDLED 0x10    //RC4
 
 #ifdef OPTIONAL_UART
 /************* Optional UART *************/

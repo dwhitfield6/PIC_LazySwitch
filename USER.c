@@ -66,28 +66,68 @@ void Init_App(void)
     LATB = 0;
     LATC = 0;
     
+    /*~~~~~~~~~~~~~ Primary crystal oscillator ~~~~~~~~~~~~~~~~~*/
     T1OSOTris       = INPUT;
     T1OSITris       = INPUT;
-    VINTris         = INPUT;
+    
+    /*~~~~~~~~~~~~~ ADC voltage monitoring of VIN ~~~~~~~~~~~~~~~~~*/
+    ADC_VINTris     = INPUT;
+    
+    /*~~~~~~~~~~~~~ RF transmitter ~~~~~~~~~~~~~~~~~*/
+    /* analog RSSI measuring */
     RF_RSSITris     = INPUT;
+   
+    /* shutdown control */
     RF_SHDNTris     = OUTPUT;
+    
+    /* Squelch control to reduce random noise on output pin during no RF */
     RF_SquelchTris  = OUTPUT;
-    MTR_FWDTris     = OUTPUT;
-    MTR_REVTris     = OUTPUT;
-    LDO_SHDNTris    = OUTPUT;
-    LDO_PASSTris    = OUTPUT;
-    LEDTris         = OUTPUT;
+    
+    /* RF modulated data */
     RF_DATA1Tris    = INPUT;
     RF_DATA2Tris    = INPUT;
-    ADC_REFTris     = INPUT;
+    
+    /*~~~~~~~~~~~~~ Motor controller ~~~~~~~~~~~~~~~~~*/
+    /* Forward movement */
+    MTR_FWDTris     = OUTPUT;
+    
+    /* Backward movement */
+    MTR_REVTris     = OUTPUT;
+    
+    /*~~~~~~~~~~~~~ LDO ~~~~~~~~~~~~~~~~~*/
+    /* Shutdown enable */
+    LDO_SHDNTris    = OUTPUT;
+    
+    /* Pass-through to save power at low battery voltages */
+    LDO_PASSTris    = OUTPUT;
+    
+    /*~~~~~~~~~~~~~ LED indication ~~~~~~~~~~~~~~~~~*/
+    /* RED LED */
+    REDLEDTris         = OUTPUT;
+    
+    /*~~~~~~~~~~~~~ IR receiver ~~~~~~~~~~~~~~~~~*/
+    /* IR modulated signal */
     IR_REC1Tris     = INPUT;
     IR_REC2Tris     = INPUT;
+    
+    /*~~~~~~~~~~~~~ Push-Button switch ~~~~~~~~~~~~~~~~~*/
+    /* pushbutton switch with pull-up resistor */
     SwitchTris      = INPUT;
+        
+    /*~~~~~~~~~~~~~ ADC ~~~~~~~~~~~~~~~~~*/
+    /* 2.5 volt reference */
+    ADC_REFTris     = INPUT;
     
 #ifdef OPTIONAL_UART
+    /*~~~~~~~~~~~~~ Optional UART ~~~~~~~~~~~~~~~~~*/
+    /* UART transmit */
     UART_TXTris = OUTPUT;
+    
+    /* UART receive */
     UART_RXTris = INPUT;
 #else
+    /*~~~~~~~~~~~~~ RF transmitter ~~~~~~~~~~~~~~~~~*/
+    /* Baud rate selection */
     RF_SEL0Tris = OUTPUT;
     RF_SEL1Tris = OUTPUT;
 #endif
