@@ -64,7 +64,7 @@
 /******************************************************************************/
 /* Function prototypes                                                        */
 /******************************************************************************/
-void MSC_DelayUS(long US);
+void MSC_DelayMS(long US);
 unsigned char MSC_IsCharacter(unsigned char data);
 void MSC_CleanBuffer(unsigned char* data, unsigned int count);
 void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
@@ -76,7 +76,7 @@ unsigned char MSC_StringContains(const unsigned char* This, const unsigned char*
 unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
 void MSC_LowercaseChar(unsigned char* Input);
 void MSC_LowercaseString(unsigned char* Input);
-void MSC_DelayNOP(unsigned char NOPs);
+void MSC_DelayNOP(unsigned int NOPs);
 unsigned char MSC_ReverseByte(unsigned char This);
 unsigned int MSC_ReverseInt(unsigned int This);
 unsigned long MSC_ReverseLong(unsigned long This);

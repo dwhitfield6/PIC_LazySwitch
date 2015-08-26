@@ -4948,7 +4948,7 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 178 "USER.h"
+# 181 "USER.h"
 void Init_App(void);
 void Init_System (void);
 
@@ -4956,7 +4956,7 @@ void Init_System (void);
 void SYS_ConfigureOscillator(void);
 
 # 67 "MISC.h"
-void MSC_DelayUS(long US);
+void MSC_DelayMS(long US);
 unsigned char MSC_IsCharacter(unsigned char data);
 void MSC_CleanBuffer(unsigned char* data, unsigned int count);
 void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
@@ -4968,7 +4968,7 @@ unsigned char MSC_StringContains(const unsigned char* This, const unsigned char*
 unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
 void MSC_LowercaseChar(unsigned char* Input);
 void MSC_LowercaseString(unsigned char* Input);
-void MSC_DelayNOP(unsigned char NOPs);
+void MSC_DelayNOP(unsigned int NOPs);
 unsigned char MSC_ReverseByte(unsigned char This);
 unsigned int MSC_ReverseInt(unsigned int This);
 unsigned long MSC_ReverseLong(unsigned long This);
@@ -4992,7 +4992,166 @@ unsigned long MSC_EndianLong(unsigned long number);
 unsigned long MSC_EndianLongArray(unsigned char* buffer);
 void MSC_BlinkLED(unsigned int blink);
 
-# 55 "main.c"
+# 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 42
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 40 "RF.h"
+extern unsigned char RF_Data;
+
+# 49
+void InitRF(void);
+
+# 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 42
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 40 "IR.h"
+extern unsigned char IR_Data;
+
+# 49
+void InitIR(void);
+unsigned char IR_ReadReceiver(void);
+
+# 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 42
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 48 "BUTTON.h"
+extern unsigned char Button_Data;
+extern unsigned char ButtonValue_prev;
+extern unsigned char ButtonChange;
+extern unsigned char ButtonTimer;
+
+# 60
+void InitButton(void);
+inline void BUT_IR_PinChangeInt(unsigned char state);
+unsigned char BUT_ReadButton(void);
+
+# 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 42
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 56 "MOTOR.h"
+unsigned char DC_Motor;
+
+# 65
+void InitMOTOR(void);
+void MTR_Rotate(void);
+
+# 62 "main.c"
 int main (void)
 {
 
@@ -5005,7 +5164,13 @@ MSC_BlinkLED(15);
 
 while(1)
 {
-
+if(RF_Data || IR_Data || Button_Data)
+{
+MTR_Rotate();
+RF_Data = 0;
+IR_Data = 0;
+Button_Data = 0;
+}
 }
 }
 

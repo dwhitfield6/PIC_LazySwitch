@@ -3711,14 +3711,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;USER.h: 178: void Init_App(void);
-[; ;USER.h: 179: void Init_System (void);
+[; ;USER.h: 181: void Init_App(void);
+[; ;USER.h: 182: void Init_System (void);
 "40 CONFIGURATION.c
 [p x WDTEN=OFF ]
 "41
 [p x STVREN=ON ]
 "42
-[p x XINST=ON ]
+[p x XINST=OFF ]
 "45
 [p x CP0=ON ]
 "48

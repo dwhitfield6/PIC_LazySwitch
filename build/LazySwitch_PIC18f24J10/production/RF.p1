@@ -3711,17 +3711,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;USER.h: 178: void Init_App(void);
-[; ;USER.h: 179: void Init_System (void);
-"55 RF.c
-[v _InitRF `(v ~T0 @X0 1 ef ]
+[; ;USER.h: 181: void Init_App(void);
+[; ;USER.h: 182: void Init_System (void);
+"41 RF.c
+[v _RF_Data `uc ~T0 @X0 1 e ]
+[i _RF_Data
+-> -> 0 `i `uc
+]
+[; ;RF.c: 41: unsigned char RF_Data = 0;
 "56
+[v _InitRF `(v ~T0 @X0 1 ef ]
+"57
 {
-[; ;RF.c: 55: void InitRF(void)
-[; ;RF.c: 56: {
+[; ;RF.c: 56: void InitRF(void)
+[; ;RF.c: 57: {
 [e :U _InitRF ]
 [f ]
-[; ;RF.c: 58: }
-"58
+[; ;RF.c: 59: }
+"59
 [e :UE 430 ]
 }

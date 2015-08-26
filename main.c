@@ -6,8 +6,11 @@
  * Date         Revision    Comments
  * MM/DD/YY
  * --------     ---------   ----------------------------------------------------
- * 08/13/15     2.0_DW0a    Initial project make.
+ * 08/25/15     2.0_DW0a    Initial project make.
  *                          Derived from project 'Catalyst_RPI_daughter'.
+ *                          Added timer functionality for push button.
+ *                          Move the motor in alternating directions for each
+ *                            button press.
 /******************************************************************************/
 
 /******************************************************************************/
@@ -39,6 +42,10 @@
 #include "SYSTEM.h"
 #include "USER.h"
 #include "MISC.h"
+#include "RF.h"
+#include "IR.h"
+#include "BUTTON.h"
+#include "MOTOR.h"
 
 /******************************************************************************/
 /* Defines                                                                    */
@@ -64,7 +71,13 @@ int main (void)
     
     while(1)
     {
-        
+        if(RF_Data || IR_Data || Button_Data)
+        {
+            MTR_Rotate();
+            RF_Data = FALSE;
+            IR_Data = FALSE;
+            Button_Data = FALSE;
+        }
     }
 }
 /*-----------------------------------------------------------------------------/

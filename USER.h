@@ -68,6 +68,9 @@
 #define YES 1
 #define NO 0
 
+#define FINISHED 1
+#define NOTFINISHED 0
+
 /******************************************************************************/
 /* Pin Defines                                                                */
 /******************************************************************************/
@@ -141,7 +144,7 @@
 /************* Pushbutton switch *************/
 /* Connected to the pushbutton switch */
 #define SwitchTris	TRISBbits.TRISB5
-#define Switch 0x20    //RB5
+#define Switch 0x20    //RB5 used as KBI1
 
 /************* LDO *************/
 /* Connected to the LDO shutdown pin */

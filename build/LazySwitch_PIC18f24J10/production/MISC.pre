@@ -4944,7 +4944,7 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 178 "USER.h"
+# 181 "USER.h"
 void Init_App(void);
 void Init_System (void);
 
@@ -4952,7 +4952,7 @@ void Init_System (void);
 void SYS_ConfigureOscillator(void);
 
 # 67 "MISC.h"
-void MSC_DelayUS(long US);
+void MSC_DelayMS(long US);
 unsigned char MSC_IsCharacter(unsigned char data);
 void MSC_CleanBuffer(unsigned char* data, unsigned int count);
 void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
@@ -4964,7 +4964,7 @@ unsigned char MSC_StringContains(const unsigned char* This, const unsigned char*
 unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
 void MSC_LowercaseChar(unsigned char* Input);
 void MSC_LowercaseString(unsigned char* Input);
-void MSC_DelayNOP(unsigned char NOPs);
+void MSC_DelayNOP(unsigned int NOPs);
 unsigned char MSC_ReverseByte(unsigned char This);
 unsigned int MSC_ReverseInt(unsigned int This);
 unsigned long MSC_ReverseLong(unsigned long This);
@@ -4989,50 +4989,27 @@ unsigned long MSC_EndianLongArray(unsigned char* buffer);
 void MSC_BlinkLED(unsigned int blink);
 
 # 47 "MISC.c"
-void MSC_DelayUS(long US)
+void MSC_DelayMS(long US)
 {
 long i;
 
 for(i=0; i<US; i++)
 {
-
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-__nop();
-
-__nop();
-__nop();
-
+MSC_DelayNOP(162);
 }
 }
 
-# 85
-void MSC_DelayNOP(unsigned char NOPs)
+# 62
+void MSC_DelayNOP(unsigned int NOPs)
 {
-unsigned char i;
+unsigned int i;
 for(i=0; i<NOPs; i++)
 {
 __nop();
 }
 }
 
-# 99
+# 76
 unsigned char IsLetter(unsigned char data)
 {
 if((data >= 65 && data <= 90) || (data >= 97 && data <= 122))
@@ -5042,7 +5019,7 @@ return 1;
 return 0;
 }
 
-# 113
+# 90
 unsigned char MSC_IsNumber(unsigned char data)
 {
 if(data >= '0' && data <= '9')
@@ -5052,7 +5029,7 @@ return 1;
 return 0;
 }
 
-# 127
+# 104
 unsigned char MSC_IsCharacter(unsigned char data)
 {
 if(data >= 32 && data <= 126)
@@ -5062,7 +5039,7 @@ return 1;
 return 0;
 }
 
-# 142
+# 119
 unsigned char MSC_IsAlphaNumeric(unsigned char data)
 {
 if(IsLetter(data) || MSC_IsNumber(data) || data == ' ')
@@ -5072,7 +5049,7 @@ return 1;
 return 0;
 }
 
-# 157
+# 134
 unsigned char MSC_IsAlphaNumericString(unsigned char* data)
 {
 while(*data != 0)
@@ -5086,7 +5063,7 @@ data++;
 return 1;
 }
 
-# 175
+# 152
 void MSC_CleanBuffer(unsigned char* data, unsigned int count)
 {
 unsigned int i=0;
@@ -5096,7 +5073,7 @@ data[i]= 0;
 }
 }
 
-# 189
+# 166
 void MSC_CleanBufferInt(unsigned int* data, unsigned int count)
 {
 unsigned int i=0;
@@ -5106,7 +5083,7 @@ data[i]= 0;
 }
 }
 
-# 203
+# 180
 double MSC_Round(double input)
 {
 long temp = (long)(input + 0.5);
@@ -5114,7 +5091,7 @@ long temp = (long)(input + 0.5);
 return temp;
 }
 
-# 215
+# 192
 void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift)
 {
 unsigned int i=0;
@@ -5133,7 +5110,7 @@ count--;
 }
 }
 
-# 238
+# 215
 unsigned char MSC_StringMatch(const unsigned char* This, const unsigned char* That)
 {
 while(*This != 0)
@@ -5155,7 +5132,7 @@ return 0;
 }
 }
 
-# 265
+# 242
 unsigned char MSC_StringMatchCaseInsensitive(const unsigned char* This, const unsigned char* That)
 {
 unsigned char tempThis,
@@ -5185,7 +5162,7 @@ return 0;
 }
 }
 
-# 300
+# 277
 unsigned char MSC_StringContains(const unsigned char* This, const unsigned char* That)
 {
 unsigned char MatchCount = 0;
@@ -5229,7 +5206,7 @@ This++;
 return 0;
 }
 
-# 349
+# 326
 unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This,const unsigned char* That)
 {
 unsigned char tempThis,
@@ -5280,7 +5257,7 @@ This++;
 return 0;
 }
 
-# 404
+# 381
 void MSC_LowercaseString(unsigned char* Input)
 {
 while((*Input != 0))
@@ -5293,7 +5270,7 @@ Input++;
 }
 }
 
-# 421
+# 398
 void MSC_LowercaseChar(unsigned char* Input)
 {
 if((*Input >= 65) && (*Input <= 90 ))
@@ -5302,7 +5279,7 @@ if((*Input >= 65) && (*Input <= 90 ))
 }
 }
 
-# 434
+# 411
 unsigned char MSC_ReverseByte(unsigned char This)
 {
 unsigned char temp=0;
@@ -5319,7 +5296,7 @@ temp += (This & 0x80) >> 7;
 return temp;
 }
 
-# 455
+# 432
 unsigned int MSC_ReverseInt(unsigned int This)
 {
 unsigned int temp=0;
@@ -5344,7 +5321,7 @@ temp += (This & 0x8000) >> 15;
 return temp;
 }
 
-# 484
+# 461
 unsigned long MSC_ReverseLong(unsigned long This)
 {
 unsigned long temp=0;
@@ -5385,7 +5362,7 @@ temp += (This & 0x80000000) >> 31;
 return temp;
 }
 
-# 529
+# 506
 unsigned char MSC_GetNumber(unsigned char* This, unsigned char CommaNumber, long* result)
 {
 unsigned char i =0;
@@ -5515,7 +5492,7 @@ temp = (temp * -1);
 return 0;
 }
 
-# 663
+# 640
 unsigned char MSC_GetNumberUnsigned(unsigned char* This, unsigned char CommaNumber, unsigned long* result)
 {
 unsigned char i =0;
@@ -5638,7 +5615,7 @@ This++;
 return 0;
 }
 
-# 790
+# 767
 unsigned char MSC_StringAddEqual(unsigned char* Input)
 {
 unsigned char i;
@@ -5689,7 +5666,7 @@ MSC_BufferCopy(temp,Input,NullPosition +1,0);
 return 1;
 }
 
-# 845
+# 822
 unsigned char MSC_GetStringAfterComma(unsigned char* This, unsigned char CommaNumber, unsigned char* result)
 {
 unsigned char tempCommaNumber = 1;
@@ -5741,7 +5718,7 @@ count++;
 return 0;
 }
 
-# 901
+# 878
 double MSC_DB_Round(double Input)
 {
 double temp1;
@@ -5752,7 +5729,7 @@ temp1 = (double) temp;
 return temp1;
 }
 
-# 919
+# 896
 long MSC_LG_Round(long Input,unsigned char places)
 {
 long temp1,temp2,temp3,temp4, temp5, temp6, temp7;
@@ -5800,7 +5777,7 @@ temp7 *= -1;
 return temp7;
 }
 
-# 971
+# 948
 long MSC_Scale(long Input, long InputRangeLow, long InputRangeHigh, long OutputRangeLow, long OutputRangeHigh)
 {
 long DiffInput;
@@ -5812,7 +5789,7 @@ tempScale = (double)(DiffOutput) / (double)(DiffInput);
 return (long)((((double)Input - (double)InputRangeLow) * tempScale) + (double)OutputRangeLow);
 }
 
-# 987
+# 964
 unsigned int MSC_HEXtoBCD(unsigned int input)
 {
 unsigned int temp0;
@@ -5832,7 +5809,7 @@ temp0 = Value;
 return (temp0 + (temp1 << 4) + (temp2 << 8) + (temp3 << 12));
 }
 
-# 1011
+# 988
 unsigned int MSC_BCDtoHEX(unsigned int input)
 {
 unsigned int temp0;
@@ -5852,7 +5829,7 @@ temp0 = Value;
 return (temp0 + (temp1 * 10) + (temp2 * 100) + (temp3 * 1000));
 }
 
-# 1035
+# 1012
 unsigned char MSC_BufferMatch(unsigned char* This, unsigned char* That, unsigned int size)
 {
 unsigned int i;
@@ -5866,13 +5843,13 @@ return 0;
 return 1;
 }
 
-# 1053
+# 1030
 void MSC_TestFunctionPointer(void)
 {
 __nop();
 }
 
-# 1064
+# 1041
 unsigned int MSC_EndianInt(unsigned int number)
 {
 unsigned char temp1, temp2;
@@ -5883,7 +5860,7 @@ temp2 = (unsigned char) (number & 0xFF00) >> 8;
 return (temp2 | (temp1 << 8));
 }
 
-# 1080
+# 1057
 unsigned int MSC_EndianIntArray(unsigned char* buffer)
 {
 unsigned char temp1, temp2;
@@ -5895,7 +5872,7 @@ temp2 = *buffer;
 return (temp1 | ((unsigned int) temp2 << 8));
 }
 
-# 1097
+# 1074
 unsigned long MSC_EndianLong(unsigned long number)
 {
 unsigned char temp1, temp2, temp3, temp4;
@@ -5908,7 +5885,7 @@ temp4 = (unsigned char) (number & 0xFF000000) >> 24;
 return ((temp4 << 24) | (temp3 << 16) | (temp2 << 8) | temp1);
 }
 
-# 1115
+# 1092
 unsigned long MSC_EndianLongArray(unsigned char* buffer)
 {
 unsigned char temp1, temp2, temp3, temp4;
@@ -5924,13 +5901,14 @@ temp4 = *buffer;
 return ((unsigned long)temp1 | ((unsigned long) temp2 << 8) | ((unsigned long) temp3 << 16) | ((unsigned long) temp4 << 24));
 }
 
-# 1135
+# 1112
 void MSC_BlinkLED(unsigned int blink)
 {
 unsigned int i;
-for(i=0;i<blink;i++)
+
+for(i=0;i<(blink<<1);i++)
 {
-MSC_DelayUS(10000);
+MSC_DelayMS(50);
 (LATC ^= 0x10);
 }
 }

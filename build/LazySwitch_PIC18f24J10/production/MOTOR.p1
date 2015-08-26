@@ -1,4 +1,13 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"754 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
+[v _LATB `Vuc ~T0 @X0 0 e@3978 ]
+"886
+[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
+"42 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
+[v ___nop `(v ~T0 @X0 0 ef ]
+[p i ___nop ]
+"67 MISC.h
+[v _MSC_DelayMS `(v ~T0 @X0 0 ef1`l ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f24j10.h: 49: extern volatile unsigned char PORTA @ 0xF80;
@@ -3711,17 +3720,264 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;USER.h: 178: void Init_App(void);
-[; ;USER.h: 179: void Init_System (void);
-"55 MOTOR.c
-[v _InitMOTOR `(v ~T0 @X0 1 ef ]
-"56
+[; ;USER.h: 181: void Init_App(void);
+[; ;USER.h: 182: void Init_System (void);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+"56 MOTOR.h
+[v _DC_Motor `uc ~T0 @X0 1 e ]
+[; ;MOTOR.h: 56: unsigned char DC_Motor;
+[; ;MOTOR.h: 65: void InitMOTOR(void);
+[; ;MOTOR.h: 66: void MTR_Rotate(void);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;SYSTEM.h: 54: void SYS_ConfigureOscillator(void);
+[; ;MISC.h: 67: void MSC_DelayMS(long US);
+[; ;MISC.h: 68: unsigned char MSC_IsCharacter(unsigned char data);
+[; ;MISC.h: 69: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
+[; ;MISC.h: 70: void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
+[; ;MISC.h: 71: double MSC_Round(double input);
+[; ;MISC.h: 72: void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 73: unsigned char MSC_StringMatch(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 74: unsigned char MSC_StringMatchCaseInsensitive(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 75: unsigned char MSC_StringContains(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 76: unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 77: void MSC_LowercaseChar(unsigned char* Input);
+[; ;MISC.h: 78: void MSC_LowercaseString(unsigned char* Input);
+[; ;MISC.h: 79: void MSC_DelayNOP(unsigned int NOPs);
+[; ;MISC.h: 80: unsigned char MSC_ReverseByte(unsigned char This);
+[; ;MISC.h: 81: unsigned int MSC_ReverseInt(unsigned int This);
+[; ;MISC.h: 82: unsigned long MSC_ReverseLong(unsigned long This);
+[; ;MISC.h: 83: unsigned char MSC_GetNumber(unsigned char* This, unsigned char CommaNumber, long* result);
+[; ;MISC.h: 84: unsigned char MSC_StringAddEqual(unsigned char* Input);
+[; ;MISC.h: 85: unsigned char MSC_GetStringAfterComma(unsigned char* This, unsigned char CommaNumber, unsigned char* result);
+[; ;MISC.h: 86: unsigned char MSC_GetNumberUnsigned(unsigned char* This, unsigned char CommaNumber, unsigned long* result);
+[; ;MISC.h: 87: unsigned char MSC_IsAlphaNumericString(unsigned char* data);
+[; ;MISC.h: 88: unsigned char MSC_IsAlphaNumeric(unsigned char data);
+[; ;MISC.h: 89: unsigned char MSC_IsNumber(unsigned char data);
+[; ;MISC.h: 90: double MSC_DB_Round(double Input);
+[; ;MISC.h: 91: long MSC_Scale(long Input, long InputRangeLow, long InputRangeHigh, long OutputRangeLow, long OutputRangeHigh);
+[; ;MISC.h: 92: unsigned int MSC_BCDtoHEX(unsigned int input);
+[; ;MISC.h: 93: unsigned int MSC_HEXtoBCD(unsigned int input);
+[; ;MISC.h: 94: unsigned char MSC_BufferMatch(unsigned char* This, unsigned char* That, unsigned int size);
+[; ;MISC.h: 95: long MSC_LG_Round(long Input,unsigned char places);
+[; ;MISC.h: 96: void MSC_TestFunctionPointer(void);
+[; ;MISC.h: 97: unsigned int MSC_EndianInt(unsigned int number);
+[; ;MISC.h: 98: unsigned int MSC_EndianIntArray(unsigned char* buffer);
+[; ;MISC.h: 99: unsigned long MSC_EndianLong(unsigned long number);
+[; ;MISC.h: 100: unsigned long MSC_EndianLongArray(unsigned char* buffer);
+[; ;MISC.h: 101: void MSC_BlinkLED(unsigned int blink);
+[i _DC_Motor
+"43 MOTOR.c
+-> -> 0 `i `uc
+]
+[; ;MOTOR.c: 43: unsigned char DC_Motor = 0;
+[v F4351 `(v ~T0 @X0 1 tf1`uc ]
+"54
+[v _MTR_IN1 `TF4351 ~T0 @X0 1 e ]
+"55
 {
-[; ;MOTOR.c: 55: void InitMOTOR(void)
-[; ;MOTOR.c: 56: {
+[; ;MOTOR.c: 54: inline void MTR_IN1(unsigned char state)
+[; ;MOTOR.c: 55: {
+[e :U _MTR_IN1 ]
+"54
+[v _state `uc ~T0 @X0 1 r1 ]
+"55
+[f ]
+[; ;MOTOR.c: 56: if(state)
+"56
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 431  ]
+[; ;MOTOR.c: 57: {
+"57
+{
+[; ;MOTOR.c: 58: LATB |= 0x08;
+"58
+[e =| _LATB -> -> 8 `i `uc ]
+"59
+}
+[; ;MOTOR.c: 59: }
+[e $U 432  ]
+"60
+[e :U 431 ]
+[; ;MOTOR.c: 60: else
+[; ;MOTOR.c: 61: {
+"61
+{
+[; ;MOTOR.c: 62: LATB &= ~0x08;
+"62
+[e =& _LATB -> ~ -> 8 `i `uc ]
+"63
+}
+[e :U 432 ]
+[; ;MOTOR.c: 63: }
+[; ;MOTOR.c: 64: }
+"64
+[e :UE 430 ]
+}
+[v F4354 `(v ~T0 @X0 1 tf1`uc ]
+"71
+[v _MTR_IN2 `TF4354 ~T0 @X0 1 e ]
+"72
+{
+[; ;MOTOR.c: 71: inline void MTR_IN2(unsigned char state)
+[; ;MOTOR.c: 72: {
+[e :U _MTR_IN2 ]
+"71
+[v _state `uc ~T0 @X0 1 r1 ]
+"72
+[f ]
+[; ;MOTOR.c: 73: if(state)
+"73
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 434  ]
+[; ;MOTOR.c: 74: {
+"74
+{
+[; ;MOTOR.c: 75: LATC |= 0x04;
+"75
+[e =| _LATC -> -> 4 `i `uc ]
+"76
+}
+[; ;MOTOR.c: 76: }
+[e $U 435  ]
+"77
+[e :U 434 ]
+[; ;MOTOR.c: 77: else
+[; ;MOTOR.c: 78: {
+"78
+{
+[; ;MOTOR.c: 79: LATC &= ~0x04;
+"79
+[e =& _LATC -> ~ -> 4 `i `uc ]
+"80
+}
+[e :U 435 ]
+[; ;MOTOR.c: 80: }
+[; ;MOTOR.c: 81: }
+"81
+[e :UE 433 ]
+}
+"92
+[v _InitMOTOR `(v ~T0 @X0 1 ef ]
+"93
+{
+[; ;MOTOR.c: 92: void InitMOTOR(void)
+[; ;MOTOR.c: 93: {
 [e :U _InitMOTOR ]
 [f ]
-[; ;MOTOR.c: 58: }
-"58
-[e :UE 430 ]
+[; ;MOTOR.c: 95: __nop();
+"95
+[e ( ___nop ..  ]
+[; ;MOTOR.c: 96: }
+"96
+[e :UE 436 ]
+}
+"104
+[v _MTR_Rotate `(v ~T0 @X0 1 ef ]
+"105
+{
+[; ;MOTOR.c: 104: void MTR_Rotate(void)
+[; ;MOTOR.c: 105: {
+[e :U _MTR_Rotate ]
+[f ]
+[; ;MOTOR.c: 106: if(DC_Motor == 0)
+"106
+[e $ ! == -> _DC_Motor `i -> 0 `i 438  ]
+[; ;MOTOR.c: 107: {
+"107
+{
+[; ;MOTOR.c: 108: MTR_IN1(0);
+"108
+[e ( _MTR_IN1 (1 -> -> 0 `i `uc ]
+[; ;MOTOR.c: 109: MTR_IN2(1);
+"109
+[e ( _MTR_IN2 (1 -> -> 1 `i `uc ]
+[; ;MOTOR.c: 110: MSC_DelayMS(100);
+"110
+[e ( _MSC_DelayMS (1 -> -> 100 `i `l ]
+[; ;MOTOR.c: 111: DC_Motor = 1;
+"111
+[e = _DC_Motor -> -> 1 `i `uc ]
+"112
+}
+[; ;MOTOR.c: 112: }
+[e $U 439  ]
+"113
+[e :U 438 ]
+[; ;MOTOR.c: 113: else
+[; ;MOTOR.c: 114: {
+"114
+{
+[; ;MOTOR.c: 115: MTR_IN1(1);
+"115
+[e ( _MTR_IN1 (1 -> -> 1 `i `uc ]
+[; ;MOTOR.c: 116: MTR_IN2(0);
+"116
+[e ( _MTR_IN2 (1 -> -> 0 `i `uc ]
+[; ;MOTOR.c: 117: MSC_DelayMS(100);
+"117
+[e ( _MSC_DelayMS (1 -> -> 100 `i `l ]
+[; ;MOTOR.c: 118: DC_Motor = 0;
+"118
+[e = _DC_Motor -> -> 0 `i `uc ]
+"119
+}
+[e :U 439 ]
+[; ;MOTOR.c: 119: }
+[; ;MOTOR.c: 120: MTR_IN1(0);
+"120
+[e ( _MTR_IN1 (1 -> -> 0 `i `uc ]
+[; ;MOTOR.c: 121: MTR_IN2(0);
+"121
+[e ( _MTR_IN2 (1 -> -> 0 `i `uc ]
+[; ;MOTOR.c: 122: }
+"122
+[e :UE 437 ]
 }

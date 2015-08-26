@@ -4916,7 +4916,7 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 178 "USER.h"
+# 181 "USER.h"
 void Init_App(void);
 void Init_System (void);
 
@@ -4924,7 +4924,7 @@ void Init_System (void);
 # 40 "CONFIGURATION.c"
 #pragma config WDTEN = 0
 #pragma config STVREN = 1
-#pragma config XINST = 1
+#pragma config XINST = 0
 
 
 #pragma config CP0 = 0

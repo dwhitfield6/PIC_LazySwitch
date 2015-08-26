@@ -4916,13 +4916,28 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 178 "USER.h"
+# 181 "USER.h"
 void Init_App(void);
 void Init_System (void);
 
-# 55 "IR.c"
+# 41 "IR.c"
+unsigned char IR_Data = 0;
+
+# 56
 void InitIR(void)
 {
 
+}
+
+# 66
+unsigned char IR_ReadReceiver(void)
+{
+unsigned char value = PORTB;
+
+if(value & 0x10)
+{
+return 1;
+}
+return 0;
 }
 

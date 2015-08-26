@@ -3,4 +3,8 @@
  main.c  \
 USER.h  \
 SYSTEM.h  \
-MISC.h 
+MISC.h  \
+IR.h  \
+RF.h  \
+MOTOR.h  \
+BUTTON.h 

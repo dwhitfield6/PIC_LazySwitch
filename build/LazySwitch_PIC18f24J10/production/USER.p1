@@ -5,6 +5,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LATB `Vuc ~T0 @X0 0 e@3978 ]
 "886
 [v _LATC `Vuc ~T0 @X0 0 e@3979 ]
+"3394
+[s S164 :4 `uc 1 :2 `uc 1 ]
+[n S164 . PCFG VCFG ]
+"3398
+[s S165 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S165 . PCFG0 PCFG1 PCFG2 PCFG3 VCFG0 VCFG1 ]
+"3406
+[s S166 :3 `uc 1 :1 `uc 1 ]
+[n S166 . . CHSN3 ]
+"3410
+[s S167 :4 `uc 1 :1 `uc 1 ]
+[n S167 . . VCFG01 ]
+"3414
+[s S168 :5 `uc 1 :1 `uc 1 ]
+[n S168 . . VCFG11 ]
+"3393
+[u S163 `S164 1 `S165 1 `S166 1 `S167 1 `S168 1 ]
+[n S163 . . . . . . ]
+"3419
+[v _ADCON1bits `VS163 ~T0 @X0 0 e@4033 ]
 "1403
 [s S72 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S72 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
@@ -38,6 +58,70 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S65 . . . ]
 "1203
 [v _TRISBbits `VS65 ~T0 @X0 0 e@3987 ]
+"58 TIMERS.h
+[v _InitTimers `(v ~T0 @X0 0 ef ]
+"49 RF.h
+[v _InitRF `(v ~T0 @X0 0 ef ]
+"60 BUTTON.h
+[v _InitButton `(v ~T0 @X0 0 ef ]
+"49 IR.h
+[v _InitIR `(v ~T0 @X0 0 ef ]
+"44 LDO.h
+[v _InitLDO `(v ~T0 @X0 0 ef ]
+"65 MOTOR.h
+[v _InitMOTOR `(v ~T0 @X0 0 ef ]
+"48 FLASH.h
+[v _InitFlash `(v ~T0 @X0 0 ef ]
+"49 ADC.h
+[v _InitADC `(v ~T0 @X0 0 ef ]
+"62 BUTTON.h
+[v _BUT_ReadButton `(uc ~T0 @X0 0 ef ]
+"6373 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
+[s S385 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S385 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"6383
+[s S386 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S386 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE GIE ]
+"6393
+[s S387 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S387 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE GIEL GIEH ]
+"6403
+[s S388 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S388 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"6413
+[s S389 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S389 . . GIEL GIEH ]
+"6372
+[u S384 `S385 1 `S386 1 `S387 1 `S388 1 `S389 1 ]
+[n S384 . . . . . . ]
+"6419
+[v _INTCONbits `VS384 ~T0 @X0 0 e@4082 ]
+"5685
+[s S355 :1 `uc 1 ]
+[n S355 . NOT_BOR ]
+"5688
+[s S356 :1 `uc 1 :1 `uc 1 ]
+[n S356 . . NOT_POR ]
+"5692
+[s S357 :2 `uc 1 :1 `uc 1 ]
+[n S357 . . NOT_PD ]
+"5696
+[s S358 :3 `uc 1 :1 `uc 1 ]
+[n S358 . . NOT_TO ]
+"5700
+[s S359 :4 `uc 1 :1 `uc 1 ]
+[n S359 . . NOT_RI ]
+"5704
+[s S360 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S360 . nBOR nPOR nPD nTO nRI . IPEN ]
+"5713
+[s S361 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S361 . BOR POR PD TO RI ]
+"5684
+[u S354 `S355 1 `S356 1 `S357 1 `S358 1 `S359 1 `S360 1 `S361 1 ]
+[n S354 . . . . . . . . ]
+"5721
+[v _RCONbits `VS354 ~T0 @X0 0 e@4048 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f24j10.h: 49: extern volatile unsigned char PORTA @ 0xF80;
@@ -3750,9 +3834,311 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;USER.h: 178: void Init_App(void);
-[; ;USER.h: 179: void Init_System (void);
-"43 USER.c
+[; ;USER.h: 181: void Init_App(void);
+[; ;USER.h: 182: void Init_System (void);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;BUTTON.h: 48: extern unsigned char Button_Data;
+[; ;BUTTON.h: 49: extern unsigned char ButtonValue_prev;
+[; ;BUTTON.h: 50: extern unsigned char ButtonChange;
+[; ;BUTTON.h: 51: extern unsigned char ButtonTimer;
+[; ;BUTTON.h: 60: void InitButton(void);
+[; ;BUTTON.h: 61: inline void BUT_IR_PinChangeInt(unsigned char state);
+[; ;BUTTON.h: 62: unsigned char BUT_ReadButton(void);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;FLASH.h: 48: void InitFlash(void);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;IR.h: 40: extern unsigned char IR_Data;
+[; ;IR.h: 49: void InitIR(void);
+[; ;IR.h: 50: unsigned char IR_ReadReceiver(void);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;LDO.h: 44: void InitLDO(void);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;SYSTEM.h: 54: void SYS_ConfigureOscillator(void);
+[; ;MISC.h: 67: void MSC_DelayMS(long US);
+[; ;MISC.h: 68: unsigned char MSC_IsCharacter(unsigned char data);
+[; ;MISC.h: 69: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
+[; ;MISC.h: 70: void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
+[; ;MISC.h: 71: double MSC_Round(double input);
+[; ;MISC.h: 72: void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 73: unsigned char MSC_StringMatch(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 74: unsigned char MSC_StringMatchCaseInsensitive(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 75: unsigned char MSC_StringContains(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 76: unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 77: void MSC_LowercaseChar(unsigned char* Input);
+[; ;MISC.h: 78: void MSC_LowercaseString(unsigned char* Input);
+[; ;MISC.h: 79: void MSC_DelayNOP(unsigned int NOPs);
+[; ;MISC.h: 80: unsigned char MSC_ReverseByte(unsigned char This);
+[; ;MISC.h: 81: unsigned int MSC_ReverseInt(unsigned int This);
+[; ;MISC.h: 82: unsigned long MSC_ReverseLong(unsigned long This);
+[; ;MISC.h: 83: unsigned char MSC_GetNumber(unsigned char* This, unsigned char CommaNumber, long* result);
+[; ;MISC.h: 84: unsigned char MSC_StringAddEqual(unsigned char* Input);
+[; ;MISC.h: 85: unsigned char MSC_GetStringAfterComma(unsigned char* This, unsigned char CommaNumber, unsigned char* result);
+[; ;MISC.h: 86: unsigned char MSC_GetNumberUnsigned(unsigned char* This, unsigned char CommaNumber, unsigned long* result);
+[; ;MISC.h: 87: unsigned char MSC_IsAlphaNumericString(unsigned char* data);
+[; ;MISC.h: 88: unsigned char MSC_IsAlphaNumeric(unsigned char data);
+[; ;MISC.h: 89: unsigned char MSC_IsNumber(unsigned char data);
+[; ;MISC.h: 90: double MSC_DB_Round(double Input);
+[; ;MISC.h: 91: long MSC_Scale(long Input, long InputRangeLow, long InputRangeHigh, long OutputRangeLow, long OutputRangeHigh);
+[; ;MISC.h: 92: unsigned int MSC_BCDtoHEX(unsigned int input);
+[; ;MISC.h: 93: unsigned int MSC_HEXtoBCD(unsigned int input);
+[; ;MISC.h: 94: unsigned char MSC_BufferMatch(unsigned char* This, unsigned char* That, unsigned int size);
+[; ;MISC.h: 95: long MSC_LG_Round(long Input,unsigned char places);
+[; ;MISC.h: 96: void MSC_TestFunctionPointer(void);
+[; ;MISC.h: 97: unsigned int MSC_EndianInt(unsigned int number);
+[; ;MISC.h: 98: unsigned int MSC_EndianIntArray(unsigned char* buffer);
+[; ;MISC.h: 99: unsigned long MSC_EndianLong(unsigned long number);
+[; ;MISC.h: 100: unsigned long MSC_EndianLongArray(unsigned char* buffer);
+[; ;MISC.h: 101: void MSC_BlinkLED(unsigned int blink);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+"56 MOTOR.h
+[v _DC_Motor `uc ~T0 @X0 1 e ]
+[; ;MOTOR.h: 56: unsigned char DC_Motor;
+[; ;MOTOR.h: 65: void InitMOTOR(void);
+[; ;MOTOR.h: 66: void MTR_Rotate(void);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;RF.h: 40: extern unsigned char RF_Data;
+[; ;RF.h: 49: void InitRF(void);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;TIMERS.h: 47: extern unsigned char Timer2Use;
+[; ;TIMERS.h: 48: extern unsigned int Timer2Post;
+[; ;TIMERS.h: 49: extern unsigned int Timer2PostCount;
+[; ;TIMERS.h: 58: void InitTimers(void);
+[; ;TIMERS.h: 59: inline void TMR_Timer2(unsigned char state);
+[; ;TIMERS.h: 60: inline void TMR_ResetTimer2(void);
+[; ;TIMERS.h: 61: inline void TMR_Timer2SetUse(unsigned char use);
+[; ;TIMERS.h: 62: inline void TMR_Timer2Int(unsigned char state);
+[; ;TIMERS.h: 63: inline unsigned char TMR_Timer2Free(void);
+[; ;TIMERS.h: 64: void InitTimer2(void);
+[; ;TIMERS.h: 65: void TMR_Timer2Start(unsigned int time);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;ADC.h: 40: extern unsigned char IR_Data;
+[; ;ADC.h: 49: void InitADC(void);
+"52 USER.c
 [v _PCB_Version `Cuc ~T0 @X0 -> 0 `x e ]
 [i _PCB_Version
 :U ..
@@ -3767,94 +4153,136 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-[; ;USER.c: 43: const unsigned char PCB_Version[] = "PCB revA";
-"63
+[; ;USER.c: 52: const unsigned char PCB_Version[] = "PCB revA";
+"72
 [v _Init_App `(v ~T0 @X0 1 ef ]
-"64
+"73
 {
-[; ;USER.c: 63: void Init_App(void)
-[; ;USER.c: 64: {
+[; ;USER.c: 72: void Init_App(void)
+[; ;USER.c: 73: {
 [e :U _Init_App ]
 [f ]
-[; ;USER.c: 65: LATA = 0;
-"65
-[e = _LATA -> -> 0 `i `uc ]
-[; ;USER.c: 66: LATB = 0;
-"66
-[e = _LATB -> -> 0 `i `uc ]
-[; ;USER.c: 67: LATC = 0;
-"67
-[e = _LATC -> -> 0 `i `uc ]
-[; ;USER.c: 70: TRISCbits.TRISC0 = 1;
-"70
-[e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
-[; ;USER.c: 71: TRISCbits.TRISC1 = 1;
-"71
-[e = . . _TRISCbits 0 1 -> -> 1 `i `uc ]
-[; ;USER.c: 74: TRISAbits.TRISA0 = 1;
+[; ;USER.c: 74: LATA = 0;
 "74
-[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
-[; ;USER.c: 78: TRISAbits.TRISA1 = 1;
+[e = _LATA -> -> 0 `i `uc ]
+[; ;USER.c: 75: LATB = 0;
+"75
+[e = _LATB -> -> 0 `i `uc ]
+[; ;USER.c: 76: LATC = 0;
+"76
+[e = _LATC -> -> 0 `i `uc ]
+[; ;USER.c: 78: ADCON1bits.PCFG = 0b1101;
 "78
-[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
-[; ;USER.c: 81: TRISAbits.TRISA2 = 0;
+[e = . . _ADCON1bits 0 0 -> -> 13 `i `uc ]
+[; ;USER.c: 81: TRISCbits.TRISC0 = 1;
 "81
-[e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
-[; ;USER.c: 84: TRISAbits.TRISA5 = 0;
-"84
-[e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
-[; ;USER.c: 87: TRISBbits.TRISB1 = 1;
-"87
-[e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
-[; ;USER.c: 88: TRISBbits.TRISB2 = 1;
-"88
-[e = . . _TRISBbits 0 2 -> -> 1 `i `uc ]
-[; ;USER.c: 92: TRISBbits.TRISB3 = 0;
+[e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
+[; ;USER.c: 82: TRISCbits.TRISC1 = 1;
+"82
+[e = . . _TRISCbits 0 1 -> -> 1 `i `uc ]
+[; ;USER.c: 85: TRISAbits.TRISA0 = 1;
+"85
+[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
+[; ;USER.c: 89: TRISAbits.TRISA1 = 1;
+"89
+[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
+[; ;USER.c: 92: TRISAbits.TRISA2 = 0;
 "92
-[e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
-[; ;USER.c: 95: TRISCbits.TRISC2 = 0;
+[e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
+[; ;USER.c: 95: TRISAbits.TRISA5 = 0;
 "95
-[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-[; ;USER.c: 99: TRISCbits.TRISC3 = 0;
+[e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
+[; ;USER.c: 98: TRISBbits.TRISB1 = 1;
+"98
+[e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
+[; ;USER.c: 99: TRISBbits.TRISB2 = 1;
 "99
-[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
-[; ;USER.c: 102: TRISCbits.TRISC5 = 0;
-"102
-[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-[; ;USER.c: 106: TRISCbits.TRISC4 = 0;
+[e = . . _TRISBbits 0 2 -> -> 1 `i `uc ]
+[; ;USER.c: 103: TRISBbits.TRISB3 = 0;
+"103
+[e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
+[; ;USER.c: 106: TRISCbits.TRISC2 = 0;
 "106
-[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
-[; ;USER.c: 110: TRISBbits.TRISB0 = 1;
+[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
+[; ;USER.c: 110: TRISCbits.TRISC3 = 1;
 "110
+[e = . . _TRISCbits 0 3 -> -> 1 `i `uc ]
+[; ;USER.c: 113: TRISCbits.TRISC5 = 0;
+"113
+[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
+[; ;USER.c: 117: TRISCbits.TRISC4 = 0;
+"117
+[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
+[; ;USER.c: 121: TRISBbits.TRISB0 = 1;
+"121
 [e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
-[; ;USER.c: 111: TRISBbits.TRISB4 = 1;
-"111
+[; ;USER.c: 122: TRISBbits.TRISB4 = 1;
+"122
 [e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
-[; ;USER.c: 115: TRISBbits.TRISB5 = 1;
-"115
+[; ;USER.c: 126: TRISBbits.TRISB5 = 1;
+"126
 [e = . . _TRISBbits 0 5 -> -> 1 `i `uc ]
-[; ;USER.c: 119: TRISAbits.TRISA3 = 1;
-"119
+[; ;USER.c: 130: TRISAbits.TRISA3 = 1;
+"130
 [e = . . _TRISAbits 0 3 -> -> 1 `i `uc ]
-[; ;USER.c: 131: TRISCbits.TRISC6 = 0;
-"131
+[; ;USER.c: 142: TRISCbits.TRISC6 = 0;
+"142
 [e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-[; ;USER.c: 132: TRISCbits.TRISC7 = 0;
-"132
+[; ;USER.c: 143: TRISCbits.TRISC7 = 0;
+"143
 [e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
-[; ;USER.c: 135: }
-"135
+[; ;USER.c: 146: }
+"146
 [e :UE 430 ]
 }
-"142
+"153
 [v _Init_System `(v ~T0 @X0 1 ef ]
-"143
+"154
 {
-[; ;USER.c: 142: void Init_System(void)
-[; ;USER.c: 143: {
+[; ;USER.c: 153: void Init_System(void)
+[; ;USER.c: 154: {
 [e :U _Init_System ]
 [f ]
-[; ;USER.c: 145: }
-"145
+[; ;USER.c: 155: InitTimers();
+"155
+[e ( _InitTimers ..  ]
+[; ;USER.c: 156: InitRF();
+"156
+[e ( _InitRF ..  ]
+[; ;USER.c: 157: InitButton();
+"157
+[e ( _InitButton ..  ]
+[; ;USER.c: 158: InitIR();
+"158
+[e ( _InitIR ..  ]
+[; ;USER.c: 159: InitLDO();
+"159
+[e ( _InitLDO ..  ]
+[; ;USER.c: 160: InitMOTOR();
+"160
+[e ( _InitMOTOR ..  ]
+[; ;USER.c: 161: InitFlash();
+"161
+[e ( _InitFlash ..  ]
+[; ;USER.c: 162: InitADC();
+"162
+[e ( _InitADC ..  ]
+[; ;USER.c: 164: BUT_ReadButton();
+"164
+[e ( _BUT_ReadButton ..  ]
+[; ;USER.c: 165: INTCONbits.RBIF = 0;
+"165
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+[; ;USER.c: 168: RCONbits.IPEN = 1;
+"168
+[e = . . _RCONbits 5 6 -> -> 1 `i `uc ]
+[; ;USER.c: 169: INTCONbits.GIE = 1;
+"169
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;USER.c: 170: INTCONbits.PEIE = 1;
+"170
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+[; ;USER.c: 172: }
+"172
 [e :UE 431 ]
 }

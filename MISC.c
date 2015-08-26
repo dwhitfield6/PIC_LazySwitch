@@ -38,42 +38,19 @@
 /******************************************************************************/
 
 /******************************************************************************/
-/* MSC_DelayUS
- * Input the number in microseconds to be delayed.
+/* MSC_DelayMS
+ * Input the number in milliseconds to be delayed.
  *
  * The function waists loops for the entered number of cycles.
  * The actual delay can be skewed when interrupts are enabled.
 /******************************************************************************/
-void MSC_DelayUS(long US)
+void MSC_DelayMS(long US)
 {
     long i;
 
     for(i=0; i<US; i++)
     {
-
-        Nop();
-        Nop();
-        Nop();
-        Nop();
-        Nop();
-        Nop();
-        Nop();
-        Nop();
-        Nop();
-        Nop();
-        Nop();
-        Nop();
-        Nop();
-        Nop();
-        Nop();
-        Nop();
-        Nop();
-        Nop();
-        Nop();
-#ifndef PROTOBOARD
-        Nop();
-        Nop();
-#endif
+        MSC_DelayNOP(162);
     }
 }
 
@@ -82,9 +59,9 @@ void MSC_DelayUS(long US)
  *
  * The function waists the number of cycles passed into the function.
 /******************************************************************************/
-void MSC_DelayNOP(unsigned char NOPs)
+void MSC_DelayNOP(unsigned int NOPs)
 {
-    unsigned char i;
+    unsigned int i;
     for(i=0; i<NOPs; i++)
     {
         Nop();
@@ -1135,9 +1112,10 @@ unsigned long MSC_EndianLongArray(unsigned char* buffer)
 void MSC_BlinkLED(unsigned int blink)
 {
     unsigned int i;
-    for(i=0;i<blink;i++)
+    
+    for(i=0;i<(blink<<1);i++)
     {
-        MSC_DelayUS(10000);
+        MSC_DelayMS(50);
         MSC_RedLEDTOGGLE();
     }
 }

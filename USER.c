@@ -35,6 +35,15 @@
 #endif
 
 #include "USER.h"
+#include "BUTTON.h"
+#include "FLASH.h"
+#include "IR.h"
+#include "LDO.h"
+#include "MISC.h"
+#include "MOTOR.h"
+#include "RF.h"
+#include "TIMERS.h"
+#include "ADC.h"
 
 /******************************************************************************/
 /* Special Variables                                                          */
@@ -66,6 +75,8 @@ void Init_App(void)
     LATB = 0;
     LATC = 0;
     
+    ADCON1bits.PCFG = 0b1101; // All pins are digital except AN0 and AN1
+    
     /*~~~~~~~~~~~~~ Primary crystal oscillator ~~~~~~~~~~~~~~~~~*/
     T1OSOTris       = INPUT;
     T1OSITris       = INPUT;
@@ -96,7 +107,7 @@ void Init_App(void)
     
     /*~~~~~~~~~~~~~ LDO ~~~~~~~~~~~~~~~~~*/
     /* Shutdown enable */
-    LDO_SHDNTris    = OUTPUT;
+    LDO_SHDNTris    = INPUT; // Allow the pull-up to handle this
     
     /* Pass-through to save power at low battery voltages */
     LDO_PASSTris    = OUTPUT;
@@ -141,6 +152,22 @@ void Init_App(void)
 /******************************************************************************/
 void Init_System(void)
 {
+    InitTimers();
+    InitRF();
+    InitButton();
+    InitIR();
+    InitLDO();
+    InitMOTOR();
+    InitFlash();
+    InitADC();
+    
+    BUT_ReadButton(); // read the button
+    INTCONbits.RBIF = 0; //clear the interrupt on change flag
+            
+    /* Enable low and high priority interrupts and turn them on */
+    RCONbits.IPEN = 1;
+    INTCONbits.GIE = 1;     // Enable high priority interrupts
+    INTCONbits.PEIE = 1;    // Enable low priority interrupts
 
 }
 

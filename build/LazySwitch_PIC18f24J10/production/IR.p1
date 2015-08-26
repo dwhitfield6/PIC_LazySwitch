@@ -1,4 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"235 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
+[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f24j10.h: 49: extern volatile unsigned char PORTA @ 0xF80;
@@ -3711,17 +3713,57 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;USER.h: 178: void Init_App(void);
-[; ;USER.h: 179: void Init_System (void);
-"55 IR.c
-[v _InitIR `(v ~T0 @X0 1 ef ]
+[; ;USER.h: 181: void Init_App(void);
+[; ;USER.h: 182: void Init_System (void);
+"41 IR.c
+[v _IR_Data `uc ~T0 @X0 1 e ]
+[i _IR_Data
+-> -> 0 `i `uc
+]
+[; ;IR.c: 41: unsigned char IR_Data = 0;
 "56
+[v _InitIR `(v ~T0 @X0 1 ef ]
+"57
 {
-[; ;IR.c: 55: void InitIR(void)
-[; ;IR.c: 56: {
+[; ;IR.c: 56: void InitIR(void)
+[; ;IR.c: 57: {
 [e :U _InitIR ]
 [f ]
-[; ;IR.c: 58: }
-"58
+[; ;IR.c: 59: }
+"59
 [e :UE 430 ]
+}
+"66
+[v _IR_ReadReceiver `(uc ~T0 @X0 1 ef ]
+"67
+{
+[; ;IR.c: 66: unsigned char IR_ReadReceiver(void)
+[; ;IR.c: 67: {
+[e :U _IR_ReadReceiver ]
+[f ]
+"68
+[v _value `uc ~T0 @X0 1 a ]
+[; ;IR.c: 68: unsigned char value = PORTB;
+[e = _value _PORTB ]
+[; ;IR.c: 70: if(value & 0x10)
+"70
+[e $ ! != & -> _value `i -> 16 `i -> 0 `i 432  ]
+[; ;IR.c: 71: {
+"71
+{
+[; ;IR.c: 72: return 1;
+"72
+[e ) -> -> 1 `i `uc ]
+[e $UE 431  ]
+"73
+}
+[e :U 432 ]
+[; ;IR.c: 73: }
+[; ;IR.c: 74: return 0;
+"74
+[e ) -> -> 0 `i `uc ]
+[e $UE 431  ]
+[; ;IR.c: 75: }
+"75
+[e :UE 431 ]
 }

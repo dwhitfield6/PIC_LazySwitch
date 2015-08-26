@@ -34,14 +34,51 @@
 #endif
 
 #include "USER.h"
+#include "MOTOR.h"
+#include "MISC.h"
 
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
 /******************************************************************************/
+unsigned char DC_Motor = CW;
 
 /******************************************************************************/
 /* Inline Functions
 /******************************************************************************/
+
+/******************************************************************************/
+/* MTR_IN1
+ *
+ * The function controls the DC motor drivers in1 pin.
+/******************************************************************************/
+inline void MTR_IN1(unsigned char state)
+{
+    if(state)
+    {
+        LATB |= MTR_FWD;
+    }
+    else
+    {
+        LATB &= ~MTR_FWD;
+    }
+}
+
+/******************************************************************************/
+/* MTR_IN2
+ *
+ * The function controls the DC motor drivers in2 pin.
+/******************************************************************************/
+inline void MTR_IN2(unsigned char state)
+{
+    if(state)
+    {
+        LATC |= MTR_REV;
+    }
+    else
+    {
+        LATC &= ~MTR_REV;
+    }
+}
 
 /******************************************************************************/
 /* Functions
@@ -54,7 +91,34 @@
 /******************************************************************************/
 void InitMOTOR(void)
 {
+    /* all of the pin initialization is done in Init_App() */
+    Nop();
+}
 
+/******************************************************************************/
+/* MTR_Rotate
+ *
+ * The function rotated the motor either clockwise or counter clockwise
+ *   depending upon what was done previously. The direction is toggled.
+/******************************************************************************/
+void MTR_Rotate(void)
+{
+    if(DC_Motor == CW)
+    {
+        MTR_IN1(0);
+        MTR_IN2(1);
+        MSC_DelayMS(CW_MS);
+        DC_Motor = CCW;
+    }
+    else
+    {
+        MTR_IN1(1);
+        MTR_IN2(0);
+        MSC_DelayMS(CCW_MS);
+        DC_Motor = CW;
+    }
+    MTR_IN1(0);
+    MTR_IN2(0);
 }
 
 /*-----------------------------------------------------------------------------/

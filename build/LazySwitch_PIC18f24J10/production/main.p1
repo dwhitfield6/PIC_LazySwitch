@@ -2,14 +2,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "54 SYSTEM.h
 [v _SYS_ConfigureOscillator `(v ~T0 @X0 0 ef ]
-"178 USER.h
+"181 USER.h
 [v _Init_App `(v ~T0 @X0 0 ef ]
-"179
+"182
 [v _Init_System `(v ~T0 @X0 0 ef ]
 "101 MISC.h
 [v _MSC_BlinkLED `(v ~T0 @X0 0 ef1`ui ]
 "886 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
 [v _LATC `Vuc ~T0 @X0 0 e@3979 ]
+"40 RF.h
+[v _RF_Data `uc ~T0 @X0 0 e ]
+"40 IR.h
+[v _IR_Data `uc ~T0 @X0 0 e ]
+"48 BUTTON.h
+[v _Button_Data `uc ~T0 @X0 0 e ]
+"66 MOTOR.h
+[v _MTR_Rotate `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f24j10.h: 49: extern volatile unsigned char PORTA @ 0xF80;
@@ -3748,10 +3756,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;USER.h: 178: void Init_App(void);
-[; ;USER.h: 179: void Init_System (void);
+[; ;USER.h: 181: void Init_App(void);
+[; ;USER.h: 182: void Init_System (void);
 [; ;SYSTEM.h: 54: void SYS_ConfigureOscillator(void);
-[; ;MISC.h: 67: void MSC_DelayUS(long US);
+[; ;MISC.h: 67: void MSC_DelayMS(long US);
 [; ;MISC.h: 68: unsigned char MSC_IsCharacter(unsigned char data);
 [; ;MISC.h: 69: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
 [; ;MISC.h: 70: void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
@@ -3763,7 +3771,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.h: 76: unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
 [; ;MISC.h: 77: void MSC_LowercaseChar(unsigned char* Input);
 [; ;MISC.h: 78: void MSC_LowercaseString(unsigned char* Input);
-[; ;MISC.h: 79: void MSC_DelayNOP(unsigned char NOPs);
+[; ;MISC.h: 79: void MSC_DelayNOP(unsigned int NOPs);
 [; ;MISC.h: 80: unsigned char MSC_ReverseByte(unsigned char This);
 [; ;MISC.h: 81: unsigned int MSC_ReverseInt(unsigned int This);
 [; ;MISC.h: 82: unsigned long MSC_ReverseLong(unsigned long This);
@@ -3786,43 +3794,186 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.h: 99: unsigned long MSC_EndianLong(unsigned long number);
 [; ;MISC.h: 100: unsigned long MSC_EndianLongArray(unsigned char* buffer);
 [; ;MISC.h: 101: void MSC_BlinkLED(unsigned int blink);
-"55 main.c
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;RF.h: 40: extern unsigned char RF_Data;
+[; ;RF.h: 49: void InitRF(void);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;IR.h: 40: extern unsigned char IR_Data;
+[; ;IR.h: 49: void InitIR(void);
+[; ;IR.h: 50: unsigned char IR_ReadReceiver(void);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;BUTTON.h: 48: extern unsigned char Button_Data;
+[; ;BUTTON.h: 49: extern unsigned char ButtonValue_prev;
+[; ;BUTTON.h: 50: extern unsigned char ButtonChange;
+[; ;BUTTON.h: 51: extern unsigned char ButtonTimer;
+[; ;BUTTON.h: 60: void InitButton(void);
+[; ;BUTTON.h: 61: inline void BUT_IR_PinChangeInt(unsigned char state);
+[; ;BUTTON.h: 62: unsigned char BUT_ReadButton(void);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+"56 MOTOR.h
+[v _DC_Motor `uc ~T0 @X0 1 e ]
+[; ;MOTOR.h: 56: unsigned char DC_Motor;
+[; ;MOTOR.h: 65: void InitMOTOR(void);
+[; ;MOTOR.h: 66: void MTR_Rotate(void);
+"62 main.c
 [v _main `(i ~T0 @X0 1 ef ]
-"56
+"63
 {
-[; ;main.c: 55: int main (void)
-[; ;main.c: 56: {
+[; ;main.c: 62: int main (void)
+[; ;main.c: 63: {
 [e :U _main ]
 [f ]
-[; ;main.c: 58: SYS_ConfigureOscillator();
-"58
-[e ( _SYS_ConfigureOscillator ..  ]
-[; ;main.c: 59: Init_App();
-"59
-[e ( _Init_App ..  ]
-[; ;main.c: 60: Init_System();
-"60
-[e ( _Init_System ..  ]
-[; ;main.c: 62: MSC_BlinkLED(15);
-"62
-[e ( _MSC_BlinkLED (1 -> -> 15 `i `ui ]
-[; ;main.c: 63: (LATC &= ~0x10);
-"63
-[e =& _LATC -> ~ -> 16 `i `uc ]
-[; ;main.c: 65: while(1)
+[; ;main.c: 65: SYS_ConfigureOscillator();
 "65
-[e :U 432 ]
-[; ;main.c: 66: {
+[e ( _SYS_ConfigureOscillator ..  ]
+[; ;main.c: 66: Init_App();
 "66
+[e ( _Init_App ..  ]
+[; ;main.c: 67: Init_System();
+"67
+[e ( _Init_System ..  ]
+[; ;main.c: 69: MSC_BlinkLED(15);
+"69
+[e ( _MSC_BlinkLED (1 -> -> 15 `i `ui ]
+[; ;main.c: 70: (LATC &= ~0x10);
+"70
+[e =& _LATC -> ~ -> 16 `i `uc ]
+[; ;main.c: 72: while(1)
+"72
+[e :U 432 ]
+[; ;main.c: 73: {
+"73
 {
-"68
+[; ;main.c: 74: if(RF_Data || IR_Data || Button_Data)
+"74
+[e $ ! || || != -> _RF_Data `i -> -> -> 0 `i `uc `i != -> _IR_Data `i -> -> -> 0 `i `uc `i != -> _Button_Data `i -> -> -> 0 `i `uc `i 434  ]
+[; ;main.c: 75: {
+"75
+{
+[; ;main.c: 76: MTR_Rotate();
+"76
+[e ( _MTR_Rotate ..  ]
+[; ;main.c: 77: RF_Data = 0;
+"77
+[e = _RF_Data -> -> 0 `i `uc ]
+[; ;main.c: 78: IR_Data = 0;
+"78
+[e = _IR_Data -> -> 0 `i `uc ]
+[; ;main.c: 79: Button_Data = 0;
+"79
+[e = _Button_Data -> -> 0 `i `uc ]
+"80
+}
+[e :U 434 ]
+"81
 }
 [e :U 431 ]
-"65
+"72
 [e $U 432  ]
 [e :U 433 ]
-[; ;main.c: 68: }
-[; ;main.c: 69: }
-"69
+[; ;main.c: 80: }
+[; ;main.c: 81: }
+[; ;main.c: 82: }
+"82
 [e :UE 430 ]
 }
