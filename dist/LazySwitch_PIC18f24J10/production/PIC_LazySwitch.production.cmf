@@ -77,7 +77,7 @@ smallconst SMALLCONST 0 400 400 A8 1
 idataBANK0 CODE 0 1488 1488 3 1
 dataBANK0 BANK0 1 9B 9B 3 1
 bssCOMRAM COMRAM 1 48 48 F 1
-$C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.obj
+$C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj
 reset_vec CODE 0 0 0 4 1
 end_init CODE 0 154 154 4 1
 config CONFIG 0 3FF8 3FF8 6 1
@@ -405,52 +405,52 @@ F02 text9 CODE >51:C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
 F16 text9 CODE >53:C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
 F24 text9 CODE >51:C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
 F64 text9 CODE >55:C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
-F66 cinit CODE >3993:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F66 cinit CODE >3995:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F66 cinit CODE >3998:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F66 cinit CODE >4087:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F6A cinit CODE >4088:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F6C cinit CODE >4089:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F6C cinit CODE >4090:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F6E cinit CODE >4091:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F70 cinit CODE >4092:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F72 cinit CODE >4095:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F76 cinit CODE >4096:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F78 cinit CODE >4097:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F78 cinit CODE >4098:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F7A cinit CODE >4099:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F7C cinit CODE >4100:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F7E cinit CODE >4103:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F80 cinit CODE >4104:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F82 cinit CODE >4105:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F84 cinit CODE >4106:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F86 cinit CODE >4107:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F88 cinit CODE >4108:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F8A cinit CODE >4111:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F8E cinit CODE >4112:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F90 cinit CODE >4113:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F90 cinit CODE >4114:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F92 cinit CODE >4115:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F94 cinit CODE >4116:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F96 cinit CODE >4121:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F98 cinit CODE >4122:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F9A cinit CODE >4123:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F9C cinit CODE >4124:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-F9E cinit CODE >4125:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-FA0 cinit CODE >4126:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-FA2 cinit CODE >4127:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-FA4 cinit CODE >4128:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-FA8 cinit CODE >4129:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-FAA cinit CODE >4130:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-FAE cinit CODE >4131:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-FB0 cinit CODE >4132:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-FB4 cinit CODE >4138:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-FB4 cinit CODE >4140:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-FB6 cinit CODE >4141:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-FB8 cinit CODE >4142:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-FBA cinit CODE >4143:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-FBC cinit CODE >4144:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
-FBE cinit CODE >4145:C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.
+F66 cinit CODE >3993:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F66 cinit CODE >3995:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F66 cinit CODE >3998:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F66 cinit CODE >4087:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F6A cinit CODE >4088:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F6C cinit CODE >4089:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F6C cinit CODE >4090:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F6E cinit CODE >4091:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F70 cinit CODE >4092:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F72 cinit CODE >4095:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F76 cinit CODE >4096:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F78 cinit CODE >4097:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F78 cinit CODE >4098:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F7A cinit CODE >4099:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F7C cinit CODE >4100:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F7E cinit CODE >4103:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F80 cinit CODE >4104:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F82 cinit CODE >4105:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F84 cinit CODE >4106:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F86 cinit CODE >4107:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F88 cinit CODE >4108:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F8A cinit CODE >4111:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F8E cinit CODE >4112:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F90 cinit CODE >4113:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F90 cinit CODE >4114:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F92 cinit CODE >4115:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F94 cinit CODE >4116:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F96 cinit CODE >4121:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F98 cinit CODE >4122:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F9A cinit CODE >4123:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F9C cinit CODE >4124:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+F9E cinit CODE >4125:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+FA0 cinit CODE >4126:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+FA2 cinit CODE >4127:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+FA4 cinit CODE >4128:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+FA8 cinit CODE >4129:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+FAA cinit CODE >4130:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+FAE cinit CODE >4131:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+FB0 cinit CODE >4132:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+FB4 cinit CODE >4138:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+FB4 cinit CODE >4140:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+FB6 cinit CODE >4141:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+FB8 cinit CODE >4142:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+FBA cinit CODE >4143:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+FBC cinit CODE >4144:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
+FBE cinit CODE >4145:C:\Users\DWHITF~1\AppData\Local\Temp\s55o.
 FC2 text25 CODE >166:C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
 FC2 text25 CODE >168:C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
 FCC text25 CODE >169:C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
@@ -769,7 +769,7 @@ __size_of_TMR_LoadDefaultCode 0 0 ABS 0 - dist/LazySwitch_PIC18f24J10/production
 __end_of_InitIR 1490 0 CODE 0 text28 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __end_of_InitRF 10E8 0 CODE 0 text20 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj
 _InitButton 1464 0 CODE 0 text30 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __end_of_InitFlash 1492 0 CODE 0 text29 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __size_of_RF_DataInt 0 0 ABS 0 - dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
@@ -784,10 +784,10 @@ _LATA F89 0 ABS 0 - dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.produc
 _LATB F8A 0 ABS 0 - dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 _LATC F8B 0 ABS 0 - dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 _TMR2 FCC 0 ABS 0 - dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
-___sp 0 0 STACK 2 stack C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.obj
+___sp 0 0 STACK 2 stack C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj
 _main A44 0 CODE 0 text0 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __size_of_MSC_BufferCopyIntConst 0 0 ABS 0 - dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
-start 154 0 CODE 0 init C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.obj
+start 154 0 CODE 0 init C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj
 MSC_BlinkLED@i 91 0 BANK0 1 cstackBANK0 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __size_of___ftmul 0 0 ABS 0 - dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __size_of___fttol 0 0 ABS 0 - dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
@@ -815,11 +815,11 @@ __end_of_TMR_Timer2Start 133E 0 CODE 0 text37 dist/LazySwitch_PIC18f24J10/produc
 _TMR_LoadDefaultCode CB6 0 CODE 0 text1 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __size_of_low_isr 0 0 ABS 0 - dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 MTR_IN1@state 80 0 BANK0 1 cstackBANK0 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
-__accesstop 80 0 ABS 0 - C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.obj
-intlevel0 0 0 CODE 0 text C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.obj
-intlevel1 0 0 CODE 0 text C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.obj
-intlevel2 0 0 CODE 0 text C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.obj
-intlevel3 0 0 CODE 0 text C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.obj
+__accesstop 80 0 ABS 0 - C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj
+intlevel0 0 0 CODE 0 text C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj
+intlevel1 0 0 CODE 0 text C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj
+intlevel2 0 0 CODE 0 text C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj
+intlevel3 0 0 CODE 0 text C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj
 __size_of_Init_System 0 0 ABS 0 - dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __end_oflog@coeff 4A7 0 SMALLCONST 0 smallconst dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
@@ -840,8 +840,8 @@ _InitTimer0 12C8 0 CODE 0 text16 dist/LazySwitch_PIC18f24J10/production\PIC_Lazy
 _InitTimer2 12EA 0 CODE 0 text13 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 _InitTimers 145A 0 CODE 0 text12 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 MSC_CleanBufferInt@data 80 0 BANK0 1 cstackBANK0 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj
 __size_of_RF_Receiver 0 0 ABS 0 - dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __end_of___ftge E9A 0 CODE 0 text51 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
@@ -940,7 +940,7 @@ __Ljflash_buffer 3800 0 CODE 0 jflash_buffer dist/LazySwitch_PIC18f24J10/product
 MSC_BufferCopyIntConst@shift 8C 0 BANK0 1 cstackBANK0 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
-__smallconst 400 0 SMALLCONST 0 smallconst C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.obj
+__smallconst 400 0 SMALLCONST 0 smallconst C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj
 __end_of_MSC_DelayNOP 1226 0 CODE 0 text10 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 i2TMR_ResetTimer0@TimerOn 18 0 COMRAM 1 cstackCOMRAM dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __size_of_TMR_Timer2Start 0 0 ABS 0 - dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
@@ -1165,8 +1165,8 @@ __end_of_TMR_ResetTimer2 127C 0 CODE 0 text38 dist/LazySwitch_PIC18f24J10/produc
 _RF_SetSquelch 13CE 0 CODE 0 text21 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 _low_isr 18 0 CODE 0 intcodelo dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 ___lwtoft@c 1F 0 COMRAM 1 cstackCOMRAM dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
-stackhi 3FF 0 ABS 0 - C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.obj
-stacklo 2F0 0 ABS 0 - C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.obj
+stackhi 3FF 0 ABS 0 - C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj
+stacklo 2F0 0 ABS 0 - C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj
 __CFG_CCP2MX$DEFAULT 0 0 ABS 0 - dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __Lintcode 8 0 CODE 0 intcode dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __Lintret 0 0 ABS 0 intret dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
@@ -1276,7 +1276,7 @@ __Ltext51 0 0 ABS 0 text51 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch
 __Ltext52 0 0 ABS 0 text52 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __Ltext53 0 0 ABS 0 text53 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 _RF_Saved 9C 0 BANK0 1 dataBANK0 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
-__ramtop 400 0 RAM 0 ramtop C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.obj
+__ramtop 400 0 RAM 0 ramtop C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj
 __Lpowerup 154 0 CODE 0 powerup dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 TMR_Timer2Int@state 80 0 BANK0 1 cstackBANK0 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 _TMR_Timer0 13B6 0 CODE 0 text19 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
@@ -1330,7 +1330,7 @@ _errno 50 0 COMRAM 1 bssCOMRAM dist/LazySwitch_PIC18f24J10/production\PIC_LazySw
 low_isr@button_state 16 0 COMRAM 1 cstackCOMRAM dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 i1BUT_ReadButton@value 1 0 COMRAM 1 cstackCOMRAM dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 _Timer2PostCount 4E 0 COMRAM 1 bssCOMRAM dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
-___extmem_base 20000 0 ABS 0 - C:\Users\DWHITF~1\AppData\Local\Temp\s4cg.obj
+___extmem_base 20000 0 ABS 0 - C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj
 ___fttol@sign1 89 0 BANK0 1 cstackBANK0 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __end_of_RF_Receiver 13FE 0 CODE 0 text23 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj
 __HdataBANK0 0 0 ABS 0 dataBANK0 dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj

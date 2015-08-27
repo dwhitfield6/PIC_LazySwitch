@@ -6,6 +6,7 @@
  * Date         Revision    Comments
  * MM/DD/YY
  * --------     ---------   ----------------------------------------------------
+ * 08/27/15     2.0a        Version change only. Tagged version!
  * 08/26/15     2.0_DW0a    Initial project make.
  *                          Derived from project 'Catalyst_RPI_daughter'.
  *                          Added timer functionality for push button.
