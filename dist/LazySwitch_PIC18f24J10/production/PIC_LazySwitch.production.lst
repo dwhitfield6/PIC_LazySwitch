@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.34 build -361300703 
-                                                                                               Thu Aug 27 10:53:39 2015
+                                                                                               Thu Aug 27 11:02:46 2015
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
      1                           	processor	18F24J10
@@ -729,7 +729,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    723 ;;
    724 ;; *************** function _main *****************
    725 ;; Defined at:
-   726 ;;		line 65 in file "main.c"
+   726 ;;		line 66 in file "main.c"
    727 ;; Parameters:    Size  Location     Type
    728 ;;		None
    729 ;; Auto vars:     Size  Location     Type
@@ -768,18 +768,18 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    762  000A44                     _main:
    763                           	opt stack 18
    764                           
-   765                           ;main.c: 68: SYS_ConfigureOscillator();
+   765                           ;main.c: 69: SYS_ConfigureOscillator();
    766                           
    767                           ;incstack = 0
    768  000A44  EC40  F00A         	call	_SYS_ConfigureOscillator	;wreg free
    769                           
-   770                           ;main.c: 69: Init_App();
+   770                           ;main.c: 70: Init_App();
    771  000A48  EC74  F008         	call	_Init_App	;wreg free
    772                           
-   773                           ;main.c: 70: Init_System();
+   773                           ;main.c: 71: Init_System();
    774  000A4C  ECE6  F008         	call	_Init_System	;wreg free
    775                           
-   776                           ;main.c: 72: if(RF_Saved == 92)
+   776                           ;main.c: 73: if(RF_Saved == 92)
    777  000A50  0E5C               	movlw	92
    778  000A52  0100               	movlb	0	; () banked
    779  000A54  199C               	xorwf	_RF_Saved& (0+255),w,b
@@ -787,11 +787,11 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    781  000A58  D00A               	goto	l3777
    782                           
    783                           ; BSR set to: 0
-   784                           ;main.c: 73: {
-   785                           ;main.c: 74: TMR_LoadDefaultCode();
+   784                           ;main.c: 74: {
+   785                           ;main.c: 75: TMR_LoadDefaultCode();
    786  000A5A  EC5B  F006         	call	_TMR_LoadDefaultCode	;wreg free
    787                           
-   788                           ;main.c: 75: MSC_BlinkLED(15);
+   788                           ;main.c: 76: MSC_BlinkLED(15);
    789  000A5E  0E00               	movlw	0
    790  000A60  0100               	movlb	0	; () banked
    791  000A62  6F8E               	movwf	(MSC_BlinkLED@blink+1)& (0+255),b
@@ -799,13 +799,13 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    793  000A66  6F8D               	movwf	MSC_BlinkLED@blink& (0+255),b
    794  000A68  EC0C  F008         	call	_MSC_BlinkLED	;wreg free
    795                           
-   796                           ;main.c: 76: }
+   796                           ;main.c: 77: }
    797  000A6C  D03F               	goto	l3811
    798  000A6E                     l3777:
    799                           
-   800                           ;main.c: 77: else
-   801                           ;main.c: 78: {
-   802                           ;main.c: 79: MSC_BlinkLED(4);
+   800                           ;main.c: 78: else
+   801                           ;main.c: 79: {
+   802                           ;main.c: 80: MSC_BlinkLED(4);
    803  000A6E  0E00               	movlw	0
    804  000A70  0100               	movlb	0	; () banked
    805  000A72  6F8E               	movwf	(MSC_BlinkLED@blink+1)& (0+255),b
@@ -816,8 +816,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    810  000A7E  D036               	goto	l3811
    811  000A80                     l3781:
    812                           
-   813                           ;main.c: 84: {
-   814                           ;main.c: 85: if(System_State == 8)
+   813                           ;main.c: 85: {
+   814                           ;main.c: 86: if(System_State == 8)
    815  000A80  0E08               	movlw	8
    816  000A82  0100               	movlb	0	; () banked
    817  000A84  199D               	xorwf	_System_State& (0+255),w,b
@@ -825,20 +825,20 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    819  000A88  D033               	goto	l3813
    820                           
    821                           ; BSR set to: 0
-   822                           ;main.c: 86: {
-   823                           ;main.c: 88: if(System_State_Change)
+   822                           ;main.c: 87: {
+   823                           ;main.c: 89: if(System_State_Change)
    824  000A8A  0100               	movlb	0	; () banked
    825  000A8C  519A               	movf	_System_State_Change& (0+255),w,b
    826  000A8E  B4D8               	btfsc	status,2,c
    827  000A90  D015               	goto	l3795
    828                           
    829                           ; BSR set to: 0
-   830                           ;main.c: 89: {
-   831                           ;main.c: 91: (LATC &= ~0x10);
+   830                           ;main.c: 90: {
+   831                           ;main.c: 92: (LATC &= ~0x10);
    832  000A92  988B               	bcf	3979,4,c	;volatile
    833                           
    834                           ; BSR set to: 0
-   835                           ;main.c: 92: if(RF_Saved == 90)
+   835                           ;main.c: 93: if(RF_Saved == 90)
    836  000A94  0E5A               	movlw	90
    837  000A96  0100               	movlb	0	; () banked
    838  000A98  199C               	xorwf	_RF_Saved& (0+255),w,b
@@ -846,8 +846,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    840  000A9C  D00B               	goto	l3793
    841                           
    842                           ; BSR set to: 0
-   843                           ;main.c: 93: {
-   844                           ;main.c: 94: MSC_BlinkLED(4);
+   843                           ;main.c: 94: {
+   844                           ;main.c: 95: MSC_BlinkLED(4);
    845  000A9E  0E00               	movlw	0
    846  000AA0  0100               	movlb	0	; () banked
    847  000AA2  6F8E               	movwf	(MSC_BlinkLED@blink+1)& (0+255),b
@@ -855,7 +855,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    849  000AA6  6F8D               	movwf	MSC_BlinkLED@blink& (0+255),b
    850  000AA8  EC0C  F008         	call	_MSC_BlinkLED	;wreg free
    851                           
-   852                           ;main.c: 95: RF_Saved = 91;
+   852                           ;main.c: 96: RF_Saved = 91;
    853  000AAC  0E5B               	movlw	91
    854  000AAE  0100               	movlb	0	; () banked
    855  000AB0  6F9C               	movwf	_RF_Saved& (0+255),b
@@ -863,8 +863,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    857  000AB4                     l3793:
    858                           
    859                           ; BSR set to: 0
-   860                           ;main.c: 96: }
-   861                           ;main.c: 97: System_State_Change = 0;
+   860                           ;main.c: 97: }
+   861                           ;main.c: 98: System_State_Change = 0;
    862  000AB4  0E00               	movlw	0
    863  000AB6  0100               	movlb	0	; () banked
    864  000AB8  6F9A               	movwf	_System_State_Change& (0+255),b
@@ -872,8 +872,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    866  000ABC                     l3795:
    867                           
    868                           ; BSR set to: 0
-   869                           ;main.c: 98: }
-   870                           ;main.c: 99: if(RF_Data || IR_Data || Button_Data)
+   869                           ;main.c: 99: }
+   870                           ;main.c: 100: if(RF_Data || IR_Data || Button_Data)
    871  000ABC  0100               	movlb	0	; () banked
    872  000ABE  5199               	movf	_RF_Data& (0+255),w,b	;volatile
    873  000AC0  A4D8               	btfss	status,2,c
@@ -893,44 +893,44 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    887  000AD4                     l3801:
    888                           
    889                           ; BSR set to: 0
-   890                           ;main.c: 100: {
-   891                           ;main.c: 101: (LATC |= 0x10);
+   890                           ;main.c: 101: {
+   891                           ;main.c: 102: (LATC |= 0x10);
    892  000AD4  888B               	bsf	3979,4,c	;volatile
    893                           
    894                           ; BSR set to: 0
-   895                           ;main.c: 102: MTR_Rotate();
+   895                           ;main.c: 103: MTR_Rotate();
    896  000AD6  EC4D  F007         	call	_MTR_Rotate	;wreg free
    897                           
-   898                           ;main.c: 103: RF_Data = 0;
+   898                           ;main.c: 104: RF_Data = 0;
    899  000ADA  0E00               	movlw	0
    900  000ADC  0100               	movlb	0	; () banked
    901  000ADE  6F99               	movwf	_RF_Data& (0+255),b	;volatile
    902                           
    903                           ; BSR set to: 0
-   904                           ;main.c: 104: IR_Data = 0;
+   904                           ;main.c: 105: IR_Data = 0;
    905  000AE0  0E00               	movlw	0
    906  000AE2  0100               	movlb	0	; () banked
    907  000AE4  6F98               	movwf	_IR_Data& (0+255),b	;volatile
    908                           
    909                           ; BSR set to: 0
-   910                           ;main.c: 105: Button_Data = 0;
+   910                           ;main.c: 106: Button_Data = 0;
    911  000AE6  0E00               	movlw	0
    912  000AE8  0100               	movlb	0	; () banked
    913  000AEA  6F96               	movwf	_Button_Data& (0+255),b	;volatile
    914  000AEC                     l3811:
    915                           
    916                           ; BSR set to: 0
-   917                           ;main.c: 106: (LATC &= ~0x10);
+   917                           ;main.c: 107: (LATC &= ~0x10);
    918  000AEC  988B               	bcf	3979,4,c	;volatile
    919                           
    920                           ; BSR set to: 0
-   921                           ;main.c: 107: }
-   922                           ;main.c: 108: }
+   921                           ;main.c: 108: }
+   922                           ;main.c: 109: }
    923  000AEE  D7C8               	goto	l3781
    924  000AF0                     l3813:
    925                           
    926                           ; BSR set to: 0
-   927                           ;main.c: 109: else if(System_State == 10)
+   927                           ;main.c: 110: else if(System_State == 10)
    928  000AF0  0E0A               	movlw	10
    929  000AF2  0100               	movlb	0	; () banked
    930  000AF4  199D               	xorwf	_System_State& (0+255),w,b
@@ -938,8 +938,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    932  000AF8  D7C3               	goto	l3781
    933                           
    934                           ; BSR set to: 0
-   935                           ;main.c: 110: {
-   936                           ;main.c: 112: MSC_DelayMS(25);
+   935                           ;main.c: 111: {
+   936                           ;main.c: 113: MSC_DelayMS(25);
    937  000AFA  0E19               	movlw	25
    938  000AFC  0100               	movlb	0	; () banked
    939  000AFE  6F84               	movwf	MSC_DelayMS@US& (0+255),b
@@ -951,29 +951,29 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    945  000B0A  6F87               	movwf	(MSC_DelayMS@US+3)& (0+255),b
    946  000B0C  EC81  F007         	call	_MSC_DelayMS	;wreg free
    947                           
-   948                           ;main.c: 113: (LATC ^= 0x10);
+   948                           ;main.c: 114: (LATC ^= 0x10);
    949  000B10  0E10               	movlw	16
    950  000B12  1A8B               	xorwf	3979,f,c	;volatile
    951                           
-   952                           ;main.c: 114: if(RF_Data)
+   952                           ;main.c: 115: if(RF_Data)
    953  000B14  0100               	movlb	0	; () banked
    954  000B16  5199               	movf	_RF_Data& (0+255),w,b	;volatile
    955  000B18  B4D8               	btfsc	status,2,c
    956  000B1A  D7B2               	goto	l3781
    957                           
    958                           ; BSR set to: 0
-   959                           ;main.c: 115: {
-   960                           ;main.c: 117: RF_Data = 0;
+   959                           ;main.c: 116: {
+   960                           ;main.c: 118: RF_Data = 0;
    961  000B1C  0E00               	movlw	0
    962  000B1E  0100               	movlb	0	; () banked
    963  000B20  6F99               	movwf	_RF_Data& (0+255),b	;volatile
    964                           
-   965                           ;main.c: 118: System_State = 8;
+   965                           ;main.c: 119: System_State = 8;
    966  000B22  0E08               	movlw	8
    967  000B24  0100               	movlb	0	; () banked
    968  000B26  6F9D               	movwf	_System_State& (0+255),b
    969                           
-   970                           ;main.c: 119: System_State_Change = 1;
+   970                           ;main.c: 120: System_State_Change = 1;
    971  000B28  0E01               	movlw	1
    972  000B2A  0100               	movlb	0	; () banked
    973  000B2C  6F9A               	movwf	_System_State_Change& (0+255),b
@@ -7513,7 +7513,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.34 build -361300703 
-Symbol Table                                                                                   Thu Aug 27 10:53:39 2015
+Symbol Table                                                                                   Thu Aug 27 11:02:46 2015
 
          MSC_BufferCopyIntConst@i 008E           __end_of_IR_ReadReceiver 1480  
         MSC_BufferCopyIntConst@to 0088                        _RF_SyncLow 004A  

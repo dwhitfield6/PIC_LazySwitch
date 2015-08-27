@@ -5229,7 +5229,7 @@ unsigned char DC_Motor;
 void InitMOTOR(void);
 void MTR_Rotate(void);
 
-# 65 "main.c"
+# 66 "main.c"
 int main (void)
 {
 

@@ -82,7 +82,7 @@
 [v _IR_ReadReceiver IR_ReadReceiver `(uc  1 e 1 0 ]
 "55 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\LDO.c
 [v _InitLDO InitLDO `(v  1 e 0 0 ]
-"65 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\main.c
+"66 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\main.c
 [v _main main `(i  1 e 2 0 ]
 "47 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
 [v _MSC_DelayMS MSC_DelayMS `(v  1 e 0 0 ]
@@ -501,10 +501,10 @@
 [v _Timer2Post Timer2Post `ui  1 e 2 0 ]
 "44
 [v _Timer2PostCount Timer2PostCount `ui  1 e 2 0 ]
-"65 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\main.c
+"66 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"124
+"125
 } 0
 "219 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\RF.c
 [v _TMR_LoadDefaultCode TMR_LoadDefaultCode `(v  1 e 0 0 ]

@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.34\dat\en_msgs.txt -cs \
   -h+dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.sym \
   --cmf=dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.cmf \
-  -z -Q18F24J10 -oC:\Users\DWHITF~1\AppData\Local\Temp\s55o.6 \
+  -z -Q18F24J10 -oC:\Users\DWHITF~1\AppData\Local\Temp\sat0.6 \
   -Mdist/LazySwitch_PIC18f24J10/production/PIC_LazySwitch.production.map \
   -E1 -ver=XC8 -ASTACK=02F0h-03ffh -pstack=STACK -ACODE=00h-03FF7h \
   -ACONST=00h-03FF7h -ASMALLCONST=0400h-04FFhx59,03F00h-03FF7h \
@@ -21,7 +21,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj \
+  C:\Users\DWHITF~1\AppData\Local\Temp\sat0.obj \
   dist/LazySwitch_PIC18f24J10/production\PIC_LazySwitch.production.obj 
 
 Object code version is 3.11
@@ -34,7 +34,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\DWHITF~1\AppData\Local\Temp\s55o.obj
+C:\Users\DWHITF~1\AppData\Local\Temp\sat0.obj
                 end_init                            154      154        4        C       0
                 reset_vec                             0        0        4        0       0
                 config                             3FF8     3FF8        6     3FF8       0
@@ -870,7 +870,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 65 in file "main.c"
+		line 66 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type

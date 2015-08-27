@@ -4103,176 +4103,176 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MOTOR.h: 56: unsigned char DC_Motor;
 [; ;MOTOR.h: 65: void InitMOTOR(void);
 [; ;MOTOR.h: 66: void MTR_Rotate(void);
-"65 main.c
+"66 main.c
 [v _main `(i ~T0 @X0 1 ef ]
-"66
+"67
 {
-[; ;main.c: 65: int main (void)
-[; ;main.c: 66: {
+[; ;main.c: 66: int main (void)
+[; ;main.c: 67: {
 [e :U _main ]
 [f ]
-[; ;main.c: 68: SYS_ConfigureOscillator();
-"68
-[e ( _SYS_ConfigureOscillator ..  ]
-[; ;main.c: 69: Init_App();
+[; ;main.c: 69: SYS_ConfigureOscillator();
 "69
-[e ( _Init_App ..  ]
-[; ;main.c: 70: Init_System();
+[e ( _SYS_ConfigureOscillator ..  ]
+[; ;main.c: 70: Init_App();
 "70
+[e ( _Init_App ..  ]
+[; ;main.c: 71: Init_System();
+"71
 [e ( _Init_System ..  ]
-[; ;main.c: 72: if(RF_Saved == 92)
-"72
-[e $ ! == -> _RF_Saved `i -> 92 `i 431  ]
-[; ;main.c: 73: {
+[; ;main.c: 73: if(RF_Saved == 92)
 "73
-{
-[; ;main.c: 74: TMR_LoadDefaultCode();
+[e $ ! == -> _RF_Saved `i -> 92 `i 431  ]
+[; ;main.c: 74: {
 "74
-[e ( _TMR_LoadDefaultCode ..  ]
-[; ;main.c: 75: MSC_BlinkLED(15);
-"75
-[e ( _MSC_BlinkLED (1 -> -> 15 `i `ui ]
-"76
-}
-[; ;main.c: 76: }
-[e $U 432  ]
-"77
-[e :U 431 ]
-[; ;main.c: 77: else
-[; ;main.c: 78: {
-"78
 {
-[; ;main.c: 79: MSC_BlinkLED(4);
+[; ;main.c: 75: TMR_LoadDefaultCode();
+"75
+[e ( _TMR_LoadDefaultCode ..  ]
+[; ;main.c: 76: MSC_BlinkLED(15);
+"76
+[e ( _MSC_BlinkLED (1 -> -> 15 `i `ui ]
+"77
+}
+[; ;main.c: 77: }
+[e $U 432  ]
+"78
+[e :U 431 ]
+[; ;main.c: 78: else
+[; ;main.c: 79: {
 "79
-[e ( _MSC_BlinkLED (1 -> -> 4 `i `ui ]
+{
+[; ;main.c: 80: MSC_BlinkLED(4);
 "80
+[e ( _MSC_BlinkLED (1 -> -> 4 `i `ui ]
+"81
 }
 [e :U 432 ]
-[; ;main.c: 80: }
-[; ;main.c: 81: (LATC &= ~0x10);
-"81
+[; ;main.c: 81: }
+[; ;main.c: 82: (LATC &= ~0x10);
+"82
 [e =& _LATC -> ~ -> 16 `i `uc ]
-[; ;main.c: 83: while(1)
-"83
-[e :U 434 ]
-[; ;main.c: 84: {
+[; ;main.c: 84: while(1)
 "84
-{
-[; ;main.c: 85: if(System_State == 8)
+[e :U 434 ]
+[; ;main.c: 85: {
 "85
-[e $ ! == -> _System_State `i -> 8 `i 436  ]
-[; ;main.c: 86: {
+{
+[; ;main.c: 86: if(System_State == 8)
 "86
+[e $ ! == -> _System_State `i -> 8 `i 436  ]
+[; ;main.c: 87: {
+"87
 {
-[; ;main.c: 88: if(System_State_Change)
-"88
-[e $ ! != -> _System_State_Change `i -> -> -> 0 `i `uc `i 437  ]
-[; ;main.c: 89: {
+[; ;main.c: 89: if(System_State_Change)
 "89
+[e $ ! != -> _System_State_Change `i -> -> -> 0 `i `uc `i 437  ]
+[; ;main.c: 90: {
+"90
 {
-[; ;main.c: 91: (LATC &= ~0x10);
-"91
-[e =& _LATC -> ~ -> 16 `i `uc ]
-[; ;main.c: 92: if(RF_Saved == 90)
+[; ;main.c: 92: (LATC &= ~0x10);
 "92
-[e $ ! == -> _RF_Saved `i -> 90 `i 438  ]
-[; ;main.c: 93: {
+[e =& _LATC -> ~ -> 16 `i `uc ]
+[; ;main.c: 93: if(RF_Saved == 90)
 "93
-{
-[; ;main.c: 94: MSC_BlinkLED(4);
+[e $ ! == -> _RF_Saved `i -> 90 `i 438  ]
+[; ;main.c: 94: {
 "94
-[e ( _MSC_BlinkLED (1 -> -> 4 `i `ui ]
-[; ;main.c: 95: RF_Saved = 91;
+{
+[; ;main.c: 95: MSC_BlinkLED(4);
 "95
-[e = _RF_Saved -> -> 91 `i `uc ]
+[e ( _MSC_BlinkLED (1 -> -> 4 `i `ui ]
+[; ;main.c: 96: RF_Saved = 91;
 "96
+[e = _RF_Saved -> -> 91 `i `uc ]
+"97
 }
 [e :U 438 ]
-[; ;main.c: 96: }
-[; ;main.c: 97: System_State_Change = 0;
-"97
-[e = _System_State_Change -> -> 0 `i `uc ]
+[; ;main.c: 97: }
+[; ;main.c: 98: System_State_Change = 0;
 "98
+[e = _System_State_Change -> -> 0 `i `uc ]
+"99
 }
 [e :U 437 ]
-[; ;main.c: 98: }
-[; ;main.c: 99: if(RF_Data || IR_Data || Button_Data)
-"99
-[e $ ! || || != -> _RF_Data `i -> -> -> 0 `i `Vuc `i != -> _IR_Data `i -> -> -> 0 `i `Vuc `i != -> _Button_Data `i -> -> -> 0 `i `Vuc `i 439  ]
-[; ;main.c: 100: {
+[; ;main.c: 99: }
+[; ;main.c: 100: if(RF_Data || IR_Data || Button_Data)
 "100
-{
-[; ;main.c: 101: (LATC |= 0x10);
+[e $ ! || || != -> _RF_Data `i -> -> -> 0 `i `Vuc `i != -> _IR_Data `i -> -> -> 0 `i `Vuc `i != -> _Button_Data `i -> -> -> 0 `i `Vuc `i 439  ]
+[; ;main.c: 101: {
 "101
-[e =| _LATC -> -> 16 `i `uc ]
-[; ;main.c: 102: MTR_Rotate();
+{
+[; ;main.c: 102: (LATC |= 0x10);
 "102
-[e ( _MTR_Rotate ..  ]
-[; ;main.c: 103: RF_Data = 0;
+[e =| _LATC -> -> 16 `i `uc ]
+[; ;main.c: 103: MTR_Rotate();
 "103
-[e = _RF_Data -> -> 0 `i `uc ]
-[; ;main.c: 104: IR_Data = 0;
+[e ( _MTR_Rotate ..  ]
+[; ;main.c: 104: RF_Data = 0;
 "104
-[e = _IR_Data -> -> 0 `i `uc ]
-[; ;main.c: 105: Button_Data = 0;
+[e = _RF_Data -> -> 0 `i `uc ]
+[; ;main.c: 105: IR_Data = 0;
 "105
-[e = _Button_Data -> -> 0 `i `uc ]
-[; ;main.c: 106: (LATC &= ~0x10);
+[e = _IR_Data -> -> 0 `i `uc ]
+[; ;main.c: 106: Button_Data = 0;
 "106
-[e =& _LATC -> ~ -> 16 `i `uc ]
+[e = _Button_Data -> -> 0 `i `uc ]
+[; ;main.c: 107: (LATC &= ~0x10);
 "107
-}
-[e :U 439 ]
+[e =& _LATC -> ~ -> 16 `i `uc ]
 "108
 }
-[; ;main.c: 107: }
-[; ;main.c: 108: }
-[e $U 440  ]
+[e :U 439 ]
 "109
-[e :U 436 ]
-[; ;main.c: 109: else if(System_State == 10)
-[e $ ! == -> _System_State `i -> 10 `i 441  ]
-[; ;main.c: 110: {
+}
+[; ;main.c: 108: }
+[; ;main.c: 109: }
+[e $U 440  ]
 "110
+[e :U 436 ]
+[; ;main.c: 110: else if(System_State == 10)
+[e $ ! == -> _System_State `i -> 10 `i 441  ]
+[; ;main.c: 111: {
+"111
 {
-[; ;main.c: 112: MSC_DelayMS(25);
-"112
-[e ( _MSC_DelayMS (1 -> -> 25 `i `l ]
-[; ;main.c: 113: (LATC ^= 0x10);
+[; ;main.c: 113: MSC_DelayMS(25);
 "113
-[e =^ _LATC -> -> 16 `i `uc ]
-[; ;main.c: 114: if(RF_Data)
+[e ( _MSC_DelayMS (1 -> -> 25 `i `l ]
+[; ;main.c: 114: (LATC ^= 0x10);
 "114
-[e $ ! != -> _RF_Data `i -> -> -> 0 `i `Vuc `i 442  ]
-[; ;main.c: 115: {
+[e =^ _LATC -> -> 16 `i `uc ]
+[; ;main.c: 115: if(RF_Data)
 "115
+[e $ ! != -> _RF_Data `i -> -> -> 0 `i `Vuc `i 442  ]
+[; ;main.c: 116: {
+"116
 {
-[; ;main.c: 117: RF_Data = 0;
-"117
-[e = _RF_Data -> -> 0 `i `uc ]
-[; ;main.c: 118: System_State = 8;
+[; ;main.c: 118: RF_Data = 0;
 "118
-[e = _System_State -> -> 8 `i `uc ]
-[; ;main.c: 119: System_State_Change = 1;
+[e = _RF_Data -> -> 0 `i `uc ]
+[; ;main.c: 119: System_State = 8;
 "119
-[e = _System_State_Change -> -> 1 `i `uc ]
+[e = _System_State -> -> 8 `i `uc ]
+[; ;main.c: 120: System_State_Change = 1;
 "120
+[e = _System_State_Change -> -> 1 `i `uc ]
+"121
 }
 [e :U 442 ]
-"122
+"123
 }
 [e :U 441 ]
-"123
+"124
 [e :U 440 ]
 }
 [e :U 433 ]
-"83
+"84
 [e $U 434  ]
 [e :U 435 ]
-[; ;main.c: 120: }
-[; ;main.c: 122: }
+[; ;main.c: 121: }
 [; ;main.c: 123: }
 [; ;main.c: 124: }
-"124
+[; ;main.c: 125: }
+"125
 [e :UE 430 ]
 }
