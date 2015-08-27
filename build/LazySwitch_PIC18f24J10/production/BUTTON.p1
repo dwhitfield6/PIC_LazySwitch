@@ -3750,11 +3750,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;USER.h: 181: void Init_App(void);
 [; ;USER.h: 182: void Init_System (void);
 "41 BUTTON.c
-[v _Button_Data `uc ~T0 @X0 1 e ]
+[v _Button_Data `Vuc ~T0 @X0 1 e ]
 [i _Button_Data
 -> -> 0 `i `uc
 ]
-[; ;BUTTON.c: 41: unsigned char Button_Data = 0;
+[; ;BUTTON.c: 41: volatile unsigned char Button_Data = 0;
 "42
 [v _ButtonValue_prev `uc ~T0 @X0 1 e ]
 [i _ButtonValue_prev
@@ -3767,135 +3767,129 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;BUTTON.c: 43: unsigned char ButtonChange = 0;
-"44
-[v _ButtonTimer `uc ~T0 @X0 1 e ]
-[i _ButtonTimer
--> -> 1 `i `uc
-]
-[; ;BUTTON.c: 44: unsigned char ButtonTimer = 1;
-[v F4140 `(v ~T0 @X0 1 tf1`uc ]
+[v F4139 `(v ~T0 @X0 1 tf1`uc ]
+"54
+[v _BUT_IR_PinChangeInt `TF4139 ~T0 @X0 1 e ]
 "55
-[v _BUT_IR_PinChangeInt `TF4140 ~T0 @X0 1 e ]
-"56
 {
-[; ;BUTTON.c: 55: inline void BUT_IR_PinChangeInt(unsigned char state)
-[; ;BUTTON.c: 56: {
+[; ;BUTTON.c: 54: inline void BUT_IR_PinChangeInt(unsigned char state)
+[; ;BUTTON.c: 55: {
 [e :U _BUT_IR_PinChangeInt ]
-"55
+"54
 [v _state `uc ~T0 @X0 1 r1 ]
-"56
+"55
 [f ]
-[; ;BUTTON.c: 57: if(state)
-"57
+[; ;BUTTON.c: 56: if(state)
+"56
 [e $ ! != -> _state `i -> -> -> 0 `i `uc `i 431  ]
-[; ;BUTTON.c: 58: {
-"58
+[; ;BUTTON.c: 57: {
+"57
 {
-[; ;BUTTON.c: 60: INTCONbits.RBIE = 1;
-"60
+[; ;BUTTON.c: 59: INTCONbits.RBIE = 1;
+"59
 [e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-"61
+"60
 }
-[; ;BUTTON.c: 61: }
+[; ;BUTTON.c: 60: }
 [e $U 432  ]
-"62
+"61
 [e :U 431 ]
-[; ;BUTTON.c: 62: else
-[; ;BUTTON.c: 63: {
-"63
+[; ;BUTTON.c: 61: else
+[; ;BUTTON.c: 62: {
+"62
 {
-[; ;BUTTON.c: 65: INTCONbits.RBIE = 0;
-"65
+[; ;BUTTON.c: 64: INTCONbits.RBIE = 0;
+"64
 [e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
-"66
+"65
 }
 [e :U 432 ]
+[; ;BUTTON.c: 65: }
 [; ;BUTTON.c: 66: }
-[; ;BUTTON.c: 67: }
-"67
+"66
 [e :UE 430 ]
 }
-"78
+"77
 [v _InitButton `(v ~T0 @X0 1 ef ]
-"79
+"78
 {
-[; ;BUTTON.c: 78: void InitButton(void)
-[; ;BUTTON.c: 79: {
+[; ;BUTTON.c: 77: void InitButton(void)
+[; ;BUTTON.c: 78: {
 [e :U _InitButton ]
 [f ]
-[; ;BUTTON.c: 81: INTCON2bits.RBIP = 0;
-"81
+[; ;BUTTON.c: 80: INTCON2bits.RBIP = 0;
+"80
 [e = . . _INTCON2bits 1 0 -> -> 0 `i `uc ]
-[; ;BUTTON.c: 82: BUT_IR_PinChangeInt(1);
-"82
+[; ;BUTTON.c: 81: BUT_IR_PinChangeInt(1);
+"81
 [e ( _BUT_IR_PinChangeInt (1 -> -> 1 `i `uc ]
-[; ;BUTTON.c: 83: }
-"83
+[; ;BUTTON.c: 82: }
+"82
 [e :UE 433 ]
 }
-"91
+"90
 [v _BUT_ReadButton `(uc ~T0 @X0 1 ef ]
-"92
+"91
 {
-[; ;BUTTON.c: 91: unsigned char BUT_ReadButton(void)
-[; ;BUTTON.c: 92: {
+[; ;BUTTON.c: 90: unsigned char BUT_ReadButton(void)
+[; ;BUTTON.c: 91: {
 [e :U _BUT_ReadButton ]
 [f ]
-"93
+"92
 [v _value `uc ~T0 @X0 1 a ]
-[; ;BUTTON.c: 93: unsigned char value = PORTB;
+[; ;BUTTON.c: 92: unsigned char value = PORTB;
 [e = _value _PORTB ]
-[; ;BUTTON.c: 94: if((value & 0x20) == 0)
-"94
+[; ;BUTTON.c: 93: if((value & 0x20) == 0)
+"93
 [e $ ! == & -> _value `i -> 32 `i -> 0 `i 435  ]
-[; ;BUTTON.c: 95: {
-"95
+[; ;BUTTON.c: 94: {
+"94
 {
-[; ;BUTTON.c: 97: if(ButtonValue_prev == 0)
-"97
+[; ;BUTTON.c: 96: if(ButtonValue_prev == 0)
+"96
 [e $ ! == -> _ButtonValue_prev `i -> 0 `i 436  ]
-[; ;BUTTON.c: 98: {
-"98
+[; ;BUTTON.c: 97: {
+"97
 {
-[; ;BUTTON.c: 99: ButtonChange = 1;
-"99
+[; ;BUTTON.c: 98: ButtonChange = 1;
+"98
 [e = _ButtonChange -> -> 1 `i `uc ]
-"100
+"99
 }
 [e :U 436 ]
-[; ;BUTTON.c: 100: }
-[; ;BUTTON.c: 101: ButtonValue_prev = 1;
-"101
+[; ;BUTTON.c: 99: }
+[; ;BUTTON.c: 100: ButtonValue_prev = 1;
+"100
 [e = _ButtonValue_prev -> -> 1 `i `uc ]
-[; ;BUTTON.c: 102: return 1;
-"102
+[; ;BUTTON.c: 101: return 1;
+"101
 [e ) -> -> 1 `i `uc ]
 [e $UE 434  ]
-"103
+"102
 }
 [e :U 435 ]
-[; ;BUTTON.c: 103: }
-[; ;BUTTON.c: 106: if(ButtonValue_prev == 1)
-"106
+[; ;BUTTON.c: 102: }
+[; ;BUTTON.c: 105: if(ButtonValue_prev == 1)
+"105
 [e $ ! == -> _ButtonValue_prev `i -> 1 `i 437  ]
-[; ;BUTTON.c: 107: {
-"107
+[; ;BUTTON.c: 106: {
+"106
 {
-[; ;BUTTON.c: 108: ButtonChange = 1;
-"108
+[; ;BUTTON.c: 107: ButtonChange = 1;
+"107
 [e = _ButtonChange -> -> 1 `i `uc ]
-"109
+"108
 }
 [e :U 437 ]
-[; ;BUTTON.c: 109: }
-[; ;BUTTON.c: 110: ButtonValue_prev = 0;
-"110
+[; ;BUTTON.c: 108: }
+[; ;BUTTON.c: 109: ButtonValue_prev = 0;
+"109
 [e = _ButtonValue_prev -> -> 0 `i `uc ]
-[; ;BUTTON.c: 111: return 0;
-"111
+[; ;BUTTON.c: 110: return 0;
+"110
 [e ) -> -> 0 `i `uc ]
 [e $UE 434  ]
-[; ;BUTTON.c: 112: }
-"112
+[; ;BUTTON.c: 111: }
+"111
 [e :UE 434 ]
 }

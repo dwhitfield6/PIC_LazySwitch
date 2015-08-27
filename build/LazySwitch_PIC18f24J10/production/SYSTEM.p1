@@ -3742,19 +3742,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 66: extern char * strrichr(const char *, int);
 [; ;USER.h: 181: void Init_App(void);
 [; ;USER.h: 182: void Init_System (void);
-[; ;SYSTEM.h: 54: void SYS_ConfigureOscillator(void);
-"48 SYSTEM.c
+[; ;SYSTEM.h: 62: extern unsigned char System_State;
+[; ;SYSTEM.h: 63: extern unsigned char System_State_Change;
+[; ;SYSTEM.h: 68: void SYS_ConfigureOscillator(void);
+"42 SYSTEM.c
+[v _System_State `uc ~T0 @X0 1 e ]
+[i _System_State
+-> -> 8 `i `uc
+]
+[; ;SYSTEM.c: 42: unsigned char System_State = 8;
+"43
+[v _System_State_Change `uc ~T0 @X0 1 e ]
+[i _System_State_Change
+-> -> 0 `i `uc
+]
+[; ;SYSTEM.c: 43: unsigned char System_State_Change = 0;
+"54
 [v _SYS_ConfigureOscillator `(v ~T0 @X0 1 ef ]
-"49
+"55
 {
-[; ;SYSTEM.c: 48: void SYS_ConfigureOscillator(void)
-[; ;SYSTEM.c: 49: {
+[; ;SYSTEM.c: 54: void SYS_ConfigureOscillator(void)
+[; ;SYSTEM.c: 55: {
 [e :U _SYS_ConfigureOscillator ]
 [f ]
-[; ;SYSTEM.c: 51: __nop();
-"51
+[; ;SYSTEM.c: 57: __nop();
+"57
 [e ( ___nop ..  ]
-[; ;SYSTEM.c: 52: }
-"52
+[; ;SYSTEM.c: 58: }
+"58
 [e :UE 430 ]
 }

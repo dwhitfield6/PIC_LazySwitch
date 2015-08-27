@@ -3779,7 +3779,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;SYSTEM.h: 54: void SYS_ConfigureOscillator(void);
+[; ;SYSTEM.h: 62: extern unsigned char System_State;
+[; ;SYSTEM.h: 63: extern unsigned char System_State_Change;
+[; ;SYSTEM.h: 68: void SYS_ConfigureOscillator(void);
 [; ;MISC.h: 67: void MSC_DelayMS(long US);
 [; ;MISC.h: 68: unsigned char MSC_IsCharacter(unsigned char data);
 [; ;MISC.h: 69: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
@@ -3815,14 +3817,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.h: 99: unsigned long MSC_EndianLong(unsigned long number);
 [; ;MISC.h: 100: unsigned long MSC_EndianLongArray(unsigned char* buffer);
 [; ;MISC.h: 101: void MSC_BlinkLED(unsigned int blink);
+[; ;MISC.h: 102: void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 103: void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 [i _DC_Motor
 "43 MOTOR.c
 -> -> 0 `i `uc
 ]
 [; ;MOTOR.c: 43: unsigned char DC_Motor = 0;
-[v F4351 `(v ~T0 @X0 1 tf1`uc ]
+[v F4363 `(v ~T0 @X0 1 tf1`uc ]
 "54
-[v _MTR_IN1 `TF4351 ~T0 @X0 1 e ]
+[v _MTR_IN1 `TF4363 ~T0 @X0 1 e ]
 "55
 {
 [; ;MOTOR.c: 54: inline void MTR_IN1(unsigned char state)
@@ -3862,9 +3866,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "64
 [e :UE 430 ]
 }
-[v F4354 `(v ~T0 @X0 1 tf1`uc ]
+[v F4366 `(v ~T0 @X0 1 tf1`uc ]
 "71
-[v _MTR_IN2 `TF4354 ~T0 @X0 1 e ]
+[v _MTR_IN2 `TF4366 ~T0 @X0 1 e ]
 "72
 {
 [; ;MOTOR.c: 71: inline void MTR_IN2(unsigned char state)

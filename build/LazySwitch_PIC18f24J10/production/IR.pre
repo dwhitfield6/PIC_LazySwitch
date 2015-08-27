@@ -4921,7 +4921,7 @@ void Init_App(void);
 void Init_System (void);
 
 # 41 "IR.c"
-unsigned char IR_Data = 0;
+volatile unsigned char IR_Data = 0;
 
 # 56
 void InitIR(void)

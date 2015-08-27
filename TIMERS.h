@@ -35,7 +35,8 @@
  *
  * This defines the functions of timer 2.
 /******************************************************************************/
-#define BUTTON 15
+#define BUTTONPRESS 17
+#define BUTTONRELEASE 18
 
 /******************************************************************************/
 /* Defines                                                                    */
@@ -56,12 +57,18 @@ extern unsigned int Timer2PostCount;
 /* Function prototypes                                                        */
 /******************************************************************************/
 void InitTimers(void);
+inline unsigned char TMR_Timer0Status(void);
+inline void TMR_Timer0(unsigned char state);
 inline void TMR_Timer2(unsigned char state);
+inline void TMR_ResetTimer0(void);
 inline void TMR_ResetTimer2(void);
 inline void TMR_Timer2SetUse(unsigned char use);
+inline void TMR_Timer0Int(unsigned char state);
 inline void TMR_Timer2Int(unsigned char state);
 inline unsigned char TMR_Timer2Free(void);
+void InitTimer0(void);
 void InitTimer2(void);
+void TMR_Timer0Start(void);
 void TMR_Timer2Start(unsigned int time);
 
 #endif	/* IR_H */

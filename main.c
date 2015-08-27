@@ -6,11 +6,14 @@
  * Date         Revision    Comments
  * MM/DD/YY
  * --------     ---------   ----------------------------------------------------
- * 08/25/15     2.0_DW0a    Initial project make.
+ * 08/26/15     2.0_DW0a    Initial project make.
  *                          Derived from project 'Catalyst_RPI_daughter'.
  *                          Added timer functionality for push button.
  *                          Move the motor in alternating directions for each
  *                            button press.
+ *                          Improved the button functionality.
+ *                          Added RF capability and a default code to check
+ *                            against.
 /******************************************************************************/
 
 /******************************************************************************/
@@ -60,24 +63,63 @@
 /******************************************************************************/
 
 int main (void)
-{
+{   
     /* Initialize */
     SYS_ConfigureOscillator();
     Init_App();
     Init_System();
 
-    MSC_BlinkLED(15);
+    if(RF_Saved == EMPTY)
+    {
+        TMR_LoadDefaultCode();
+        MSC_BlinkLED(15);
+    }
+    else
+    {
+        MSC_BlinkLED(4);
+    }
     MSC_RedLEDOFF();
     
     while(1)
     {
-        if(RF_Data || IR_Data || Button_Data)
+        if(System_State == RUN)
         {
-            MTR_Rotate();
-            RF_Data = FALSE;
-            IR_Data = FALSE;
-            Button_Data = FALSE;
+            /* The system is in normal run mode */
+            if(System_State_Change)
+            {
+                /* System state just changed */
+                MSC_RedLEDOFF();
+                if(RF_Saved == NEW)
+                {
+                    MSC_BlinkLED(4);
+                    RF_Saved = OLD;
+                }
+                System_State_Change = FALSE;
+            }
+            if(RF_Data || IR_Data || Button_Data)
+            {
+                MSC_RedLEDON();
+                MTR_Rotate();
+                RF_Data = FALSE;
+                IR_Data = FALSE;
+                Button_Data = FALSE;
+                MSC_RedLEDOFF();
+            }
         }
+        else if(System_State == PROGRAM)
+        {
+            /* The system is in program mode */
+            MSC_DelayMS(25);
+            MSC_RedLEDTOGGLE();
+            if(RF_Data)
+            {
+                /* RF code needs to be saved */
+                RF_Data = FALSE;
+                System_State = RUN;
+                System_State_Change = TRUE;
+            }
+                       
+        }   
     }
 }
 /*-----------------------------------------------------------------------------/

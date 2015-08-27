@@ -33,10 +33,18 @@
 /******************************************************************************/
 /* PRESSCOUNT
  *
- * This defines the number of timer 2 overflow counts until the button can
- *  be pressed again.
+ * This defines the number of timer 2 overflow counts until the system goes
+ *  into Program mode. This happens when the button is held down.
 /******************************************************************************/
-#define PRESSCOUNT 5
+#define PRESSCOUNT 100
+
+/******************************************************************************/
+/* RELEASECOUNT
+ *
+ * This defines the number of timer 2 overflow counts until the system goes
+ *  back to Run mode after inactivity.
+/******************************************************************************/
+#define PROGRAMTIMEOUT 70
 
 /******************************************************************************/
 /* Defines                                                                    */
@@ -45,10 +53,9 @@
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
 /******************************************************************************/
-extern unsigned char Button_Data;
+extern volatile unsigned char Button_Data;
 extern unsigned char ButtonValue_prev;
 extern unsigned char ButtonChange;
-extern unsigned char ButtonTimer;
 
 /******************************************************************************/
 /* Macro Functions                                                            */

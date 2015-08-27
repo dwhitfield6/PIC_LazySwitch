@@ -4952,10 +4952,20 @@ extern char * strrichr(const char *, int);
 void Init_App(void);
 void Init_System (void);
 
-# 54 "SYSTEM.h"
+# 62 "SYSTEM.h"
+extern unsigned char System_State;
+extern unsigned char System_State_Change;
+
+
+
+
 void SYS_ConfigureOscillator(void);
 
-# 48 "SYSTEM.c"
+# 42 "SYSTEM.c"
+unsigned char System_State = 8;
+unsigned char System_State_Change = 0;
+
+# 54
 void SYS_ConfigureOscillator(void)
 {
 

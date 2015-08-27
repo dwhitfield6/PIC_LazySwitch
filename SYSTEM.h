@@ -38,15 +38,29 @@
  *
  * This is the CPU clock frequency.
  *
- * For this system the clock is 64MHz and the internal PLL is used.
+ * For this system the clock is 32MHz and the internal PLL is used.
  *
 /******************************************************************************/
-#define FOSC        100000000L
+#define FOSC        32000000L
 /******************************************************************************/
 /* Defines                                                                    */
 /******************************************************************************/
 #define FCY             (FOSC/2)
 #define SYS_FREQ        FCY
+
+/******************************************************************************/
+/* System States
+ *
+ * This defines the system states.
+/******************************************************************************/
+#define PROGRAM     10
+#define RUN         8
+
+/******************************************************************************/
+/* User Global Variable Declaration                                           */
+/******************************************************************************/
+extern unsigned char System_State;
+extern unsigned char System_State_Change;
 
 /******************************************************************************/
 /* Function prototypes                                                        */

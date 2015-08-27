@@ -34,6 +34,8 @@
 #include "IR.h"
 #include "RF.h"
 #include "TIMERS.h"
+#include "SYSTEM.h"
+#include "MISC.h"
 
 /******************************************************************************/
 /* Interrupt Routines                                                         */
@@ -44,7 +46,75 @@
 /******************************************************************************/
 void interrupt high_isr(void)
 {
+    unsigned int RFtemp = 0;
     
+    if(INTCON3bits.INT1IF || INTCON3bits.INT2IF)
+    {
+        /* RF data interrupt */
+        if(!TMR_Timer0Status())
+        {
+            /* Turn on timer 0 */
+            TMR_Timer0Start();
+        }
+        else
+        {
+            RFtemp = TMR0L;
+            RFtemp += (unsigned int)TMR0H << 8;
+            if(!RFStarted)
+            {
+                if(System_State == RUN)
+                {
+                    if(RFtemp >= RF_SyncLow && RFtemp <= RF_SyncHigh)
+                    {
+                        RFStarted = TRUE;
+                    }
+                }
+                else
+                {
+                    if(RFtemp >= RF_PROGRAMSYNCLOW && RFtemp <= RF_PROGRAMSYNCHIGH)
+                    {
+                        RFStarted = TRUE;
+                    }
+                }
+            }
+            if(RFStarted)
+            {
+                if(RF_DataPlace < RFBUFFERSIZE)
+                {
+                    RF_DataTiming[RF_DataPlace] = RFtemp;
+                    RF_DataPlace++;
+                    if(RF_DataPlace >= RF_CodeSize)
+                    {
+                        RF_Data = RF_CheckCode();
+                        TMR_Timer0(OFF);
+                        RF_ResetRFData();
+                    }
+                }
+                else
+                {
+                    /* Too many edges */
+                    TMR_Timer0(OFF);
+                    RF_ResetRFData();
+                }
+            }
+            TMR_ResetTimer0();
+        }
+        INTCON3bits.INT1IF = 0; // Clear Flag
+        INTCON3bits.INT2IF = 0; // Clear Flag
+    }
+    else if(INTCONbits.TMR0IF)
+    {
+        /* and RF timeout occurred */
+        TMR_Timer0(OFF);
+        TMR_ResetTimer0();
+        RF_ResetRFData();
+        INTCONbits.TMR0IF = 0;
+    }
+    else
+    {
+        /* Unknown interrupt */
+        Nop();
+    }
 }
 
 /******************************************************************************/
@@ -63,19 +133,29 @@ void low_priority interrupt low_isr(void)
         button_state = BUT_ReadButton();        
         if(ButtonChange)
         {
+            TMR_Timer2(OFF);
+            
             /* the push button is the source of the interrupt */
             if(button_state)
             {
                 /* Button is pressed */
-                if(ButtonTimer == FINISHED)
+                if(System_State == RUN)
                 {
+                    Timer2Use = BUTTONPRESS;
+                    TMR_Timer2Start(PRESSCOUNT);
+                }
+            }
+            else
+            {
+                if(System_State != PROGRAM)
+                {
+                    /* The button was let go before a timeout */
                     Button_Data = TRUE;
                 }
-                ButtonTimer = NOTFINISHED;
-                if(TMR_Timer2Free())
+                else
                 {
-                    Timer2Use = BUTTON;
-                    TMR_Timer2Start(PRESSCOUNT);                
+                    Timer2Use = BUTTONRELEASE;
+                    TMR_Timer2Start(PROGRAMTIMEOUT);
                 }
             }
             ButtonChange = 0;
@@ -92,14 +172,16 @@ void low_priority interrupt low_isr(void)
         if(Timer2PostCount >= Timer2Post)
         {
             TMR_Timer2(OFF);
-            if(Timer2Use == BUTTON)
+            if(Timer2Use == BUTTONPRESS)
             {
-                ButtonTimer = FINISHED;
-                Timer2Use = 0; // Free the timer
+                /* The button was held down for longer than the timeout */
+                System_State = PROGRAM; 
+                System_State_Change = TRUE;
             }
-            else
+            else if(Timer2Use == BUTTONRELEASE)
             {
-                Nop();
+                System_State = RUN; 
+                System_State_Change = TRUE;
             }
         }
         else

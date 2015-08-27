@@ -48,6 +48,41 @@ unsigned int Timer2PostCount = 0;
 /******************************************************************************/
 
 /******************************************************************************/
+/* TMR_Timer0Status
+ *
+ * The function returns the current status of timer 0. 
+ *   (whether it is on or off).
+/******************************************************************************/
+inline unsigned char TMR_Timer0Status(void)
+{
+    if(T0CONbits.TMR0ON)
+    {
+        /* Timer 0 is on */
+        return 1;       
+    }
+    return 0;
+}
+
+/******************************************************************************/
+/* TMR_Timer0
+ *
+ * The function turns timer 0 on or off.
+/******************************************************************************/
+inline void TMR_Timer0(unsigned char state)
+{
+    if(state)
+    {
+        /* Turn on timer 0 */
+        T0CONbits.TMR0ON = 1;        
+    }
+    else
+    {
+        /* Turn off timer 0 */
+        T0CONbits.TMR0ON = 0;
+    }
+}
+
+/******************************************************************************/
 /* TMR_Timer2
  *
  * The function turns timer 2 on or off.
@@ -63,6 +98,24 @@ inline void TMR_Timer2(unsigned char state)
     {
         /* Turn off timer 2 */
         T2CONbits.TMR2ON = 0;
+    }
+}
+
+/******************************************************************************/
+/* TMR_ResetTimer0
+ *
+ * The function resets timer 0.
+/******************************************************************************/
+inline void TMR_ResetTimer0(void)
+{
+    unsigned char TimerOn = T0CONbits.TMR0ON;
+    
+    TMR_Timer0(OFF);
+    TMR0H = 0;
+    TMR0L = 2;
+    if(TimerOn)
+    {
+        TMR_Timer0(ON);
     }
 }
 
@@ -92,6 +145,25 @@ inline void TMR_ResetTimer2(void)
 inline void TMR_Timer2SetUse(unsigned char use)
 {
     Timer2Use = use;
+}
+
+/******************************************************************************/
+/* TMR_Timer0Int
+ *
+ * The function controls the timer 0 interrupt.
+/******************************************************************************/
+inline void TMR_Timer0Int(unsigned char state)
+{
+    if(state)
+    {
+        /* Enable timer 0 interrupt */
+        INTCONbits.TMR0IE = 1;        
+    }
+    else
+    {
+        /* Disable timer 0 interrupt */
+        INTCONbits.TMR0IE = 0; 
+    }
 }
 
 /******************************************************************************/
@@ -138,16 +210,35 @@ inline unsigned char TMR_Timer2Free(void)
 /******************************************************************************/
 void InitTimers(void)
 {
+    InitTimer0();
     InitTimer2();
 }
 
 /******************************************************************************/
 /* InitTimer2
  *
- * The function initializes timer2.
+ * The function initializes timer2 which is used for the RF receiver.
+/******************************************************************************/
+void InitTimer0(void)
+{
+    TMR_Timer0(OFF);
+    TMR_ResetTimer0();
+    T0CONbits.T08BIT = 0;   // 16 bit counter
+    T0CONbits.T0CS = 0;     // Internal instruction cycle clock (CLKO) 
+    T0CONbits.PSA = 0;      // prescaler is assigned
+    T0CONbits.T0PS = 0b011; // prescaler is 16
+    INTCON2bits.TMR0IP = 1; // high priority interrupt
+    TMR_Timer0Int(ON);
+}
+
+/******************************************************************************/
+/* InitTimer2
+ *
+ * The function initializes timer2 which is used for the pushbutton.
 /******************************************************************************/
 void InitTimer2(void)
 {
+    TMR_Timer2(OFF);
     T2CONbits.TOUTPS = 0b1111; // Postscale is 16
     T2CONbits.T2CKPS = 0b11; // Prescale is 16
     IPR1bits.TMR2IP = 0; // low priority interrupt
@@ -156,9 +247,21 @@ void InitTimer2(void)
 }
 
 /******************************************************************************/
+/* TMR_Timer0Start
+ *
+ * The function starts timer 0.
+/******************************************************************************/
+void TMR_Timer0Start(void)
+{
+    TMR_Timer0(OFF);
+    TMR_ResetTimer0();
+    TMR_Timer0(ON);
+}
+
+/******************************************************************************/
 /* TMR_Timer2Start
  *
- * The function starts timer2.
+ * The function starts timer 2.
 /******************************************************************************/
 void TMR_Timer2Start(unsigned int time)
 {

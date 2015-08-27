@@ -3716,11 +3716,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;USER.h: 181: void Init_App(void);
 [; ;USER.h: 182: void Init_System (void);
 "41 IR.c
-[v _IR_Data `uc ~T0 @X0 1 e ]
+[v _IR_Data `Vuc ~T0 @X0 1 e ]
 [i _IR_Data
 -> -> 0 `i `uc
 ]
-[; ;IR.c: 41: unsigned char IR_Data = 0;
+[; ;IR.c: 41: volatile unsigned char IR_Data = 0;
 "56
 [v _InitIR `(v ~T0 @X0 1 ef ]
 "57

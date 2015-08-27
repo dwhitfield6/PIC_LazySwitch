@@ -4952,13 +4952,12 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 48 "BUTTON.h"
-extern unsigned char Button_Data;
+# 56 "BUTTON.h"
+extern volatile unsigned char Button_Data;
 extern unsigned char ButtonValue_prev;
 extern unsigned char ButtonChange;
-extern unsigned char ButtonTimer;
 
-# 60
+# 67
 void InitButton(void);
 inline void BUT_IR_PinChangeInt(unsigned char state);
 unsigned char BUT_ReadButton(void);
@@ -5031,7 +5030,7 @@ extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
 # 40 "IR.h"
-extern unsigned char IR_Data;
+extern volatile unsigned char IR_Data;
 
 # 49
 void InitIR(void);
@@ -5104,7 +5103,13 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 54 "SYSTEM.h"
+# 62 "SYSTEM.h"
+extern unsigned char System_State;
+extern unsigned char System_State_Change;
+
+
+
+
 void SYS_ConfigureOscillator(void);
 
 # 67 "MISC.h"
@@ -5143,6 +5148,8 @@ unsigned int MSC_EndianIntArray(unsigned char* buffer);
 unsigned long MSC_EndianLong(unsigned long number);
 unsigned long MSC_EndianLongArray(unsigned char* buffer);
 void MSC_BlinkLED(unsigned int blink);
+void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 
 # 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
 extern void * memcpy(void *, const void *, size_t);
@@ -5215,11 +5222,82 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 40 "RF.h"
-extern unsigned char RF_Data;
+# 119 "RF.h"
+const unsigned int CONF1_ChanE_Sync_Timing[50] = {
+834,
+21,
+80,
+22,
+80,
+21,
+78,
+79,
+26,
+22,
+78,
+78,
+27,
+21,
+79,
+76,
+25,
+23,
+79,
+75,
+27,
+21,
+81,
+75,
+25,
+22,
+81,
+22,
+79,
+22,
+80,
+24,
+79,
+77,
+25,
+76,
+27,
+21,
+80,
+21,
+81,
+21,
+80,
+22,
+80,
+22,
+81,
+22,
+79,
+22
+};
 
-# 49
+# 177
+extern volatile unsigned char RF_Data;
+extern unsigned int RF_DataTiming[120];
+extern unsigned int RF_SavedTiming[120];
+extern unsigned char RF_DataPlace;
+extern unsigned char RFStarted;
+extern unsigned int RF_SyncLow;
+extern unsigned int RF_SyncHigh;
+extern unsigned char RF_Saved;
+extern unsigned char RF_CodeSize;
+
+# 194
 void InitRF(void);
+inline unsigned char RF_ReadReceiver(void);
+inline void RF_DataInt(unsigned char state);
+inline void RF_Receiver(unsigned char state);
+inline void RF_SetBandwidth(unsigned char band);
+inline void RF_SetSquelch(unsigned char state);
+void RF_ResetRFData(void);
+void RF_CalculateNewCode(void);
+void TMR_LoadDefaultCode(void);
+unsigned char RF_CheckCode(void);
 
 # 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
 extern void * memcpy(void *, const void *, size_t);
@@ -5253,19 +5331,25 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 47 "TIMERS.h"
+# 48 "TIMERS.h"
 extern unsigned char Timer2Use;
 extern unsigned int Timer2Post;
 extern unsigned int Timer2PostCount;
 
-# 58
+# 59
 void InitTimers(void);
+inline unsigned char TMR_Timer0Status(void);
+inline void TMR_Timer0(unsigned char state);
 inline void TMR_Timer2(unsigned char state);
+inline void TMR_ResetTimer0(void);
 inline void TMR_ResetTimer2(void);
 inline void TMR_Timer2SetUse(unsigned char use);
+inline void TMR_Timer0Int(unsigned char state);
 inline void TMR_Timer2Int(unsigned char state);
 inline unsigned char TMR_Timer2Free(void);
+void InitTimer0(void);
 void InitTimer2(void);
+void TMR_Timer0Start(void);
 void TMR_Timer2Start(unsigned int time);
 
 # 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
@@ -5301,7 +5385,7 @@ extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
 # 40 "ADC.h"
-extern unsigned char IR_Data;
+extern volatile unsigned char IR_Data;
 
 # 49
 void InitADC(void);

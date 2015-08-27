@@ -208,6 +208,52 @@ void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, u
 }
 
 /******************************************************************************/
+/* MSC_BufferCopyInt
+ *
+ * This function copies the 'from' array to the 'to' array.
+/******************************************************************************/
+void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift)
+{
+    unsigned int i=0;
+    MSC_CleanBufferInt(to,count);
+    for(i = shift; i>0; i--)
+    {
+        *to = ' ';
+        to++;
+    }
+    while(*from != 0 && count >0)
+    {
+        *to = *from;
+        from++;
+        to++;
+        count--;
+    }
+}
+
+/******************************************************************************/
+/* MSC_BufferCopyIntConst
+ *
+ * This function copies the 'from' array to the 'to' array.
+/******************************************************************************/
+void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift)
+{
+    unsigned int i=0;
+    MSC_CleanBufferInt(to,count);
+    for(i = shift; i>0; i--)
+    {
+        *to = ' ';
+        to++;
+    }
+    while(*from != 0 && count >0)
+    {
+        *to = *from;
+        from++;
+        to++;
+        count--;
+    }
+}
+
+/******************************************************************************/
 /* MSC_StringMatch
  *
  * This function returns TRUE if the array 'This' matches the array 'That'.

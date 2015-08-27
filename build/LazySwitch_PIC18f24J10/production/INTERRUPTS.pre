@@ -4952,13 +4952,12 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 48 "BUTTON.h"
-extern unsigned char Button_Data;
+# 56 "BUTTON.h"
+extern volatile unsigned char Button_Data;
 extern unsigned char ButtonValue_prev;
 extern unsigned char ButtonChange;
-extern unsigned char ButtonTimer;
 
-# 60
+# 67
 void InitButton(void);
 inline void BUT_IR_PinChangeInt(unsigned char state);
 unsigned char BUT_ReadButton(void);
@@ -4996,7 +4995,7 @@ extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
 # 40 "IR.h"
-extern unsigned char IR_Data;
+extern volatile unsigned char IR_Data;
 
 # 49
 void InitIR(void);
@@ -5034,11 +5033,82 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 40 "RF.h"
-extern unsigned char RF_Data;
+# 119 "RF.h"
+const unsigned int CONF1_ChanE_Sync_Timing[50] = {
+834,
+21,
+80,
+22,
+80,
+21,
+78,
+79,
+26,
+22,
+78,
+78,
+27,
+21,
+79,
+76,
+25,
+23,
+79,
+75,
+27,
+21,
+81,
+75,
+25,
+22,
+81,
+22,
+79,
+22,
+80,
+24,
+79,
+77,
+25,
+76,
+27,
+21,
+80,
+21,
+81,
+21,
+80,
+22,
+80,
+22,
+81,
+22,
+79,
+22
+};
 
-# 49
+# 177
+extern volatile unsigned char RF_Data;
+extern unsigned int RF_DataTiming[120];
+extern unsigned int RF_SavedTiming[120];
+extern unsigned char RF_DataPlace;
+extern unsigned char RFStarted;
+extern unsigned int RF_SyncLow;
+extern unsigned int RF_SyncHigh;
+extern unsigned char RF_Saved;
+extern unsigned char RF_CodeSize;
+
+# 194
 void InitRF(void);
+inline unsigned char RF_ReadReceiver(void);
+inline void RF_DataInt(unsigned char state);
+inline void RF_Receiver(unsigned char state);
+inline void RF_SetBandwidth(unsigned char band);
+inline void RF_SetSquelch(unsigned char state);
+void RF_ResetRFData(void);
+void RF_CalculateNewCode(void);
+void TMR_LoadDefaultCode(void);
+unsigned char RF_CheckCode(void);
 
 # 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
 extern void * memcpy(void *, const void *, size_t);
@@ -5072,25 +5142,179 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 47 "TIMERS.h"
+# 48 "TIMERS.h"
 extern unsigned char Timer2Use;
 extern unsigned int Timer2Post;
 extern unsigned int Timer2PostCount;
 
-# 58
+# 59
 void InitTimers(void);
+inline unsigned char TMR_Timer0Status(void);
+inline void TMR_Timer0(unsigned char state);
 inline void TMR_Timer2(unsigned char state);
+inline void TMR_ResetTimer0(void);
 inline void TMR_ResetTimer2(void);
 inline void TMR_Timer2SetUse(unsigned char use);
+inline void TMR_Timer0Int(unsigned char state);
 inline void TMR_Timer2Int(unsigned char state);
 inline unsigned char TMR_Timer2Free(void);
+void InitTimer0(void);
 void InitTimer2(void);
+void TMR_Timer0Start(void);
 void TMR_Timer2Start(unsigned int time);
 
-# 45 "INTERRUPTS.c"
+# 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 42
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 62 "SYSTEM.h"
+extern unsigned char System_State;
+extern unsigned char System_State_Change;
+
+
+
+
+void SYS_ConfigureOscillator(void);
+
+# 67 "MISC.h"
+void MSC_DelayMS(long US);
+unsigned char MSC_IsCharacter(unsigned char data);
+void MSC_CleanBuffer(unsigned char* data, unsigned int count);
+void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
+double MSC_Round(double input);
+void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
+unsigned char MSC_StringMatch(const unsigned char* This, const unsigned char* That);
+unsigned char MSC_StringMatchCaseInsensitive(const unsigned char* This, const unsigned char* That);
+unsigned char MSC_StringContains(const unsigned char* This, const unsigned char* That);
+unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
+void MSC_LowercaseChar(unsigned char* Input);
+void MSC_LowercaseString(unsigned char* Input);
+void MSC_DelayNOP(unsigned int NOPs);
+unsigned char MSC_ReverseByte(unsigned char This);
+unsigned int MSC_ReverseInt(unsigned int This);
+unsigned long MSC_ReverseLong(unsigned long This);
+unsigned char MSC_GetNumber(unsigned char* This, unsigned char CommaNumber, long* result);
+unsigned char MSC_StringAddEqual(unsigned char* Input);
+unsigned char MSC_GetStringAfterComma(unsigned char* This, unsigned char CommaNumber, unsigned char* result);
+unsigned char MSC_GetNumberUnsigned(unsigned char* This, unsigned char CommaNumber, unsigned long* result);
+unsigned char MSC_IsAlphaNumericString(unsigned char* data);
+unsigned char MSC_IsAlphaNumeric(unsigned char data);
+unsigned char MSC_IsNumber(unsigned char data);
+double MSC_DB_Round(double Input);
+long MSC_Scale(long Input, long InputRangeLow, long InputRangeHigh, long OutputRangeLow, long OutputRangeHigh);
+unsigned int MSC_BCDtoHEX(unsigned int input);
+unsigned int MSC_HEXtoBCD(unsigned int input);
+unsigned char MSC_BufferMatch(unsigned char* This, unsigned char* That, unsigned int size);
+long MSC_LG_Round(long Input,unsigned char places);
+void MSC_TestFunctionPointer(void);
+unsigned int MSC_EndianInt(unsigned int number);
+unsigned int MSC_EndianIntArray(unsigned char* buffer);
+unsigned long MSC_EndianLong(unsigned long number);
+unsigned long MSC_EndianLongArray(unsigned char* buffer);
+void MSC_BlinkLED(unsigned int blink);
+void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+
+# 47 "INTERRUPTS.c"
 void interrupt high_isr(void)
 {
+unsigned int RFtemp = 0;
 
+if(INTCON3bits.INT1IF || INTCON3bits.INT2IF)
+{
+
+if(!TMR_Timer0Status())
+{
+
+TMR_Timer0Start();
+}
+else
+{
+RFtemp = TMR0L;
+RFtemp += (unsigned int)TMR0H << 8;
+if(!RFStarted)
+{
+if(System_State == 8)
+{
+if(RFtemp >= RF_SyncLow && RFtemp <= RF_SyncHigh)
+{
+RFStarted = 1;
+}
+}
+else
+{
+if(RFtemp >= 400 && RFtemp <= 1000)
+{
+RFStarted = 1;
+}
+}
+}
+if(RFStarted)
+{
+if(RF_DataPlace < 120)
+{
+RF_DataTiming[RF_DataPlace] = RFtemp;
+RF_DataPlace++;
+if(RF_DataPlace >= RF_CodeSize)
+{
+RF_Data = RF_CheckCode();
+TMR_Timer0(0);
+RF_ResetRFData();
+}
+}
+else
+{
+
+TMR_Timer0(0);
+RF_ResetRFData();
+}
+}
+TMR_ResetTimer0();
+}
+INTCON3bits.INT1IF = 0;
+INTCON3bits.INT2IF = 0;
+}
+else if(INTCONbits.TMR0IF)
+{
+
+TMR_Timer0(0);
+TMR_ResetTimer0();
+RF_ResetRFData();
+INTCONbits.TMR0IF = 0;
+}
+else
+{
+
+__nop();
+}
 }
 
 
@@ -5103,23 +5327,33 @@ unsigned char button_state;
 if(INTCONbits.RBIF)
 {
 
-# 63
+# 133
 button_state = BUT_ReadButton();
 if(ButtonChange)
 {
+TMR_Timer2(0);
+
 
 if(button_state)
 {
 
-if(ButtonTimer == 1)
+if(System_State == 8)
 {
+Timer2Use = 17;
+TMR_Timer2Start(100);
+}
+}
+else
+{
+if(System_State != 10)
+{
+
 Button_Data = 1;
 }
-ButtonTimer = 0;
-if(TMR_Timer2Free())
+else
 {
-Timer2Use = 15;
-TMR_Timer2Start(5);
+Timer2Use = 18;
+TMR_Timer2Start(70);
 }
 }
 ButtonChange = 0;
@@ -5136,14 +5370,16 @@ else if(PIR1bits.TMR2IF)
 if(Timer2PostCount >= Timer2Post)
 {
 TMR_Timer2(0);
-if(Timer2Use == 15)
+if(Timer2Use == 17)
 {
-ButtonTimer = 1;
-Timer2Use = 0;
+
+System_State = 10;
+System_State_Change = 1;
 }
-else
+else if(Timer2Use == 18)
 {
-__nop();
+System_State = 8;
+System_State_Change = 1;
 }
 }
 else

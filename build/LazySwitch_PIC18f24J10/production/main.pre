@@ -4952,7 +4952,13 @@ extern char * strrichr(const char *, int);
 void Init_App(void);
 void Init_System (void);
 
-# 54 "SYSTEM.h"
+# 62 "SYSTEM.h"
+extern unsigned char System_State;
+extern unsigned char System_State_Change;
+
+
+
+
 void SYS_ConfigureOscillator(void);
 
 # 67 "MISC.h"
@@ -4991,6 +4997,8 @@ unsigned int MSC_EndianIntArray(unsigned char* buffer);
 unsigned long MSC_EndianLong(unsigned long number);
 unsigned long MSC_EndianLongArray(unsigned char* buffer);
 void MSC_BlinkLED(unsigned int blink);
+void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 
 # 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
 extern void * memcpy(void *, const void *, size_t);
@@ -5024,11 +5032,82 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 40 "RF.h"
-extern unsigned char RF_Data;
+# 119 "RF.h"
+const unsigned int CONF1_ChanE_Sync_Timing[50] = {
+834,
+21,
+80,
+22,
+80,
+21,
+78,
+79,
+26,
+22,
+78,
+78,
+27,
+21,
+79,
+76,
+25,
+23,
+79,
+75,
+27,
+21,
+81,
+75,
+25,
+22,
+81,
+22,
+79,
+22,
+80,
+24,
+79,
+77,
+25,
+76,
+27,
+21,
+80,
+21,
+81,
+21,
+80,
+22,
+80,
+22,
+81,
+22,
+79,
+22
+};
 
-# 49
+# 177
+extern volatile unsigned char RF_Data;
+extern unsigned int RF_DataTiming[120];
+extern unsigned int RF_SavedTiming[120];
+extern unsigned char RF_DataPlace;
+extern unsigned char RFStarted;
+extern unsigned int RF_SyncLow;
+extern unsigned int RF_SyncHigh;
+extern unsigned char RF_Saved;
+extern unsigned char RF_CodeSize;
+
+# 194
 void InitRF(void);
+inline unsigned char RF_ReadReceiver(void);
+inline void RF_DataInt(unsigned char state);
+inline void RF_Receiver(unsigned char state);
+inline void RF_SetBandwidth(unsigned char band);
+inline void RF_SetSquelch(unsigned char state);
+void RF_ResetRFData(void);
+void RF_CalculateNewCode(void);
+void TMR_LoadDefaultCode(void);
+unsigned char RF_CheckCode(void);
 
 # 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
 extern void * memcpy(void *, const void *, size_t);
@@ -5063,7 +5142,7 @@ extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
 # 40 "IR.h"
-extern unsigned char IR_Data;
+extern volatile unsigned char IR_Data;
 
 # 49
 void InitIR(void);
@@ -5101,13 +5180,12 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 48 "BUTTON.h"
-extern unsigned char Button_Data;
+# 56 "BUTTON.h"
+extern volatile unsigned char Button_Data;
 extern unsigned char ButtonValue_prev;
 extern unsigned char ButtonChange;
-extern unsigned char ButtonTimer;
 
-# 60
+# 67
 void InitButton(void);
 inline void BUT_IR_PinChangeInt(unsigned char state);
 unsigned char BUT_ReadButton(void);
@@ -5151,7 +5229,7 @@ unsigned char DC_Motor;
 void InitMOTOR(void);
 void MTR_Rotate(void);
 
-# 62 "main.c"
+# 65 "main.c"
 int main (void)
 {
 
@@ -5159,17 +5237,56 @@ SYS_ConfigureOscillator();
 Init_App();
 Init_System();
 
+if(RF_Saved == 92)
+{
+TMR_LoadDefaultCode();
 MSC_BlinkLED(15);
+}
+else
+{
+MSC_BlinkLED(4);
+}
 (LATC &= ~0x10);
 
 while(1)
 {
+if(System_State == 8)
+{
+
+if(System_State_Change)
+{
+
+(LATC &= ~0x10);
+if(RF_Saved == 90)
+{
+MSC_BlinkLED(4);
+RF_Saved = 91;
+}
+System_State_Change = 0;
+}
 if(RF_Data || IR_Data || Button_Data)
 {
+(LATC |= 0x10);
 MTR_Rotate();
 RF_Data = 0;
 IR_Data = 0;
 Button_Data = 0;
+(LATC &= ~0x10);
+}
+}
+else if(System_State == 10)
+{
+
+MSC_DelayMS(25);
+(LATC ^= 0x10);
+if(RF_Data)
+{
+
+RF_Data = 0;
+System_State = 8;
+System_State_Change = 1;
+}
+
 }
 }
 }

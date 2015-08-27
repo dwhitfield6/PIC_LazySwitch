@@ -4921,12 +4921,11 @@ void Init_App(void);
 void Init_System (void);
 
 # 41 "BUTTON.c"
-unsigned char Button_Data = 0;
+volatile unsigned char Button_Data = 0;
 unsigned char ButtonValue_prev = 1;
 unsigned char ButtonChange = 0;
-unsigned char ButtonTimer = 1;
 
-# 55
+# 54
 inline void BUT_IR_PinChangeInt(unsigned char state)
 {
 if(state)
@@ -4941,7 +4940,7 @@ INTCONbits.RBIE = 0;
 }
 }
 
-# 78
+# 77
 void InitButton(void)
 {
 
@@ -4949,7 +4948,7 @@ INTCON2bits.RBIP = 0;
 BUT_IR_PinChangeInt(1);
 }
 
-# 91
+# 90
 unsigned char BUT_ReadButton(void)
 {
 unsigned char value = PORTB;

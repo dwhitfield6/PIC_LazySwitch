@@ -38,10 +38,9 @@
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
 /******************************************************************************/
-unsigned char Button_Data = FALSE;
+volatile unsigned char Button_Data = FALSE;
 unsigned char ButtonValue_prev = TRUE;
 unsigned char ButtonChange = FALSE;
-unsigned char ButtonTimer = FINISHED;
 
 /******************************************************************************/
 /* Inline Functions
