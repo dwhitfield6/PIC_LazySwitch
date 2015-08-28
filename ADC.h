@@ -31,13 +31,43 @@
 #endif
 
 /******************************************************************************/
+/* ADC_SAMPLERATE
+ *
+ * This defines the number of loops around main() to take an ADC reading.
+/******************************************************************************/
+#define ADC_SAMPLERATE 10
+
+/******************************************************************************/
+/* ADCRES
+ *
+ * This defines the number of bits of resolution of the ADC.
+/******************************************************************************/
+#define ADC_RES 10
+
+/******************************************************************************/
+/* ADC_REF
+ *
+ * This defines the reference voltage.
+/******************************************************************************/
+#define ADC_REFFERENCE 3.3
+
+/******************************************************************************/
+/* ADC Sources
+ *
+ * This defines the analog sources to read from.
+/******************************************************************************/
+#define VIN 10
+#define RSSI 11
+
+/******************************************************************************/
 /* Defines                                                                    */
 /******************************************************************************/
 
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
 /******************************************************************************/
-extern volatile unsigned char IR_Data;
+extern unsigned char ADC_CurrentSource;
+extern unsigned int ADC_SampleCount;
 
 /******************************************************************************/
 /* Macro Functions                                                            */
@@ -47,5 +77,11 @@ extern volatile unsigned char IR_Data;
 /* Function prototypes                                                        */
 /******************************************************************************/
 void InitADC(void);
+inline void ADC_Module(unsigned char state);
+inline void ADC_Start(void);
+inline unsigned char ADC_ConversionStatus(void);
+inline void ADC_ConversionInt(unsigned char state);
+void ADC_CalculateVoltage(void);
+void ADC_ChangeChannel(void);
 
 #endif	/* ADC_H */

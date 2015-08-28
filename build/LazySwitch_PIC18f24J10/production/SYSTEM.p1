@@ -1,7 +1,23 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"42 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
-[v ___nop `(v ~T0 @X0 0 ef ]
-[p i ___nop ]
+"1619 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
+[s S78 :6 `uc 1 :1 `uc 1 ]
+[n S78 . . PLLEN ]
+"1618
+[u S77 `S78 1 ]
+[n S77 . . ]
+"1624
+[v _OSCTUNEbits `VS77 ~T0 @X0 0 e@3995 ]
+"5838
+[s S366 :2 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S366 . SCS . OSTS . IDLEN ]
+"5845
+[s S367 :1 `uc 1 :1 `uc 1 ]
+[n S367 . SCS0 SCS1 ]
+"5837
+[u S365 `S366 1 `S367 1 ]
+[n S365 . . . ]
+"5850
+[v _OSCCONbits `VS365 ~T0 @X0 0 e@4051 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f24j10.h: 49: extern volatile unsigned char PORTA @ 0xF80;
@@ -3765,10 +3781,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SYSTEM.c: 55: {
 [e :U _SYS_ConfigureOscillator ]
 [f ]
-[; ;SYSTEM.c: 57: __nop();
+[; ;SYSTEM.c: 57: OSCTUNEbits.PLLEN = 1;
 "57
-[e ( ___nop ..  ]
-[; ;SYSTEM.c: 58: }
+[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
+[; ;SYSTEM.c: 58: while(!OSCCONbits.OSTS);
 "58
+[e $U 431  ]
+[e :U 432 ]
+[e :U 431 ]
+[e $ ! != -> . . _OSCCONbits 0 2 `i -> -> -> 0 `i `Vuc `i 432  ]
+[e :U 433 ]
+[; ;SYSTEM.c: 59: }
+"59
 [e :UE 430 ]
 }

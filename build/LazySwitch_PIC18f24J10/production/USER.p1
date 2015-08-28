@@ -58,24 +58,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S65 . . . ]
 "1203
 [v _TRISBbits `VS65 ~T0 @X0 0 e@3987 ]
-"59 TIMERS.h
+"68 TIMERS.h
 [v _InitTimers `(v ~T0 @X0 0 ef ]
-"194 RF.h
+"193 RF.h
 [v _InitRF `(v ~T0 @X0 0 ef ]
-"67 BUTTON.h
+"75 BUTTON.h
 [v _InitButton `(v ~T0 @X0 0 ef ]
-"49 IR.h
+"189 IR.h
 [v _InitIR `(v ~T0 @X0 0 ef ]
-"44 LDO.h
+"79 LDO.h
 [v _InitLDO `(v ~T0 @X0 0 ef ]
 "65 MOTOR.h
 [v _InitMOTOR `(v ~T0 @X0 0 ef ]
 "48 FLASH.h
 [v _InitFlash `(v ~T0 @X0 0 ef ]
-"49 ADC.h
+"79 ADC.h
 [v _InitADC `(v ~T0 @X0 0 ef ]
-"69 BUTTON.h
+"77 BUTTON.h
 [v _BUT_ReadButton `(uc ~T0 @X0 0 ef ]
+"190 IR.h
+[v _IR_ReadReceiver `(uc ~T0 @X0 0 ef ]
 "6373 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
 [s S385 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S385 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
@@ -3862,12 +3864,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;BUTTON.h: 56: extern volatile unsigned char Button_Data;
-[; ;BUTTON.h: 57: extern unsigned char ButtonValue_prev;
-[; ;BUTTON.h: 58: extern unsigned char ButtonChange;
-[; ;BUTTON.h: 67: void InitButton(void);
-[; ;BUTTON.h: 68: inline void BUT_IR_PinChangeInt(unsigned char state);
-[; ;BUTTON.h: 69: unsigned char BUT_ReadButton(void);
+[; ;BUTTON.h: 64: extern volatile unsigned char Button_Data;
+[; ;BUTTON.h: 65: extern unsigned char ButtonValue_prev;
+[; ;BUTTON.h: 66: extern unsigned char ButtonChange;
+[; ;BUTTON.h: 75: void InitButton(void);
+[; ;BUTTON.h: 76: inline void BUT_IR_PinChangeInt(unsigned char state);
+[; ;BUTTON.h: 77: unsigned char BUT_ReadButton(void);
 [; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
 [; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
 [; ;string.h: 24: extern void * memset(void *, int, size_t);
@@ -3921,9 +3923,233 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;IR.h: 40: extern volatile unsigned char IR_Data;
-[; ;IR.h: 49: void InitIR(void);
-[; ;IR.h: 50: unsigned char IR_ReadReceiver(void);
+"97 IR.h
+[v _PIONEER_PLUS_Timing `Cui ~T0 @X0 -> 67 `i e ]
+[i _PIONEER_PLUS_Timing
+:U ..
+"98
+-> -> 8600 `i `ui
+"99
+-> -> 4200 `i `ui
+"100
+-> -> 450 `i `ui
+"101
+-> -> 1200 `i `ui
+"102
+-> -> 450 `i `ui
+"103
+-> -> 450 `i `ui
+"104
+-> -> 450 `i `ui
+"105
+-> -> 1200 `i `ui
+"106
+-> -> 450 `i `ui
+"107
+-> -> 1200 `i `ui
+"108
+-> -> 450 `i `ui
+"109
+-> -> 450 `i `ui
+"110
+-> -> 450 `i `ui
+"111
+-> -> 1200 `i `ui
+"112
+-> -> 450 `i `ui
+"113
+-> -> 450 `i `ui
+"114
+-> -> 450 `i `ui
+"115
+-> -> 1200 `i `ui
+"116
+-> -> 450 `i `ui
+"117
+-> -> 450 `i `ui
+"118
+-> -> 450 `i `ui
+"119
+-> -> 1200 `i `ui
+"120
+-> -> 450 `i `ui
+"121
+-> -> 450 `i `ui
+"122
+-> -> 450 `i `ui
+"123
+-> -> 450 `i `ui
+"124
+-> -> 450 `i `ui
+"125
+-> -> 1200 `i `ui
+"126
+-> -> 450 `i `ui
+"127
+-> -> 450 `i `ui
+"128
+-> -> 450 `i `ui
+"129
+-> -> 1200 `i `ui
+"130
+-> -> 450 `i `ui
+"131
+-> -> 450 `i `ui
+"132
+-> -> 450 `i `ui
+"133
+-> -> 450 `i `ui
+"134
+-> -> 450 `i `ui
+"135
+-> -> 1200 `i `ui
+"136
+-> -> 450 `i `ui
+"137
+-> -> 450 `i `ui
+"138
+-> -> 450 `i `ui
+"139
+-> -> 1200 `i `ui
+"140
+-> -> 450 `i `ui
+"141
+-> -> 450 `i `ui
+"142
+-> -> 450 `i `ui
+"143
+-> -> 450 `i `ui
+"144
+-> -> 450 `i `ui
+"145
+-> -> 450 `i `ui
+"146
+-> -> 450 `i `ui
+"147
+-> -> 450 `i `ui
+"148
+-> -> 450 `i `ui
+"149
+-> -> 1200 `i `ui
+"150
+-> -> 450 `i `ui
+"151
+-> -> 450 `i `ui
+"152
+-> -> 450 `i `ui
+"153
+-> -> 1200 `i `ui
+"154
+-> -> 450 `i `ui
+"155
+-> -> 450 `i `ui
+"156
+-> -> 450 `i `ui
+"157
+-> -> 1200 `i `ui
+"158
+-> -> 450 `i `ui
+"159
+-> -> 1200 `i `ui
+"160
+-> -> 450 `i `ui
+"161
+-> -> 1200 `i `ui
+"162
+-> -> 450 `i `ui
+"163
+-> -> 1200 `i `ui
+"165
+-> -> 450 `i `ui
+..
+]
+[; ;IR.h: 97: const unsigned int PIONEER_PLUS_Timing[67] = {
+[; ;IR.h: 98: 8600,
+[; ;IR.h: 99: 4200,
+[; ;IR.h: 100: 450,
+[; ;IR.h: 101: 1200,
+[; ;IR.h: 102: 450,
+[; ;IR.h: 103: 450,
+[; ;IR.h: 104: 450,
+[; ;IR.h: 105: 1200,
+[; ;IR.h: 106: 450,
+[; ;IR.h: 107: 1200,
+[; ;IR.h: 108: 450,
+[; ;IR.h: 109: 450,
+[; ;IR.h: 110: 450,
+[; ;IR.h: 111: 1200,
+[; ;IR.h: 112: 450,
+[; ;IR.h: 113: 450,
+[; ;IR.h: 114: 450,
+[; ;IR.h: 115: 1200,
+[; ;IR.h: 116: 450,
+[; ;IR.h: 117: 450,
+[; ;IR.h: 118: 450,
+[; ;IR.h: 119: 1200,
+[; ;IR.h: 120: 450,
+[; ;IR.h: 121: 450,
+[; ;IR.h: 122: 450,
+[; ;IR.h: 123: 450,
+[; ;IR.h: 124: 450,
+[; ;IR.h: 125: 1200,
+[; ;IR.h: 126: 450,
+[; ;IR.h: 127: 450,
+[; ;IR.h: 128: 450,
+[; ;IR.h: 129: 1200,
+[; ;IR.h: 130: 450,
+[; ;IR.h: 131: 450,
+[; ;IR.h: 132: 450,
+[; ;IR.h: 133: 450,
+[; ;IR.h: 134: 450,
+[; ;IR.h: 135: 1200,
+[; ;IR.h: 136: 450,
+[; ;IR.h: 137: 450,
+[; ;IR.h: 138: 450,
+[; ;IR.h: 139: 1200,
+[; ;IR.h: 140: 450,
+[; ;IR.h: 141: 450,
+[; ;IR.h: 142: 450,
+[; ;IR.h: 143: 450,
+[; ;IR.h: 144: 450,
+[; ;IR.h: 145: 450,
+[; ;IR.h: 146: 450,
+[; ;IR.h: 147: 450,
+[; ;IR.h: 148: 450,
+[; ;IR.h: 149: 1200,
+[; ;IR.h: 150: 450,
+[; ;IR.h: 151: 450,
+[; ;IR.h: 152: 450,
+[; ;IR.h: 153: 1200,
+[; ;IR.h: 154: 450,
+[; ;IR.h: 155: 450,
+[; ;IR.h: 156: 450,
+[; ;IR.h: 157: 1200,
+[; ;IR.h: 158: 450,
+[; ;IR.h: 159: 1200,
+[; ;IR.h: 160: 450,
+[; ;IR.h: 161: 1200,
+[; ;IR.h: 162: 450,
+[; ;IR.h: 163: 1200,
+[; ;IR.h: 164: 450
+[; ;IR.h: 165: };
+[; ;IR.h: 170: extern volatile unsigned char IR_Data;
+[; ;IR.h: 171: extern unsigned int IR_DataTiming[80];
+[; ;IR.h: 172: extern unsigned int IR_SavedTiming[80];
+[; ;IR.h: 173: extern unsigned char IR_DataPlace;
+[; ;IR.h: 174: extern unsigned char IRStarted;
+[; ;IR.h: 175: extern unsigned int IR_SyncLow;
+[; ;IR.h: 176: extern unsigned int IR_SyncHigh;
+[; ;IR.h: 177: extern unsigned char IR_Saved;
+[; ;IR.h: 178: extern unsigned char IR_CodeSize;
+[; ;IR.h: 179: extern unsigned char IRValue_prev;
+[; ;IR.h: 180: extern unsigned char IRChange;
+[; ;IR.h: 189: void InitIR(void);
+[; ;IR.h: 190: unsigned char IR_ReadReceiver(void);
+[; ;IR.h: 191: void IR_ResetData(void);
+[; ;IR.h: 192: void IR_CalculateNewCode(void);
+[; ;IR.h: 193: void IR_LoadDefaultCode(void);
+[; ;IR.h: 194: unsigned char IR_CheckCode(void);
+[; ;IR.h: 195: void IR_CleanBuffer(void);
 [; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
 [; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
 [; ;string.h: 24: extern void * memset(void *, int, size_t);
@@ -3950,7 +4176,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;LDO.h: 44: void InitLDO(void);
+[; ;LDO.h: 70: extern double Rail_VIN;
+[; ;LDO.h: 79: void InitLDO(void);
 [; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
 [; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
 [; ;string.h: 24: extern void * memset(void *, int, size_t);
@@ -3980,43 +4207,43 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SYSTEM.h: 62: extern unsigned char System_State;
 [; ;SYSTEM.h: 63: extern unsigned char System_State_Change;
 [; ;SYSTEM.h: 68: void SYS_ConfigureOscillator(void);
-[; ;MISC.h: 67: void MSC_DelayMS(long US);
-[; ;MISC.h: 68: unsigned char MSC_IsCharacter(unsigned char data);
-[; ;MISC.h: 69: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
-[; ;MISC.h: 70: void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
-[; ;MISC.h: 71: double MSC_Round(double input);
-[; ;MISC.h: 72: void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
-[; ;MISC.h: 73: unsigned char MSC_StringMatch(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 74: unsigned char MSC_StringMatchCaseInsensitive(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 75: unsigned char MSC_StringContains(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 76: unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 77: void MSC_LowercaseChar(unsigned char* Input);
-[; ;MISC.h: 78: void MSC_LowercaseString(unsigned char* Input);
-[; ;MISC.h: 79: void MSC_DelayNOP(unsigned int NOPs);
-[; ;MISC.h: 80: unsigned char MSC_ReverseByte(unsigned char This);
-[; ;MISC.h: 81: unsigned int MSC_ReverseInt(unsigned int This);
-[; ;MISC.h: 82: unsigned long MSC_ReverseLong(unsigned long This);
-[; ;MISC.h: 83: unsigned char MSC_GetNumber(unsigned char* This, unsigned char CommaNumber, long* result);
-[; ;MISC.h: 84: unsigned char MSC_StringAddEqual(unsigned char* Input);
-[; ;MISC.h: 85: unsigned char MSC_GetStringAfterComma(unsigned char* This, unsigned char CommaNumber, unsigned char* result);
-[; ;MISC.h: 86: unsigned char MSC_GetNumberUnsigned(unsigned char* This, unsigned char CommaNumber, unsigned long* result);
-[; ;MISC.h: 87: unsigned char MSC_IsAlphaNumericString(unsigned char* data);
-[; ;MISC.h: 88: unsigned char MSC_IsAlphaNumeric(unsigned char data);
-[; ;MISC.h: 89: unsigned char MSC_IsNumber(unsigned char data);
-[; ;MISC.h: 90: double MSC_DB_Round(double Input);
-[; ;MISC.h: 91: long MSC_Scale(long Input, long InputRangeLow, long InputRangeHigh, long OutputRangeLow, long OutputRangeHigh);
-[; ;MISC.h: 92: unsigned int MSC_BCDtoHEX(unsigned int input);
-[; ;MISC.h: 93: unsigned int MSC_HEXtoBCD(unsigned int input);
-[; ;MISC.h: 94: unsigned char MSC_BufferMatch(unsigned char* This, unsigned char* That, unsigned int size);
-[; ;MISC.h: 95: long MSC_LG_Round(long Input,unsigned char places);
-[; ;MISC.h: 96: void MSC_TestFunctionPointer(void);
-[; ;MISC.h: 97: unsigned int MSC_EndianInt(unsigned int number);
-[; ;MISC.h: 98: unsigned int MSC_EndianIntArray(unsigned char* buffer);
-[; ;MISC.h: 99: unsigned long MSC_EndianLong(unsigned long number);
-[; ;MISC.h: 100: unsigned long MSC_EndianLongArray(unsigned char* buffer);
-[; ;MISC.h: 101: void MSC_BlinkLED(unsigned int blink);
-[; ;MISC.h: 102: void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
-[; ;MISC.h: 103: void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 85: void MSC_DelayMS(long US);
+[; ;MISC.h: 86: unsigned char MSC_IsCharacter(unsigned char data);
+[; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
+[; ;MISC.h: 88: void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
+[; ;MISC.h: 89: double MSC_Round(double input);
+[; ;MISC.h: 90: void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 91: unsigned char MSC_StringMatch(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 92: unsigned char MSC_StringMatchCaseInsensitive(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 93: unsigned char MSC_StringContains(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 94: unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 95: void MSC_LowercaseChar(unsigned char* Input);
+[; ;MISC.h: 96: void MSC_LowercaseString(unsigned char* Input);
+[; ;MISC.h: 97: void MSC_DelayNOP(unsigned int NOPs);
+[; ;MISC.h: 98: unsigned char MSC_ReverseByte(unsigned char This);
+[; ;MISC.h: 99: unsigned int MSC_ReverseInt(unsigned int This);
+[; ;MISC.h: 100: unsigned long MSC_ReverseLong(unsigned long This);
+[; ;MISC.h: 101: unsigned char MSC_GetNumber(unsigned char* This, unsigned char CommaNumber, long* result);
+[; ;MISC.h: 102: unsigned char MSC_StringAddEqual(unsigned char* Input);
+[; ;MISC.h: 103: unsigned char MSC_GetStringAfterComma(unsigned char* This, unsigned char CommaNumber, unsigned char* result);
+[; ;MISC.h: 104: unsigned char MSC_GetNumberUnsigned(unsigned char* This, unsigned char CommaNumber, unsigned long* result);
+[; ;MISC.h: 105: unsigned char MSC_IsAlphaNumericString(unsigned char* data);
+[; ;MISC.h: 106: unsigned char MSC_IsAlphaNumeric(unsigned char data);
+[; ;MISC.h: 107: unsigned char MSC_IsNumber(unsigned char data);
+[; ;MISC.h: 108: double MSC_DB_Round(double Input);
+[; ;MISC.h: 109: long MSC_Scale(long Input, long InputRangeLow, long InputRangeHigh, long OutputRangeLow, long OutputRangeHigh);
+[; ;MISC.h: 110: unsigned int MSC_BCDtoHEX(unsigned int input);
+[; ;MISC.h: 111: unsigned int MSC_HEXtoBCD(unsigned int input);
+[; ;MISC.h: 112: unsigned char MSC_BufferMatch(unsigned char* This, unsigned char* That, unsigned int size);
+[; ;MISC.h: 113: long MSC_LG_Round(long Input,unsigned char places);
+[; ;MISC.h: 114: void MSC_TestFunctionPointer(void);
+[; ;MISC.h: 115: unsigned int MSC_EndianInt(unsigned int number);
+[; ;MISC.h: 116: unsigned int MSC_EndianIntArray(unsigned char* buffer);
+[; ;MISC.h: 117: unsigned long MSC_EndianLong(unsigned long number);
+[; ;MISC.h: 118: unsigned long MSC_EndianLongArray(unsigned char* buffer);
+[; ;MISC.h: 119: void MSC_BlinkLED(unsigned int blink);
+[; ;MISC.h: 120: void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 121: void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 [; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
 [; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
 [; ;string.h: 24: extern void * memset(void *, int, size_t);
@@ -4075,8 +4302,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
 "119 RF.h
-[v _CONF1_ChanE_Sync_Timing `Cui ~T0 @X0 -> 50 `i e ]
-[i _CONF1_ChanE_Sync_Timing
+[v _CONF1_ChanE_Timing `Cui ~T0 @X0 -> 50 `i e ]
+[i _CONF1_ChanE_Timing
 :U ..
 "120
 -> -> 834 `i `ui
@@ -4180,7 +4407,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 22 `i `ui
 ..
 ]
-[; ;RF.h: 119: const unsigned int CONF1_ChanE_Sync_Timing[50] = {
+[; ;RF.h: 119: const unsigned int CONF1_ChanE_Timing[50] = {
 [; ;RF.h: 120: 834,
 [; ;RF.h: 121: 21,
 [; ;RF.h: 122: 80,
@@ -4232,25 +4459,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RF.h: 168: 79,
 [; ;RF.h: 169: 22
 [; ;RF.h: 170: };
-[; ;RF.h: 177: extern volatile unsigned char RF_Data;
-[; ;RF.h: 178: extern unsigned int RF_DataTiming[120];
-[; ;RF.h: 179: extern unsigned int RF_SavedTiming[120];
-[; ;RF.h: 180: extern unsigned char RF_DataPlace;
-[; ;RF.h: 181: extern unsigned char RFStarted;
-[; ;RF.h: 182: extern unsigned int RF_SyncLow;
-[; ;RF.h: 183: extern unsigned int RF_SyncHigh;
-[; ;RF.h: 184: extern unsigned char RF_Saved;
-[; ;RF.h: 185: extern unsigned char RF_CodeSize;
-[; ;RF.h: 194: void InitRF(void);
-[; ;RF.h: 195: inline unsigned char RF_ReadReceiver(void);
-[; ;RF.h: 196: inline void RF_DataInt(unsigned char state);
-[; ;RF.h: 197: inline void RF_Receiver(unsigned char state);
-[; ;RF.h: 198: inline void RF_SetBandwidth(unsigned char band);
-[; ;RF.h: 199: inline void RF_SetSquelch(unsigned char state);
-[; ;RF.h: 200: void RF_ResetRFData(void);
-[; ;RF.h: 201: void RF_CalculateNewCode(void);
-[; ;RF.h: 202: void TMR_LoadDefaultCode(void);
-[; ;RF.h: 203: unsigned char RF_CheckCode(void);
+[; ;RF.h: 175: extern volatile unsigned char RF_Data;
+[; ;RF.h: 176: extern unsigned int RF_DataTiming[60];
+[; ;RF.h: 177: extern unsigned int RF_SavedTiming[60];
+[; ;RF.h: 178: extern unsigned char RF_DataPlace;
+[; ;RF.h: 179: extern unsigned char RFStarted;
+[; ;RF.h: 180: extern unsigned int RF_SyncLow;
+[; ;RF.h: 181: extern unsigned int RF_SyncHigh;
+[; ;RF.h: 182: extern unsigned char RF_Saved;
+[; ;RF.h: 183: extern unsigned char RF_CodeSize;
+[; ;RF.h: 184: extern double Rail_RSSI;
+[; ;RF.h: 193: void InitRF(void);
+[; ;RF.h: 194: inline unsigned char RF_ReadReceiver(void);
+[; ;RF.h: 195: inline void RF_DataInt(unsigned char state);
+[; ;RF.h: 196: inline void RF_Receiver(unsigned char state);
+[; ;RF.h: 197: inline void RF_SetBandwidth(unsigned char band);
+[; ;RF.h: 198: inline void RF_SetSquelch(unsigned char state);
+[; ;RF.h: 199: void RF_ResetData(void);
+[; ;RF.h: 200: void RF_CalculateNewCode(void);
+[; ;RF.h: 201: void RF_LoadDefaultCode(void);
+[; ;RF.h: 202: unsigned char RF_CheckCode(void);
+[; ;RF.h: 203: void RF_Disable(void);
+[; ;RF.h: 204: void RF_Enable(void);
 [; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
 [; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
 [; ;string.h: 24: extern void * memset(void *, int, size_t);
@@ -4277,23 +4507,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;TIMERS.h: 48: extern unsigned char Timer2Use;
-[; ;TIMERS.h: 49: extern unsigned int Timer2Post;
-[; ;TIMERS.h: 50: extern unsigned int Timer2PostCount;
-[; ;TIMERS.h: 59: void InitTimers(void);
-[; ;TIMERS.h: 60: inline unsigned char TMR_Timer0Status(void);
-[; ;TIMERS.h: 61: inline void TMR_Timer0(unsigned char state);
-[; ;TIMERS.h: 62: inline void TMR_Timer2(unsigned char state);
-[; ;TIMERS.h: 63: inline void TMR_ResetTimer0(void);
-[; ;TIMERS.h: 64: inline void TMR_ResetTimer2(void);
-[; ;TIMERS.h: 65: inline void TMR_Timer2SetUse(unsigned char use);
-[; ;TIMERS.h: 66: inline void TMR_Timer0Int(unsigned char state);
-[; ;TIMERS.h: 67: inline void TMR_Timer2Int(unsigned char state);
-[; ;TIMERS.h: 68: inline unsigned char TMR_Timer2Free(void);
-[; ;TIMERS.h: 69: void InitTimer0(void);
-[; ;TIMERS.h: 70: void InitTimer2(void);
-[; ;TIMERS.h: 71: void TMR_Timer0Start(void);
-[; ;TIMERS.h: 72: void TMR_Timer2Start(unsigned int time);
+[; ;TIMERS.h: 57: extern unsigned char Timer2Use;
+[; ;TIMERS.h: 58: extern unsigned int Timer2Post;
+[; ;TIMERS.h: 59: extern unsigned int Timer2PostCount;
+[; ;TIMERS.h: 68: void InitTimers(void);
+[; ;TIMERS.h: 69: inline unsigned char TMR_Timer0Status(void);
+[; ;TIMERS.h: 70: inline unsigned char TMR_Timer1Status(void);
+[; ;TIMERS.h: 71: inline void TMR_Timer0(unsigned char state);
+[; ;TIMERS.h: 72: inline void TMR_Timer1(unsigned char state);
+[; ;TIMERS.h: 73: inline void TMR_Timer2(unsigned char state);
+[; ;TIMERS.h: 74: inline void TMR_ResetTimer0(void);
+[; ;TIMERS.h: 75: inline void TMR_ResetTimer1(void);
+[; ;TIMERS.h: 76: inline void TMR_ResetTimer2(void);
+[; ;TIMERS.h: 77: inline void TMR_Timer2SetUse(unsigned char use);
+[; ;TIMERS.h: 78: inline void TMR_Timer0Int(unsigned char state);
+[; ;TIMERS.h: 79: inline void TMR_Timer1Int(unsigned char state);
+[; ;TIMERS.h: 80: inline void TMR_Timer2Int(unsigned char state);
+[; ;TIMERS.h: 81: inline unsigned char TMR_Timer2Free(void);
+[; ;TIMERS.h: 82: void InitTimer0(void);
+[; ;TIMERS.h: 83: void InitTimer1(void);
+[; ;TIMERS.h: 84: void InitTimer2(void);
+[; ;TIMERS.h: 85: void TMR_Timer0Start(void);
+[; ;TIMERS.h: 86: void TMR_Timer1Start(void);
+[; ;TIMERS.h: 87: void TMR_Timer2Start(unsigned int time);
+[; ;TIMERS.h: 88: void TMR_Timer1Function(unsigned char mode);
 [; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
 [; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
 [; ;string.h: 24: extern void * memset(void *, int, size_t);
@@ -4320,8 +4557,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;ADC.h: 40: extern volatile unsigned char IR_Data;
-[; ;ADC.h: 49: void InitADC(void);
+[; ;ADC.h: 69: extern unsigned char ADC_CurrentSource;
+[; ;ADC.h: 70: extern unsigned int ADC_SampleCount;
+[; ;ADC.h: 79: void InitADC(void);
+[; ;ADC.h: 80: inline void ADC_Module(unsigned char state);
+[; ;ADC.h: 81: inline void ADC_Start(void);
+[; ;ADC.h: 82: inline unsigned char ADC_ConversionStatus(void);
+[; ;ADC.h: 83: inline void ADC_ConversionInt(unsigned char state);
+[; ;ADC.h: 84: void ADC_CalculateVoltage(void);
+[; ;ADC.h: 85: void ADC_ChangeChannel(void);
 "52 USER.c
 [v _PCB_Version `Cuc ~T0 @X0 -> 0 `x e ]
 [i _PCB_Version
@@ -4391,9 +4635,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;USER.c: 110: TRISCbits.TRISC3 = 1;
 "110
 [e = . . _TRISCbits 0 3 -> -> 1 `i `uc ]
-[; ;USER.c: 113: TRISCbits.TRISC5 = 0;
+[; ;USER.c: 113: TRISCbits.TRISC5 = 1;
 "113
-[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
+[e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
 [; ;USER.c: 117: TRISCbits.TRISC4 = 0;
 "117
 [e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
@@ -4454,19 +4698,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;USER.c: 164: BUT_ReadButton();
 "164
 [e ( _BUT_ReadButton ..  ]
-[; ;USER.c: 165: INTCONbits.RBIF = 0;
+[; ;USER.c: 165: IR_ReadReceiver();
 "165
+[e ( _IR_ReadReceiver ..  ]
+[; ;USER.c: 166: INTCONbits.RBIF = 0;
+"166
 [e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-[; ;USER.c: 168: RCONbits.IPEN = 1;
-"168
-[e = . . _RCONbits 5 6 -> -> 1 `i `uc ]
-[; ;USER.c: 169: INTCONbits.GIE = 1;
+[; ;USER.c: 169: RCONbits.IPEN = 1;
 "169
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;USER.c: 170: INTCONbits.PEIE = 1;
+[e = . . _RCONbits 5 6 -> -> 1 `i `uc ]
+[; ;USER.c: 170: INTCONbits.GIE = 1;
 "170
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;USER.c: 171: INTCONbits.PEIE = 1;
+"171
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;USER.c: 172: }
-"172
+[; ;USER.c: 173: }
+"173
 [e :UE 431 ]
 }

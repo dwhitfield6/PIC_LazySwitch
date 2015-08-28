@@ -6,6 +6,11 @@
  * Date         Revision    Comments
  * MM/DD/YY
  * --------     ---------   ----------------------------------------------------
+ * 08/27/15     2.0a_DW0a   Added rail voltage monitoring.
+ *                          Added IR functionality and IR default code.
+ *                          Increased clock from 8MHz oto 32MHz. (This was a
+ *                            bug in the previous versions as the system was
+ *                            was always supposed to be at 32MHz.)
  * 08/27/15     2.0a        Version change only. Tagged version!
  * 08/26/15     2.0_DW0a    Initial project make.
  *                          Derived from project 'Catalyst_RPI_daughter'.
@@ -50,6 +55,8 @@
 #include "IR.h"
 #include "BUTTON.h"
 #include "MOTOR.h"
+#include "ADC.h"
+#include "LDO.h"
 
 /******************************************************************************/
 /* Defines                                                                    */
@@ -70,10 +77,24 @@ int main (void)
     Init_App();
     Init_System();
 
+    /* load RF code */
     if(RF_Saved == EMPTY)
     {
-        TMR_LoadDefaultCode();
-        MSC_BlinkLED(15);
+        RF_LoadDefaultCode();
+        MSC_BlinkLED(10);
+    }
+    else
+    {
+        MSC_BlinkLED(4);
+    }
+    MSC_RedLEDOFF();    
+    MSC_DelayMS(1000);
+    
+    /* load IR code */
+    if(IR_Saved == EMPTY)
+    {
+        IR_LoadDefaultCode();
+        MSC_BlinkLED(10);
     }
     else
     {
@@ -95,6 +116,11 @@ int main (void)
                     MSC_BlinkLED(4);
                     RF_Saved = OLD;
                 }
+                if(IR_Saved == NEW)
+                {
+                    MSC_BlinkLED(4);
+                    IR_Saved = OLD;
+                }
                 System_State_Change = FALSE;
             }
             if(RF_Data || IR_Data || Button_Data)
@@ -106,11 +132,16 @@ int main (void)
                 Button_Data = FALSE;
                 MSC_RedLEDOFF();
             }
+            if(Rail_VIN < VIN_LOW_LIMIT || Rail_VIN > VIN_HIGH_LIMIT )
+            {
+                MSC_DelayMS(BLINK_VERYSLOW);
+                MSC_RedLEDTOGGLE();
+            }
         }
         else if(System_State == PROGRAM)
         {
             /* The system is in program mode */
-            MSC_DelayMS(25);
+            MSC_DelayMS(BLINK_FAST);
             MSC_RedLEDTOGGLE();
             if(RF_Data)
             {
@@ -119,8 +150,21 @@ int main (void)
                 System_State = RUN;
                 System_State_Change = TRUE;
             }
-                       
+            if(IR_Data)
+            {
+                /* IR code needs to be saved */
+                IR_Data = FALSE;
+                System_State = RUN;
+                System_State_Change = TRUE;
+            }                       
         }   
+        
+        ADC_SampleCount++;
+        if(ADC_SampleCount > ADC_SAMPLERATE)
+        {
+            ADC_Start();
+            ADC_SampleCount = 0;
+        }
     }
 }
 /*-----------------------------------------------------------------------------/

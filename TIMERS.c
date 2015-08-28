@@ -64,6 +64,22 @@ inline unsigned char TMR_Timer0Status(void)
 }
 
 /******************************************************************************/
+/* TMR_Timer1Status
+ *
+ * The function returns the current status of timer 1. 
+ *   (whether it is on or off).
+/******************************************************************************/
+inline unsigned char TMR_Timer1Status(void)
+{
+    if(T1CONbits.TMR1ON)
+    {
+        /* Timer 1 is on */
+        return 1;       
+    }
+    return 0;
+}
+
+/******************************************************************************/
 /* TMR_Timer0
  *
  * The function turns timer 0 on or off.
@@ -79,6 +95,25 @@ inline void TMR_Timer0(unsigned char state)
     {
         /* Turn off timer 0 */
         T0CONbits.TMR0ON = 0;
+    }
+}
+
+/******************************************************************************/
+/* TMR_Timer1
+ *
+ * The function turns timer 1 on or off.
+/******************************************************************************/
+inline void TMR_Timer1(unsigned char state)
+{
+    if(state)
+    {
+        /* Turn on timer 1 */
+        T1CONbits.TMR1ON = 1;        
+    }
+    else
+    {
+        /* Turn off timer 1 */
+        T1CONbits.TMR1ON = 0;
     }
 }
 
@@ -116,6 +151,24 @@ inline void TMR_ResetTimer0(void)
     if(TimerOn)
     {
         TMR_Timer0(ON);
+    }
+}
+
+/******************************************************************************/
+/* TMR_ResetTimer1
+ *
+ * The function resets timer 1.
+/******************************************************************************/
+inline void TMR_ResetTimer1(void)
+{
+    unsigned char TimerOn = T1CONbits.TMR1ON;
+    
+    TMR_Timer1(OFF);
+    TMR1H = 0;
+    TMR1L = 2;
+    if(TimerOn)
+    {
+        TMR_Timer1(ON);
     }
 }
 
@@ -167,6 +220,25 @@ inline void TMR_Timer0Int(unsigned char state)
 }
 
 /******************************************************************************/
+/* TMR_Timer1Int
+ *
+ * The function controls the timer 1 interrupt.
+/******************************************************************************/
+inline void TMR_Timer1Int(unsigned char state)
+{
+    if(state)
+    {
+        /* Enable timer 1 interrupt */
+        PIE1bits.TMR1IE = 1;        
+    }
+    else
+    {
+        /* Disable timer 1 interrupt */
+        PIE1bits.TMR1IE = 0;  
+    }
+}
+
+/******************************************************************************/
 /* TMR_Timer2Int
  *
  * The function controls the timer 2 interrupt.
@@ -182,6 +254,27 @@ inline void TMR_Timer2Int(unsigned char state)
     {
         /* Disable timer 2 interrupt */
         PIE1bits.TMR2IE = 0; 
+    }
+}
+
+/******************************************************************************/
+/* TMR_Timer1Osc
+ *
+ * The function turns on or off the external 32.768kHz oscillator for timer 1.
+/******************************************************************************/
+inline void TMR_Timer1Osc(unsigned char state)
+{
+    if(state)
+    {
+        T1CONbits.T1RUN = 1;    // Device clock is derived from Timer1 oscillator
+        T1CONbits.T1OSCEN = 1;  // Timer1 oscillator is enabled  
+        T1CONbits.TMR1CS = 1;   // External clock from pin RC0/T1OSO/T13CKI (on the rising edge)  
+    }
+    else
+    {
+        T1CONbits.T1RUN = 0;    // Device clock is derived from another source 
+        T1CONbits.T1OSCEN = 0;  // Timer1 oscillator is disabled 
+        T1CONbits.TMR1CS = 0;   // Internal clock (FOSC/4)
     }
 }
 
@@ -211,13 +304,14 @@ inline unsigned char TMR_Timer2Free(void)
 void InitTimers(void)
 {
     InitTimer0();
+    InitTimer1();
     InitTimer2();
 }
 
 /******************************************************************************/
-/* InitTimer2
+/* InitTimer0
  *
- * The function initializes timer2 which is used for the RF receiver.
+ * The function initializes timer 0 which is used for the RF receiver.
 /******************************************************************************/
 void InitTimer0(void)
 {
@@ -226,15 +320,30 @@ void InitTimer0(void)
     T0CONbits.T08BIT = 0;   // 16 bit counter
     T0CONbits.T0CS = 0;     // Internal instruction cycle clock (CLKO) 
     T0CONbits.PSA = 0;      // prescaler is assigned
-    T0CONbits.T0PS = 0b011; // prescaler is 16
+    T0CONbits.T0PS = 0b101; // prescaler is 64
     INTCON2bits.TMR0IP = 1; // high priority interrupt
     TMR_Timer0Int(ON);
 }
 
 /******************************************************************************/
+/* InitTimer1
+ *
+ * The function initializes timer 1 which is used for the IR receiver.
+/******************************************************************************/
+void InitTimer1(void)
+{
+    TMR_Timer1(OFF);
+    TMR_ResetTimer1();
+    T1CONbits.RD16 = 1;         // Enables register read/write of TImer1 in one 16-bit operation
+    TMR_Timer1Function(IR);
+    IPR1bits.TMR1IP = 0;        // low priority interrupt
+    TMR_Timer1Int(ON);    
+}
+
+/******************************************************************************/
 /* InitTimer2
  *
- * The function initializes timer2 which is used for the pushbutton.
+ * The function initializes timer 2 which is used for the pushbutton.
 /******************************************************************************/
 void InitTimer2(void)
 {
@@ -259,6 +368,18 @@ void TMR_Timer0Start(void)
 }
 
 /******************************************************************************/
+/* TMR_Timer1Start
+ *
+ * The function starts timer 1.
+/******************************************************************************/
+void TMR_Timer1Start(void)
+{
+    TMR_Timer1(OFF);
+    TMR_ResetTimer1();
+    TMR_Timer1(ON);
+}
+
+/******************************************************************************/
 /* TMR_Timer2Start
  *
  * The function starts timer 2.
@@ -270,6 +391,30 @@ void TMR_Timer2Start(unsigned int time)
     TMR_ResetTimer2();
     TMR_Timer2(ON);
 }
+
+/******************************************************************************/
+/* TMR_Timer1Function
+ *
+ * The function controls the mode of timer 1. If the timer is used for IR, the
+ *  clock source is the main oscillator. If the timer is used as an RTC, the
+ *  clock source is the external oscillator.
+/******************************************************************************/
+void TMR_Timer1Function(unsigned char mode)
+{
+    TMR_Timer1(OFF);
+    if(mode == RTC)
+    {
+        T1CONbits.T1CKPS = 0b00;    // 1:1 Prescale value 
+        TMR_Timer1Osc(ON);
+    }
+    else
+    {
+        T1CONbits.T1CKPS = 0b11;    // 1:8 Prescale value 
+        TMR_Timer1Osc(OFF);
+    }
+    TMR_ResetTimer1(); 
+}
+
 /*-----------------------------------------------------------------------------/
  End of File
 /-----------------------------------------------------------------------------*/

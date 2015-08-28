@@ -4953,7 +4953,7 @@ extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
 # 119 "RF.h"
-const unsigned int CONF1_ChanE_Sync_Timing[50] = {
+const unsigned int CONF1_ChanE_Timing[50] = {
 834,
 21,
 80,
@@ -5006,28 +5006,33 @@ const unsigned int CONF1_ChanE_Sync_Timing[50] = {
 22
 };
 
-# 177
+
+
+
 extern volatile unsigned char RF_Data;
-extern unsigned int RF_DataTiming[120];
-extern unsigned int RF_SavedTiming[120];
+extern unsigned int RF_DataTiming[60];
+extern unsigned int RF_SavedTiming[60];
 extern unsigned char RF_DataPlace;
 extern unsigned char RFStarted;
 extern unsigned int RF_SyncLow;
 extern unsigned int RF_SyncHigh;
 extern unsigned char RF_Saved;
 extern unsigned char RF_CodeSize;
+extern double Rail_RSSI;
 
-# 194
+# 193
 void InitRF(void);
 inline unsigned char RF_ReadReceiver(void);
 inline void RF_DataInt(unsigned char state);
 inline void RF_Receiver(unsigned char state);
 inline void RF_SetBandwidth(unsigned char band);
 inline void RF_SetSquelch(unsigned char state);
-void RF_ResetRFData(void);
+void RF_ResetData(void);
 void RF_CalculateNewCode(void);
-void TMR_LoadDefaultCode(void);
+void RF_LoadDefaultCode(void);
 unsigned char RF_CheckCode(void);
+void RF_Disable(void);
+void RF_Enable(void);
 
 # 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
 extern void * memcpy(void *, const void *, size_t);
@@ -5070,7 +5075,7 @@ extern unsigned char System_State_Change;
 
 void SYS_ConfigureOscillator(void);
 
-# 67 "MISC.h"
+# 85 "MISC.h"
 void MSC_DelayMS(long US);
 unsigned char MSC_IsCharacter(unsigned char data);
 void MSC_CleanBuffer(unsigned char* data, unsigned int count);
@@ -5109,18 +5114,79 @@ void MSC_BlinkLED(unsigned int blink);
 void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 
-# 43 "RF.c"
+# 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 42
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 57 "TIMERS.h"
+extern unsigned char Timer2Use;
+extern unsigned int Timer2Post;
+extern unsigned int Timer2PostCount;
+
+# 68
+void InitTimers(void);
+inline unsigned char TMR_Timer0Status(void);
+inline unsigned char TMR_Timer1Status(void);
+inline void TMR_Timer0(unsigned char state);
+inline void TMR_Timer1(unsigned char state);
+inline void TMR_Timer2(unsigned char state);
+inline void TMR_ResetTimer0(void);
+inline void TMR_ResetTimer1(void);
+inline void TMR_ResetTimer2(void);
+inline void TMR_Timer2SetUse(unsigned char use);
+inline void TMR_Timer0Int(unsigned char state);
+inline void TMR_Timer1Int(unsigned char state);
+inline void TMR_Timer2Int(unsigned char state);
+inline unsigned char TMR_Timer2Free(void);
+void InitTimer0(void);
+void InitTimer1(void);
+void InitTimer2(void);
+void TMR_Timer0Start(void);
+void TMR_Timer1Start(void);
+void TMR_Timer2Start(unsigned int time);
+void TMR_Timer1Function(unsigned char mode);
+
+# 44 "RF.c"
 volatile unsigned char RF_Data = 0;
-unsigned int RF_DataTiming[120];
-unsigned int RF_SavedTiming[120];
+unsigned int RF_DataTiming[60];
+unsigned int RF_SavedTiming[60];
 unsigned char RF_DataPlace = 0;
 unsigned char RFStarted = 0;
 unsigned int RF_SyncLow = 0;
 unsigned int RF_SyncHigh = 0;
 unsigned char RF_Saved = 92;
 unsigned char RF_CodeSize = 0;
+double Rail_RSSI;
 
-# 66
+# 64
 inline unsigned char RF_ReadReceiver(void)
 {
 if(PORTB & 0x02)
@@ -5130,7 +5196,7 @@ return 0;
 return 1;
 }
 
-# 80
+# 78
 inline void RF_DataInt(unsigned char state)
 {
 if(state)
@@ -5147,7 +5213,7 @@ INTCON3bits.INT2E = 0;
 }
 }
 
-# 102
+# 100
 inline void RF_Receiver(unsigned char state)
 {
 if(!state)
@@ -5162,7 +5228,7 @@ LATA &= ~0x04;
 }
 }
 
-# 121
+# 119
 inline void RF_SetBandwidth(unsigned char band)
 {
 if(band == 0)
@@ -5191,7 +5257,7 @@ LATC |= 0x80;
 }
 }
 
-# 155
+# 153
 inline void RF_SetSquelch(unsigned char state)
 {
 if(!state)
@@ -5206,12 +5272,12 @@ LATA &= ~0x20;
 }
 }
 
-# 173
+# 177
 void InitRF(void)
 {
 RF_Receiver(1);
 RF_SetBandwidth(2);
-MSC_CleanBufferInt(&RF_DataTiming,120);
+MSC_CleanBufferInt(&RF_DataTiming,60);
 RF_SetSquelch(1);
 INTCON3bits.INT1P = 1;
 INTCON3bits.INT2P = 1;
@@ -5220,14 +5286,32 @@ INTCON2bits.INTEDG2 = 0;
 RF_DataInt(1);
 }
 
-# 191
-void RF_ResetRFData(void)
+# 195
+void RF_Disable(void)
+{
+RF_DataInt(0);
+TMR_Timer0Int(0);
+TMR_Timer0(0);
+}
+
+# 206
+void RF_Enable(void)
+{
+INTCON3bits.INT1IF = 0;
+INTCON3bits.INT2IF = 0;
+INTCONbits.TMR0IF = 0;
+RF_DataInt(1);
+TMR_Timer0Int(1);
+}
+
+# 221
+void RF_ResetData(void)
 {
 RF_DataPlace = 0;
 RFStarted = 0;
 }
 
-# 202
+# 232
 void RF_CalculateNewCode(void)
 {
 double Low = 0.0;
@@ -5240,8 +5324,8 @@ RF_SyncLow = (unsigned int) Low;
 RF_SyncHigh = (unsigned int) High;
 }
 
-# 219
-void TMR_LoadDefaultCode(void)
+# 249
+void RF_LoadDefaultCode(void)
 {
 double Low = 0.0;
 double High = 0.0;
@@ -5252,11 +5336,11 @@ High = (double)850 * (1.0 + 0.05);
 RF_SyncLow = (unsigned int) Low;
 RF_SyncHigh = (unsigned int) High;
 
-MSC_BufferCopyIntConst(&CONF1_ChanE_Sync_Timing,&RF_SavedTiming,50,0);
+MSC_BufferCopyIntConst(&CONF1_ChanE_Timing,&RF_SavedTiming,50,0);
 RF_CodeSize = 50;
 }
 
-# 240
+# 270
 unsigned char RF_CheckCode(void)
 {
 unsigned char i;
@@ -5290,7 +5374,7 @@ else
 if(RF_DataPlace >= 20)
 {
 
-MSC_BufferCopyInt(&RF_DataTiming,&RF_SavedTiming,120,0);
+MSC_BufferCopyInt(&RF_DataTiming,&RF_SavedTiming,60,0);
 RF_Saved = 90;
 }
 return 1;

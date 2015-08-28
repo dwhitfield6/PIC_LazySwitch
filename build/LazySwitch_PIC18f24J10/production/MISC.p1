@@ -1,10 +1,10 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"79 MISC.h
+"97 MISC.h
 [v _MSC_DelayNOP `(v ~T0 @X0 0 ef1`ui ]
 "42 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
-"77 MISC.h
+"95 MISC.h
 [v _MSC_LowercaseChar `(v ~T0 @X0 0 ef1`*uc ]
 "45 C:\Program Files (x86)\Microchip\xc8\v1.34\include\math.h
 [v _pow `(d ~T0 @X0 0 ef2`d`d ]
@@ -3753,43 +3753,43 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SYSTEM.h: 62: extern unsigned char System_State;
 [; ;SYSTEM.h: 63: extern unsigned char System_State_Change;
 [; ;SYSTEM.h: 68: void SYS_ConfigureOscillator(void);
-[; ;MISC.h: 67: void MSC_DelayMS(long US);
-[; ;MISC.h: 68: unsigned char MSC_IsCharacter(unsigned char data);
-[; ;MISC.h: 69: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
-[; ;MISC.h: 70: void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
-[; ;MISC.h: 71: double MSC_Round(double input);
-[; ;MISC.h: 72: void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
-[; ;MISC.h: 73: unsigned char MSC_StringMatch(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 74: unsigned char MSC_StringMatchCaseInsensitive(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 75: unsigned char MSC_StringContains(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 76: unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 77: void MSC_LowercaseChar(unsigned char* Input);
-[; ;MISC.h: 78: void MSC_LowercaseString(unsigned char* Input);
-[; ;MISC.h: 79: void MSC_DelayNOP(unsigned int NOPs);
-[; ;MISC.h: 80: unsigned char MSC_ReverseByte(unsigned char This);
-[; ;MISC.h: 81: unsigned int MSC_ReverseInt(unsigned int This);
-[; ;MISC.h: 82: unsigned long MSC_ReverseLong(unsigned long This);
-[; ;MISC.h: 83: unsigned char MSC_GetNumber(unsigned char* This, unsigned char CommaNumber, long* result);
-[; ;MISC.h: 84: unsigned char MSC_StringAddEqual(unsigned char* Input);
-[; ;MISC.h: 85: unsigned char MSC_GetStringAfterComma(unsigned char* This, unsigned char CommaNumber, unsigned char* result);
-[; ;MISC.h: 86: unsigned char MSC_GetNumberUnsigned(unsigned char* This, unsigned char CommaNumber, unsigned long* result);
-[; ;MISC.h: 87: unsigned char MSC_IsAlphaNumericString(unsigned char* data);
-[; ;MISC.h: 88: unsigned char MSC_IsAlphaNumeric(unsigned char data);
-[; ;MISC.h: 89: unsigned char MSC_IsNumber(unsigned char data);
-[; ;MISC.h: 90: double MSC_DB_Round(double Input);
-[; ;MISC.h: 91: long MSC_Scale(long Input, long InputRangeLow, long InputRangeHigh, long OutputRangeLow, long OutputRangeHigh);
-[; ;MISC.h: 92: unsigned int MSC_BCDtoHEX(unsigned int input);
-[; ;MISC.h: 93: unsigned int MSC_HEXtoBCD(unsigned int input);
-[; ;MISC.h: 94: unsigned char MSC_BufferMatch(unsigned char* This, unsigned char* That, unsigned int size);
-[; ;MISC.h: 95: long MSC_LG_Round(long Input,unsigned char places);
-[; ;MISC.h: 96: void MSC_TestFunctionPointer(void);
-[; ;MISC.h: 97: unsigned int MSC_EndianInt(unsigned int number);
-[; ;MISC.h: 98: unsigned int MSC_EndianIntArray(unsigned char* buffer);
-[; ;MISC.h: 99: unsigned long MSC_EndianLong(unsigned long number);
-[; ;MISC.h: 100: unsigned long MSC_EndianLongArray(unsigned char* buffer);
-[; ;MISC.h: 101: void MSC_BlinkLED(unsigned int blink);
-[; ;MISC.h: 102: void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
-[; ;MISC.h: 103: void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 85: void MSC_DelayMS(long US);
+[; ;MISC.h: 86: unsigned char MSC_IsCharacter(unsigned char data);
+[; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
+[; ;MISC.h: 88: void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
+[; ;MISC.h: 89: double MSC_Round(double input);
+[; ;MISC.h: 90: void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 91: unsigned char MSC_StringMatch(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 92: unsigned char MSC_StringMatchCaseInsensitive(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 93: unsigned char MSC_StringContains(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 94: unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 95: void MSC_LowercaseChar(unsigned char* Input);
+[; ;MISC.h: 96: void MSC_LowercaseString(unsigned char* Input);
+[; ;MISC.h: 97: void MSC_DelayNOP(unsigned int NOPs);
+[; ;MISC.h: 98: unsigned char MSC_ReverseByte(unsigned char This);
+[; ;MISC.h: 99: unsigned int MSC_ReverseInt(unsigned int This);
+[; ;MISC.h: 100: unsigned long MSC_ReverseLong(unsigned long This);
+[; ;MISC.h: 101: unsigned char MSC_GetNumber(unsigned char* This, unsigned char CommaNumber, long* result);
+[; ;MISC.h: 102: unsigned char MSC_StringAddEqual(unsigned char* Input);
+[; ;MISC.h: 103: unsigned char MSC_GetStringAfterComma(unsigned char* This, unsigned char CommaNumber, unsigned char* result);
+[; ;MISC.h: 104: unsigned char MSC_GetNumberUnsigned(unsigned char* This, unsigned char CommaNumber, unsigned long* result);
+[; ;MISC.h: 105: unsigned char MSC_IsAlphaNumericString(unsigned char* data);
+[; ;MISC.h: 106: unsigned char MSC_IsAlphaNumeric(unsigned char data);
+[; ;MISC.h: 107: unsigned char MSC_IsNumber(unsigned char data);
+[; ;MISC.h: 108: double MSC_DB_Round(double Input);
+[; ;MISC.h: 109: long MSC_Scale(long Input, long InputRangeLow, long InputRangeHigh, long OutputRangeLow, long OutputRangeHigh);
+[; ;MISC.h: 110: unsigned int MSC_BCDtoHEX(unsigned int input);
+[; ;MISC.h: 111: unsigned int MSC_HEXtoBCD(unsigned int input);
+[; ;MISC.h: 112: unsigned char MSC_BufferMatch(unsigned char* This, unsigned char* That, unsigned int size);
+[; ;MISC.h: 113: long MSC_LG_Round(long Input,unsigned char places);
+[; ;MISC.h: 114: void MSC_TestFunctionPointer(void);
+[; ;MISC.h: 115: unsigned int MSC_EndianInt(unsigned int number);
+[; ;MISC.h: 116: unsigned int MSC_EndianIntArray(unsigned char* buffer);
+[; ;MISC.h: 117: unsigned long MSC_EndianLong(unsigned long number);
+[; ;MISC.h: 118: unsigned long MSC_EndianLongArray(unsigned char* buffer);
+[; ;MISC.h: 119: void MSC_BlinkLED(unsigned int blink);
+[; ;MISC.h: 120: void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 121: void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 "47 MISC.c
 [v _MSC_DelayMS `(v ~T0 @X0 1 ef1`l ]
 "48
@@ -3813,9 +3813,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 431 ]
 [; ;MISC.c: 52: {
 {
-[; ;MISC.c: 53: MSC_DelayNOP(162);
+[; ;MISC.c: 53: MSC_DelayNOP(466);
 "53
-[e ( _MSC_DelayNOP (1 -> -> 162 `i `ui ]
+[e ( _MSC_DelayNOP (1 -> -> 466 `i `ui ]
 "54
 }
 "51

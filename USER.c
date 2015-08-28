@@ -110,7 +110,7 @@ void Init_App(void)
     LDO_SHDNTris    = INPUT; // Allow the pull-up to handle this
     
     /* Pass-through to save power at low battery voltages */
-    LDO_PASSTris    = OUTPUT;
+    LDO_PASSTris    = INPUT;
     
     /*~~~~~~~~~~~~~ LED indication ~~~~~~~~~~~~~~~~~*/
     /* RED LED */
@@ -162,6 +162,7 @@ void Init_System(void)
     InitADC();
     
     BUT_ReadButton(); // read the button
+    IR_ReadReceiver();
     INTCONbits.RBIF = 0; //clear the interrupt on change flag
             
     /* Enable low and high priority interrupts and turn them on */

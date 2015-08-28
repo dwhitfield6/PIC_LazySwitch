@@ -4961,7 +4961,7 @@ extern unsigned char System_State_Change;
 
 void SYS_ConfigureOscillator(void);
 
-# 67 "MISC.h"
+# 85 "MISC.h"
 void MSC_DelayMS(long US);
 unsigned char MSC_IsCharacter(unsigned char data);
 void MSC_CleanBuffer(unsigned char* data, unsigned int count);
@@ -5033,7 +5033,7 @@ extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
 # 119 "RF.h"
-const unsigned int CONF1_ChanE_Sync_Timing[50] = {
+const unsigned int CONF1_ChanE_Timing[50] = {
 834,
 21,
 80,
@@ -5086,28 +5086,33 @@ const unsigned int CONF1_ChanE_Sync_Timing[50] = {
 22
 };
 
-# 177
+
+
+
 extern volatile unsigned char RF_Data;
-extern unsigned int RF_DataTiming[120];
-extern unsigned int RF_SavedTiming[120];
+extern unsigned int RF_DataTiming[60];
+extern unsigned int RF_SavedTiming[60];
 extern unsigned char RF_DataPlace;
 extern unsigned char RFStarted;
 extern unsigned int RF_SyncLow;
 extern unsigned int RF_SyncHigh;
 extern unsigned char RF_Saved;
 extern unsigned char RF_CodeSize;
+extern double Rail_RSSI;
 
-# 194
+# 193
 void InitRF(void);
 inline unsigned char RF_ReadReceiver(void);
 inline void RF_DataInt(unsigned char state);
 inline void RF_Receiver(unsigned char state);
 inline void RF_SetBandwidth(unsigned char band);
 inline void RF_SetSquelch(unsigned char state);
-void RF_ResetRFData(void);
+void RF_ResetData(void);
 void RF_CalculateNewCode(void);
-void TMR_LoadDefaultCode(void);
+void RF_LoadDefaultCode(void);
 unsigned char RF_CheckCode(void);
+void RF_Disable(void);
+void RF_Enable(void);
 
 # 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
 extern void * memcpy(void *, const void *, size_t);
@@ -5141,12 +5146,100 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 40 "IR.h"
-extern volatile unsigned char IR_Data;
+# 97 "IR.h"
+const unsigned int PIONEER_PLUS_Timing[67] = {
+8600,
+4200,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+1200,
+450,
+1200,
+450,
+1200,
+450
+};
 
-# 49
+
+
+
+extern volatile unsigned char IR_Data;
+extern unsigned int IR_DataTiming[80];
+extern unsigned int IR_SavedTiming[80];
+extern unsigned char IR_DataPlace;
+extern unsigned char IRStarted;
+extern unsigned int IR_SyncLow;
+extern unsigned int IR_SyncHigh;
+extern unsigned char IR_Saved;
+extern unsigned char IR_CodeSize;
+extern unsigned char IRValue_prev;
+extern unsigned char IRChange;
+
+# 189
 void InitIR(void);
 unsigned char IR_ReadReceiver(void);
+void IR_ResetData(void);
+void IR_CalculateNewCode(void);
+void IR_LoadDefaultCode(void);
+unsigned char IR_CheckCode(void);
+void IR_CleanBuffer(void);
 
 # 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
 extern void * memcpy(void *, const void *, size_t);
@@ -5180,12 +5273,12 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 56 "BUTTON.h"
+# 64 "BUTTON.h"
 extern volatile unsigned char Button_Data;
 extern unsigned char ButtonValue_prev;
 extern unsigned char ButtonChange;
 
-# 67
+# 75
 void InitButton(void);
 inline void BUT_IR_PinChangeInt(unsigned char state);
 unsigned char BUT_ReadButton(void);
@@ -5229,7 +5322,90 @@ unsigned char DC_Motor;
 void InitMOTOR(void);
 void MTR_Rotate(void);
 
-# 66 "main.c"
+# 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 42
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 69 "ADC.h"
+extern unsigned char ADC_CurrentSource;
+extern unsigned int ADC_SampleCount;
+
+# 79
+void InitADC(void);
+inline void ADC_Module(unsigned char state);
+inline void ADC_Start(void);
+inline unsigned char ADC_ConversionStatus(void);
+inline void ADC_ConversionInt(unsigned char state);
+void ADC_CalculateVoltage(void);
+void ADC_ChangeChannel(void);
+
+# 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 42
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 70 "LDO.h"
+extern double Rail_VIN;
+
+# 79
+void InitLDO(void);
+
+# 73 "main.c"
 int main (void)
 {
 
@@ -5237,10 +5413,24 @@ SYS_ConfigureOscillator();
 Init_App();
 Init_System();
 
+
 if(RF_Saved == 92)
 {
-TMR_LoadDefaultCode();
-MSC_BlinkLED(15);
+RF_LoadDefaultCode();
+MSC_BlinkLED(10);
+}
+else
+{
+MSC_BlinkLED(4);
+}
+(LATC &= ~0x10);
+MSC_DelayMS(1000);
+
+
+if(IR_Saved == 92)
+{
+IR_LoadDefaultCode();
+MSC_BlinkLED(10);
 }
 else
 {
@@ -5262,6 +5452,11 @@ if(RF_Saved == 90)
 MSC_BlinkLED(4);
 RF_Saved = 91;
 }
+if(IR_Saved == 90)
+{
+MSC_BlinkLED(4);
+IR_Saved = 91;
+}
 System_State_Change = 0;
 }
 if(RF_Data || IR_Data || Button_Data)
@@ -5272,6 +5467,11 @@ RF_Data = 0;
 IR_Data = 0;
 Button_Data = 0;
 (LATC &= ~0x10);
+}
+if(Rail_VIN < 3.5 || Rail_VIN > 5.5 )
+{
+MSC_DelayMS(100);
+(LATC ^= 0x10);
 }
 }
 else if(System_State == 10)
@@ -5286,7 +5486,20 @@ RF_Data = 0;
 System_State = 8;
 System_State_Change = 1;
 }
+if(IR_Data)
+{
 
+IR_Data = 0;
+System_State = 8;
+System_State_Change = 1;
+}
+}
+
+ADC_SampleCount++;
+if(ADC_SampleCount > 10)
+{
+ADC_Start();
+ADC_SampleCount = 0;
 }
 }
 }

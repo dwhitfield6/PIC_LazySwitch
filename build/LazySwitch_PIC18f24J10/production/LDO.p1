@@ -1,4 +1,17 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"1403 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
+[s S72 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S72 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"1413
+[s S73 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S73 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"1402
+[u S71 `S72 1 `S73 1 ]
+[n S71 . . . ]
+"1424
+[v _TRISCbits `VS71 ~T0 @X0 0 e@3988 ]
+"886
+[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f24j10.h: 49: extern volatile unsigned char PORTA @ 0xF80;
@@ -3713,15 +3726,69 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 66: extern char * strrichr(const char *, int);
 [; ;USER.h: 181: void Init_App(void);
 [; ;USER.h: 182: void Init_System (void);
-"55 LDO.c
-[v _InitLDO `(v ~T0 @X0 1 ef ]
-"56
+"41 LDO.c
+[v _Rail_VIN `d ~T0 @X0 1 e ]
+[i _Rail_VIN
+.4.5
+]
+[; ;LDO.c: 41: double Rail_VIN = 4.5;
+[v F4137 `(v ~T0 @X0 1 tf1`uc ]
+"52
+[v _LDO_Pass `TF4137 ~T0 @X0 1 e ]
+"53
 {
-[; ;LDO.c: 55: void InitLDO(void)
-[; ;LDO.c: 56: {
+[; ;LDO.c: 52: inline void LDO_Pass(unsigned char state)
+[; ;LDO.c: 53: {
+[e :U _LDO_Pass ]
+"52
+[v _state `uc ~T0 @X0 1 r1 ]
+"53
+[f ]
+[; ;LDO.c: 54: if(state)
+"54
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 431  ]
+[; ;LDO.c: 55: {
+"55
+{
+[; ;LDO.c: 57: TRISCbits.TRISC5 = 0;
+"57
+[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
+[; ;LDO.c: 58: LATC &= ~0x20;
+"58
+[e =& _LATC -> ~ -> 32 `i `uc ]
+"59
+}
+[; ;LDO.c: 59: }
+[e $U 432  ]
+"60
+[e :U 431 ]
+[; ;LDO.c: 60: else
+[; ;LDO.c: 61: {
+"61
+{
+[; ;LDO.c: 63: TRISCbits.TRISC5 = 1;
+"63
+[e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
+"64
+}
+[e :U 432 ]
+[; ;LDO.c: 64: }
+[; ;LDO.c: 65: }
+"65
+[e :UE 430 ]
+}
+"75
+[v _InitLDO `(v ~T0 @X0 1 ef ]
+"76
+{
+[; ;LDO.c: 75: void InitLDO(void)
+[; ;LDO.c: 76: {
 [e :U _InitLDO ]
 [f ]
-[; ;LDO.c: 58: }
-"58
-[e :UE 430 ]
+[; ;LDO.c: 77: LDO_Pass(0);
+"77
+[e ( _LDO_Pass (1 -> -> 0 `i `uc ]
+[; ;LDO.c: 78: }
+"78
+[e :UE 433 ]
 }

@@ -24,6 +24,24 @@
 #include "SYSTEM.h"
 
 /******************************************************************************/
+/* NOPS_DELAYMS
+ *
+ * This defines the number of NOPS for a MS delay.
+/******************************************************************************/
+#define NOPS_DELAYMS 466
+
+/******************************************************************************/
+/* Blink rates
+ *
+ * This defines the number of milliseconds for the blink timing.
+/******************************************************************************/
+#define BLINK_VERYSLOW 100
+#define BLINK_SLOW 75
+#define BLINK_MEDIUM 50
+#define BLINK_FAST 25
+#define BLINK_VERYFAST 15
+
+/******************************************************************************/
 /* Defines                                                                    */
 /******************************************************************************/
 #define Even        2

@@ -5,6 +5,8 @@ USER.h  \
 SYSTEM.h  \
 MISC.h  \
 IR.h  \
+LDO.h  \
 RF.h  \
+ADC.h  \
 MOTOR.h  \
 BUTTON.h 

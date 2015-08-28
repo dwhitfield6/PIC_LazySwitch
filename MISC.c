@@ -50,7 +50,7 @@ void MSC_DelayMS(long US)
 
     for(i=0; i<US; i++)
     {
-        MSC_DelayNOP(162);
+        MSC_DelayNOP(NOPS_DELAYMS);
     }
 }
 
@@ -1161,7 +1161,7 @@ void MSC_BlinkLED(unsigned int blink)
     
     for(i=0;i<(blink<<1);i++)
     {
-        MSC_DelayMS(50);
+        MSC_DelayMS(BLINK_MEDIUM);
         MSC_RedLEDTOGGLE();
     }
 }

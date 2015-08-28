@@ -4920,9 +4920,28 @@ extern char * strrichr(const char *, int);
 void Init_App(void);
 void Init_System (void);
 
-# 55 "LDO.c"
-void InitLDO(void)
+# 41 "LDO.c"
+double Rail_VIN = 4.5;
+
+# 52
+inline void LDO_Pass(unsigned char state)
+{
+if(state)
 {
 
+TRISCbits.TRISC5 = 0;
+LATC &= ~0x20;
+}
+else
+{
+
+TRISCbits.TRISC5 = 1;
+}
+}
+
+# 75
+void InitLDO(void)
+{
+LDO_Pass(0);
 }
 

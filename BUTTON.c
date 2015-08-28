@@ -34,12 +34,13 @@
 #endif
 
 #include "USER.h"
+#include "BUTTON.h"
 
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
 /******************************************************************************/
 volatile unsigned char Button_Data = FALSE;
-unsigned char ButtonValue_prev = TRUE;
+unsigned char ButtonValue_prev = FALSE;
 unsigned char ButtonChange = FALSE;
 
 /******************************************************************************/
@@ -78,6 +79,7 @@ void InitButton(void)
 {
     /* the push button is used as KBI1 */
     INTCON2bits.RBIP = 0; // Interrupt Low priority
+    BUT_ReadButton();
     BUT_IR_PinChangeInt(TRUE);
 }
 

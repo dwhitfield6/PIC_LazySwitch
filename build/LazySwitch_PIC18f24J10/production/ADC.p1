@@ -1,4 +1,99 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"3484 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
+[s S170 :1 `uc 1 :1 `uc 1 ]
+[n S170 . . GO_NOT_DONE ]
+"3488
+[s S171 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S171 . ADON GO_nDONE CHS ]
+"3493
+[s S172 :1 `uc 1 :1 `uc 1 ]
+[n S172 . . GO_NOT_DONE ]
+"3497
+[s S173 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S173 . . DONE CHS0 CHS1 CHS2 CHS3 . ADCAL ]
+"3507
+[s S174 :1 `uc 1 :1 `uc 1 ]
+[n S174 . . GO_DONE ]
+"3511
+[s S175 :1 `uc 1 :1 `uc 1 ]
+[n S175 . . GO ]
+"3515
+[s S176 :1 `uc 1 :1 `uc 1 ]
+[n S176 . . NOT_DONE ]
+"3519
+[s S177 :1 `uc 1 :1 `uc 1 ]
+[n S177 . . nDONE ]
+"3523
+[s S178 :1 `uc 1 :1 `uc 1 ]
+[n S178 . . GODONE ]
+"3483
+[u S169 `S170 1 `S171 1 `S172 1 `S173 1 `S174 1 `S175 1 `S176 1 `S177 1 `S178 1 ]
+[n S169 . . . . . . . . . . ]
+"3528
+[v _ADCON0bits `VS169 ~T0 @X0 0 e@4034 ]
+"1639
+[s S80 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S80 . TMR1IE TMR2IE CCP1IE SSP1IE TXIE RCIE ADIE ]
+"1648
+[s S81 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S81 . . SSPIE TX1IE RC1IE ]
+"1638
+[u S79 `S80 1 `S81 1 ]
+[n S79 . . . ]
+"1655
+[v _PIE1bits `VS79 ~T0 @X0 0 e@3997 ]
+"3394
+[s S164 :4 `uc 1 :2 `uc 1 ]
+[n S164 . PCFG VCFG ]
+"3398
+[s S165 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S165 . PCFG0 PCFG1 PCFG2 PCFG3 VCFG0 VCFG1 ]
+"3406
+[s S166 :3 `uc 1 :1 `uc 1 ]
+[n S166 . . CHSN3 ]
+"3410
+[s S167 :4 `uc 1 :1 `uc 1 ]
+[n S167 . . VCFG01 ]
+"3414
+[s S168 :5 `uc 1 :1 `uc 1 ]
+[n S168 . . VCFG11 ]
+"3393
+[u S163 `S164 1 `S165 1 `S166 1 `S167 1 `S168 1 ]
+[n S163 . . . . . . ]
+"3419
+[v _ADCON1bits `VS163 ~T0 @X0 0 e@4033 ]
+"3324
+[s S161 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S161 . ADCS ACQT . ADFM ]
+"3330
+[s S162 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S162 . ADCS0 ADCS1 ADCS2 ACQT0 ACQT1 ACQT2 ]
+"3323
+[u S160 `S161 1 `S162 1 ]
+[n S160 . . . ]
+"3339
+[v _ADCON2bits `VS160 ~T0 @X0 0 e@4032 ]
+"1791
+[s S86 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S86 . TMR1IP TMR2IP CCP1IP SSP1IP TXIP RCIP ADIP ]
+"1800
+[s S87 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S87 . . SSPIP TX1IP RC1IP ]
+"1790
+[u S85 `S86 1 `S87 1 ]
+[n S85 . . . ]
+"1807
+[v _IPR1bits `VS85 ~T0 @X0 0 e@3999 ]
+"85 ADC.h
+[v _ADC_ChangeChannel `(v ~T0 @X0 0 ef ]
+"3619 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
+[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
+"3613
+[v _ADRESL `Vuc ~T0 @X0 0 e@4035 ]
+"70 LDO.h
+[v _Rail_VIN `d ~T0 @X0 0 e ]
+"184 RF.h
+[v _Rail_RSSI `d ~T0 @X0 0 e ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f24j10.h: 49: extern volatile unsigned char PORTA @ 0xF80;
@@ -3713,15 +3808,557 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 66: extern char * strrichr(const char *, int);
 [; ;USER.h: 181: void Init_App(void);
 [; ;USER.h: 182: void Init_System (void);
-"55 ADC.c
-[v _InitADC `(v ~T0 @X0 1 ef ]
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;ADC.h: 69: extern unsigned char ADC_CurrentSource;
+[; ;ADC.h: 70: extern unsigned int ADC_SampleCount;
+[; ;ADC.h: 79: void InitADC(void);
+[; ;ADC.h: 80: inline void ADC_Module(unsigned char state);
+[; ;ADC.h: 81: inline void ADC_Start(void);
+[; ;ADC.h: 82: inline unsigned char ADC_ConversionStatus(void);
+[; ;ADC.h: 83: inline void ADC_ConversionInt(unsigned char state);
+[; ;ADC.h: 84: void ADC_CalculateVoltage(void);
+[; ;ADC.h: 85: void ADC_ChangeChannel(void);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;LDO.h: 70: extern double Rail_VIN;
+[; ;LDO.h: 79: void InitLDO(void);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+"119 RF.h
+[v _CONF1_ChanE_Timing `Cui ~T0 @X0 -> 50 `i e ]
+[i _CONF1_ChanE_Timing
+:U ..
+"120
+-> -> 834 `i `ui
+"121
+-> -> 21 `i `ui
+"122
+-> -> 80 `i `ui
+"123
+-> -> 22 `i `ui
+"124
+-> -> 80 `i `ui
+"125
+-> -> 21 `i `ui
+"126
+-> -> 78 `i `ui
+"127
+-> -> 79 `i `ui
+"128
+-> -> 26 `i `ui
+"129
+-> -> 22 `i `ui
+"130
+-> -> 78 `i `ui
+"131
+-> -> 78 `i `ui
+"132
+-> -> 27 `i `ui
+"133
+-> -> 21 `i `ui
+"134
+-> -> 79 `i `ui
+"135
+-> -> 76 `i `ui
+"136
+-> -> 25 `i `ui
+"137
+-> -> 23 `i `ui
+"138
+-> -> 79 `i `ui
+"139
+-> -> 75 `i `ui
+"140
+-> -> 27 `i `ui
+"141
+-> -> 21 `i `ui
+"142
+-> -> 81 `i `ui
+"143
+-> -> 75 `i `ui
+"144
+-> -> 25 `i `ui
+"145
+-> -> 22 `i `ui
+"146
+-> -> 81 `i `ui
+"147
+-> -> 22 `i `ui
+"148
+-> -> 79 `i `ui
+"149
+-> -> 22 `i `ui
+"150
+-> -> 80 `i `ui
+"151
+-> -> 24 `i `ui
+"152
+-> -> 79 `i `ui
+"153
+-> -> 77 `i `ui
+"154
+-> -> 25 `i `ui
+"155
+-> -> 76 `i `ui
+"156
+-> -> 27 `i `ui
+"157
+-> -> 21 `i `ui
+"158
+-> -> 80 `i `ui
+"159
+-> -> 21 `i `ui
+"160
+-> -> 81 `i `ui
+"161
+-> -> 21 `i `ui
+"162
+-> -> 80 `i `ui
+"163
+-> -> 22 `i `ui
+"164
+-> -> 80 `i `ui
+"165
+-> -> 22 `i `ui
+"166
+-> -> 81 `i `ui
+"167
+-> -> 22 `i `ui
+"168
+-> -> 79 `i `ui
+"170
+-> -> 22 `i `ui
+..
+]
+[; ;RF.h: 119: const unsigned int CONF1_ChanE_Timing[50] = {
+[; ;RF.h: 120: 834,
+[; ;RF.h: 121: 21,
+[; ;RF.h: 122: 80,
+[; ;RF.h: 123: 22,
+[; ;RF.h: 124: 80,
+[; ;RF.h: 125: 21,
+[; ;RF.h: 126: 78,
+[; ;RF.h: 127: 79,
+[; ;RF.h: 128: 26,
+[; ;RF.h: 129: 22,
+[; ;RF.h: 130: 78,
+[; ;RF.h: 131: 78,
+[; ;RF.h: 132: 27,
+[; ;RF.h: 133: 21,
+[; ;RF.h: 134: 79,
+[; ;RF.h: 135: 76,
+[; ;RF.h: 136: 25,
+[; ;RF.h: 137: 23,
+[; ;RF.h: 138: 79,
+[; ;RF.h: 139: 75,
+[; ;RF.h: 140: 27,
+[; ;RF.h: 141: 21,
+[; ;RF.h: 142: 81,
+[; ;RF.h: 143: 75,
+[; ;RF.h: 144: 25,
+[; ;RF.h: 145: 22,
+[; ;RF.h: 146: 81,
+[; ;RF.h: 147: 22,
+[; ;RF.h: 148: 79,
+[; ;RF.h: 149: 22,
+[; ;RF.h: 150: 80,
+[; ;RF.h: 151: 24,
+[; ;RF.h: 152: 79,
+[; ;RF.h: 153: 77,
+[; ;RF.h: 154: 25,
+[; ;RF.h: 155: 76,
+[; ;RF.h: 156: 27,
+[; ;RF.h: 157: 21,
+[; ;RF.h: 158: 80,
+[; ;RF.h: 159: 21,
+[; ;RF.h: 160: 81,
+[; ;RF.h: 161: 21,
+[; ;RF.h: 162: 80,
+[; ;RF.h: 163: 22,
+[; ;RF.h: 164: 80,
+[; ;RF.h: 165: 22,
+[; ;RF.h: 166: 81,
+[; ;RF.h: 167: 22,
+[; ;RF.h: 168: 79,
+[; ;RF.h: 169: 22
+[; ;RF.h: 170: };
+[; ;RF.h: 175: extern volatile unsigned char RF_Data;
+[; ;RF.h: 176: extern unsigned int RF_DataTiming[60];
+[; ;RF.h: 177: extern unsigned int RF_SavedTiming[60];
+[; ;RF.h: 178: extern unsigned char RF_DataPlace;
+[; ;RF.h: 179: extern unsigned char RFStarted;
+[; ;RF.h: 180: extern unsigned int RF_SyncLow;
+[; ;RF.h: 181: extern unsigned int RF_SyncHigh;
+[; ;RF.h: 182: extern unsigned char RF_Saved;
+[; ;RF.h: 183: extern unsigned char RF_CodeSize;
+[; ;RF.h: 184: extern double Rail_RSSI;
+[; ;RF.h: 193: void InitRF(void);
+[; ;RF.h: 194: inline unsigned char RF_ReadReceiver(void);
+[; ;RF.h: 195: inline void RF_DataInt(unsigned char state);
+[; ;RF.h: 196: inline void RF_Receiver(unsigned char state);
+[; ;RF.h: 197: inline void RF_SetBandwidth(unsigned char band);
+[; ;RF.h: 198: inline void RF_SetSquelch(unsigned char state);
+[; ;RF.h: 199: void RF_ResetData(void);
+[; ;RF.h: 200: void RF_CalculateNewCode(void);
+[; ;RF.h: 201: void RF_LoadDefaultCode(void);
+[; ;RF.h: 202: unsigned char RF_CheckCode(void);
+[; ;RF.h: 203: void RF_Disable(void);
+[; ;RF.h: 204: void RF_Enable(void);
+"44 ADC.c
+[v _ADC_CurrentSource `uc ~T0 @X0 1 e ]
+[i _ADC_CurrentSource
+-> -> 10 `i `uc
+]
+[; ;ADC.c: 44: unsigned char ADC_CurrentSource = 10;
+"45
+[v _ADC_SampleCount `ui ~T0 @X0 1 e ]
+[i _ADC_SampleCount
+-> -> 0 `i `ui
+]
+[; ;ADC.c: 45: unsigned int ADC_SampleCount = 0;
+[v F4198 `(v ~T0 @X0 1 tf1`uc ]
 "56
+[v _ADC_Module `TF4198 ~T0 @X0 1 e ]
+"57
 {
-[; ;ADC.c: 55: void InitADC(void)
-[; ;ADC.c: 56: {
+[; ;ADC.c: 56: inline void ADC_Module(unsigned char state)
+[; ;ADC.c: 57: {
+[e :U _ADC_Module ]
+"56
+[v _state `uc ~T0 @X0 1 r1 ]
+"57
+[f ]
+[; ;ADC.c: 58: if(state)
+"58
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 431  ]
+[; ;ADC.c: 59: {
+"59
+{
+[; ;ADC.c: 61: ADCON0bits.ADON = 1;
+"61
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
+"62
+}
+[; ;ADC.c: 62: }
+[e $U 432  ]
+"63
+[e :U 431 ]
+[; ;ADC.c: 63: else
+[; ;ADC.c: 64: {
+"64
+{
+[; ;ADC.c: 66: ADCON0bits.ADON = 0;
+"66
+[e = . . _ADCON0bits 1 0 -> -> 0 `i `uc ]
+"67
+}
+[e :U 432 ]
+[; ;ADC.c: 67: }
+[; ;ADC.c: 68: }
+"68
+[e :UE 430 ]
+}
+[v F4201 `(v ~T0 @X0 1 tf ]
+"75
+[v _ADC_Start `TF4201 ~T0 @X0 1 e ]
+"76
+{
+[; ;ADC.c: 75: inline void ADC_Start(void)
+[; ;ADC.c: 76: {
+[e :U _ADC_Start ]
+[f ]
+[; ;ADC.c: 77: ADCON0bits.GO = 1;
+"77
+[e = . . _ADCON0bits 5 1 -> -> 1 `i `uc ]
+[; ;ADC.c: 78: }
+"78
+[e :UE 433 ]
+}
+[v F4204 `(uc ~T0 @X0 1 tf ]
+"85
+[v _ADC_ConversionStatus `TF4204 ~T0 @X0 1 e ]
+"86
+{
+[; ;ADC.c: 85: inline unsigned char ADC_ConversionStatus(void)
+[; ;ADC.c: 86: {
+[e :U _ADC_ConversionStatus ]
+[f ]
+[; ;ADC.c: 87: if(ADCON0bits.GO == 1)
+"87
+[e $ ! == -> . . _ADCON0bits 5 1 `i -> 1 `i 435  ]
+[; ;ADC.c: 88: {
+"88
+{
+[; ;ADC.c: 89: return 1;
+"89
+[e ) -> -> 1 `i `uc ]
+[e $UE 434  ]
+"90
+}
+[e :U 435 ]
+[; ;ADC.c: 90: }
+[; ;ADC.c: 91: return 0;
+"91
+[e ) -> -> 0 `i `uc ]
+[e $UE 434  ]
+[; ;ADC.c: 92: }
+"92
+[e :UE 434 ]
+}
+[v F4207 `(v ~T0 @X0 1 tf1`uc ]
+"99
+[v _ADC_ConversionInt `TF4207 ~T0 @X0 1 e ]
+"100
+{
+[; ;ADC.c: 99: inline void ADC_ConversionInt(unsigned char state)
+[; ;ADC.c: 100: {
+[e :U _ADC_ConversionInt ]
+"99
+[v _state `uc ~T0 @X0 1 r1 ]
+"100
+[f ]
+[; ;ADC.c: 101: if(state)
+"101
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 437  ]
+[; ;ADC.c: 102: {
+"102
+{
+[; ;ADC.c: 104: PIE1bits.ADIE = 1;
+"104
+[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
+"105
+}
+[; ;ADC.c: 105: }
+[e $U 438  ]
+"106
+[e :U 437 ]
+[; ;ADC.c: 106: else
+[; ;ADC.c: 107: {
+"107
+{
+[; ;ADC.c: 109: PIE1bits.ADIE = 0;
+"109
+[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
+"110
+}
+[e :U 438 ]
+[; ;ADC.c: 110: }
+[; ;ADC.c: 111: }
+"111
+[e :UE 436 ]
+}
+"122
+[v _InitADC `(v ~T0 @X0 1 ef ]
+"123
+{
+[; ;ADC.c: 122: void InitADC(void)
+[; ;ADC.c: 123: {
 [e :U _InitADC ]
 [f ]
-[; ;ADC.c: 58: }
-"58
-[e :UE 430 ]
+[; ;ADC.c: 124: ADCON1bits.VCFG1 = 0;
+"124
+[e = . . _ADCON1bits 1 5 -> -> 0 `i `uc ]
+[; ;ADC.c: 125: ADCON1bits.VCFG0 = 0;
+"125
+[e = . . _ADCON1bits 1 4 -> -> 0 `i `uc ]
+[; ;ADC.c: 126: ADCON2bits.ADFM = 1;
+"126
+[e = . . _ADCON2bits 0 3 -> -> 1 `i `uc ]
+[; ;ADC.c: 127: ADCON2bits.ACQT = 0b111;
+"127
+[e = . . _ADCON2bits 0 1 -> -> 7 `i `uc ]
+[; ;ADC.c: 128: ADCON2bits.ADCS = 0b110;
+"128
+[e = . . _ADCON2bits 0 0 -> -> 6 `i `uc ]
+[; ;ADC.c: 129: IPR1bits.ADIP = 0;
+"129
+[e = . . _IPR1bits 0 6 -> -> 0 `i `uc ]
+[; ;ADC.c: 130: ADC_ChangeChannel();
+"130
+[e ( _ADC_ChangeChannel ..  ]
+[; ;ADC.c: 131: ADC_ConversionInt(1);
+"131
+[e ( _ADC_ConversionInt (1 -> -> 1 `i `uc ]
+[; ;ADC.c: 132: ADC_Module(1);
+"132
+[e ( _ADC_Module (1 -> -> 1 `i `uc ]
+[; ;ADC.c: 133: }
+"133
+[e :UE 439 ]
+}
+"140
+[v _ADC_CalculateVoltage `(v ~T0 @X0 1 ef ]
+"141
+{
+[; ;ADC.c: 140: void ADC_CalculateVoltage(void)
+[; ;ADC.c: 141: {
+[e :U _ADC_CalculateVoltage ]
+[f ]
+"142
+[v _ADCcounts `ui ~T0 @X0 1 a ]
+"143
+[v _Voltage `d ~T0 @X0 1 a ]
+[; ;ADC.c: 142: unsigned int ADCcounts;
+[; ;ADC.c: 143: double Voltage;
+[; ;ADC.c: 145: ADCcounts = ADRESH;
+"145
+[e = _ADCcounts -> _ADRESH `ui ]
+[; ;ADC.c: 146: ADCcounts <<= 8;
+"146
+[e =<< _ADCcounts -> 8 `i ]
+[; ;ADC.c: 147: ADCcounts += ADRESL;
+"147
+[e =+ _ADCcounts -> _ADRESL `ui ]
+[; ;ADC.c: 149: Voltage = ((double)ADCcounts / (1 << 10)) * 3.3;
+"149
+[e = _Voltage * / -> _ADCcounts `d -> << -> 1 `i -> 10 `i `d .3.3 ]
+[; ;ADC.c: 150: if(ADC_CurrentSource == 10)
+"150
+[e $ ! == -> _ADC_CurrentSource `i -> 10 `i 441  ]
+[; ;ADC.c: 151: {
+"151
+{
+[; ;ADC.c: 152: Rail_VIN = Voltage * (200000.0 + 500000.0) / 200000.0;
+"152
+[e = _Rail_VIN / * _Voltage + .200000.0 .500000.0 .200000.0 ]
+"153
+}
+[; ;ADC.c: 153: }
+[e $U 442  ]
+"154
+[e :U 441 ]
+[; ;ADC.c: 154: else
+[; ;ADC.c: 155: {
+"155
+{
+[; ;ADC.c: 156: Rail_RSSI = Voltage;
+"156
+[e = _Rail_RSSI _Voltage ]
+"157
+}
+[e :U 442 ]
+[; ;ADC.c: 157: }
+[; ;ADC.c: 158: ADC_ChangeChannel();
+"158
+[e ( _ADC_ChangeChannel ..  ]
+[; ;ADC.c: 159: }
+"159
+[e :UE 440 ]
+}
+"166
+[v _ADC_ChangeChannel `(v ~T0 @X0 1 ef ]
+"167
+{
+[; ;ADC.c: 166: void ADC_ChangeChannel(void)
+[; ;ADC.c: 167: {
+[e :U _ADC_ChangeChannel ]
+[f ]
+[; ;ADC.c: 168: if(ADC_CurrentSource == 10)
+"168
+[e $ ! == -> _ADC_CurrentSource `i -> 10 `i 444  ]
+[; ;ADC.c: 169: {
+"169
+{
+[; ;ADC.c: 170: ADC_CurrentSource = 11;
+"170
+[e = _ADC_CurrentSource -> -> 11 `i `uc ]
+[; ;ADC.c: 171: ADCON0bits.CHS = 1;
+"171
+[e = . . _ADCON0bits 1 2 -> -> 1 `i `uc ]
+"172
+}
+[; ;ADC.c: 172: }
+[e $U 445  ]
+"173
+[e :U 444 ]
+[; ;ADC.c: 173: else
+[; ;ADC.c: 174: {
+"174
+{
+[; ;ADC.c: 175: ADC_CurrentSource = 10;
+"175
+[e = _ADC_CurrentSource -> -> 10 `i `uc ]
+[; ;ADC.c: 176: ADCON0bits.CHS = 0;
+"176
+[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
+"177
+}
+[e :U 445 ]
+[; ;ADC.c: 177: }
+[; ;ADC.c: 178: }
+"178
+[e :UE 443 ]
 }

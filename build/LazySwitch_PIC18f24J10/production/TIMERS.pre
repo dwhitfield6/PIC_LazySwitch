@@ -4952,26 +4952,33 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 48 "TIMERS.h"
+# 57 "TIMERS.h"
 extern unsigned char Timer2Use;
 extern unsigned int Timer2Post;
 extern unsigned int Timer2PostCount;
 
-# 59
+# 68
 void InitTimers(void);
 inline unsigned char TMR_Timer0Status(void);
+inline unsigned char TMR_Timer1Status(void);
 inline void TMR_Timer0(unsigned char state);
+inline void TMR_Timer1(unsigned char state);
 inline void TMR_Timer2(unsigned char state);
 inline void TMR_ResetTimer0(void);
+inline void TMR_ResetTimer1(void);
 inline void TMR_ResetTimer2(void);
 inline void TMR_Timer2SetUse(unsigned char use);
 inline void TMR_Timer0Int(unsigned char state);
+inline void TMR_Timer1Int(unsigned char state);
 inline void TMR_Timer2Int(unsigned char state);
 inline unsigned char TMR_Timer2Free(void);
 void InitTimer0(void);
+void InitTimer1(void);
 void InitTimer2(void);
 void TMR_Timer0Start(void);
+void TMR_Timer1Start(void);
 void TMR_Timer2Start(unsigned int time);
+void TMR_Timer1Function(unsigned char mode);
 
 # 42 "TIMERS.c"
 unsigned char Timer2Use = 0;
@@ -4989,7 +4996,18 @@ return 1;
 return 0;
 }
 
-# 71
+# 72
+inline unsigned char TMR_Timer1Status(void)
+{
+if(T1CONbits.TMR1ON)
+{
+
+return 1;
+}
+return 0;
+}
+
+# 87
 inline void TMR_Timer0(unsigned char state)
 {
 if(state)
@@ -5004,7 +5022,22 @@ T0CONbits.TMR0ON = 0;
 }
 }
 
-# 90
+# 106
+inline void TMR_Timer1(unsigned char state)
+{
+if(state)
+{
+
+T1CONbits.TMR1ON = 1;
+}
+else
+{
+
+T1CONbits.TMR1ON = 0;
+}
+}
+
+# 125
 inline void TMR_Timer2(unsigned char state)
 {
 if(state)
@@ -5019,7 +5052,7 @@ T2CONbits.TMR2ON = 0;
 }
 }
 
-# 109
+# 144
 inline void TMR_ResetTimer0(void)
 {
 unsigned char TimerOn = T0CONbits.TMR0ON;
@@ -5033,7 +5066,21 @@ TMR_Timer0(1);
 }
 }
 
-# 127
+# 162
+inline void TMR_ResetTimer1(void)
+{
+unsigned char TimerOn = T1CONbits.TMR1ON;
+
+TMR_Timer1(0);
+TMR1H = 0;
+TMR1L = 2;
+if(TimerOn)
+{
+TMR_Timer1(1);
+}
+}
+
+# 180
 inline void TMR_ResetTimer2(void)
 {
 unsigned char TimerOn = T2CONbits.TMR2ON;
@@ -5047,13 +5094,13 @@ TMR_Timer2(1);
 }
 }
 
-# 145
+# 198
 inline void TMR_Timer2SetUse(unsigned char use)
 {
 Timer2Use = use;
 }
 
-# 155
+# 208
 inline void TMR_Timer0Int(unsigned char state)
 {
 if(state)
@@ -5068,7 +5115,22 @@ INTCONbits.TMR0IE = 0;
 }
 }
 
-# 174
+# 227
+inline void TMR_Timer1Int(unsigned char state)
+{
+if(state)
+{
+
+PIE1bits.TMR1IE = 1;
+}
+else
+{
+
+PIE1bits.TMR1IE = 0;
+}
+}
+
+# 246
 inline void TMR_Timer2Int(unsigned char state)
 {
 if(state)
@@ -5083,7 +5145,24 @@ PIE1bits.TMR2IE = 0;
 }
 }
 
-# 193
+# 265
+inline void TMR_Timer1Osc(unsigned char state)
+{
+if(state)
+{
+T1CONbits.T1RUN = 1;
+T1CONbits.T1OSCEN = 1;
+T1CONbits.TMR1CS = 1;
+}
+else
+{
+T1CONbits.T1RUN = 0;
+T1CONbits.T1OSCEN = 0;
+T1CONbits.TMR1CS = 0;
+}
+}
+
+# 286
 inline unsigned char TMR_Timer2Free(void)
 {
 if(!Timer2Use)
@@ -5093,14 +5172,15 @@ return 1;
 return 0;
 }
 
-# 211
+# 304
 void InitTimers(void)
 {
 InitTimer0();
+InitTimer1();
 InitTimer2();
 }
 
-# 222
+# 316
 void InitTimer0(void)
 {
 TMR_Timer0(0);
@@ -5108,12 +5188,23 @@ TMR_ResetTimer0();
 T0CONbits.T08BIT = 0;
 T0CONbits.T0CS = 0;
 T0CONbits.PSA = 0;
-T0CONbits.T0PS = 0b011;
+T0CONbits.T0PS = 0b101;
 INTCON2bits.TMR0IP = 1;
 TMR_Timer0Int(1);
 }
 
-# 239
+# 333
+void InitTimer1(void)
+{
+TMR_Timer1(0);
+TMR_ResetTimer1();
+T1CONbits.RD16 = 1;
+TMR_Timer1Function(16);
+IPR1bits.TMR1IP = 0;
+TMR_Timer1Int(1);
+}
+
+# 348
 void InitTimer2(void)
 {
 TMR_Timer2(0);
@@ -5124,7 +5215,7 @@ PR2 = 0xFF;
 TMR_Timer2Int(1);
 }
 
-# 254
+# 363
 void TMR_Timer0Start(void)
 {
 TMR_Timer0(0);
@@ -5132,12 +5223,37 @@ TMR_ResetTimer0();
 TMR_Timer0(1);
 }
 
-# 266
+# 375
+void TMR_Timer1Start(void)
+{
+TMR_Timer1(0);
+TMR_ResetTimer1();
+TMR_Timer1(1);
+}
+
+# 387
 void TMR_Timer2Start(unsigned int time)
 {
 TMR_Timer2(0);
 Timer2Post = time;
 TMR_ResetTimer2();
 TMR_Timer2(1);
+}
+
+# 402
+void TMR_Timer1Function(unsigned char mode)
+{
+TMR_Timer1(0);
+if(mode == 15)
+{
+T1CONbits.T1CKPS = 0b00;
+TMR_Timer1Osc(1);
+}
+else
+{
+T1CONbits.T1CKPS = 0b11;
+TMR_Timer1Osc(0);
+}
+TMR_ResetTimer1();
 }
 

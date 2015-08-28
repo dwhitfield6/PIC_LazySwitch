@@ -4920,24 +4920,455 @@ extern char * strrichr(const char *, int);
 void Init_App(void);
 void Init_System (void);
 
-# 41 "IR.c"
-volatile unsigned char IR_Data = 0;
+# 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
 
-# 56
+# 42
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 97 "IR.h"
+const unsigned int PIONEER_PLUS_Timing[67] = {
+8600,
+4200,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+1200,
+450,
+1200,
+450,
+1200,
+450
+};
+
+
+
+
+extern volatile unsigned char IR_Data;
+extern unsigned int IR_DataTiming[80];
+extern unsigned int IR_SavedTiming[80];
+extern unsigned char IR_DataPlace;
+extern unsigned char IRStarted;
+extern unsigned int IR_SyncLow;
+extern unsigned int IR_SyncHigh;
+extern unsigned char IR_Saved;
+extern unsigned char IR_CodeSize;
+extern unsigned char IRValue_prev;
+extern unsigned char IRChange;
+
+# 189
+void InitIR(void);
+unsigned char IR_ReadReceiver(void);
+void IR_ResetData(void);
+void IR_CalculateNewCode(void);
+void IR_LoadDefaultCode(void);
+unsigned char IR_CheckCode(void);
+void IR_CleanBuffer(void);
+
+# 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 42
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 119 "RF.h"
+const unsigned int CONF1_ChanE_Timing[50] = {
+834,
+21,
+80,
+22,
+80,
+21,
+78,
+79,
+26,
+22,
+78,
+78,
+27,
+21,
+79,
+76,
+25,
+23,
+79,
+75,
+27,
+21,
+81,
+75,
+25,
+22,
+81,
+22,
+79,
+22,
+80,
+24,
+79,
+77,
+25,
+76,
+27,
+21,
+80,
+21,
+81,
+21,
+80,
+22,
+80,
+22,
+81,
+22,
+79,
+22
+};
+
+
+
+
+extern volatile unsigned char RF_Data;
+extern unsigned int RF_DataTiming[60];
+extern unsigned int RF_SavedTiming[60];
+extern unsigned char RF_DataPlace;
+extern unsigned char RFStarted;
+extern unsigned int RF_SyncLow;
+extern unsigned int RF_SyncHigh;
+extern unsigned char RF_Saved;
+extern unsigned char RF_CodeSize;
+extern double Rail_RSSI;
+
+# 193
+void InitRF(void);
+inline unsigned char RF_ReadReceiver(void);
+inline void RF_DataInt(unsigned char state);
+inline void RF_Receiver(unsigned char state);
+inline void RF_SetBandwidth(unsigned char band);
+inline void RF_SetSquelch(unsigned char state);
+void RF_ResetData(void);
+void RF_CalculateNewCode(void);
+void RF_LoadDefaultCode(void);
+unsigned char RF_CheckCode(void);
+void RF_Disable(void);
+void RF_Enable(void);
+
+# 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 42
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 62 "SYSTEM.h"
+extern unsigned char System_State;
+extern unsigned char System_State_Change;
+
+
+
+
+void SYS_ConfigureOscillator(void);
+
+# 85 "MISC.h"
+void MSC_DelayMS(long US);
+unsigned char MSC_IsCharacter(unsigned char data);
+void MSC_CleanBuffer(unsigned char* data, unsigned int count);
+void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
+double MSC_Round(double input);
+void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
+unsigned char MSC_StringMatch(const unsigned char* This, const unsigned char* That);
+unsigned char MSC_StringMatchCaseInsensitive(const unsigned char* This, const unsigned char* That);
+unsigned char MSC_StringContains(const unsigned char* This, const unsigned char* That);
+unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
+void MSC_LowercaseChar(unsigned char* Input);
+void MSC_LowercaseString(unsigned char* Input);
+void MSC_DelayNOP(unsigned int NOPs);
+unsigned char MSC_ReverseByte(unsigned char This);
+unsigned int MSC_ReverseInt(unsigned int This);
+unsigned long MSC_ReverseLong(unsigned long This);
+unsigned char MSC_GetNumber(unsigned char* This, unsigned char CommaNumber, long* result);
+unsigned char MSC_StringAddEqual(unsigned char* Input);
+unsigned char MSC_GetStringAfterComma(unsigned char* This, unsigned char CommaNumber, unsigned char* result);
+unsigned char MSC_GetNumberUnsigned(unsigned char* This, unsigned char CommaNumber, unsigned long* result);
+unsigned char MSC_IsAlphaNumericString(unsigned char* data);
+unsigned char MSC_IsAlphaNumeric(unsigned char data);
+unsigned char MSC_IsNumber(unsigned char data);
+double MSC_DB_Round(double Input);
+long MSC_Scale(long Input, long InputRangeLow, long InputRangeHigh, long OutputRangeLow, long OutputRangeHigh);
+unsigned int MSC_BCDtoHEX(unsigned int input);
+unsigned int MSC_HEXtoBCD(unsigned int input);
+unsigned char MSC_BufferMatch(unsigned char* This, unsigned char* That, unsigned int size);
+long MSC_LG_Round(long Input,unsigned char places);
+void MSC_TestFunctionPointer(void);
+unsigned int MSC_EndianInt(unsigned int number);
+unsigned int MSC_EndianIntArray(unsigned char* buffer);
+unsigned long MSC_EndianLong(unsigned long number);
+unsigned long MSC_EndianLongArray(unsigned char* buffer);
+void MSC_BlinkLED(unsigned int blink);
+void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+
+# 44 "IR.c"
+volatile unsigned char IR_Data = 0;
+unsigned int IR_DataTiming[80];
+unsigned int IR_SavedTiming[80];
+unsigned char IR_DataPlace = 0;
+unsigned char IRStarted = 0;
+unsigned int IR_SyncLow = 0;
+unsigned int IR_SyncHigh = 0;
+unsigned char IR_Saved = 92;
+unsigned char IR_CodeSize = 0;
+unsigned char IRValue_prev = 0;
+unsigned char IRChange = 0;
+
+# 69
 void InitIR(void)
 {
-
+MSC_CleanBufferInt(&IR_DataTiming,80);
 }
 
-# 66
+# 79
 unsigned char IR_ReadReceiver(void)
 {
 unsigned char value = PORTB;
 
 if(value & 0x10)
 {
+if(IRValue_prev == 0)
+{
+IRChange = 1;
+}
+IRValue_prev = 1;
 return 1;
 }
+
+if(IRValue_prev == 1)
+{
+IRChange = 1;
+}
+IRValue_prev = 0;
 return 0;
+}
+
+# 106
+void IR_ResetData(void)
+{
+IR_DataPlace = 0;
+IRStarted = 0;
+RF_Enable();
+}
+
+# 118
+void IR_CleanBuffer(void)
+{
+MSC_CleanBufferInt(&IR_DataTiming,80);
+}
+
+# 128
+void IR_CalculateNewCode(void)
+{
+double Low = 0.0;
+double High = 0.0;
+
+Low = (double)IR_DataTiming[0] * (1.0 - 0.2);
+High = (double)IR_DataTiming[0] * (1.0 + 0.2);
+
+IR_SyncLow = (unsigned int) Low;
+IR_SyncHigh = (unsigned int) High;
+}
+
+# 145
+void IR_LoadDefaultCode(void)
+{
+double Low = 0.0;
+double High = 0.0;
+
+Low = (double)8800 * (1.0 - 0.2);
+High = (double)8800 * (1.0 + 0.2);
+
+IR_SyncLow = (unsigned int) Low;
+IR_SyncHigh = (unsigned int) High;
+
+MSC_BufferCopyIntConst(&PIONEER_PLUS_Timing,&IR_SavedTiming,67,0);
+IR_CodeSize = 67;
+}
+
+# 166
+unsigned char IR_CheckCode(void)
+{
+unsigned char i;
+double Low = 0.0;
+double High = 0.0;
+
+if(System_State == 8)
+{
+for(i=0; i<IR_CodeSize;i++)
+{
+if(IR_SavedTiming[i] > 4000)
+{
+Low = (double)IR_SavedTiming[i] * (1.0 - 0.2);
+High = (double)IR_SavedTiming[i] * (1.0 + 0.2);
+}
+else if(IR_SavedTiming[i] <= 4000 && IR_SavedTiming[i] > 1000)
+{
+Low = (double)IR_SavedTiming[i] * (1.0 - 0.75);
+High = (double)IR_SavedTiming[i] * (1.0 + 0.75);
+}
+else
+{
+Low = (double)IR_SavedTiming[i] * (1.0 - 1.1);
+High = (double)IR_SavedTiming[i] * (1.0 + 1.1);
+}
+
+if((double)IR_DataTiming[i] < Low || (double)IR_DataTiming[i] > High )
+{
+return 0;
+}
+}
+return 1;
+}
+else
+{
+if(IR_DataPlace >= 40)
+{
+
+MSC_BufferCopyInt(&IR_DataTiming,&IR_SavedTiming,80,0);
+IR_Saved = 90;
+}
+return 1;
+}
 }
 

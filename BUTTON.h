@@ -36,7 +36,7 @@
  * This defines the number of timer 2 overflow counts until the system goes
  *  into Program mode. This happens when the button is held down.
 /******************************************************************************/
-#define PRESSCOUNT 100
+#define PRESSCOUNT 400
 
 /******************************************************************************/
 /* RELEASECOUNT
@@ -44,7 +44,15 @@
  * This defines the number of timer 2 overflow counts until the system goes
  *  back to Run mode after inactivity.
 /******************************************************************************/
-#define PROGRAMTIMEOUT 70
+#define PROGRAMTIMEOUT 500
+
+/******************************************************************************/
+/* RELEASECOUNT
+ *
+ * This defines the number of timer 2 overflow counts until the push button
+ *  can trigger the motor again.
+/******************************************************************************/
+#define WAITCOUNT 8
 
 /******************************************************************************/
 /* Defines                                                                    */

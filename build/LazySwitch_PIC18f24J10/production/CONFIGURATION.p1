@@ -3720,7 +3720,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "42
 [p x XINST=OFF ]
 "45
-[p x CP0=ON ]
+[p x CP0=OFF ]
 "48
 [p x FOSC=HSPLL ]
 "49

@@ -34,7 +34,7 @@
 /* Default RF code
 
  *
- * This sets the timings for the default RF code. THe default is the Westek 
+ * This sets the timings for the default RF code. The default is the Westek 
  * RFA-108 channel E. This device:
  *
  * 315MHz transmission
@@ -83,6 +83,13 @@
 #define RF_EDGENUM   20
 
 /******************************************************************************/
+/* RFBUFFERSIZE
+ *
+ * This sets the size of the RF buffer.
+/******************************************************************************/
+#define RFBUFFERSIZE    60
+
+/******************************************************************************/
 /* Baud Rates
  *
  * This sets up the baud rate by modifying the sel0 and sel1 pins. This is
@@ -103,20 +110,13 @@
 #define EMPTY   92
 
 /******************************************************************************/
-/* RFBUFFERSIZE
- *
- * This sets the size of the RF buffer.
-/******************************************************************************/
-#define RFBUFFERSIZE    120
-
-/******************************************************************************/
 /* Defines                                                                    */
 /******************************************************************************/
 
 /******************************************************************************/
-/* Default Rf code timing                                                     */
+/* Default RF code timing (Westek RFA-108 channel code E)                     */
 /******************************************************************************/
-const unsigned int CONF1_ChanE_Sync_Timing[CONF1_ChanE_Edges] = {                        
+const unsigned int CONF1_ChanE_Timing[CONF1_ChanE_Edges] = {                        
                                                                         834,
                                                                         21,
                                                                         80,
@@ -169,8 +169,6 @@ const unsigned int CONF1_ChanE_Sync_Timing[CONF1_ChanE_Edges] = {
                                                                         22
 };
 
-
-
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
 /******************************************************************************/
@@ -183,6 +181,7 @@ extern unsigned int RF_SyncLow;
 extern unsigned int RF_SyncHigh;
 extern unsigned char RF_Saved;
 extern unsigned char RF_CodeSize;
+extern double Rail_RSSI;
 
 /******************************************************************************/
 /* Macro Functions                                                            */
@@ -197,9 +196,11 @@ inline void RF_DataInt(unsigned char state);
 inline void RF_Receiver(unsigned char state);
 inline void RF_SetBandwidth(unsigned char band);
 inline void RF_SetSquelch(unsigned char state);
-void RF_ResetRFData(void);
+void RF_ResetData(void);
 void RF_CalculateNewCode(void);
-void TMR_LoadDefaultCode(void);
+void RF_LoadDefaultCode(void);
 unsigned char RF_CheckCode(void);
+void RF_Disable(void);
+void RF_Enable(void);
 
 #endif	/* RF_H */

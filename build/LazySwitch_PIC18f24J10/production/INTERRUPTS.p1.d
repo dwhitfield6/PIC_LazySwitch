@@ -6,5 +6,6 @@ SYSTEM.h  \
 MISC.h  \
 IR.h  \
 RF.h  \
+ADC.h  \
 TIMERS.h  \
 BUTTON.h 

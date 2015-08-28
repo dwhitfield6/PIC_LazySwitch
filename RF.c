@@ -36,6 +36,7 @@
 #include "USER.h"
 #include "RF.h"
 #include "MISC.h"
+#include "TIMERS.h"
 
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
@@ -49,13 +50,10 @@ unsigned int RF_SyncLow  = 0;
 unsigned int RF_SyncHigh = 0;
 unsigned char RF_Saved = EMPTY;
 unsigned char RF_CodeSize = 0;
+double Rail_RSSI;
 
 /******************************************************************************/
 /* Inline Functions
-/******************************************************************************/
-
-/******************************************************************************/
-/* Functions
 /******************************************************************************/
 
 /******************************************************************************/
@@ -165,6 +163,12 @@ inline void RF_SetSquelch(unsigned char state)
         LATA &= ~RF_Squelch;
     }
 }
+
+
+/******************************************************************************/
+/* Functions
+/******************************************************************************/
+
 /******************************************************************************/
 /* InitRF
  *
@@ -184,18 +188,44 @@ void InitRF(void)
 }
 
 /******************************************************************************/
-/* TMR_ResetRFData
+/* RF_Disable
+ *
+ * The function disables the RF receiving interrupts.
+/******************************************************************************/
+void RF_Disable(void)
+{
+    RF_DataInt(OFF);
+    TMR_Timer0Int(OFF);
+    TMR_Timer0(OFF);
+}
+/******************************************************************************/
+/* RF_Enable
+ *
+ * The function enables the RF receiving interrupts.
+/******************************************************************************/
+void RF_Enable(void)
+{
+    INTCON3bits.INT1IF = 0; // Clear rising edge Flag
+    INTCON3bits.INT2IF = 0; // Clear falling edge Flag
+    INTCONbits.TMR0IF = 0;
+    RF_DataInt(ON);
+    TMR_Timer0Int(ON);
+}
+
+
+/******************************************************************************/
+/* RF_ResetData
  *
  * The function resets the RF buffer.
 /******************************************************************************/
-void RF_ResetRFData(void)
+void RF_ResetData(void)
 {
     RF_DataPlace = 0;
     RFStarted = FALSE;
 }
 
 /******************************************************************************/
-/* TMR_CalculateNewCode
+/* RF_CalculateNewCode
  *
  * The function calculates the sync window for the new code.
 /******************************************************************************/
@@ -212,11 +242,11 @@ void RF_CalculateNewCode(void)
 }
 
 /******************************************************************************/
-/* TMR_LoadDefaultCode
+/* RF_LoadDefaultCode
  *
  * The function loads the default code.
 /******************************************************************************/
-void TMR_LoadDefaultCode(void)
+void RF_LoadDefaultCode(void)
 {   
     double Low = 0.0;
     double High = 0.0;
@@ -227,7 +257,7 @@ void TMR_LoadDefaultCode(void)
     RF_SyncLow = (unsigned int) Low;
     RF_SyncHigh = (unsigned int) High;
     
-    MSC_BufferCopyIntConst(&CONF1_ChanE_Sync_Timing,&RF_SavedTiming,CONF1_ChanE_Edges,0); 
+    MSC_BufferCopyIntConst(&CONF1_ChanE_Timing,&RF_SavedTiming,CONF1_ChanE_Edges,0); 
     RF_CodeSize = CONF1_ChanE_Edges;
 }
 

@@ -4927,7 +4927,7 @@ void Init_System (void);
 #pragma config XINST = 0
 
 
-#pragma config CP0 = 0
+#pragma config CP0 = 1
 
 
 #pragma config FOSC = HSPLL

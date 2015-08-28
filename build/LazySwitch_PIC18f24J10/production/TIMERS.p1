@@ -10,6 +10,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S368 . . . ]
 "5899
 [v _T0CONbits `VS368 ~T0 @X0 0 e@4053 ]
+"5554
+[s S348 :2 `uc 1 :1 `uc 1 ]
+[n S348 . . NOT_T1SYNC ]
+"5558
+[s S349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S349 . TMR1ON TMR1CS nT1SYNC T1OSCEN T1CKPS T1RUN RD16 ]
+"5567
+[s S350 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S350 . . T1SYNC . T1CKPS0 T1CKPS1 ]
+"5574
+[s S351 :2 `uc 1 :1 `uc 1 ]
+[n S351 . . T1INSYNC ]
+"5578
+[s S352 :3 `uc 1 :1 `uc 1 ]
+[n S352 . . SOSCEN ]
+"5582
+[s S353 :7 `uc 1 :1 `uc 1 ]
+[n S353 . . T1RD16 ]
+"5553
+[u S347 `S348 1 `S349 1 `S350 1 `S351 1 `S352 1 `S353 1 ]
+[n S347 . . . . . . . ]
+"5587
+[v _T1CONbits `VS347 ~T0 @X0 0 e@4045 ]
 "5342
 [s S332 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
 [n S332 . T2CKPS TMR2ON TOUTPS ]
@@ -28,6 +51,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
 "5954
 [v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
+"5673
+[v _TMR1H `Vuc ~T0 @X0 0 e@4047 ]
+"5667
+[v _TMR1L `Vuc ~T0 @X0 0 e@4046 ]
 "5542
 [v _TMR2 `Vuc ~T0 @X0 0 e@4044 ]
 "6373
@@ -61,9 +88,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S79 . . . ]
 "1655
 [v _PIE1bits `VS79 ~T0 @X0 0 e@3997 ]
-"69 TIMERS.h
+"82 TIMERS.h
 [v _InitTimer0 `(v ~T0 @X0 0 ef ]
-"70
+"83
+[v _InitTimer1 `(v ~T0 @X0 0 ef ]
+"84
 [v _InitTimer2 `(v ~T0 @X0 0 ef ]
 "6297 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
 [s S381 :7 `uc 1 :1 `uc 1 ]
@@ -79,7 +108,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S380 . . . . ]
 "6318
 [v _INTCON2bits `VS380 ~T0 @X0 0 e@4081 ]
-"1791
+"88 TIMERS.h
+[v _TMR_Timer1Function `(v ~T0 @X0 0 ef1`uc ]
+"1791 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
 [s S86 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S86 . TMR1IP TMR2IP CCP1IP SSP1IP TXIP RCIP ADIP ]
 "1800
@@ -3832,23 +3863,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;TIMERS.h: 48: extern unsigned char Timer2Use;
-[; ;TIMERS.h: 49: extern unsigned int Timer2Post;
-[; ;TIMERS.h: 50: extern unsigned int Timer2PostCount;
-[; ;TIMERS.h: 59: void InitTimers(void);
-[; ;TIMERS.h: 60: inline unsigned char TMR_Timer0Status(void);
-[; ;TIMERS.h: 61: inline void TMR_Timer0(unsigned char state);
-[; ;TIMERS.h: 62: inline void TMR_Timer2(unsigned char state);
-[; ;TIMERS.h: 63: inline void TMR_ResetTimer0(void);
-[; ;TIMERS.h: 64: inline void TMR_ResetTimer2(void);
-[; ;TIMERS.h: 65: inline void TMR_Timer2SetUse(unsigned char use);
-[; ;TIMERS.h: 66: inline void TMR_Timer0Int(unsigned char state);
-[; ;TIMERS.h: 67: inline void TMR_Timer2Int(unsigned char state);
-[; ;TIMERS.h: 68: inline unsigned char TMR_Timer2Free(void);
-[; ;TIMERS.h: 69: void InitTimer0(void);
-[; ;TIMERS.h: 70: void InitTimer2(void);
-[; ;TIMERS.h: 71: void TMR_Timer0Start(void);
-[; ;TIMERS.h: 72: void TMR_Timer2Start(unsigned int time);
+[; ;TIMERS.h: 57: extern unsigned char Timer2Use;
+[; ;TIMERS.h: 58: extern unsigned int Timer2Post;
+[; ;TIMERS.h: 59: extern unsigned int Timer2PostCount;
+[; ;TIMERS.h: 68: void InitTimers(void);
+[; ;TIMERS.h: 69: inline unsigned char TMR_Timer0Status(void);
+[; ;TIMERS.h: 70: inline unsigned char TMR_Timer1Status(void);
+[; ;TIMERS.h: 71: inline void TMR_Timer0(unsigned char state);
+[; ;TIMERS.h: 72: inline void TMR_Timer1(unsigned char state);
+[; ;TIMERS.h: 73: inline void TMR_Timer2(unsigned char state);
+[; ;TIMERS.h: 74: inline void TMR_ResetTimer0(void);
+[; ;TIMERS.h: 75: inline void TMR_ResetTimer1(void);
+[; ;TIMERS.h: 76: inline void TMR_ResetTimer2(void);
+[; ;TIMERS.h: 77: inline void TMR_Timer2SetUse(unsigned char use);
+[; ;TIMERS.h: 78: inline void TMR_Timer0Int(unsigned char state);
+[; ;TIMERS.h: 79: inline void TMR_Timer1Int(unsigned char state);
+[; ;TIMERS.h: 80: inline void TMR_Timer2Int(unsigned char state);
+[; ;TIMERS.h: 81: inline unsigned char TMR_Timer2Free(void);
+[; ;TIMERS.h: 82: void InitTimer0(void);
+[; ;TIMERS.h: 83: void InitTimer1(void);
+[; ;TIMERS.h: 84: void InitTimer2(void);
+[; ;TIMERS.h: 85: void TMR_Timer0Start(void);
+[; ;TIMERS.h: 86: void TMR_Timer1Start(void);
+[; ;TIMERS.h: 87: void TMR_Timer2Start(unsigned int time);
+[; ;TIMERS.h: 88: void TMR_Timer1Function(unsigned char mode);
 "42 TIMERS.c
 [v _Timer2Use `uc ~T0 @X0 1 e ]
 [i _Timer2Use
@@ -3898,431 +3936,746 @@ Version 3.2 HI-TECH Software Intermediate Code
 "64
 [e :UE 430 ]
 }
-[v F4202 `(v ~T0 @X0 1 tf1`uc ]
-"71
-[v _TMR_Timer0 `TF4202 ~T0 @X0 1 e ]
+[v F4202 `(uc ~T0 @X0 1 tf ]
 "72
-{
-[; ;TIMERS.c: 71: inline void TMR_Timer0(unsigned char state)
-[; ;TIMERS.c: 72: {
-[e :U _TMR_Timer0 ]
-"71
-[v _state `uc ~T0 @X0 1 r1 ]
-"72
-[f ]
-[; ;TIMERS.c: 73: if(state)
+[v _TMR_Timer1Status `TF4202 ~T0 @X0 1 e ]
 "73
-[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 433  ]
-[; ;TIMERS.c: 74: {
+{
+[; ;TIMERS.c: 72: inline unsigned char TMR_Timer1Status(void)
+[; ;TIMERS.c: 73: {
+[e :U _TMR_Timer1Status ]
+[f ]
+[; ;TIMERS.c: 74: if(T1CONbits.TMR1ON)
 "74
+[e $ ! != -> . . _T1CONbits 1 0 `i -> -> -> 0 `i `Vuc `i 433  ]
+[; ;TIMERS.c: 75: {
+"75
 {
-[; ;TIMERS.c: 76: T0CONbits.TMR0ON = 1;
-"76
-[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
+[; ;TIMERS.c: 77: return 1;
 "77
-}
-[; ;TIMERS.c: 77: }
-[e $U 434  ]
+[e ) -> -> 1 `i `uc ]
+[e $UE 432  ]
 "78
-[e :U 433 ]
-[; ;TIMERS.c: 78: else
-[; ;TIMERS.c: 79: {
-"79
-{
-[; ;TIMERS.c: 81: T0CONbits.TMR0ON = 0;
-"81
-[e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
-"82
 }
-[e :U 434 ]
-[; ;TIMERS.c: 82: }
-[; ;TIMERS.c: 83: }
-"83
+[e :U 433 ]
+[; ;TIMERS.c: 78: }
+[; ;TIMERS.c: 79: return 0;
+"79
+[e ) -> -> 0 `i `uc ]
+[e $UE 432  ]
+[; ;TIMERS.c: 80: }
+"80
 [e :UE 432 ]
 }
 [v F4205 `(v ~T0 @X0 1 tf1`uc ]
-"90
-[v _TMR_Timer2 `TF4205 ~T0 @X0 1 e ]
-"91
+"87
+[v _TMR_Timer0 `TF4205 ~T0 @X0 1 e ]
+"88
 {
-[; ;TIMERS.c: 90: inline void TMR_Timer2(unsigned char state)
-[; ;TIMERS.c: 91: {
-[e :U _TMR_Timer2 ]
-"90
+[; ;TIMERS.c: 87: inline void TMR_Timer0(unsigned char state)
+[; ;TIMERS.c: 88: {
+[e :U _TMR_Timer0 ]
+"87
 [v _state `uc ~T0 @X0 1 r1 ]
-"91
+"88
 [f ]
-[; ;TIMERS.c: 92: if(state)
+[; ;TIMERS.c: 89: if(state)
+"89
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 435  ]
+[; ;TIMERS.c: 90: {
+"90
+{
+[; ;TIMERS.c: 92: T0CONbits.TMR0ON = 1;
 "92
-[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 436  ]
-[; ;TIMERS.c: 93: {
+[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
 "93
-{
-[; ;TIMERS.c: 95: T2CONbits.TMR2ON = 1;
+}
+[; ;TIMERS.c: 93: }
+[e $U 436  ]
+"94
+[e :U 435 ]
+[; ;TIMERS.c: 94: else
+[; ;TIMERS.c: 95: {
 "95
-[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-"96
-}
-[; ;TIMERS.c: 96: }
-[e $U 437  ]
+{
+[; ;TIMERS.c: 97: T0CONbits.TMR0ON = 0;
 "97
-[e :U 436 ]
-[; ;TIMERS.c: 97: else
-[; ;TIMERS.c: 98: {
+[e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
 "98
-{
-[; ;TIMERS.c: 100: T2CONbits.TMR2ON = 0;
-"100
-[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
-"101
 }
-[e :U 437 ]
-[; ;TIMERS.c: 101: }
-[; ;TIMERS.c: 102: }
-"102
-[e :UE 435 ]
+[e :U 436 ]
+[; ;TIMERS.c: 98: }
+[; ;TIMERS.c: 99: }
+"99
+[e :UE 434 ]
 }
-[v F4208 `(v ~T0 @X0 1 tf ]
-"109
-[v _TMR_ResetTimer0 `TF4208 ~T0 @X0 1 e ]
-"110
+[v F4208 `(v ~T0 @X0 1 tf1`uc ]
+"106
+[v _TMR_Timer1 `TF4208 ~T0 @X0 1 e ]
+"107
 {
-[; ;TIMERS.c: 109: inline void TMR_ResetTimer0(void)
-[; ;TIMERS.c: 110: {
-[e :U _TMR_ResetTimer0 ]
+[; ;TIMERS.c: 106: inline void TMR_Timer1(unsigned char state)
+[; ;TIMERS.c: 107: {
+[e :U _TMR_Timer1 ]
+"106
+[v _state `uc ~T0 @X0 1 r1 ]
+"107
 [f ]
-"111
-[v _TimerOn `uc ~T0 @X0 1 a ]
-[; ;TIMERS.c: 111: unsigned char TimerOn = T0CONbits.TMR0ON;
-[e = _TimerOn . . _T0CONbits 0 5 ]
-[; ;TIMERS.c: 113: TMR_Timer0(0);
-"113
-[e ( _TMR_Timer0 (1 -> -> 0 `i `uc ]
-[; ;TIMERS.c: 114: TMR0H = 0;
-"114
-[e = _TMR0H -> -> 0 `i `uc ]
-[; ;TIMERS.c: 115: TMR0L = 2;
-"115
-[e = _TMR0L -> -> 2 `i `uc ]
-[; ;TIMERS.c: 116: if(TimerOn)
-"116
-[e $ ! != -> _TimerOn `i -> -> -> 0 `i `uc `i 439  ]
-[; ;TIMERS.c: 117: {
-"117
+[; ;TIMERS.c: 108: if(state)
+"108
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 438  ]
+[; ;TIMERS.c: 109: {
+"109
 {
-[; ;TIMERS.c: 118: TMR_Timer0(1);
-"118
-[e ( _TMR_Timer0 (1 -> -> 1 `i `uc ]
-"119
+[; ;TIMERS.c: 111: T1CONbits.TMR1ON = 1;
+"111
+[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
+"112
+}
+[; ;TIMERS.c: 112: }
+[e $U 439  ]
+"113
+[e :U 438 ]
+[; ;TIMERS.c: 113: else
+[; ;TIMERS.c: 114: {
+"114
+{
+[; ;TIMERS.c: 116: T1CONbits.TMR1ON = 0;
+"116
+[e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
+"117
 }
 [e :U 439 ]
-[; ;TIMERS.c: 119: }
-[; ;TIMERS.c: 120: }
-"120
-[e :UE 438 ]
+[; ;TIMERS.c: 117: }
+[; ;TIMERS.c: 118: }
+"118
+[e :UE 437 ]
 }
-[v F4211 `(v ~T0 @X0 1 tf ]
+[v F4211 `(v ~T0 @X0 1 tf1`uc ]
+"125
+[v _TMR_Timer2 `TF4211 ~T0 @X0 1 e ]
+"126
+{
+[; ;TIMERS.c: 125: inline void TMR_Timer2(unsigned char state)
+[; ;TIMERS.c: 126: {
+[e :U _TMR_Timer2 ]
+"125
+[v _state `uc ~T0 @X0 1 r1 ]
+"126
+[f ]
+[; ;TIMERS.c: 127: if(state)
 "127
-[v _TMR_ResetTimer2 `TF4211 ~T0 @X0 1 e ]
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 441  ]
+[; ;TIMERS.c: 128: {
 "128
 {
-[; ;TIMERS.c: 127: inline void TMR_ResetTimer2(void)
-[; ;TIMERS.c: 128: {
-[e :U _TMR_ResetTimer2 ]
-[f ]
-"129
-[v _TimerOn `uc ~T0 @X0 1 a ]
-[; ;TIMERS.c: 129: unsigned char TimerOn = T2CONbits.TMR2ON;
-[e = _TimerOn . . _T2CONbits 0 1 ]
-[; ;TIMERS.c: 131: TMR_Timer2(0);
+[; ;TIMERS.c: 130: T2CONbits.TMR2ON = 1;
+"130
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
 "131
-[e ( _TMR_Timer2 (1 -> -> 0 `i `uc ]
-[; ;TIMERS.c: 132: Timer2PostCount = 0;
-"132
-[e = _Timer2PostCount -> -> 0 `i `ui ]
-[; ;TIMERS.c: 133: TMR2 = 0;
-"133
-[e = _TMR2 -> -> 0 `i `uc ]
-[; ;TIMERS.c: 134: if(TimerOn)
-"134
-[e $ ! != -> _TimerOn `i -> -> -> 0 `i `uc `i 441  ]
-[; ;TIMERS.c: 135: {
-"135
-{
-[; ;TIMERS.c: 136: TMR_Timer2(1);
-"136
-[e ( _TMR_Timer2 (1 -> -> 1 `i `uc ]
-"137
 }
+[; ;TIMERS.c: 131: }
+[e $U 442  ]
+"132
 [e :U 441 ]
+[; ;TIMERS.c: 132: else
+[; ;TIMERS.c: 133: {
+"133
+{
+[; ;TIMERS.c: 135: T2CONbits.TMR2ON = 0;
+"135
+[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
+"136
+}
+[e :U 442 ]
+[; ;TIMERS.c: 136: }
 [; ;TIMERS.c: 137: }
-[; ;TIMERS.c: 138: }
-"138
+"137
 [e :UE 440 ]
 }
-[v F4214 `(v ~T0 @X0 1 tf1`uc ]
+[v F4214 `(v ~T0 @X0 1 tf ]
+"144
+[v _TMR_ResetTimer0 `TF4214 ~T0 @X0 1 e ]
 "145
-[v _TMR_Timer2SetUse `TF4214 ~T0 @X0 1 e ]
-"146
 {
-[; ;TIMERS.c: 145: inline void TMR_Timer2SetUse(unsigned char use)
-[; ;TIMERS.c: 146: {
-[e :U _TMR_Timer2SetUse ]
-"145
-[v _use `uc ~T0 @X0 1 r1 ]
-"146
+[; ;TIMERS.c: 144: inline void TMR_ResetTimer0(void)
+[; ;TIMERS.c: 145: {
+[e :U _TMR_ResetTimer0 ]
 [f ]
-[; ;TIMERS.c: 147: Timer2Use = use;
-"147
-[e = _Timer2Use _use ]
-[; ;TIMERS.c: 148: }
+"146
+[v _TimerOn `uc ~T0 @X0 1 a ]
+[; ;TIMERS.c: 146: unsigned char TimerOn = T0CONbits.TMR0ON;
+[e = _TimerOn . . _T0CONbits 0 5 ]
+[; ;TIMERS.c: 148: TMR_Timer0(0);
 "148
-[e :UE 442 ]
-}
-[v F4217 `(v ~T0 @X0 1 tf1`uc ]
-"155
-[v _TMR_Timer0Int `TF4217 ~T0 @X0 1 e ]
-"156
+[e ( _TMR_Timer0 (1 -> -> 0 `i `uc ]
+[; ;TIMERS.c: 149: TMR0H = 0;
+"149
+[e = _TMR0H -> -> 0 `i `uc ]
+[; ;TIMERS.c: 150: TMR0L = 2;
+"150
+[e = _TMR0L -> -> 2 `i `uc ]
+[; ;TIMERS.c: 151: if(TimerOn)
+"151
+[e $ ! != -> _TimerOn `i -> -> -> 0 `i `uc `i 444  ]
+[; ;TIMERS.c: 152: {
+"152
 {
-[; ;TIMERS.c: 155: inline void TMR_Timer0Int(unsigned char state)
-[; ;TIMERS.c: 156: {
-[e :U _TMR_Timer0Int ]
-"155
-[v _state `uc ~T0 @X0 1 r1 ]
-"156
-[f ]
-[; ;TIMERS.c: 157: if(state)
-"157
-[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 444  ]
-[; ;TIMERS.c: 158: {
-"158
-{
-[; ;TIMERS.c: 160: INTCONbits.TMR0IE = 1;
-"160
-[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
-"161
+[; ;TIMERS.c: 153: TMR_Timer0(1);
+"153
+[e ( _TMR_Timer0 (1 -> -> 1 `i `uc ]
+"154
 }
-[; ;TIMERS.c: 161: }
-[e $U 445  ]
-"162
 [e :U 444 ]
-[; ;TIMERS.c: 162: else
-[; ;TIMERS.c: 163: {
-"163
-{
-[; ;TIMERS.c: 165: INTCONbits.TMR0IE = 0;
-"165
-[e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
-"166
-}
-[e :U 445 ]
-[; ;TIMERS.c: 166: }
-[; ;TIMERS.c: 167: }
-"167
+[; ;TIMERS.c: 154: }
+[; ;TIMERS.c: 155: }
+"155
 [e :UE 443 ]
 }
-[v F4220 `(v ~T0 @X0 1 tf1`uc ]
-"174
-[v _TMR_Timer2Int `TF4220 ~T0 @X0 1 e ]
-"175
+[v F4217 `(v ~T0 @X0 1 tf ]
+"162
+[v _TMR_ResetTimer1 `TF4217 ~T0 @X0 1 e ]
+"163
 {
-[; ;TIMERS.c: 174: inline void TMR_Timer2Int(unsigned char state)
-[; ;TIMERS.c: 175: {
-[e :U _TMR_Timer2Int ]
-"174
-[v _state `uc ~T0 @X0 1 r1 ]
-"175
+[; ;TIMERS.c: 162: inline void TMR_ResetTimer1(void)
+[; ;TIMERS.c: 163: {
+[e :U _TMR_ResetTimer1 ]
 [f ]
-[; ;TIMERS.c: 176: if(state)
-"176
-[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 447  ]
-[; ;TIMERS.c: 177: {
-"177
+"164
+[v _TimerOn `uc ~T0 @X0 1 a ]
+[; ;TIMERS.c: 164: unsigned char TimerOn = T1CONbits.TMR1ON;
+[e = _TimerOn . . _T1CONbits 1 0 ]
+[; ;TIMERS.c: 166: TMR_Timer1(0);
+"166
+[e ( _TMR_Timer1 (1 -> -> 0 `i `uc ]
+[; ;TIMERS.c: 167: TMR1H = 0;
+"167
+[e = _TMR1H -> -> 0 `i `uc ]
+[; ;TIMERS.c: 168: TMR1L = 2;
+"168
+[e = _TMR1L -> -> 2 `i `uc ]
+[; ;TIMERS.c: 169: if(TimerOn)
+"169
+[e $ ! != -> _TimerOn `i -> -> -> 0 `i `uc `i 446  ]
+[; ;TIMERS.c: 170: {
+"170
 {
-[; ;TIMERS.c: 179: PIE1bits.TMR2IE = 1;
-"179
-[e = . . _PIE1bits 0 1 -> -> 1 `i `uc ]
-"180
+[; ;TIMERS.c: 171: TMR_Timer1(1);
+"171
+[e ( _TMR_Timer1 (1 -> -> 1 `i `uc ]
+"172
 }
-[; ;TIMERS.c: 180: }
-[e $U 448  ]
+[e :U 446 ]
+[; ;TIMERS.c: 172: }
+[; ;TIMERS.c: 173: }
+"173
+[e :UE 445 ]
+}
+[v F4220 `(v ~T0 @X0 1 tf ]
+"180
+[v _TMR_ResetTimer2 `TF4220 ~T0 @X0 1 e ]
 "181
-[e :U 447 ]
-[; ;TIMERS.c: 181: else
-[; ;TIMERS.c: 182: {
-"182
 {
-[; ;TIMERS.c: 184: PIE1bits.TMR2IE = 0;
+[; ;TIMERS.c: 180: inline void TMR_ResetTimer2(void)
+[; ;TIMERS.c: 181: {
+[e :U _TMR_ResetTimer2 ]
+[f ]
+"182
+[v _TimerOn `uc ~T0 @X0 1 a ]
+[; ;TIMERS.c: 182: unsigned char TimerOn = T2CONbits.TMR2ON;
+[e = _TimerOn . . _T2CONbits 0 1 ]
+[; ;TIMERS.c: 184: TMR_Timer2(0);
 "184
-[e = . . _PIE1bits 0 1 -> -> 0 `i `uc ]
+[e ( _TMR_Timer2 (1 -> -> 0 `i `uc ]
+[; ;TIMERS.c: 185: Timer2PostCount = 0;
 "185
+[e = _Timer2PostCount -> -> 0 `i `ui ]
+[; ;TIMERS.c: 186: TMR2 = 0;
+"186
+[e = _TMR2 -> -> 0 `i `uc ]
+[; ;TIMERS.c: 187: if(TimerOn)
+"187
+[e $ ! != -> _TimerOn `i -> -> -> 0 `i `uc `i 448  ]
+[; ;TIMERS.c: 188: {
+"188
+{
+[; ;TIMERS.c: 189: TMR_Timer2(1);
+"189
+[e ( _TMR_Timer2 (1 -> -> 1 `i `uc ]
+"190
 }
 [e :U 448 ]
-[; ;TIMERS.c: 185: }
-[; ;TIMERS.c: 186: }
-"186
-[e :UE 446 ]
+[; ;TIMERS.c: 190: }
+[; ;TIMERS.c: 191: }
+"191
+[e :UE 447 ]
 }
-[v F4223 `(uc ~T0 @X0 1 tf ]
-"193
-[v _TMR_Timer2Free `TF4223 ~T0 @X0 1 e ]
-"194
-{
-[; ;TIMERS.c: 193: inline unsigned char TMR_Timer2Free(void)
-[; ;TIMERS.c: 194: {
-[e :U _TMR_Timer2Free ]
-[f ]
-[; ;TIMERS.c: 195: if(!Timer2Use)
-"195
-[e $ ! ! != -> _Timer2Use `i -> -> -> 0 `i `uc `i 450  ]
-[; ;TIMERS.c: 196: {
-"196
-{
-[; ;TIMERS.c: 197: return 1;
-"197
-[e ) -> -> 1 `i `uc ]
-[e $UE 449  ]
+[v F4223 `(v ~T0 @X0 1 tf1`uc ]
 "198
-}
-[e :U 450 ]
-[; ;TIMERS.c: 198: }
-[; ;TIMERS.c: 199: return 0;
+[v _TMR_Timer2SetUse `TF4223 ~T0 @X0 1 e ]
 "199
-[e ) -> -> 0 `i `uc ]
-[e $UE 449  ]
-[; ;TIMERS.c: 200: }
+{
+[; ;TIMERS.c: 198: inline void TMR_Timer2SetUse(unsigned char use)
+[; ;TIMERS.c: 199: {
+[e :U _TMR_Timer2SetUse ]
+"198
+[v _use `uc ~T0 @X0 1 r1 ]
+"199
+[f ]
+[; ;TIMERS.c: 200: Timer2Use = use;
 "200
+[e = _Timer2Use _use ]
+[; ;TIMERS.c: 201: }
+"201
 [e :UE 449 ]
 }
+[v F4226 `(v ~T0 @X0 1 tf1`uc ]
+"208
+[v _TMR_Timer0Int `TF4226 ~T0 @X0 1 e ]
+"209
+{
+[; ;TIMERS.c: 208: inline void TMR_Timer0Int(unsigned char state)
+[; ;TIMERS.c: 209: {
+[e :U _TMR_Timer0Int ]
+"208
+[v _state `uc ~T0 @X0 1 r1 ]
+"209
+[f ]
+[; ;TIMERS.c: 210: if(state)
+"210
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 451  ]
+[; ;TIMERS.c: 211: {
 "211
-[v _InitTimers `(v ~T0 @X0 1 ef ]
-"212
 {
-[; ;TIMERS.c: 211: void InitTimers(void)
-[; ;TIMERS.c: 212: {
-[e :U _InitTimers ]
-[f ]
-[; ;TIMERS.c: 213: InitTimer0();
+[; ;TIMERS.c: 213: INTCONbits.TMR0IE = 1;
 "213
-[e ( _InitTimer0 ..  ]
-[; ;TIMERS.c: 214: InitTimer2();
+[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
 "214
-[e ( _InitTimer2 ..  ]
-[; ;TIMERS.c: 215: }
+}
+[; ;TIMERS.c: 214: }
+[e $U 452  ]
 "215
-[e :UE 451 ]
-}
-"222
-[v _InitTimer0 `(v ~T0 @X0 1 ef ]
-"223
+[e :U 451 ]
+[; ;TIMERS.c: 215: else
+[; ;TIMERS.c: 216: {
+"216
 {
-[; ;TIMERS.c: 222: void InitTimer0(void)
-[; ;TIMERS.c: 223: {
-[e :U _InitTimer0 ]
-[f ]
-[; ;TIMERS.c: 224: TMR_Timer0(0);
-"224
-[e ( _TMR_Timer0 (1 -> -> 0 `i `uc ]
-[; ;TIMERS.c: 225: TMR_ResetTimer0();
-"225
-[e ( _TMR_ResetTimer0 ..  ]
-[; ;TIMERS.c: 226: T0CONbits.T08BIT = 0;
-"226
-[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
-[; ;TIMERS.c: 227: T0CONbits.T0CS = 0;
+[; ;TIMERS.c: 218: INTCONbits.TMR0IE = 0;
+"218
+[e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
+"219
+}
+[e :U 452 ]
+[; ;TIMERS.c: 219: }
+[; ;TIMERS.c: 220: }
+"220
+[e :UE 450 ]
+}
+[v F4229 `(v ~T0 @X0 1 tf1`uc ]
 "227
-[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
-[; ;TIMERS.c: 228: T0CONbits.PSA = 0;
+[v _TMR_Timer1Int `TF4229 ~T0 @X0 1 e ]
 "228
-[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
-[; ;TIMERS.c: 229: T0CONbits.T0PS = 0b011;
-"229
-[e = . . _T0CONbits 0 0 -> -> 3 `i `uc ]
-[; ;TIMERS.c: 230: INTCON2bits.TMR0IP = 1;
-"230
-[e = . . _INTCON2bits 1 2 -> -> 1 `i `uc ]
-[; ;TIMERS.c: 231: TMR_Timer0Int(1);
-"231
-[e ( _TMR_Timer0Int (1 -> -> 1 `i `uc ]
-[; ;TIMERS.c: 232: }
-"232
-[e :UE 452 ]
-}
-"239
-[v _InitTimer2 `(v ~T0 @X0 1 ef ]
-"240
 {
-[; ;TIMERS.c: 239: void InitTimer2(void)
-[; ;TIMERS.c: 240: {
-[e :U _InitTimer2 ]
+[; ;TIMERS.c: 227: inline void TMR_Timer1Int(unsigned char state)
+[; ;TIMERS.c: 228: {
+[e :U _TMR_Timer1Int ]
+"227
+[v _state `uc ~T0 @X0 1 r1 ]
+"228
 [f ]
-[; ;TIMERS.c: 241: TMR_Timer2(0);
-"241
-[e ( _TMR_Timer2 (1 -> -> 0 `i `uc ]
-[; ;TIMERS.c: 242: T2CONbits.TOUTPS = 0b1111;
-"242
-[e = . . _T2CONbits 0 2 -> -> 15 `i `uc ]
-[; ;TIMERS.c: 243: T2CONbits.T2CKPS = 0b11;
-"243
-[e = . . _T2CONbits 0 0 -> -> 3 `i `uc ]
-[; ;TIMERS.c: 244: IPR1bits.TMR2IP = 0;
-"244
-[e = . . _IPR1bits 0 1 -> -> 0 `i `uc ]
-[; ;TIMERS.c: 245: PR2 = 0xFF;
-"245
-[e = _PR2 -> -> 255 `i `uc ]
-[; ;TIMERS.c: 246: TMR_Timer2Int(1);
-"246
-[e ( _TMR_Timer2Int (1 -> -> 1 `i `uc ]
-[; ;TIMERS.c: 247: }
-"247
+[; ;TIMERS.c: 229: if(state)
+"229
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 454  ]
+[; ;TIMERS.c: 230: {
+"230
+{
+[; ;TIMERS.c: 232: PIE1bits.TMR1IE = 1;
+"232
+[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
+"233
+}
+[; ;TIMERS.c: 233: }
+[e $U 455  ]
+"234
+[e :U 454 ]
+[; ;TIMERS.c: 234: else
+[; ;TIMERS.c: 235: {
+"235
+{
+[; ;TIMERS.c: 237: PIE1bits.TMR1IE = 0;
+"237
+[e = . . _PIE1bits 0 0 -> -> 0 `i `uc ]
+"238
+}
+[e :U 455 ]
+[; ;TIMERS.c: 238: }
+[; ;TIMERS.c: 239: }
+"239
 [e :UE 453 ]
 }
-"254
-[v _TMR_Timer0Start `(v ~T0 @X0 1 ef ]
-"255
+[v F4232 `(v ~T0 @X0 1 tf1`uc ]
+"246
+[v _TMR_Timer2Int `TF4232 ~T0 @X0 1 e ]
+"247
 {
-[; ;TIMERS.c: 254: void TMR_Timer0Start(void)
-[; ;TIMERS.c: 255: {
+[; ;TIMERS.c: 246: inline void TMR_Timer2Int(unsigned char state)
+[; ;TIMERS.c: 247: {
+[e :U _TMR_Timer2Int ]
+"246
+[v _state `uc ~T0 @X0 1 r1 ]
+"247
+[f ]
+[; ;TIMERS.c: 248: if(state)
+"248
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 457  ]
+[; ;TIMERS.c: 249: {
+"249
+{
+[; ;TIMERS.c: 251: PIE1bits.TMR2IE = 1;
+"251
+[e = . . _PIE1bits 0 1 -> -> 1 `i `uc ]
+"252
+}
+[; ;TIMERS.c: 252: }
+[e $U 458  ]
+"253
+[e :U 457 ]
+[; ;TIMERS.c: 253: else
+[; ;TIMERS.c: 254: {
+"254
+{
+[; ;TIMERS.c: 256: PIE1bits.TMR2IE = 0;
+"256
+[e = . . _PIE1bits 0 1 -> -> 0 `i `uc ]
+"257
+}
+[e :U 458 ]
+[; ;TIMERS.c: 257: }
+[; ;TIMERS.c: 258: }
+"258
+[e :UE 456 ]
+}
+[v F4279 `(v ~T0 @X0 1 tf1`uc ]
+"265
+[v _TMR_Timer1Osc `TF4279 ~T0 @X0 1 e ]
+"266
+{
+[; ;TIMERS.c: 265: inline void TMR_Timer1Osc(unsigned char state)
+[; ;TIMERS.c: 266: {
+[e :U _TMR_Timer1Osc ]
+"265
+[v _state `uc ~T0 @X0 1 r1 ]
+"266
+[f ]
+[; ;TIMERS.c: 267: if(state)
+"267
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 460  ]
+[; ;TIMERS.c: 268: {
+"268
+{
+[; ;TIMERS.c: 269: T1CONbits.T1RUN = 1;
+"269
+[e = . . _T1CONbits 1 5 -> -> 1 `i `uc ]
+[; ;TIMERS.c: 270: T1CONbits.T1OSCEN = 1;
+"270
+[e = . . _T1CONbits 1 3 -> -> 1 `i `uc ]
+[; ;TIMERS.c: 271: T1CONbits.TMR1CS = 1;
+"271
+[e = . . _T1CONbits 1 1 -> -> 1 `i `uc ]
+"272
+}
+[; ;TIMERS.c: 272: }
+[e $U 461  ]
+"273
+[e :U 460 ]
+[; ;TIMERS.c: 273: else
+[; ;TIMERS.c: 274: {
+"274
+{
+[; ;TIMERS.c: 275: T1CONbits.T1RUN = 0;
+"275
+[e = . . _T1CONbits 1 5 -> -> 0 `i `uc ]
+[; ;TIMERS.c: 276: T1CONbits.T1OSCEN = 0;
+"276
+[e = . . _T1CONbits 1 3 -> -> 0 `i `uc ]
+[; ;TIMERS.c: 277: T1CONbits.TMR1CS = 0;
+"277
+[e = . . _T1CONbits 1 1 -> -> 0 `i `uc ]
+"278
+}
+[e :U 461 ]
+[; ;TIMERS.c: 278: }
+[; ;TIMERS.c: 279: }
+"279
+[e :UE 459 ]
+}
+[v F4235 `(uc ~T0 @X0 1 tf ]
+"286
+[v _TMR_Timer2Free `TF4235 ~T0 @X0 1 e ]
+"287
+{
+[; ;TIMERS.c: 286: inline unsigned char TMR_Timer2Free(void)
+[; ;TIMERS.c: 287: {
+[e :U _TMR_Timer2Free ]
+[f ]
+[; ;TIMERS.c: 288: if(!Timer2Use)
+"288
+[e $ ! ! != -> _Timer2Use `i -> -> -> 0 `i `uc `i 463  ]
+[; ;TIMERS.c: 289: {
+"289
+{
+[; ;TIMERS.c: 290: return 1;
+"290
+[e ) -> -> 1 `i `uc ]
+[e $UE 462  ]
+"291
+}
+[e :U 463 ]
+[; ;TIMERS.c: 291: }
+[; ;TIMERS.c: 292: return 0;
+"292
+[e ) -> -> 0 `i `uc ]
+[e $UE 462  ]
+[; ;TIMERS.c: 293: }
+"293
+[e :UE 462 ]
+}
+"304
+[v _InitTimers `(v ~T0 @X0 1 ef ]
+"305
+{
+[; ;TIMERS.c: 304: void InitTimers(void)
+[; ;TIMERS.c: 305: {
+[e :U _InitTimers ]
+[f ]
+[; ;TIMERS.c: 306: InitTimer0();
+"306
+[e ( _InitTimer0 ..  ]
+[; ;TIMERS.c: 307: InitTimer1();
+"307
+[e ( _InitTimer1 ..  ]
+[; ;TIMERS.c: 308: InitTimer2();
+"308
+[e ( _InitTimer2 ..  ]
+[; ;TIMERS.c: 309: }
+"309
+[e :UE 464 ]
+}
+"316
+[v _InitTimer0 `(v ~T0 @X0 1 ef ]
+"317
+{
+[; ;TIMERS.c: 316: void InitTimer0(void)
+[; ;TIMERS.c: 317: {
+[e :U _InitTimer0 ]
+[f ]
+[; ;TIMERS.c: 318: TMR_Timer0(0);
+"318
+[e ( _TMR_Timer0 (1 -> -> 0 `i `uc ]
+[; ;TIMERS.c: 319: TMR_ResetTimer0();
+"319
+[e ( _TMR_ResetTimer0 ..  ]
+[; ;TIMERS.c: 320: T0CONbits.T08BIT = 0;
+"320
+[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
+[; ;TIMERS.c: 321: T0CONbits.T0CS = 0;
+"321
+[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
+[; ;TIMERS.c: 322: T0CONbits.PSA = 0;
+"322
+[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
+[; ;TIMERS.c: 323: T0CONbits.T0PS = 0b101;
+"323
+[e = . . _T0CONbits 0 0 -> -> 5 `i `uc ]
+[; ;TIMERS.c: 324: INTCON2bits.TMR0IP = 1;
+"324
+[e = . . _INTCON2bits 1 2 -> -> 1 `i `uc ]
+[; ;TIMERS.c: 325: TMR_Timer0Int(1);
+"325
+[e ( _TMR_Timer0Int (1 -> -> 1 `i `uc ]
+[; ;TIMERS.c: 326: }
+"326
+[e :UE 465 ]
+}
+"333
+[v _InitTimer1 `(v ~T0 @X0 1 ef ]
+"334
+{
+[; ;TIMERS.c: 333: void InitTimer1(void)
+[; ;TIMERS.c: 334: {
+[e :U _InitTimer1 ]
+[f ]
+[; ;TIMERS.c: 335: TMR_Timer1(0);
+"335
+[e ( _TMR_Timer1 (1 -> -> 0 `i `uc ]
+[; ;TIMERS.c: 336: TMR_ResetTimer1();
+"336
+[e ( _TMR_ResetTimer1 ..  ]
+[; ;TIMERS.c: 337: T1CONbits.RD16 = 1;
+"337
+[e = . . _T1CONbits 1 6 -> -> 1 `i `uc ]
+[; ;TIMERS.c: 338: TMR_Timer1Function(16);
+"338
+[e ( _TMR_Timer1Function (1 -> -> 16 `i `uc ]
+[; ;TIMERS.c: 339: IPR1bits.TMR1IP = 0;
+"339
+[e = . . _IPR1bits 0 0 -> -> 0 `i `uc ]
+[; ;TIMERS.c: 340: TMR_Timer1Int(1);
+"340
+[e ( _TMR_Timer1Int (1 -> -> 1 `i `uc ]
+[; ;TIMERS.c: 341: }
+"341
+[e :UE 466 ]
+}
+"348
+[v _InitTimer2 `(v ~T0 @X0 1 ef ]
+"349
+{
+[; ;TIMERS.c: 348: void InitTimer2(void)
+[; ;TIMERS.c: 349: {
+[e :U _InitTimer2 ]
+[f ]
+[; ;TIMERS.c: 350: TMR_Timer2(0);
+"350
+[e ( _TMR_Timer2 (1 -> -> 0 `i `uc ]
+[; ;TIMERS.c: 351: T2CONbits.TOUTPS = 0b1111;
+"351
+[e = . . _T2CONbits 0 2 -> -> 15 `i `uc ]
+[; ;TIMERS.c: 352: T2CONbits.T2CKPS = 0b11;
+"352
+[e = . . _T2CONbits 0 0 -> -> 3 `i `uc ]
+[; ;TIMERS.c: 353: IPR1bits.TMR2IP = 0;
+"353
+[e = . . _IPR1bits 0 1 -> -> 0 `i `uc ]
+[; ;TIMERS.c: 354: PR2 = 0xFF;
+"354
+[e = _PR2 -> -> 255 `i `uc ]
+[; ;TIMERS.c: 355: TMR_Timer2Int(1);
+"355
+[e ( _TMR_Timer2Int (1 -> -> 1 `i `uc ]
+[; ;TIMERS.c: 356: }
+"356
+[e :UE 467 ]
+}
+"363
+[v _TMR_Timer0Start `(v ~T0 @X0 1 ef ]
+"364
+{
+[; ;TIMERS.c: 363: void TMR_Timer0Start(void)
+[; ;TIMERS.c: 364: {
 [e :U _TMR_Timer0Start ]
 [f ]
-[; ;TIMERS.c: 256: TMR_Timer0(0);
-"256
+[; ;TIMERS.c: 365: TMR_Timer0(0);
+"365
 [e ( _TMR_Timer0 (1 -> -> 0 `i `uc ]
-[; ;TIMERS.c: 257: TMR_ResetTimer0();
-"257
+[; ;TIMERS.c: 366: TMR_ResetTimer0();
+"366
 [e ( _TMR_ResetTimer0 ..  ]
-[; ;TIMERS.c: 258: TMR_Timer0(1);
-"258
+[; ;TIMERS.c: 367: TMR_Timer0(1);
+"367
 [e ( _TMR_Timer0 (1 -> -> 1 `i `uc ]
-[; ;TIMERS.c: 259: }
-"259
-[e :UE 454 ]
+[; ;TIMERS.c: 368: }
+"368
+[e :UE 468 ]
 }
-"266
-[v _TMR_Timer2Start `(v ~T0 @X0 1 ef1`ui ]
-"267
+"375
+[v _TMR_Timer1Start `(v ~T0 @X0 1 ef ]
+"376
 {
-[; ;TIMERS.c: 266: void TMR_Timer2Start(unsigned int time)
-[; ;TIMERS.c: 267: {
-[e :U _TMR_Timer2Start ]
-"266
-[v _time `ui ~T0 @X0 1 r1 ]
-"267
+[; ;TIMERS.c: 375: void TMR_Timer1Start(void)
+[; ;TIMERS.c: 376: {
+[e :U _TMR_Timer1Start ]
 [f ]
-[; ;TIMERS.c: 268: TMR_Timer2(0);
-"268
+[; ;TIMERS.c: 377: TMR_Timer1(0);
+"377
+[e ( _TMR_Timer1 (1 -> -> 0 `i `uc ]
+[; ;TIMERS.c: 378: TMR_ResetTimer1();
+"378
+[e ( _TMR_ResetTimer1 ..  ]
+[; ;TIMERS.c: 379: TMR_Timer1(1);
+"379
+[e ( _TMR_Timer1 (1 -> -> 1 `i `uc ]
+[; ;TIMERS.c: 380: }
+"380
+[e :UE 469 ]
+}
+"387
+[v _TMR_Timer2Start `(v ~T0 @X0 1 ef1`ui ]
+"388
+{
+[; ;TIMERS.c: 387: void TMR_Timer2Start(unsigned int time)
+[; ;TIMERS.c: 388: {
+[e :U _TMR_Timer2Start ]
+"387
+[v _time `ui ~T0 @X0 1 r1 ]
+"388
+[f ]
+[; ;TIMERS.c: 389: TMR_Timer2(0);
+"389
 [e ( _TMR_Timer2 (1 -> -> 0 `i `uc ]
-[; ;TIMERS.c: 269: Timer2Post = time;
-"269
+[; ;TIMERS.c: 390: Timer2Post = time;
+"390
 [e = _Timer2Post _time ]
-[; ;TIMERS.c: 270: TMR_ResetTimer2();
-"270
+[; ;TIMERS.c: 391: TMR_ResetTimer2();
+"391
 [e ( _TMR_ResetTimer2 ..  ]
-[; ;TIMERS.c: 271: TMR_Timer2(1);
-"271
+[; ;TIMERS.c: 392: TMR_Timer2(1);
+"392
 [e ( _TMR_Timer2 (1 -> -> 1 `i `uc ]
-[; ;TIMERS.c: 272: }
-"272
-[e :UE 455 ]
+[; ;TIMERS.c: 393: }
+"393
+[e :UE 470 ]
+}
+"402
+[v _TMR_Timer1Function `(v ~T0 @X0 1 ef1`uc ]
+"403
+{
+[; ;TIMERS.c: 402: void TMR_Timer1Function(unsigned char mode)
+[; ;TIMERS.c: 403: {
+[e :U _TMR_Timer1Function ]
+"402
+[v _mode `uc ~T0 @X0 1 r1 ]
+"403
+[f ]
+[; ;TIMERS.c: 404: TMR_Timer1(0);
+"404
+[e ( _TMR_Timer1 (1 -> -> 0 `i `uc ]
+[; ;TIMERS.c: 405: if(mode == 15)
+"405
+[e $ ! == -> _mode `i -> 15 `i 472  ]
+[; ;TIMERS.c: 406: {
+"406
+{
+[; ;TIMERS.c: 407: T1CONbits.T1CKPS = 0b00;
+"407
+[e = . . _T1CONbits 1 4 -> -> 0 `i `uc ]
+[; ;TIMERS.c: 408: TMR_Timer1Osc(1);
+"408
+[e ( _TMR_Timer1Osc (1 -> -> 1 `i `uc ]
+"409
+}
+[; ;TIMERS.c: 409: }
+[e $U 473  ]
+"410
+[e :U 472 ]
+[; ;TIMERS.c: 410: else
+[; ;TIMERS.c: 411: {
+"411
+{
+[; ;TIMERS.c: 412: T1CONbits.T1CKPS = 0b11;
+"412
+[e = . . _T1CONbits 1 4 -> -> 3 `i `uc ]
+[; ;TIMERS.c: 413: TMR_Timer1Osc(0);
+"413
+[e ( _TMR_Timer1Osc (1 -> -> 0 `i `uc ]
+"414
+}
+[e :U 473 ]
+[; ;TIMERS.c: 414: }
+[; ;TIMERS.c: 415: TMR_ResetTimer1();
+"415
+[e ( _TMR_ResetTimer1 ..  ]
+[; ;TIMERS.c: 416: }
+"416
+[e :UE 471 ]
 }

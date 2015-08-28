@@ -54,7 +54,8 @@ unsigned char System_State_Change = FALSE;
 void SYS_ConfigureOscillator(void)
 {
     /* This functionality is done in the configuration bits */
-    Nop();
+    OSCTUNEbits.PLLEN = 1;      // PLL enabled
+    while(!OSCCONbits.OSTS);    // Wait until primary oscillator is ready
 }
 
 /*-----------------------------------------------------------------------------/
