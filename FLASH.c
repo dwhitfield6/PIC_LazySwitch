@@ -50,19 +50,6 @@ unsigned char Flash_Status = FAIL;
 /******************************************************************************/
 
 /******************************************************************************/
-/* FSH_Sequence
- *
- * The function sends the modify flash sequence.
-/******************************************************************************/
-inline void FSH_Sequence(void)
-{
-    asm("MOVLW 55h");
-    asm("MOVWF EECON2");    // write 55h
-    asm("MOVLW 0AAh");
-    asm("MOVWF EECON2");     // write 0AAh 
-}
-
-/******************************************************************************/
 /* Functions
 /******************************************************************************/
 
@@ -77,6 +64,31 @@ void InitFlash(void)
     Nop();
 }
 
+/******************************************************************************/
+/* FSH_EraseALL
+ *
+ * The function erases all flash.
+/******************************************************************************/
+void FSH_EraseALL(void)
+{
+    unsigned long i;
+    
+    for(i=0;i<LARGEST_MEM_ADR;i+=0x400)
+    {
+        FSH_AddressToBlock(i);  // Load table pointer
+        
+        asm("BSF EECON1, 2");// enable write to memory WREN
+        asm("BSF EECON1, 4");// enable Row Erase operation FREE
+        asm("BCF INTCON, 7");// disable interrupts
+        asm("MOVLW 55h");
+        asm("MOVWF EECON2");// write 55h
+        asm("MOVLW 0AAh");//
+        asm("MOVWF EECON2");// write 0AAh
+        asm("BSF EECON1, 1");// start erase (CPU stall) WR
+        asm("BSF INTCON, 7");// re-enable interrupts
+    }
+}
+    
 /******************************************************************************/
 /* FSH_EraseBlock
  *
@@ -98,16 +110,15 @@ void FSH_EraseBlock(unsigned long Address)
     
     WriteTries = 1;
     
-    EECON1bits.WRERR = 0;       // clear error
-    EECON1bits.WREN = 1;        // Allows write cycles to Flash program
-    EECON1bits.FREE = 1;        // Performs an erase operation on the next WR command (cleared by completion of erase operation)
-    FSH_Sequence();
-    EECON1bits.WR = 1;          // begin erase cycle
-    NOP();
-    NOP();
-    MSC_DelayMS(500);
+    asm("BSF EECON1, 2");// enable write to memory WREN
+    asm("BSF EECON1, 4");// enable Row Erase operation FREE
+    asm("BCF INTCON, 7");// disable interrupts
+    asm("MOVLW 55h");
+    asm("MOVWF EECON2");// write 55h
+    asm("MOVLW 0AAh");//
+    asm("MOVWF EECON2");// write 0AAh
+    asm("BSF EECON1, 1");// start erase (CPU stall) WR
     
-    EECON1bits.WREN = 0;        // Inhibits write cycles to Flash program 
     if(EECON1bits.WRERR)
     {
         WriteTries++;
@@ -146,13 +157,15 @@ void FSH_WriteIntArray(unsigned int* Array)
         TABLAT = (Array[i] & 0x00FF);
         asm("TBLWT*+"); // TBLPTR is incremented after the read/write
     }
-    EECON1bits.WRERR = 0;       // clear error
-    EECON1bits.WREN = 1;        // Allows write cycles to Flash program    
     EECON1bits.FREE = 0;        // Perform write only
-    FSH_Sequence();
-    EECON1bits.WR = 1;          // begin erase cycle
-    while(EECON1bits.WRERR);
-    EECON1bits.WREN = 0;        // Inhibits write cycles to Flash program 
+        
+    asm("BSF EECON1, 2");// enable write to memory WREN
+    asm("BCF INTCON, 7");// disable interrupts
+    asm("MOVLW 55h");
+    asm("MOVWF EECON2");// write 55h
+    asm("MOVLW 0AAh");//
+    asm("MOVWF EECON2");// write 0AAh
+    asm("BSF EECON1, 1");// start erase (CPU stall) WR
 }
 
 /******************************************************************************/
@@ -416,11 +429,15 @@ unsigned char FSH_Write_IR_RF(void)
             TABLAT = WASTEFLAG;
             asm("TBLWT*+"); // TBLPTR is incremented after the read/write
         }
-        EECON1bits.WREN = 1;        // Allows write cycles to Flash program    
         EECON1bits.FREE = 0;        // Perform write only
-        FSH_Sequence();
-        EECON1bits.WR = 1;          // begin erase cycle
-        EECON1bits.WREN = 1;        // Inhibits write cycles to Flash program 
+
+        asm("BSF EECON1, 2");// enable write to memory WREN
+        asm("BCF INTCON, 7");// disable interrupts
+        asm("MOVLW 55h");
+        asm("MOVWF EECON2");// write 55h
+        asm("MOVLW 0AAh");//
+        asm("MOVWF EECON2");// write 0AAh
+        asm("BSF EECON1, 1");// start erase (CPU stall) WR
         
         /* Verify write */
         for(i=0; i<64;i++)
@@ -463,6 +480,10 @@ unsigned char FSH_Write_IR_RF(void)
 /******************************************************************************/
 void FSH_AddressToBlock(unsigned long Address)
 {    
+    if(Address > LARGEST_MEM_ADR)
+    {
+        Address = LARGEST_MEM_ADR;
+    }
     TBLPTRU = (Address & 0x002F0000) >> 16;
     TBLPTRH = (Address & 0x0000FF00) >> 8;
     TBLPTRL = (Address & 0x000000FF);

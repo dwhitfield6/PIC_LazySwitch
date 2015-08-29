@@ -250,6 +250,7 @@ void low_priority interrupt low_isr(void)
         }
         else
         {
+            SYS_ActivityTimerReset();
             Timer2PostCount++;
         }
         PIR1bits.TMR2IF = 0; // clear timer 2 flag

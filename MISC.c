@@ -1119,12 +1119,12 @@ unsigned int MSC_EndianIntArray(unsigned char* buffer)
 /******************************************************************************/
 unsigned long MSC_EndianLong(unsigned long number)
 {
-    unsigned char temp1, temp2, temp3, temp4;
+    unsigned long temp1, temp2, temp3, temp4;
 
-    temp1 = (unsigned char) (number & 0x000000FF);
-    temp2 = (unsigned char) (number & 0x0000FF00) >> 8;
-    temp3 = (unsigned char) (number & 0x00FF0000) >> 16;
-    temp4 = (unsigned char) (number & 0xFF000000) >> 24;
+    temp1 = (number & 0x000000FF);
+    temp2 = (number & 0x0000FF00) >> 8;
+    temp3 = (number & 0x00FF0000) >> 16;
+    temp4 = (number & 0xFF000000) >> 24;
 
     return ((temp4 << 24) | (temp3 << 16) | (temp2 << 8) | temp1);
 }

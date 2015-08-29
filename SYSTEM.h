@@ -49,6 +49,15 @@
  *
 /******************************************************************************/
 #define FOSC        32000000L
+
+/******************************************************************************/
+/* INTCON
+
+ *
+ * This is the parameters of INTCON
+/******************************************************************************/
+#define b_GIE      0b10000000
+
 /******************************************************************************/
 /* Defines                                                                    */
 /******************************************************************************/
@@ -66,8 +75,8 @@
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
 /******************************************************************************/
-extern unsigned char System_State;
-extern unsigned char System_State_Change;
+extern volatile unsigned char System_State;
+extern volatile unsigned char System_State_Change;
 
 /******************************************************************************/
 /* Function prototypes                                                        */
@@ -76,6 +85,6 @@ void SYS_ConfigureOscillator(void); /* Handles clock switching/osc initializatio
 inline void SYS_Idle(void);
 inline void SYS_Sleep(void);
 void SYS_ActivityTimer(void);
-void SYS_ActivityTimerReset(void);
+inline void SYS_ActivityTimerReset(void);
 
 #endif	/* SYSTEM_H */

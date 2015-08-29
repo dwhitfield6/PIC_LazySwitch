@@ -39,8 +39,8 @@
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
 /******************************************************************************/
-unsigned char System_State = RUN;
-unsigned char System_State_Change = FALSE;
+volatile unsigned char System_State = RUN;
+volatile unsigned char System_State_Change = FALSE;
 unsigned long Activity_Timer = 0;
 
 /******************************************************************************/
@@ -56,6 +56,17 @@ inline void SYS_Idle(void)
 {
     OSCCON |= 0b10000000;  // enter idle mode on sleep instruction
     asm("sleep");
+}
+
+/******************************************************************************/
+/* SYS_ActivityTimerReset
+ *
+ * The function check for activity an puts system to sleep if there is no
+ *  activity.
+/******************************************************************************/
+inline void SYS_ActivityTimerReset(void)
+{
+    Activity_Timer = 0;
 }
 
 /******************************************************************************/
@@ -98,17 +109,6 @@ void SYS_ActivityTimer(void)
     {
         Activity_Timer++;
     }
-}
-
-/******************************************************************************/
-/* SYS_ActivityTimerReset
- *
- * The function check for activity an puts system to sleep if there is no
- *  activity.
-/******************************************************************************/
-void SYS_ActivityTimerReset(void)
-{
-    Activity_Timer = 0;
 }
 
 /*-----------------------------------------------------------------------------/

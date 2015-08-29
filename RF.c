@@ -316,9 +316,13 @@ unsigned char RF_CheckCode(void)
             }
             
             /* The RF signal is valid for program */
-            RF_CodeSize = RF_DataPlace;
-            RF_Saved = NEW;
             Flash_Status = FSH_Write_IR_RF();
+            if(Flash_Status)
+            {
+                RF_CodeSize = RF_DataPlace;
+                RF_Saved = NEW;
+            }
+            System_State = RUN;
         }
         return FALSE;
     }

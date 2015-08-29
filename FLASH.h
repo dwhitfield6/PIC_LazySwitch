@@ -39,12 +39,32 @@
 #define WRITETRIES   10
 
 /******************************************************************************/
+/* LARGEST_MEM_ADR
+
+ *
+ * This is the highest flash address. For PIC18FX4J10 this is 0x3600.
+ * For PIC18FX5J10, this is 0x7600.
+/******************************************************************************/
+#define LARGEST_MEM_ADR   0x3600
+
+/******************************************************************************/
 /* WASTEFLAG
 
  *
  * This is the pattern to fill the wasted flash with.
 /******************************************************************************/
 #define WASTEFLAG   0xDA
+
+/******************************************************************************/
+/* EECON1
+
+ *
+ * This is the parameters of EECON1
+/******************************************************************************/
+#define b_WR      0b00000010
+#define b_WREN    0b00000100
+#define b_WRERR   0b00001000
+#define b_FREE    0b00010000
 
 /******************************************************************************/
 /* Defines                                                                    */
@@ -576,6 +596,7 @@ const unsigned char FlashWaste[512] __at(0x2600) = {
                                             WASTEFLAG,    //    [    510    ]
                                             WASTEFLAG,    //    [    511    ]
 };
+
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
 /******************************************************************************/
@@ -590,11 +611,11 @@ extern unsigned char Flash_Status;
 /* Function prototypes                                                        */
 /******************************************************************************/
 void InitFlash(void);
-inline void FSH_Sequence(void);
 void FSH_EraseBlock(unsigned long Address);
 unsigned char FSH_Write_IR_RF(void);
 void FSH_AddressToBlock(unsigned long Address);
 void FSH_WriteIntArray(unsigned int* Array);
 unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
+void FSH_EraseALL(void);
 
 #endif	/* BUTTON_H */

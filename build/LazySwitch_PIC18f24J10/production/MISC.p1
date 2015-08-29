@@ -1,19 +1,20 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "97 MISC.h
 [v _MSC_DelayNOP `(v ~T0 @X0 0 ef1`ui ]
-"42 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
+"43 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
 "95 MISC.h
 [v _MSC_LowercaseChar `(v ~T0 @X0 0 ef1`*uc ]
-"45 C:\Program Files (x86)\Microchip\xc8\v1.34\include\math.h
+"45 C:\Program Files (x86)\Microchip\xc8\v1.35\include\math.h
 [v _pow `(d ~T0 @X0 0 ef2`d`d ]
-"886 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
+"886 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f24j10.h
 [v _LATC `Vuc ~T0 @X0 0 e@3979 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
+[; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f24j10.h: 49: extern volatile unsigned char PORTA @ 0xF80;
-"51 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
+"51 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f24j10.h
 [; ;pic18f24j10.h: 51: asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
 [; ;pic18f24j10.h: 54: typedef union {
@@ -2955,662 +2956,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18f24j10.h: 7725: extern volatile __bit nTX8 @ (((unsigned) &TXSTA)*8) + 6;
 [; ;pic18f24j10.h: 7727: extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 [; ;pic18f24j10.h: 7729: extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
-[; ;adc.h: 2008: union ADCResult
-[; ;adc.h: 2009: {
-[; ;adc.h: 2010: int lr;
-[; ;adc.h: 2011: char br[2];
-[; ;adc.h: 2012: };
-[; ;adc.h: 2014: char BusyADC (void);
-[; ;adc.h: 2016: void ConvertADC (void);
-[; ;adc.h: 2018: void CloseADC(void);
-[; ;adc.h: 2026: int ReadADC(void);
-[; ;adc.h: 2040: void OpenADC ( unsigned char ,
-[; ;adc.h: 2041: unsigned char ,
-[; ;adc.h: 2042: unsigned char );
-[; ;adc.h: 2084: void SetChanADC(unsigned char );
-[; ;adc.h: 2100: void SelChanConvADC( unsigned char );
-[; ;ancomp.h: 38: void Close_ancomp( void );
-[; ;ancomp.h: 39: void Open_ancomp(unsigned char config);
-[; ;spi.h: 236: void OpenSPI1( unsigned char sync_mode,
-[; ;spi.h: 237: unsigned char bus_mode,
-[; ;spi.h: 238: unsigned char smp_phase );
-[; ;spi.h: 240: signed char WriteSPI1( unsigned char data_out );
-[; ;spi.h: 242: void getsSPI1( unsigned char *rdptr, unsigned char length );
-[; ;spi.h: 244: void putsSPI1( unsigned char *wrptr );
-[; ;spi.h: 246: unsigned char ReadSPI1( void );
-[; ;can2510.h: 414: void CAN2510Initialize(  unsigned int configuration,
-[; ;can2510.h: 415: unsigned char brp,
-[; ;can2510.h: 416: unsigned char interruptFlags,
-[; ;can2510.h: 417: unsigned char SPI_syncMode,
-[; ;can2510.h: 418: unsigned char SPI_busMode,
-[; ;can2510.h: 419: unsigned char SPI_smpPhase );
-[; ;can2510.h: 421: signed char CAN2510Init(  unsigned long BufferConfig,
-[; ;can2510.h: 422: unsigned long BitTimeConfig,
-[; ;can2510.h: 423: unsigned char interruptEnables,
-[; ;can2510.h: 424: unsigned char SPI_syncMode,
-[; ;can2510.h: 425: unsigned char SPI_busMode,
-[; ;can2510.h: 426: unsigned char SPI_smpPhase );
-[; ;can2510.h: 428: void CAN2510Enable( void );
-[; ;can2510.h: 430: void CAN2510Disable( void );
-[; ;can2510.h: 432: void CAN2510Reset( void );
-[; ;can2510.h: 434: void CAN2510SetMode(  unsigned char mode );
-[; ;can2510.h: 436: unsigned char CAN2510ReadMode( void );
-[; ;can2510.h: 438: unsigned char CAN2510ReadStatus( void );
-[; ;can2510.h: 440: unsigned char CAN2510ErrorState( void );
-[; ;can2510.h: 442: unsigned char CAN2510InterruptStatus( void );
-[; ;can2510.h: 444: void CAN2510InterruptEnable( unsigned char interruptFlags );
-[; ;can2510.h: 446: unsigned char CAN2510ByteRead(  unsigned char addr );
-[; ;can2510.h: 448: void CAN2510ByteWrite(  unsigned char addr,  unsigned char value );
-[; ;can2510.h: 450: void CAN2510SequentialRead(  unsigned char *DataArray,
-[; ;can2510.h: 451: unsigned char CAN2510addr,
-[; ;can2510.h: 452: unsigned char numbytes );
-[; ;can2510.h: 454: void CAN2510SequentialWrite(  unsigned char *DataArray,
-[; ;can2510.h: 455: unsigned char CAN2510addr,
-[; ;can2510.h: 456: unsigned char numbytes );
-[; ;can2510.h: 458: void CAN2510BitModify(  unsigned char address,
-[; ;can2510.h: 459: unsigned char mask,
-[; ;can2510.h: 460: unsigned char data );
-[; ;can2510.h: 462: void CAN2510SetSingleMaskStd(  unsigned char maskNum,  unsigned int mask );
-[; ;can2510.h: 464: void CAN2510SetSingleMaskXtd(  unsigned char maskNum,  unsigned long mask );
-[; ;can2510.h: 466: void CAN2510SetSingleFilterStd(  unsigned char filterNum,  unsigned int filter );
-[; ;can2510.h: 468: void CAN2510SetSingleFilterXtd(  unsigned char filterNum,  unsigned long filter );
-[; ;can2510.h: 470: signed char CAN2510SetMsgFilterStd(  unsigned char bufferNum,
-[; ;can2510.h: 471: unsigned int mask,
-[; ;can2510.h: 472: unsigned int *filters );
-[; ;can2510.h: 474: signed char CAN2510SetMsgFilterXtd(  unsigned char bufferNum,
-[; ;can2510.h: 475: unsigned long mask,
-[; ;can2510.h: 476: unsigned long *filters );
-[; ;can2510.h: 478: signed char CAN2510WriteStd(  unsigned int msgId,
-[; ;can2510.h: 479: unsigned char msgPriority,
-[; ;can2510.h: 480: unsigned char numBytes,
-[; ;can2510.h: 481: unsigned char *data );
-[; ;can2510.h: 483: signed char CAN2510WriteXtd(  unsigned long msgId,
-[; ;can2510.h: 484: unsigned char msgPriority,
-[; ;can2510.h: 485: unsigned char numBytes,
-[; ;can2510.h: 486: unsigned char *data );
-[; ;can2510.h: 488: void CAN2510LoadBufferStd(  unsigned char bufferNum,
-[; ;can2510.h: 489: unsigned int msgId,
-[; ;can2510.h: 490: unsigned char numBytes,
-[; ;can2510.h: 491: unsigned char *data );
-[; ;can2510.h: 493: void CAN2510LoadBufferXtd(  unsigned char bufferNum,
-[; ;can2510.h: 494: unsigned long msgId,
-[; ;can2510.h: 495: unsigned char numBytes,
-[; ;can2510.h: 496: unsigned char *data );
-[; ;can2510.h: 498: void CAN2510LoadRTRStd(  unsigned char bufferNum,
-[; ;can2510.h: 499: unsigned int msgId,
-[; ;can2510.h: 500: unsigned char numBytes );
-[; ;can2510.h: 502: void CAN2510LoadRTRXtd(  unsigned char bufferNum,
-[; ;can2510.h: 503: unsigned long msgId,
-[; ;can2510.h: 504: unsigned char numBytes );
-[; ;can2510.h: 506: void CAN2510SetBufferPriority(  unsigned char bufferNum,
-[; ;can2510.h: 507: unsigned char bufferPriority );
-[; ;can2510.h: 509: void CAN2510SendBuffer(  unsigned char bufferNumber );
-[; ;can2510.h: 511: signed char CAN2510WriteBuffer(  unsigned char bufferNum );
-[; ;can2510.h: 513: unsigned char CAN2510DataReady(  unsigned char bufferNum );
-[; ;can2510.h: 515: unsigned char CAN2510DataRead(  unsigned char bufferNum,
-[; ;can2510.h: 516: unsigned long *msgId,
-[; ;can2510.h: 517: unsigned char *numBytes,
-[; ;can2510.h: 518: unsigned char *data );
-[; ;capture.h: 64: union capstatus
-[; ;capture.h: 65: {
-[; ;capture.h: 73: struct
-[; ;capture.h: 74: {
-[; ;capture.h: 77: unsigned Cap1OVF:1;
-[; ;capture.h: 82: unsigned Cap2OVF:1;
-[; ;capture.h: 115: };
-[; ;capture.h: 117: unsigned :8;
-[; ;capture.h: 119: };
-[; ;capture.h: 121: extern union capstatus CapStatus;
-[; ;capture.h: 123: union CapResult
-[; ;capture.h: 124: {
-[; ;capture.h: 125: unsigned int lc;
-[; ;capture.h: 126: char bc[2];
-[; ;capture.h: 127: };
-[; ;capture.h: 474: void OpenCapture1 ( unsigned char config);
-[; ;capture.h: 475: unsigned int ReadCapture1 (void);
-[; ;capture.h: 476: void CloseCapture1 (void);
-[; ;capture.h: 484: void OpenCapture2 ( unsigned char config);
-[; ;capture.h: 485: unsigned int ReadCapture2 (void);
-[; ;capture.h: 486: void CloseCapture2 (void);
-[; ;compare.h: 385: void OpenCompare1(unsigned char config,unsigned int period);
-[; ;compare.h: 386: void CloseCompare1(void);
-[; ;compare.h: 392: void OpenCompare2(unsigned char config, unsigned int period);
-[; ;compare.h: 393: void CloseCompare2(void);
-[; ;stddef.h: 2: typedef int ptrdiff_t;
-[; ;stddef.h: 3: typedef unsigned size_t;
-[; ;stddef.h: 4: typedef unsigned short wchar_t;
-[; ;stddef.h: 13: extern int errno;
-[; ;GenericTypeDefs.h: 65: typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
-[; ;GenericTypeDefs.h: 68: typedef enum _BIT { CLEAR = 0, SET } BIT;
-[; ;GenericTypeDefs.h: 75: typedef signed int INT;
-[; ;GenericTypeDefs.h: 76: typedef signed char INT8;
-[; ;GenericTypeDefs.h: 77: typedef signed short int INT16;
-[; ;GenericTypeDefs.h: 78: typedef signed long int INT32;
-[; ;GenericTypeDefs.h: 82: typedef signed long long INT64;
-[; ;GenericTypeDefs.h: 86: typedef unsigned int UINT;
-[; ;GenericTypeDefs.h: 87: typedef unsigned char UINT8;
-[; ;GenericTypeDefs.h: 88: typedef unsigned short int UINT16;
-[; ;GenericTypeDefs.h: 93: typedef unsigned long int UINT32;
-[; ;GenericTypeDefs.h: 96: typedef unsigned long long UINT64;
-[; ;GenericTypeDefs.h: 99: typedef union
-[; ;GenericTypeDefs.h: 100: {
-[; ;GenericTypeDefs.h: 101: UINT8 Val;
-[; ;GenericTypeDefs.h: 102: struct
-[; ;GenericTypeDefs.h: 103: {
-[; ;GenericTypeDefs.h: 104: UINT8 b0:1;
-[; ;GenericTypeDefs.h: 105: UINT8 b1:1;
-[; ;GenericTypeDefs.h: 106: UINT8 b2:1;
-[; ;GenericTypeDefs.h: 107: UINT8 b3:1;
-[; ;GenericTypeDefs.h: 108: UINT8 b4:1;
-[; ;GenericTypeDefs.h: 109: UINT8 b5:1;
-[; ;GenericTypeDefs.h: 110: UINT8 b6:1;
-[; ;GenericTypeDefs.h: 111: UINT8 b7:1;
-[; ;GenericTypeDefs.h: 112: } bits;
-[; ;GenericTypeDefs.h: 113: } UINT8_VAL, UINT8_BITS;
-[; ;GenericTypeDefs.h: 115: typedef union
-[; ;GenericTypeDefs.h: 116: {
-[; ;GenericTypeDefs.h: 117: UINT16 Val;
-[; ;GenericTypeDefs.h: 118: UINT8 v[2] ;
-[; ;GenericTypeDefs.h: 119: struct 
-[; ;GenericTypeDefs.h: 120: {
-[; ;GenericTypeDefs.h: 121: UINT8 LB;
-[; ;GenericTypeDefs.h: 122: UINT8 HB;
-[; ;GenericTypeDefs.h: 123: } byte;
-[; ;GenericTypeDefs.h: 124: struct 
-[; ;GenericTypeDefs.h: 125: {
-[; ;GenericTypeDefs.h: 126: UINT8 b0:1;
-[; ;GenericTypeDefs.h: 127: UINT8 b1:1;
-[; ;GenericTypeDefs.h: 128: UINT8 b2:1;
-[; ;GenericTypeDefs.h: 129: UINT8 b3:1;
-[; ;GenericTypeDefs.h: 130: UINT8 b4:1;
-[; ;GenericTypeDefs.h: 131: UINT8 b5:1;
-[; ;GenericTypeDefs.h: 132: UINT8 b6:1;
-[; ;GenericTypeDefs.h: 133: UINT8 b7:1;
-[; ;GenericTypeDefs.h: 134: UINT8 b8:1;
-[; ;GenericTypeDefs.h: 135: UINT8 b9:1;
-[; ;GenericTypeDefs.h: 136: UINT8 b10:1;
-[; ;GenericTypeDefs.h: 137: UINT8 b11:1;
-[; ;GenericTypeDefs.h: 138: UINT8 b12:1;
-[; ;GenericTypeDefs.h: 139: UINT8 b13:1;
-[; ;GenericTypeDefs.h: 140: UINT8 b14:1;
-[; ;GenericTypeDefs.h: 141: UINT8 b15:1;
-[; ;GenericTypeDefs.h: 142: } bits;
-[; ;GenericTypeDefs.h: 143: } UINT16_VAL, UINT16_BITS;
-[; ;GenericTypeDefs.h: 187: typedef union
-[; ;GenericTypeDefs.h: 188: {
-[; ;GenericTypeDefs.h: 189: UINT32 Val;
-[; ;GenericTypeDefs.h: 190: UINT16 w[2] ;
-[; ;GenericTypeDefs.h: 191: UINT8 v[4] ;
-[; ;GenericTypeDefs.h: 192: struct 
-[; ;GenericTypeDefs.h: 193: {
-[; ;GenericTypeDefs.h: 194: UINT16 LW;
-[; ;GenericTypeDefs.h: 195: UINT16 HW;
-[; ;GenericTypeDefs.h: 196: } word;
-[; ;GenericTypeDefs.h: 197: struct 
-[; ;GenericTypeDefs.h: 198: {
-[; ;GenericTypeDefs.h: 199: UINT8 LB;
-[; ;GenericTypeDefs.h: 200: UINT8 HB;
-[; ;GenericTypeDefs.h: 201: UINT8 UB;
-[; ;GenericTypeDefs.h: 202: UINT8 MB;
-[; ;GenericTypeDefs.h: 203: } byte;
-[; ;GenericTypeDefs.h: 204: struct 
-[; ;GenericTypeDefs.h: 205: {
-[; ;GenericTypeDefs.h: 206: UINT16_VAL low;
-[; ;GenericTypeDefs.h: 207: UINT16_VAL high;
-[; ;GenericTypeDefs.h: 208: }wordUnion;
-[; ;GenericTypeDefs.h: 209: struct 
-[; ;GenericTypeDefs.h: 210: {
-[; ;GenericTypeDefs.h: 211: UINT8 b0:1;
-[; ;GenericTypeDefs.h: 212: UINT8 b1:1;
-[; ;GenericTypeDefs.h: 213: UINT8 b2:1;
-[; ;GenericTypeDefs.h: 214: UINT8 b3:1;
-[; ;GenericTypeDefs.h: 215: UINT8 b4:1;
-[; ;GenericTypeDefs.h: 216: UINT8 b5:1;
-[; ;GenericTypeDefs.h: 217: UINT8 b6:1;
-[; ;GenericTypeDefs.h: 218: UINT8 b7:1;
-[; ;GenericTypeDefs.h: 219: UINT8 b8:1;
-[; ;GenericTypeDefs.h: 220: UINT8 b9:1;
-[; ;GenericTypeDefs.h: 221: UINT8 b10:1;
-[; ;GenericTypeDefs.h: 222: UINT8 b11:1;
-[; ;GenericTypeDefs.h: 223: UINT8 b12:1;
-[; ;GenericTypeDefs.h: 224: UINT8 b13:1;
-[; ;GenericTypeDefs.h: 225: UINT8 b14:1;
-[; ;GenericTypeDefs.h: 226: UINT8 b15:1;
-[; ;GenericTypeDefs.h: 227: UINT8 b16:1;
-[; ;GenericTypeDefs.h: 228: UINT8 b17:1;
-[; ;GenericTypeDefs.h: 229: UINT8 b18:1;
-[; ;GenericTypeDefs.h: 230: UINT8 b19:1;
-[; ;GenericTypeDefs.h: 231: UINT8 b20:1;
-[; ;GenericTypeDefs.h: 232: UINT8 b21:1;
-[; ;GenericTypeDefs.h: 233: UINT8 b22:1;
-[; ;GenericTypeDefs.h: 234: UINT8 b23:1;
-[; ;GenericTypeDefs.h: 235: UINT8 b24:1;
-[; ;GenericTypeDefs.h: 236: UINT8 b25:1;
-[; ;GenericTypeDefs.h: 237: UINT8 b26:1;
-[; ;GenericTypeDefs.h: 238: UINT8 b27:1;
-[; ;GenericTypeDefs.h: 239: UINT8 b28:1;
-[; ;GenericTypeDefs.h: 240: UINT8 b29:1;
-[; ;GenericTypeDefs.h: 241: UINT8 b30:1;
-[; ;GenericTypeDefs.h: 242: UINT8 b31:1;
-[; ;GenericTypeDefs.h: 243: } bits;
-[; ;GenericTypeDefs.h: 244: } UINT32_VAL;
-[; ;GenericTypeDefs.h: 248: typedef union
-[; ;GenericTypeDefs.h: 249: {
-[; ;GenericTypeDefs.h: 250: UINT64 Val;
-[; ;GenericTypeDefs.h: 251: UINT32 d[2] ;
-[; ;GenericTypeDefs.h: 252: UINT16 w[4] ;
-[; ;GenericTypeDefs.h: 253: UINT8 v[8] ;
-[; ;GenericTypeDefs.h: 254: struct 
-[; ;GenericTypeDefs.h: 255: {
-[; ;GenericTypeDefs.h: 256: UINT32 LD;
-[; ;GenericTypeDefs.h: 257: UINT32 HD;
-[; ;GenericTypeDefs.h: 258: } dword;
-[; ;GenericTypeDefs.h: 259: struct 
-[; ;GenericTypeDefs.h: 260: {
-[; ;GenericTypeDefs.h: 261: UINT16 LW;
-[; ;GenericTypeDefs.h: 262: UINT16 HW;
-[; ;GenericTypeDefs.h: 263: UINT16 UW;
-[; ;GenericTypeDefs.h: 264: UINT16 MW;
-[; ;GenericTypeDefs.h: 265: } word;
-[; ;GenericTypeDefs.h: 266: struct 
-[; ;GenericTypeDefs.h: 267: {
-[; ;GenericTypeDefs.h: 268: UINT8 b0:1;
-[; ;GenericTypeDefs.h: 269: UINT8 b1:1;
-[; ;GenericTypeDefs.h: 270: UINT8 b2:1;
-[; ;GenericTypeDefs.h: 271: UINT8 b3:1;
-[; ;GenericTypeDefs.h: 272: UINT8 b4:1;
-[; ;GenericTypeDefs.h: 273: UINT8 b5:1;
-[; ;GenericTypeDefs.h: 274: UINT8 b6:1;
-[; ;GenericTypeDefs.h: 275: UINT8 b7:1;
-[; ;GenericTypeDefs.h: 276: UINT8 b8:1;
-[; ;GenericTypeDefs.h: 277: UINT8 b9:1;
-[; ;GenericTypeDefs.h: 278: UINT8 b10:1;
-[; ;GenericTypeDefs.h: 279: UINT8 b11:1;
-[; ;GenericTypeDefs.h: 280: UINT8 b12:1;
-[; ;GenericTypeDefs.h: 281: UINT8 b13:1;
-[; ;GenericTypeDefs.h: 282: UINT8 b14:1;
-[; ;GenericTypeDefs.h: 283: UINT8 b15:1;
-[; ;GenericTypeDefs.h: 284: UINT8 b16:1;
-[; ;GenericTypeDefs.h: 285: UINT8 b17:1;
-[; ;GenericTypeDefs.h: 286: UINT8 b18:1;
-[; ;GenericTypeDefs.h: 287: UINT8 b19:1;
-[; ;GenericTypeDefs.h: 288: UINT8 b20:1;
-[; ;GenericTypeDefs.h: 289: UINT8 b21:1;
-[; ;GenericTypeDefs.h: 290: UINT8 b22:1;
-[; ;GenericTypeDefs.h: 291: UINT8 b23:1;
-[; ;GenericTypeDefs.h: 292: UINT8 b24:1;
-[; ;GenericTypeDefs.h: 293: UINT8 b25:1;
-[; ;GenericTypeDefs.h: 294: UINT8 b26:1;
-[; ;GenericTypeDefs.h: 295: UINT8 b27:1;
-[; ;GenericTypeDefs.h: 296: UINT8 b28:1;
-[; ;GenericTypeDefs.h: 297: UINT8 b29:1;
-[; ;GenericTypeDefs.h: 298: UINT8 b30:1;
-[; ;GenericTypeDefs.h: 299: UINT8 b31:1;
-[; ;GenericTypeDefs.h: 300: UINT8 b32:1;
-[; ;GenericTypeDefs.h: 301: UINT8 b33:1;
-[; ;GenericTypeDefs.h: 302: UINT8 b34:1;
-[; ;GenericTypeDefs.h: 303: UINT8 b35:1;
-[; ;GenericTypeDefs.h: 304: UINT8 b36:1;
-[; ;GenericTypeDefs.h: 305: UINT8 b37:1;
-[; ;GenericTypeDefs.h: 306: UINT8 b38:1;
-[; ;GenericTypeDefs.h: 307: UINT8 b39:1;
-[; ;GenericTypeDefs.h: 308: UINT8 b40:1;
-[; ;GenericTypeDefs.h: 309: UINT8 b41:1;
-[; ;GenericTypeDefs.h: 310: UINT8 b42:1;
-[; ;GenericTypeDefs.h: 311: UINT8 b43:1;
-[; ;GenericTypeDefs.h: 312: UINT8 b44:1;
-[; ;GenericTypeDefs.h: 313: UINT8 b45:1;
-[; ;GenericTypeDefs.h: 314: UINT8 b46:1;
-[; ;GenericTypeDefs.h: 315: UINT8 b47:1;
-[; ;GenericTypeDefs.h: 316: UINT8 b48:1;
-[; ;GenericTypeDefs.h: 317: UINT8 b49:1;
-[; ;GenericTypeDefs.h: 318: UINT8 b50:1;
-[; ;GenericTypeDefs.h: 319: UINT8 b51:1;
-[; ;GenericTypeDefs.h: 320: UINT8 b52:1;
-[; ;GenericTypeDefs.h: 321: UINT8 b53:1;
-[; ;GenericTypeDefs.h: 322: UINT8 b54:1;
-[; ;GenericTypeDefs.h: 323: UINT8 b55:1;
-[; ;GenericTypeDefs.h: 324: UINT8 b56:1;
-[; ;GenericTypeDefs.h: 325: UINT8 b57:1;
-[; ;GenericTypeDefs.h: 326: UINT8 b58:1;
-[; ;GenericTypeDefs.h: 327: UINT8 b59:1;
-[; ;GenericTypeDefs.h: 328: UINT8 b60:1;
-[; ;GenericTypeDefs.h: 329: UINT8 b61:1;
-[; ;GenericTypeDefs.h: 330: UINT8 b62:1;
-[; ;GenericTypeDefs.h: 331: UINT8 b63:1;
-[; ;GenericTypeDefs.h: 332: } bits;
-[; ;GenericTypeDefs.h: 333: } UINT64_VAL;
-[; ;GenericTypeDefs.h: 339: typedef void VOID;
-[; ;GenericTypeDefs.h: 341: typedef char CHAR8;
-[; ;GenericTypeDefs.h: 342: typedef unsigned char UCHAR8;
-[; ;GenericTypeDefs.h: 344: typedef unsigned char BYTE;
-[; ;GenericTypeDefs.h: 345: typedef unsigned short int WORD;
-[; ;GenericTypeDefs.h: 346: typedef unsigned long DWORD;
-[; ;GenericTypeDefs.h: 349: typedef unsigned long long QWORD;
-[; ;GenericTypeDefs.h: 350: typedef signed char CHAR;
-[; ;GenericTypeDefs.h: 351: typedef signed short int SHORT;
-[; ;GenericTypeDefs.h: 352: typedef signed long LONG;
-[; ;GenericTypeDefs.h: 355: typedef signed long long LONGLONG;
-[; ;GenericTypeDefs.h: 356: typedef union
-[; ;GenericTypeDefs.h: 357: {
-[; ;GenericTypeDefs.h: 358: BYTE Val;
-[; ;GenericTypeDefs.h: 359: struct 
-[; ;GenericTypeDefs.h: 360: {
-[; ;GenericTypeDefs.h: 361: BYTE b0:1;
-[; ;GenericTypeDefs.h: 362: BYTE b1:1;
-[; ;GenericTypeDefs.h: 363: BYTE b2:1;
-[; ;GenericTypeDefs.h: 364: BYTE b3:1;
-[; ;GenericTypeDefs.h: 365: BYTE b4:1;
-[; ;GenericTypeDefs.h: 366: BYTE b5:1;
-[; ;GenericTypeDefs.h: 367: BYTE b6:1;
-[; ;GenericTypeDefs.h: 368: BYTE b7:1;
-[; ;GenericTypeDefs.h: 369: } bits;
-[; ;GenericTypeDefs.h: 370: } BYTE_VAL, BYTE_BITS;
-[; ;GenericTypeDefs.h: 372: typedef union
-[; ;GenericTypeDefs.h: 373: {
-[; ;GenericTypeDefs.h: 374: WORD Val;
-[; ;GenericTypeDefs.h: 375: BYTE v[2] ;
-[; ;GenericTypeDefs.h: 376: struct 
-[; ;GenericTypeDefs.h: 377: {
-[; ;GenericTypeDefs.h: 378: BYTE LB;
-[; ;GenericTypeDefs.h: 379: BYTE HB;
-[; ;GenericTypeDefs.h: 380: } byte;
-[; ;GenericTypeDefs.h: 381: struct 
-[; ;GenericTypeDefs.h: 382: {
-[; ;GenericTypeDefs.h: 383: BYTE b0:1;
-[; ;GenericTypeDefs.h: 384: BYTE b1:1;
-[; ;GenericTypeDefs.h: 385: BYTE b2:1;
-[; ;GenericTypeDefs.h: 386: BYTE b3:1;
-[; ;GenericTypeDefs.h: 387: BYTE b4:1;
-[; ;GenericTypeDefs.h: 388: BYTE b5:1;
-[; ;GenericTypeDefs.h: 389: BYTE b6:1;
-[; ;GenericTypeDefs.h: 390: BYTE b7:1;
-[; ;GenericTypeDefs.h: 391: BYTE b8:1;
-[; ;GenericTypeDefs.h: 392: BYTE b9:1;
-[; ;GenericTypeDefs.h: 393: BYTE b10:1;
-[; ;GenericTypeDefs.h: 394: BYTE b11:1;
-[; ;GenericTypeDefs.h: 395: BYTE b12:1;
-[; ;GenericTypeDefs.h: 396: BYTE b13:1;
-[; ;GenericTypeDefs.h: 397: BYTE b14:1;
-[; ;GenericTypeDefs.h: 398: BYTE b15:1;
-[; ;GenericTypeDefs.h: 399: } bits;
-[; ;GenericTypeDefs.h: 400: } WORD_VAL, WORD_BITS;
-[; ;GenericTypeDefs.h: 402: typedef union
-[; ;GenericTypeDefs.h: 403: {
-[; ;GenericTypeDefs.h: 404: DWORD Val;
-[; ;GenericTypeDefs.h: 405: WORD w[2] ;
-[; ;GenericTypeDefs.h: 406: BYTE v[4] ;
-[; ;GenericTypeDefs.h: 407: struct 
-[; ;GenericTypeDefs.h: 408: {
-[; ;GenericTypeDefs.h: 409: WORD LW;
-[; ;GenericTypeDefs.h: 410: WORD HW;
-[; ;GenericTypeDefs.h: 411: } word;
-[; ;GenericTypeDefs.h: 412: struct 
-[; ;GenericTypeDefs.h: 413: {
-[; ;GenericTypeDefs.h: 414: BYTE LB;
-[; ;GenericTypeDefs.h: 415: BYTE HB;
-[; ;GenericTypeDefs.h: 416: BYTE UB;
-[; ;GenericTypeDefs.h: 417: BYTE MB;
-[; ;GenericTypeDefs.h: 418: } byte;
-[; ;GenericTypeDefs.h: 419: struct 
-[; ;GenericTypeDefs.h: 420: {
-[; ;GenericTypeDefs.h: 421: WORD_VAL low;
-[; ;GenericTypeDefs.h: 422: WORD_VAL high;
-[; ;GenericTypeDefs.h: 423: }wordUnion;
-[; ;GenericTypeDefs.h: 424: struct 
-[; ;GenericTypeDefs.h: 425: {
-[; ;GenericTypeDefs.h: 426: BYTE b0:1;
-[; ;GenericTypeDefs.h: 427: BYTE b1:1;
-[; ;GenericTypeDefs.h: 428: BYTE b2:1;
-[; ;GenericTypeDefs.h: 429: BYTE b3:1;
-[; ;GenericTypeDefs.h: 430: BYTE b4:1;
-[; ;GenericTypeDefs.h: 431: BYTE b5:1;
-[; ;GenericTypeDefs.h: 432: BYTE b6:1;
-[; ;GenericTypeDefs.h: 433: BYTE b7:1;
-[; ;GenericTypeDefs.h: 434: BYTE b8:1;
-[; ;GenericTypeDefs.h: 435: BYTE b9:1;
-[; ;GenericTypeDefs.h: 436: BYTE b10:1;
-[; ;GenericTypeDefs.h: 437: BYTE b11:1;
-[; ;GenericTypeDefs.h: 438: BYTE b12:1;
-[; ;GenericTypeDefs.h: 439: BYTE b13:1;
-[; ;GenericTypeDefs.h: 440: BYTE b14:1;
-[; ;GenericTypeDefs.h: 441: BYTE b15:1;
-[; ;GenericTypeDefs.h: 442: BYTE b16:1;
-[; ;GenericTypeDefs.h: 443: BYTE b17:1;
-[; ;GenericTypeDefs.h: 444: BYTE b18:1;
-[; ;GenericTypeDefs.h: 445: BYTE b19:1;
-[; ;GenericTypeDefs.h: 446: BYTE b20:1;
-[; ;GenericTypeDefs.h: 447: BYTE b21:1;
-[; ;GenericTypeDefs.h: 448: BYTE b22:1;
-[; ;GenericTypeDefs.h: 449: BYTE b23:1;
-[; ;GenericTypeDefs.h: 450: BYTE b24:1;
-[; ;GenericTypeDefs.h: 451: BYTE b25:1;
-[; ;GenericTypeDefs.h: 452: BYTE b26:1;
-[; ;GenericTypeDefs.h: 453: BYTE b27:1;
-[; ;GenericTypeDefs.h: 454: BYTE b28:1;
-[; ;GenericTypeDefs.h: 455: BYTE b29:1;
-[; ;GenericTypeDefs.h: 456: BYTE b30:1;
-[; ;GenericTypeDefs.h: 457: BYTE b31:1;
-[; ;GenericTypeDefs.h: 458: } bits;
-[; ;GenericTypeDefs.h: 459: } DWORD_VAL;
-[; ;GenericTypeDefs.h: 462: typedef union
-[; ;GenericTypeDefs.h: 463: {
-[; ;GenericTypeDefs.h: 464: QWORD Val;
-[; ;GenericTypeDefs.h: 465: DWORD d[2] ;
-[; ;GenericTypeDefs.h: 466: WORD w[4] ;
-[; ;GenericTypeDefs.h: 467: BYTE v[8] ;
-[; ;GenericTypeDefs.h: 468: struct 
-[; ;GenericTypeDefs.h: 469: {
-[; ;GenericTypeDefs.h: 470: DWORD LD;
-[; ;GenericTypeDefs.h: 471: DWORD HD;
-[; ;GenericTypeDefs.h: 472: } dword;
-[; ;GenericTypeDefs.h: 473: struct 
-[; ;GenericTypeDefs.h: 474: {
-[; ;GenericTypeDefs.h: 475: WORD LW;
-[; ;GenericTypeDefs.h: 476: WORD HW;
-[; ;GenericTypeDefs.h: 477: WORD UW;
-[; ;GenericTypeDefs.h: 478: WORD MW;
-[; ;GenericTypeDefs.h: 479: } word;
-[; ;GenericTypeDefs.h: 480: struct 
-[; ;GenericTypeDefs.h: 481: {
-[; ;GenericTypeDefs.h: 482: BYTE b0:1;
-[; ;GenericTypeDefs.h: 483: BYTE b1:1;
-[; ;GenericTypeDefs.h: 484: BYTE b2:1;
-[; ;GenericTypeDefs.h: 485: BYTE b3:1;
-[; ;GenericTypeDefs.h: 486: BYTE b4:1;
-[; ;GenericTypeDefs.h: 487: BYTE b5:1;
-[; ;GenericTypeDefs.h: 488: BYTE b6:1;
-[; ;GenericTypeDefs.h: 489: BYTE b7:1;
-[; ;GenericTypeDefs.h: 490: BYTE b8:1;
-[; ;GenericTypeDefs.h: 491: BYTE b9:1;
-[; ;GenericTypeDefs.h: 492: BYTE b10:1;
-[; ;GenericTypeDefs.h: 493: BYTE b11:1;
-[; ;GenericTypeDefs.h: 494: BYTE b12:1;
-[; ;GenericTypeDefs.h: 495: BYTE b13:1;
-[; ;GenericTypeDefs.h: 496: BYTE b14:1;
-[; ;GenericTypeDefs.h: 497: BYTE b15:1;
-[; ;GenericTypeDefs.h: 498: BYTE b16:1;
-[; ;GenericTypeDefs.h: 499: BYTE b17:1;
-[; ;GenericTypeDefs.h: 500: BYTE b18:1;
-[; ;GenericTypeDefs.h: 501: BYTE b19:1;
-[; ;GenericTypeDefs.h: 502: BYTE b20:1;
-[; ;GenericTypeDefs.h: 503: BYTE b21:1;
-[; ;GenericTypeDefs.h: 504: BYTE b22:1;
-[; ;GenericTypeDefs.h: 505: BYTE b23:1;
-[; ;GenericTypeDefs.h: 506: BYTE b24:1;
-[; ;GenericTypeDefs.h: 507: BYTE b25:1;
-[; ;GenericTypeDefs.h: 508: BYTE b26:1;
-[; ;GenericTypeDefs.h: 509: BYTE b27:1;
-[; ;GenericTypeDefs.h: 510: BYTE b28:1;
-[; ;GenericTypeDefs.h: 511: BYTE b29:1;
-[; ;GenericTypeDefs.h: 512: BYTE b30:1;
-[; ;GenericTypeDefs.h: 513: BYTE b31:1;
-[; ;GenericTypeDefs.h: 514: BYTE b32:1;
-[; ;GenericTypeDefs.h: 515: BYTE b33:1;
-[; ;GenericTypeDefs.h: 516: BYTE b34:1;
-[; ;GenericTypeDefs.h: 517: BYTE b35:1;
-[; ;GenericTypeDefs.h: 518: BYTE b36:1;
-[; ;GenericTypeDefs.h: 519: BYTE b37:1;
-[; ;GenericTypeDefs.h: 520: BYTE b38:1;
-[; ;GenericTypeDefs.h: 521: BYTE b39:1;
-[; ;GenericTypeDefs.h: 522: BYTE b40:1;
-[; ;GenericTypeDefs.h: 523: BYTE b41:1;
-[; ;GenericTypeDefs.h: 524: BYTE b42:1;
-[; ;GenericTypeDefs.h: 525: BYTE b43:1;
-[; ;GenericTypeDefs.h: 526: BYTE b44:1;
-[; ;GenericTypeDefs.h: 527: BYTE b45:1;
-[; ;GenericTypeDefs.h: 528: BYTE b46:1;
-[; ;GenericTypeDefs.h: 529: BYTE b47:1;
-[; ;GenericTypeDefs.h: 530: BYTE b48:1;
-[; ;GenericTypeDefs.h: 531: BYTE b49:1;
-[; ;GenericTypeDefs.h: 532: BYTE b50:1;
-[; ;GenericTypeDefs.h: 533: BYTE b51:1;
-[; ;GenericTypeDefs.h: 534: BYTE b52:1;
-[; ;GenericTypeDefs.h: 535: BYTE b53:1;
-[; ;GenericTypeDefs.h: 536: BYTE b54:1;
-[; ;GenericTypeDefs.h: 537: BYTE b55:1;
-[; ;GenericTypeDefs.h: 538: BYTE b56:1;
-[; ;GenericTypeDefs.h: 539: BYTE b57:1;
-[; ;GenericTypeDefs.h: 540: BYTE b58:1;
-[; ;GenericTypeDefs.h: 541: BYTE b59:1;
-[; ;GenericTypeDefs.h: 542: BYTE b60:1;
-[; ;GenericTypeDefs.h: 543: BYTE b61:1;
-[; ;GenericTypeDefs.h: 544: BYTE b62:1;
-[; ;GenericTypeDefs.h: 545: BYTE b63:1;
-[; ;GenericTypeDefs.h: 546: } bits;
-[; ;GenericTypeDefs.h: 547: } QWORD_VAL;
-[; ;flash.h: 113: extern void ReadFlash(unsigned long startaddr, unsigned int num_bytes, unsigned char *flash_array);
-[; ;flash.h: 120: extern void EraseFlash(unsigned long startaddr, unsigned long endaddr);
-[; ;flash.h: 122: extern void WriteBlockFlash(unsigned long startaddr, unsigned char num_blocks, unsigned char *flash_array);
-[; ;flash.h: 124: extern void WriteBytesFlash(unsigned long startaddr, unsigned int num_bytes, unsigned char *flash_array);
-[; ;i2c.h: 244: void OpenI2C1( unsigned char sync_mode, unsigned char slew );
-[; ;i2c.h: 264: unsigned char ReadI2C1( void );
-[; ;i2c.h: 279: signed char WriteI2C1( unsigned char data_out );
-[; ;i2c.h: 294: signed char getsI2C1( unsigned char *rdptr, unsigned char length );
-[; ;i2c.h: 297: signed char putsI2C1( unsigned char *wrptr );
-[; ;i2c.h: 305: signed char EEAckPolling1( unsigned char control );
-[; ;i2c.h: 308: signed char EEByteWrite1( unsigned char control,
-[; ;i2c.h: 309: unsigned char address,
-[; ;i2c.h: 310: unsigned char data );
-[; ;i2c.h: 313: signed int EECurrentAddRead1( unsigned char control );
-[; ;i2c.h: 316: signed char EEPageWrite1( unsigned char control,
-[; ;i2c.h: 317: unsigned char address,
-[; ;i2c.h: 318: unsigned char *wrptr );
-[; ;i2c.h: 321: signed int EERandomRead1( unsigned char control, unsigned char address );
-[; ;i2c.h: 324: signed char EESequentialRead1( unsigned char control,
-[; ;i2c.h: 325: unsigned char address,
-[; ;i2c.h: 326: unsigned char *rdptr,
-[; ;i2c.h: 327: unsigned char length );
-[; ;mwire.h: 325: void OpenMwire( unsigned char sync_mode );
-[; ;mwire.h: 327: unsigned char ReadMwire( unsigned char high_byte,
-[; ;mwire.h: 328: unsigned char low_byte );
-[; ;mwire.h: 341: signed char WriteMwire( unsigned char data_out );
-[; ;mwire.h: 354: void getsMwire( unsigned char *rdptr, unsigned char length );
-[; ;portb.h: 126: void OpenPORTB( unsigned char config);
-[; ;portb.h: 176: void OpenRB0INT( unsigned char config);
-[; ;portb.h: 194: void OpenRB1INT( unsigned char config);
-[; ;portb.h: 211: void OpenRB2INT( unsigned char config);
-[; ;pwm.h: 85: union PWMDC
-[; ;pwm.h: 86: {
-[; ;pwm.h: 87: unsigned int lpwm;
-[; ;pwm.h: 88: char bpwm[2];
-[; ;pwm.h: 89: };
-[; ;pwm.h: 467: void OpenPWM1 ( char period);
-[; ;pwm.h: 468: void SetDCPWM1 ( unsigned int duty_cycle);
-[; ;pwm.h: 477: void ClosePWM1 (void);
-[; ;pwm.h: 485: void OpenPWM2 ( char period);
-[; ;pwm.h: 486: void SetDCPWM2( unsigned int duty_cycle);
-[; ;pwm.h: 492: void ClosePWM2 (void);
-[; ;reset.h: 16: char isMCLR(void);
-[; ;reset.h: 17: void StatusReset(void);
-[; ;reset.h: 18: char isPOR(void);
-[; ;reset.h: 19: char isWU(void);
-[; ;reset.h: 22: char isBOR(void);
-[; ;reset.h: 26: char isWDTTO(void);
-[; ;reset.h: 27: char isWDTWU(void);
-[; ;rtcc.h: 687: void Open_RTCC(void);
-[; ;rtcc.h: 688: void Close_RTCC(void);
-[; ;rtcc.h: 689: unsigned char update_RTCC(void);
-[; ;sw_i2c.h: 97: void SWStopI2C ( void );
-[; ;sw_i2c.h: 98: void SWStartI2C ( void );
-[; ;sw_i2c.h: 99: void SWRestartI2C ( void );
-[; ;sw_i2c.h: 100: void SWStopI2C ( void );
-[; ;sw_i2c.h: 102: signed char SWAckI2C( void );
-[; ;sw_i2c.h: 103: signed char Clock_test( void );
-[; ;sw_i2c.h: 104: signed int SWReadI2C( void );
-[; ;sw_i2c.h: 105: signed char SWWriteI2C(  unsigned char data_out );
-[; ;sw_i2c.h: 106: signed char SWGetsI2C(  unsigned char *rdptr,  unsigned char length );
-[; ;sw_i2c.h: 107: signed char SWPutsI2C(  unsigned char *wrptr );
-[; ;sw_spi.h: 84: void OpenSWSPI(void);
-[; ;sw_spi.h: 87: char WriteSWSPI( char output);
-[; ;sw_spi.h: 90: void SetCSSWSPI(void);
-[; ;sw_spi.h: 93: void ClearCSSWSPI(void);
-[; ;sw_uart.h: 47: void OpenUART(void);
-[; ;sw_uart.h: 49: unsigned char ReadUART(void);
-[; ;sw_uart.h: 51: void WriteUART( unsigned char);
-[; ;sw_uart.h: 53: void getsUART( char *, unsigned char);
-[; ;sw_uart.h: 55: void putsUART( char *);
-[; ;sw_uart.h: 79: extern void DelayRXBitUART (void);
-[; ;sw_uart.h: 80: extern void DelayRXHalfBitUART(void);
-[; ;sw_uart.h: 81: extern void DelayTXBitUART (void);
-[; ;timers.h: 36: union Timers
-[; ;timers.h: 37: {
-[; ;timers.h: 38: unsigned int lt;
-[; ;timers.h: 39: char bt[2];
-[; ;timers.h: 40: };
-[; ;timers.h: 118: void OpenTimer0 ( unsigned char config);
-[; ;timers.h: 119: void CloseTimer0 (void);
-[; ;timers.h: 120: unsigned int ReadTimer0 (void);
-[; ;timers.h: 121: void WriteTimer0 ( unsigned int timer0);
-[; ;timers.h: 236: void OpenTimer1 ( unsigned char config);
-[; ;timers.h: 237: void CloseTimer1 (void);
-[; ;timers.h: 238: unsigned int ReadTimer1 (void);
-[; ;timers.h: 239: void WriteTimer1 ( unsigned int timer1);
-[; ;timers.h: 325: void OpenTimer2 ( unsigned char config);
-[; ;timers.h: 326: void CloseTimer2 (void);
-[; ;usart.h: 568: union USART
-[; ;usart.h: 569: {
-[; ;usart.h: 570: unsigned char val;
-[; ;usart.h: 571: struct
-[; ;usart.h: 572: {
-[; ;usart.h: 573: unsigned RX_NINE:1;
-[; ;usart.h: 574: unsigned TX_NINE:1;
-[; ;usart.h: 575: unsigned FRAME_ERROR:1;
-[; ;usart.h: 576: unsigned OVERRUN_ERROR:1;
-[; ;usart.h: 577: unsigned fill:4;
-[; ;usart.h: 578: };
-[; ;usart.h: 579: };
-[; ;usart.h: 580: extern union USART USART_Status;
-[; ;usart.h: 581: void OpenUSART ( unsigned char config, unsigned spbrg);
-[; ;usart.h: 596: char ReadUSART (void);
-[; ;usart.h: 597: void WriteUSART ( char data);
-[; ;usart.h: 598: void getsUSART ( char *buffer, unsigned char len);
-[; ;usart.h: 599: void putsUSART ( char *data);
-[; ;usart.h: 600: void putrsUSART ( const  char *data);
-[; ;usart.h: 654: void baudUSART ( unsigned char baudconfig);
-[; ;xlcd.h: 87: void OpenXLCD( unsigned char);
-[; ;xlcd.h: 92: void SetCGRamAddr( unsigned char);
-[; ;xlcd.h: 97: void SetDDRamAddr( unsigned char);
-[; ;xlcd.h: 102: unsigned char BusyXLCD(void);
-[; ;xlcd.h: 107: unsigned char ReadAddrXLCD(void);
-[; ;xlcd.h: 112: char ReadDataXLCD(void);
-[; ;xlcd.h: 117: void WriteCmdXLCD( unsigned char);
-[; ;xlcd.h: 122: void WriteDataXLCD( char);
-[; ;xlcd.h: 132: void putsXLCD( char *);
-[; ;xlcd.h: 137: void putrsXLCD(const char *);
-[; ;xlcd.h: 140: extern void DelayFor18TCY(void);
-[; ;xlcd.h: 141: extern void DelayPORXLCD(void);
-[; ;xlcd.h: 142: extern void DelayXLCD(void);
-[; ;delays.h: 13: void Delay1TCYx(unsigned char);
-[; ;delays.h: 19: void Delay10TCYx(unsigned char);
-[; ;delays.h: 25: void Delay100TCYx(unsigned char);
-[; ;delays.h: 31: void Delay1KTCYx(unsigned char);
-[; ;delays.h: 37: void Delay10KTCYx(unsigned char);
-[; ;pic18.h: 18: __attribute__((__unsupported__("The flash_write routine is no longer supported. Please use the peripheral library functions: WriteBytesFlash, WriteBlockFlash or WriteWordFlash"))) void flash_write(const unsigned char *, unsigned int, __far unsigned c
-[; ;pic18.h: 42: extern void __nop(void);
-[; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
-[; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
-[; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
+[; ;pic18.h: 18: __attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
+[; ;pic18.h: 19: __attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
+[; ;pic18.h: 43: extern void __nop(void);
+[; ;pic18.h: 152: extern __nonreentrant void _delay(unsigned long);
+[; ;pic18.h: 154: extern __nonreentrant void _delaywdt(unsigned long);
+[; ;pic18.h: 156: extern __nonreentrant void _delay3(unsigned char);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -3666,97 +3017,71 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;math.h: 53: extern double fmod(double, double);
 [; ;math.h: 54: extern double trunc(double);
 [; ;math.h: 55: extern double round(double);
+[; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 24: extern int errno;
-[; ;stdio.h: 55: struct __prbuf
-[; ;stdio.h: 56: {
-[; ;stdio.h: 57: char * ptr;
-[; ;stdio.h: 58: void (* func)(char);
-[; ;stdio.h: 59: };
-[; ;conio.h: 17: extern int errno;
-[; ;conio.h: 20: extern void init_uart(void);
-[; ;conio.h: 22: extern char getch(void);
-[; ;conio.h: 23: extern char getche(void);
-[; ;conio.h: 24: extern void putch(char);
-[; ;conio.h: 25: extern void ungetch(char);
-[; ;conio.h: 27: extern __bit kbhit(void);
-[; ;conio.h: 31: extern char * cgets(char *);
-[; ;conio.h: 32: extern void cputs(const char *);
-[; ;stdio.h: 100: extern int cprintf(char *, ...);
-[; ;stdio.h: 105: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 195: extern char * gets(char *);
-[; ;stdio.h: 196: extern int puts(const char *);
-[; ;stdio.h: 197: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 198: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 199: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 200: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 201: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 202: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 206: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 207: extern int printf(const char *, ...);
-[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
-[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
-[; ;string.h: 24: extern void * memset(void *, int, size_t);
-[; ;string.h: 42: extern char * strcat(char *, const char *);
-[; ;string.h: 43: extern char * strcpy(char *, const char *);
-[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
-[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
-[; ;string.h: 46: extern char * strdup(const char *);
-[; ;string.h: 47: extern char * strtok(char *, const char *);
-[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
-[; ;string.h: 51: extern int strcmp(const char *, const char *);
-[; ;string.h: 52: extern int stricmp(const char *, const char *);
-[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
-[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
-[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
-[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
-[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
-[; ;string.h: 58: extern size_t strspn(const char *, const char *);
-[; ;string.h: 59: extern char * strstr(const char *, const char *);
-[; ;string.h: 60: extern char * stristr(const char *, const char *);
-[; ;string.h: 61: extern char * strerror(int);
-[; ;string.h: 62: extern size_t strlen(const char *);
-[; ;string.h: 63: extern char * strchr(const char *, int);
-[; ;string.h: 64: extern char * strichr(const char *, int);
-[; ;string.h: 65: extern char * strrchr(const char *, int);
-[; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
-[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
-[; ;string.h: 24: extern void * memset(void *, int, size_t);
-[; ;string.h: 42: extern char * strcat(char *, const char *);
-[; ;string.h: 43: extern char * strcpy(char *, const char *);
-[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
-[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
-[; ;string.h: 46: extern char * strdup(const char *);
-[; ;string.h: 47: extern char * strtok(char *, const char *);
-[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
-[; ;string.h: 51: extern int strcmp(const char *, const char *);
-[; ;string.h: 52: extern int stricmp(const char *, const char *);
-[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
-[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
-[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
-[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
-[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
-[; ;string.h: 58: extern size_t strspn(const char *, const char *);
-[; ;string.h: 59: extern char * strstr(const char *, const char *);
-[; ;string.h: 60: extern char * stristr(const char *, const char *);
-[; ;string.h: 61: extern char * strerror(int);
-[; ;string.h: 62: extern size_t strlen(const char *);
-[; ;string.h: 63: extern char * strchr(const char *, int);
-[; ;string.h: 64: extern char * strichr(const char *, int);
-[; ;string.h: 65: extern char * strrchr(const char *, int);
-[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 25: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
+[; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 16: extern void * memset(void *, int, size_t);
+[; ;string.h: 34: extern char * strcat(char *, const char *);
+[; ;string.h: 35: extern char * strcpy(char *, const char *);
+[; ;string.h: 36: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 37: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 38: extern char * strdup(const char *);
+[; ;string.h: 39: extern char * strtok(char *, const char *);
+[; ;string.h: 42: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 43: extern int strcmp(const char *, const char *);
+[; ;string.h: 44: extern int stricmp(const char *, const char *);
+[; ;string.h: 45: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 46: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 47: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 48: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 49: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 50: extern size_t strspn(const char *, const char *);
+[; ;string.h: 51: extern char * strstr(const char *, const char *);
+[; ;string.h: 52: extern char * stristr(const char *, const char *);
+[; ;string.h: 53: extern char * strerror(int);
+[; ;string.h: 54: extern size_t strlen(const char *);
+[; ;string.h: 55: extern char * strchr(const char *, int);
+[; ;string.h: 56: extern char * strichr(const char *, int);
+[; ;string.h: 57: extern char * strrchr(const char *, int);
+[; ;string.h: 58: extern char * strrichr(const char *, int);
 [; ;USER.h: 181: void Init_App(void);
 [; ;USER.h: 182: void Init_System (void);
-[; ;SYSTEM.h: 69: extern unsigned char System_State;
-[; ;SYSTEM.h: 70: extern unsigned char System_State_Change;
-[; ;SYSTEM.h: 75: void SYS_ConfigureOscillator(void);
-[; ;SYSTEM.h: 76: inline void SYS_Idle(void);
-[; ;SYSTEM.h: 77: inline void SYS_Sleep(void);
-[; ;SYSTEM.h: 78: void SYS_ActivityTimer(void);
-[; ;SYSTEM.h: 79: void SYS_ActivityTimerReset(void);
+[; ;SYSTEM.h: 78: extern volatile unsigned char System_State;
+[; ;SYSTEM.h: 79: extern volatile unsigned char System_State_Change;
+[; ;SYSTEM.h: 84: void SYS_ConfigureOscillator(void);
+[; ;SYSTEM.h: 85: inline void SYS_Idle(void);
+[; ;SYSTEM.h: 86: inline void SYS_Sleep(void);
+[; ;SYSTEM.h: 87: void SYS_ActivityTimer(void);
+[; ;SYSTEM.h: 88: inline void SYS_ActivityTimerReset(void);
 [; ;MISC.h: 85: void MSC_DelayMS(long US);
 [; ;MISC.h: 86: unsigned char MSC_IsCharacter(unsigned char data);
 [; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
@@ -3812,9 +3137,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "51
 {
 [e = _i -> -> 0 `i `l ]
-[e $U 434  ]
+[e $U 398  ]
 "52
-[e :U 431 ]
+[e :U 395 ]
 [; ;MISC.c: 52: {
 {
 [; ;MISC.c: 53: MSC_DelayNOP(466);
@@ -3824,15 +3149,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "51
 [e ++ _i -> -> 1 `i `l ]
-[e :U 434 ]
-[e $ < _i _US 431  ]
-[e :U 432 ]
+[e :U 398 ]
+[e $ < _i _US 395  ]
+[e :U 396 ]
 "54
 }
 [; ;MISC.c: 54: }
 [; ;MISC.c: 55: }
 "55
-[e :UE 430 ]
+[e :UE 394 ]
 }
 "62
 [v _MSC_DelayNOP `(v ~T0 @X0 1 ef1`ui ]
@@ -3852,9 +3177,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "65
 {
 [e = _i -> -> 0 `i `ui ]
-[e $U 439  ]
+[e $U 403  ]
 "66
-[e :U 436 ]
+[e :U 400 ]
 [; ;MISC.c: 66: {
 {
 [; ;MISC.c: 67: __nop();
@@ -3864,15 +3189,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "65
 [e ++ _i -> -> 1 `i `ui ]
-[e :U 439 ]
-[e $ < _i _NOPs 436  ]
-[e :U 437 ]
+[e :U 403 ]
+[e $ < _i _NOPs 400  ]
+[e :U 401 ]
 "68
 }
 [; ;MISC.c: 68: }
 [; ;MISC.c: 69: }
 "69
-[e :UE 435 ]
+[e :UE 399 ]
 }
 "76
 [v _IsLetter `(uc ~T0 @X0 1 ef1`uc ]
@@ -3887,25 +3212,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;MISC.c: 78: if((data >= 65 && data <= 90) || (data >= 97 && data <= 122))
 "78
-[e $ ! || && >= -> _data `i -> 65 `i <= -> _data `i -> 90 `i && >= -> _data `i -> 97 `i <= -> _data `i -> 122 `i 441  ]
+[e $ ! || && >= -> _data `i -> 65 `i <= -> _data `i -> 90 `i && >= -> _data `i -> 97 `i <= -> _data `i -> 122 `i 405  ]
 [; ;MISC.c: 79: {
 "79
 {
 [; ;MISC.c: 80: return 1;
 "80
 [e ) -> -> 1 `i `uc ]
-[e $UE 440  ]
+[e $UE 404  ]
 "81
 }
-[e :U 441 ]
+[e :U 405 ]
 [; ;MISC.c: 81: }
 [; ;MISC.c: 82: return 0;
 "82
 [e ) -> -> 0 `i `uc ]
-[e $UE 440  ]
+[e $UE 404  ]
 [; ;MISC.c: 83: }
 "83
-[e :UE 440 ]
+[e :UE 404 ]
 }
 "90
 [v _MSC_IsNumber `(uc ~T0 @X0 1 ef1`uc ]
@@ -3920,25 +3245,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;MISC.c: 92: if(data >= '0' && data <= '9')
 "92
-[e $ ! && >= -> _data `ui -> 48 `ui <= -> _data `ui -> 57 `ui 443  ]
+[e $ ! && >= -> _data `ui -> 48 `ui <= -> _data `ui -> 57 `ui 407  ]
 [; ;MISC.c: 93: {
 "93
 {
 [; ;MISC.c: 94: return 1;
 "94
 [e ) -> -> 1 `i `uc ]
-[e $UE 442  ]
+[e $UE 406  ]
 "95
 }
-[e :U 443 ]
+[e :U 407 ]
 [; ;MISC.c: 95: }
 [; ;MISC.c: 96: return 0;
 "96
 [e ) -> -> 0 `i `uc ]
-[e $UE 442  ]
+[e $UE 406  ]
 [; ;MISC.c: 97: }
 "97
-[e :UE 442 ]
+[e :UE 406 ]
 }
 "104
 [v _MSC_IsCharacter `(uc ~T0 @X0 1 ef1`uc ]
@@ -3953,25 +3278,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;MISC.c: 106: if(data >= 32 && data <= 126)
 "106
-[e $ ! && >= -> _data `i -> 32 `i <= -> _data `i -> 126 `i 445  ]
+[e $ ! && >= -> _data `i -> 32 `i <= -> _data `i -> 126 `i 409  ]
 [; ;MISC.c: 107: {
 "107
 {
 [; ;MISC.c: 108: return 1;
 "108
 [e ) -> -> 1 `i `uc ]
-[e $UE 444  ]
+[e $UE 408  ]
 "109
 }
-[e :U 445 ]
+[e :U 409 ]
 [; ;MISC.c: 109: }
 [; ;MISC.c: 110: return 0;
 "110
 [e ) -> -> 0 `i `uc ]
-[e $UE 444  ]
+[e $UE 408  ]
 [; ;MISC.c: 111: }
 "111
-[e :UE 444 ]
+[e :UE 408 ]
 }
 "119
 [v _MSC_IsAlphaNumeric `(uc ~T0 @X0 1 ef1`uc ]
@@ -3986,25 +3311,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;MISC.c: 121: if(IsLetter(data) || MSC_IsNumber(data) || data == ' ')
 "121
-[e $ ! || || != -> ( _IsLetter (1 _data `i -> -> -> 0 `i `uc `i != -> ( _MSC_IsNumber (1 _data `i -> -> -> 0 `i `uc `i == -> _data `ui -> 32 `ui 447  ]
+[e $ ! || || != -> ( _IsLetter (1 _data `i -> -> -> 0 `i `uc `i != -> ( _MSC_IsNumber (1 _data `i -> -> -> 0 `i `uc `i == -> _data `ui -> 32 `ui 411  ]
 [; ;MISC.c: 122: {
 "122
 {
 [; ;MISC.c: 123: return 1;
 "123
 [e ) -> -> 1 `i `uc ]
-[e $UE 446  ]
+[e $UE 410  ]
 "124
 }
-[e :U 447 ]
+[e :U 411 ]
 [; ;MISC.c: 124: }
 [; ;MISC.c: 125: return 0;
 "125
 [e ) -> -> 0 `i `uc ]
-[e $UE 446  ]
+[e $UE 410  ]
 [; ;MISC.c: 126: }
 "126
-[e :UE 446 ]
+[e :UE 410 ]
 }
 "134
 [v _MSC_IsAlphaNumericString `(uc ~T0 @X0 1 ef1`*uc ]
@@ -4019,42 +3344,42 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;MISC.c: 136: while(*data != 0)
 "136
-[e $U 449  ]
-[e :U 450 ]
+[e $U 413  ]
+[e :U 414 ]
 [; ;MISC.c: 137: {
 "137
 {
 [; ;MISC.c: 138: if(!MSC_IsAlphaNumeric(*data))
 "138
-[e $ ! ! != -> ( _MSC_IsAlphaNumeric (1 *U _data `i -> -> -> 0 `i `uc `i 452  ]
+[e $ ! ! != -> ( _MSC_IsAlphaNumeric (1 *U _data `i -> -> -> 0 `i `uc `i 416  ]
 [; ;MISC.c: 139: {
 "139
 {
 [; ;MISC.c: 140: return 0;
 "140
 [e ) -> -> 0 `i `uc ]
-[e $UE 448  ]
+[e $UE 412  ]
 "141
 }
-[e :U 452 ]
+[e :U 416 ]
 [; ;MISC.c: 141: }
 [; ;MISC.c: 142: data++;
 "142
 [e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
 "143
 }
-[e :U 449 ]
+[e :U 413 ]
 "136
-[e $ != -> *U _data `i -> 0 `i 450  ]
-[e :U 451 ]
+[e $ != -> *U _data `i -> 0 `i 414  ]
+[e :U 415 ]
 [; ;MISC.c: 143: }
 [; ;MISC.c: 144: return 1;
 "144
 [e ) -> -> 1 `i `uc ]
-[e $UE 448  ]
+[e $UE 412  ]
 [; ;MISC.c: 145: }
 "145
-[e :UE 448 ]
+[e :UE 412 ]
 }
 "152
 [v _MSC_CleanBuffer `(v ~T0 @X0 1 ef2`*uc`ui ]
@@ -4076,9 +3401,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "155
 {
 [e = _i -> -> 0 `i `ui ]
-[e $U 457  ]
+[e $U 421  ]
 "156
-[e :U 454 ]
+[e :U 418 ]
 [; ;MISC.c: 156: {
 {
 [; ;MISC.c: 157: data[i]= 0;
@@ -4088,15 +3413,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "155
 [e ++ _i -> -> 1 `i `ui ]
-[e :U 457 ]
-[e $ < _i _count 454  ]
-[e :U 455 ]
+[e :U 421 ]
+[e $ < _i _count 418  ]
+[e :U 419 ]
 "158
 }
 [; ;MISC.c: 158: }
 [; ;MISC.c: 159: }
 "159
-[e :UE 453 ]
+[e :UE 417 ]
 }
 "166
 [v _MSC_CleanBufferInt `(v ~T0 @X0 1 ef2`*ui`ui ]
@@ -4118,9 +3443,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "169
 {
 [e = _i -> -> 0 `i `ui ]
-[e $U 462  ]
+[e $U 426  ]
 "170
-[e :U 459 ]
+[e :U 423 ]
 [; ;MISC.c: 170: {
 {
 [; ;MISC.c: 171: data[i]= 0;
@@ -4130,15 +3455,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "169
 [e ++ _i -> -> 1 `i `ui ]
-[e :U 462 ]
-[e $ < _i _count 459  ]
-[e :U 460 ]
+[e :U 426 ]
+[e $ < _i _count 423  ]
+[e :U 424 ]
 "172
 }
 [; ;MISC.c: 172: }
 [; ;MISC.c: 173: }
 "173
-[e :UE 458 ]
+[e :UE 422 ]
 }
 "180
 [v _MSC_Round `(d ~T0 @X0 1 ef1`d ]
@@ -4158,10 +3483,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 184: return temp;
 "184
 [e ) -> _temp `d ]
-[e $UE 463  ]
+[e $UE 427  ]
 [; ;MISC.c: 185: }
 "185
-[e :UE 463 ]
+[e :UE 427 ]
 }
 "192
 [v _MSC_BufferCopy `(v ~T0 @X0 1 ef4`*uc`*uc`ui`ui ]
@@ -4188,10 +3513,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "196
 {
 [e = _i _shift ]
-[e $ > _i -> -> 0 `i `ui 465  ]
-[e $U 466  ]
+[e $ > _i -> -> 0 `i `ui 429  ]
+[e $U 430  ]
 "197
-[e :U 465 ]
+[e :U 429 ]
 [; ;MISC.c: 197: {
 {
 [; ;MISC.c: 198: *to = ' ';
@@ -4204,15 +3529,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "196
 [e -- _i -> -> 1 `i `ui ]
-[e $ > _i -> -> 0 `i `ui 465  ]
-[e :U 466 ]
+[e $ > _i -> -> 0 `i `ui 429  ]
+[e :U 430 ]
 "200
 }
 [; ;MISC.c: 200: }
 [; ;MISC.c: 201: while(*from != 0 && count >0)
 "201
-[e $U 468  ]
-[e :U 469 ]
+[e $U 432  ]
+[e :U 433 ]
 [; ;MISC.c: 202: {
 "202
 {
@@ -4230,14 +3555,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e -- _count -> -> 1 `i `ui ]
 "207
 }
-[e :U 468 ]
+[e :U 432 ]
 "201
-[e $ && != -> *U _from `i -> 0 `i > _count -> -> 0 `i `ui 469  ]
-[e :U 470 ]
+[e $ && != -> *U _from `i -> 0 `i > _count -> -> 0 `i `ui 433  ]
+[e :U 434 ]
 [; ;MISC.c: 207: }
 [; ;MISC.c: 208: }
 "208
-[e :UE 464 ]
+[e :UE 428 ]
 }
 "215
 [v _MSC_BufferCopyInt `(v ~T0 @X0 1 ef4`*ui`*ui`ui`ui ]
@@ -4264,10 +3589,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "219
 {
 [e = _i _shift ]
-[e $ > _i -> -> 0 `i `ui 472  ]
-[e $U 473  ]
+[e $ > _i -> -> 0 `i `ui 436  ]
+[e $U 437  ]
 "220
-[e :U 472 ]
+[e :U 436 ]
 [; ;MISC.c: 220: {
 {
 [; ;MISC.c: 221: *to = ' ';
@@ -4280,15 +3605,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "219
 [e -- _i -> -> 1 `i `ui ]
-[e $ > _i -> -> 0 `i `ui 472  ]
-[e :U 473 ]
+[e $ > _i -> -> 0 `i `ui 436  ]
+[e :U 437 ]
 "223
 }
 [; ;MISC.c: 223: }
 [; ;MISC.c: 224: while(*from != 0 && count >0)
 "224
-[e $U 475  ]
-[e :U 476 ]
+[e $U 439  ]
+[e :U 440 ]
 [; ;MISC.c: 225: {
 "225
 {
@@ -4306,14 +3631,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e -- _count -> -> 1 `i `ui ]
 "230
 }
-[e :U 475 ]
+[e :U 439 ]
 "224
-[e $ && != *U _from -> -> 0 `i `ui > _count -> -> 0 `i `ui 476  ]
-[e :U 477 ]
+[e $ && != *U _from -> -> 0 `i `ui > _count -> -> 0 `i `ui 440  ]
+[e :U 441 ]
 [; ;MISC.c: 230: }
 [; ;MISC.c: 231: }
 "231
-[e :UE 471 ]
+[e :UE 435 ]
 }
 "238
 [v _MSC_BufferCopyIntConst `(v ~T0 @X0 1 ef4`*Cui`*ui`ui`ui ]
@@ -4340,10 +3665,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "242
 {
 [e = _i _shift ]
-[e $ > _i -> -> 0 `i `ui 479  ]
-[e $U 480  ]
+[e $ > _i -> -> 0 `i `ui 443  ]
+[e $U 444  ]
 "243
-[e :U 479 ]
+[e :U 443 ]
 [; ;MISC.c: 243: {
 {
 [; ;MISC.c: 244: *to = ' ';
@@ -4356,15 +3681,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "242
 [e -- _i -> -> 1 `i `ui ]
-[e $ > _i -> -> 0 `i `ui 479  ]
-[e :U 480 ]
+[e $ > _i -> -> 0 `i `ui 443  ]
+[e :U 444 ]
 "246
 }
 [; ;MISC.c: 246: }
 [; ;MISC.c: 247: while(*from != 0 && count >0)
 "247
-[e $U 482  ]
-[e :U 483 ]
+[e $U 446  ]
+[e :U 447 ]
 [; ;MISC.c: 248: {
 "248
 {
@@ -4382,14 +3707,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e -- _count -> -> 1 `i `ui ]
 "253
 }
-[e :U 482 ]
+[e :U 446 ]
 "247
-[e $ && != *U _from -> -> 0 `i `ui > _count -> -> 0 `i `ui 483  ]
-[e :U 484 ]
+[e $ && != *U _from -> -> 0 `i `ui > _count -> -> 0 `i `ui 447  ]
+[e :U 448 ]
 [; ;MISC.c: 253: }
 [; ;MISC.c: 254: }
 "254
-[e :UE 478 ]
+[e :UE 442 ]
 }
 "261
 [v _MSC_StringMatch `(uc ~T0 @X0 1 ef2`*Cuc`*Cuc ]
@@ -4405,24 +3730,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;MISC.c: 263: while(*This != 0)
 "263
-[e $U 486  ]
-[e :U 487 ]
+[e $U 450  ]
+[e :U 451 ]
 [; ;MISC.c: 264: {
 "264
 {
 [; ;MISC.c: 265: if(*This != *That || *That == 0)
 "265
-[e $ ! || != -> *U _This `i -> *U _That `i == -> *U _That `i -> 0 `i 489  ]
+[e $ ! || != -> *U _This `i -> *U _That `i == -> *U _That `i -> 0 `i 453  ]
 [; ;MISC.c: 266: {
 "266
 {
 [; ;MISC.c: 267: return 0;
 "267
 [e ) -> -> 0 `i `uc ]
-[e $UE 485  ]
+[e $UE 449  ]
 "268
 }
-[e :U 489 ]
+[e :U 453 ]
 [; ;MISC.c: 268: }
 [; ;MISC.c: 269: This++;
 "269
@@ -4432,27 +3757,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _That * -> -> 1 `i `x -> -> # *U _That `i `x ]
 "271
 }
-[e :U 486 ]
+[e :U 450 ]
 "263
-[e $ != -> *U _This `i -> 0 `i 487  ]
-[e :U 488 ]
+[e $ != -> *U _This `i -> 0 `i 451  ]
+[e :U 452 ]
 [; ;MISC.c: 271: }
 [; ;MISC.c: 272: if(*That == 0)
 "272
-[e $ ! == -> *U _That `i -> 0 `i 490  ]
+[e $ ! == -> *U _That `i -> 0 `i 454  ]
 [; ;MISC.c: 273: {
 "273
 {
 [; ;MISC.c: 274: return 1;
 "274
 [e ) -> -> 1 `i `uc ]
-[e $UE 485  ]
+[e $UE 449  ]
 "275
 }
 [; ;MISC.c: 275: }
-[e $U 491  ]
+[e $U 455  ]
 "276
-[e :U 490 ]
+[e :U 454 ]
 [; ;MISC.c: 276: else
 [; ;MISC.c: 277: {
 "277
@@ -4460,14 +3785,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 278: return 0;
 "278
 [e ) -> -> 0 `i `uc ]
-[e $UE 485  ]
+[e $UE 449  ]
 "279
 }
-[e :U 491 ]
+[e :U 455 ]
 [; ;MISC.c: 279: }
 [; ;MISC.c: 280: }
 "280
-[e :UE 485 ]
+[e :UE 449 ]
 }
 "288
 [v _MSC_StringMatchCaseInsensitive `(uc ~T0 @X0 1 ef2`*Cuc`*Cuc ]
@@ -4489,8 +3814,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 291: tempThat;
 [; ;MISC.c: 293: while(*This != 0)
 "293
-[e $U 493  ]
-[e :U 494 ]
+[e $U 457  ]
+[e :U 458 ]
 [; ;MISC.c: 294: {
 "294
 {
@@ -4508,17 +3833,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _MSC_LowercaseChar (1 &U _tempThat ]
 [; ;MISC.c: 300: if((tempThis != tempThat) || (tempThat == 0))
 "300
-[e $ ! || != -> _tempThis `i -> _tempThat `i == -> _tempThat `i -> 0 `i 496  ]
+[e $ ! || != -> _tempThis `i -> _tempThat `i == -> _tempThat `i -> 0 `i 460  ]
 [; ;MISC.c: 301: {
 "301
 {
 [; ;MISC.c: 302: return 0;
 "302
 [e ) -> -> 0 `i `uc ]
-[e $UE 492  ]
+[e $UE 456  ]
 "303
 }
-[e :U 496 ]
+[e :U 460 ]
 [; ;MISC.c: 303: }
 [; ;MISC.c: 304: This++;
 "304
@@ -4528,27 +3853,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _That * -> -> 1 `i `x -> -> # *U _That `i `x ]
 "306
 }
-[e :U 493 ]
+[e :U 457 ]
 "293
-[e $ != -> *U _This `i -> 0 `i 494  ]
-[e :U 495 ]
+[e $ != -> *U _This `i -> 0 `i 458  ]
+[e :U 459 ]
 [; ;MISC.c: 306: }
 [; ;MISC.c: 307: if(*That == 0)
 "307
-[e $ ! == -> *U _That `i -> 0 `i 497  ]
+[e $ ! == -> *U _That `i -> 0 `i 461  ]
 [; ;MISC.c: 308: {
 "308
 {
 [; ;MISC.c: 309: return 1;
 "309
 [e ) -> -> 1 `i `uc ]
-[e $UE 492  ]
+[e $UE 456  ]
 "310
 }
 [; ;MISC.c: 310: }
-[e $U 498  ]
+[e $U 462  ]
 "311
-[e :U 497 ]
+[e :U 461 ]
 [; ;MISC.c: 311: else
 [; ;MISC.c: 312: {
 "312
@@ -4556,14 +3881,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 313: return 0;
 "313
 [e ) -> -> 0 `i `uc ]
-[e $UE 492  ]
+[e $UE 456  ]
 "314
 }
-[e :U 498 ]
+[e :U 462 ]
 [; ;MISC.c: 314: }
 [; ;MISC.c: 315: }
 "315
-[e :UE 492 ]
+[e :UE 456 ]
 }
 "323
 [v _MSC_StringContains `(uc ~T0 @X0 1 ef2`*Cuc`*Cuc ]
@@ -4593,15 +3918,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 "329
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 254 `i 500  ]
-[e $U 501  ]
+[e $ < -> _i `i -> 254 `i 464  ]
+[e $U 465  ]
 "330
-[e :U 500 ]
+[e :U 464 ]
 [; ;MISC.c: 330: {
 {
 [; ;MISC.c: 331: if(That[i] == 0)
 "331
-[e $ ! == -> *U + _That * -> _i `ux -> -> # *U _That `ui `ux `i -> 0 `i 503  ]
+[e $ ! == -> *U + _That * -> _i `ux -> -> # *U _That `ui `ux `i -> 0 `i 467  ]
 [; ;MISC.c: 332: {
 "332
 {
@@ -4610,30 +3935,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _MatchAmount _i ]
 [; ;MISC.c: 334: break;
 "334
-[e $U 501  ]
+[e $U 465  ]
 "335
 }
-[e :U 503 ]
+[e :U 467 ]
 "336
 }
 "329
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 254 `i 500  ]
-[e :U 501 ]
+[e $ < -> _i `i -> 254 `i 464  ]
+[e :U 465 ]
 "336
 }
 [; ;MISC.c: 335: }
 [; ;MISC.c: 336: }
 [; ;MISC.c: 337: while(*This != 0)
 "337
-[e $U 504  ]
-[e :U 505 ]
+[e $U 468  ]
+[e :U 469 ]
 [; ;MISC.c: 338: {
 "338
 {
 [; ;MISC.c: 339: if(*This == *That)
 "339
-[e $ ! == -> *U _This `i -> *U _That `i 507  ]
+[e $ ! == -> *U _This `i -> *U _That `i 471  ]
 [; ;MISC.c: 340: {
 "340
 {
@@ -4645,52 +3970,52 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _That * -> -> 1 `i `x -> -> # *U _That `i `x ]
 [; ;MISC.c: 343: if(*That == 0)
 "343
-[e $ ! == -> *U _That `i -> 0 `i 508  ]
+[e $ ! == -> *U _That `i -> 0 `i 472  ]
 [; ;MISC.c: 344: {
 "344
 {
 [; ;MISC.c: 345: if(MatchAmount == MatchCount)
 "345
-[e $ ! == -> _MatchAmount `i -> _MatchCount `i 509  ]
+[e $ ! == -> _MatchAmount `i -> _MatchCount `i 473  ]
 [; ;MISC.c: 346: {
 "346
 {
 [; ;MISC.c: 347: return 1;
 "347
 [e ) -> -> 1 `i `uc ]
-[e $UE 499  ]
+[e $UE 463  ]
 "348
 }
-[e :U 509 ]
+[e :U 473 ]
 [; ;MISC.c: 348: }
 [; ;MISC.c: 349: return 0;
 "349
 [e ) -> -> 0 `i `uc ]
-[e $UE 499  ]
+[e $UE 463  ]
 "350
 }
-[e :U 508 ]
+[e :U 472 ]
 [; ;MISC.c: 350: }
 [; ;MISC.c: 351: if(*This == 0)
 "351
-[e $ ! == -> *U _This `i -> 0 `i 510  ]
+[e $ ! == -> *U _This `i -> 0 `i 474  ]
 [; ;MISC.c: 352: {
 "352
 {
 [; ;MISC.c: 353: return 0;
 "353
 [e ) -> -> 0 `i `uc ]
-[e $UE 499  ]
+[e $UE 463  ]
 "354
 }
-[e :U 510 ]
+[e :U 474 ]
 "355
 }
 [; ;MISC.c: 354: }
 [; ;MISC.c: 355: }
-[e $U 511  ]
+[e $U 475  ]
 "356
-[e :U 507 ]
+[e :U 471 ]
 [; ;MISC.c: 356: else
 [; ;MISC.c: 357: {
 "357
@@ -4703,25 +4028,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _MatchCount -> -> 0 `i `uc ]
 "360
 }
-[e :U 511 ]
+[e :U 475 ]
 [; ;MISC.c: 360: }
 [; ;MISC.c: 361: This++;
 "361
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 "362
 }
-[e :U 504 ]
+[e :U 468 ]
 "337
-[e $ != -> *U _This `i -> 0 `i 505  ]
-[e :U 506 ]
+[e $ != -> *U _This `i -> 0 `i 469  ]
+[e :U 470 ]
 [; ;MISC.c: 362: }
 [; ;MISC.c: 363: return 0;
 "363
 [e ) -> -> 0 `i `uc ]
-[e $UE 499  ]
+[e $UE 463  ]
 [; ;MISC.c: 364: }
 "364
-[e :UE 499 ]
+[e :UE 463 ]
 }
 "372
 [v _MSC_StringContainsCaseInsensitive `(uc ~T0 @X0 1 ef2`*Cuc`*Cuc ]
@@ -4757,15 +4082,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 "380
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 254 `i 513  ]
-[e $U 514  ]
+[e $ < -> _i `i -> 254 `i 477  ]
+[e $U 478  ]
 "381
-[e :U 513 ]
+[e :U 477 ]
 [; ;MISC.c: 381: {
 {
 [; ;MISC.c: 382: if(That[i] == 0)
 "382
-[e $ ! == -> *U + _That * -> _i `ux -> -> # *U _That `ui `ux `i -> 0 `i 516  ]
+[e $ ! == -> *U + _That * -> _i `ux -> -> # *U _That `ui `ux `i -> 0 `i 480  ]
 [; ;MISC.c: 383: {
 "383
 {
@@ -4774,24 +4099,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _MatchAmount _i ]
 [; ;MISC.c: 385: break;
 "385
-[e $U 514  ]
+[e $U 478  ]
 "386
 }
-[e :U 516 ]
+[e :U 480 ]
 "387
 }
 "380
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 254 `i 513  ]
-[e :U 514 ]
+[e $ < -> _i `i -> 254 `i 477  ]
+[e :U 478 ]
 "387
 }
 [; ;MISC.c: 386: }
 [; ;MISC.c: 387: }
 [; ;MISC.c: 388: while(*This != 0)
 "388
-[e $U 517  ]
-[e :U 518 ]
+[e $U 481  ]
+[e :U 482 ]
 [; ;MISC.c: 389: {
 "389
 {
@@ -4809,7 +4134,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _MSC_LowercaseChar (1 &U _tempThat ]
 [; ;MISC.c: 395: if(tempThis == tempThat)
 "395
-[e $ ! == -> _tempThis `i -> _tempThat `i 520  ]
+[e $ ! == -> _tempThis `i -> _tempThat `i 484  ]
 [; ;MISC.c: 396: {
 "396
 {
@@ -4821,52 +4146,52 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _That * -> -> 1 `i `x -> -> # *U _That `i `x ]
 [; ;MISC.c: 399: if(*That == 0)
 "399
-[e $ ! == -> *U _That `i -> 0 `i 521  ]
+[e $ ! == -> *U _That `i -> 0 `i 485  ]
 [; ;MISC.c: 400: {
 "400
 {
 [; ;MISC.c: 401: if(MatchAmount == MatchCount)
 "401
-[e $ ! == -> _MatchAmount `i -> _MatchCount `i 522  ]
+[e $ ! == -> _MatchAmount `i -> _MatchCount `i 486  ]
 [; ;MISC.c: 402: {
 "402
 {
 [; ;MISC.c: 403: return 1;
 "403
 [e ) -> -> 1 `i `uc ]
-[e $UE 512  ]
+[e $UE 476  ]
 "404
 }
-[e :U 522 ]
+[e :U 486 ]
 [; ;MISC.c: 404: }
 [; ;MISC.c: 405: return 0;
 "405
 [e ) -> -> 0 `i `uc ]
-[e $UE 512  ]
+[e $UE 476  ]
 "406
 }
-[e :U 521 ]
+[e :U 485 ]
 [; ;MISC.c: 406: }
 [; ;MISC.c: 407: if(*This == 0)
 "407
-[e $ ! == -> *U _This `i -> 0 `i 523  ]
+[e $ ! == -> *U _This `i -> 0 `i 487  ]
 [; ;MISC.c: 408: {
 "408
 {
 [; ;MISC.c: 409: return 0;
 "409
 [e ) -> -> 0 `i `uc ]
-[e $UE 512  ]
+[e $UE 476  ]
 "410
 }
-[e :U 523 ]
+[e :U 487 ]
 "411
 }
 [; ;MISC.c: 410: }
 [; ;MISC.c: 411: }
-[e $U 524  ]
+[e $U 488  ]
 "412
-[e :U 520 ]
+[e :U 484 ]
 [; ;MISC.c: 412: else
 [; ;MISC.c: 413: {
 "413
@@ -4879,25 +4204,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _MatchCount -> -> 0 `i `uc ]
 "416
 }
-[e :U 524 ]
+[e :U 488 ]
 [; ;MISC.c: 416: }
 [; ;MISC.c: 417: This++;
 "417
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 "418
 }
-[e :U 517 ]
+[e :U 481 ]
 "388
-[e $ != -> *U _This `i -> 0 `i 518  ]
-[e :U 519 ]
+[e $ != -> *U _This `i -> 0 `i 482  ]
+[e :U 483 ]
 [; ;MISC.c: 418: }
 [; ;MISC.c: 419: return 0;
 "419
 [e ) -> -> 0 `i `uc ]
-[e $UE 512  ]
+[e $UE 476  ]
 [; ;MISC.c: 420: }
 "420
-[e :UE 512 ]
+[e :UE 476 ]
 }
 "427
 [v _MSC_LowercaseString `(v ~T0 @X0 1 ef1`*uc ]
@@ -4912,14 +4237,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;MISC.c: 429: while((*Input != 0))
 "429
-[e $U 526  ]
-[e :U 527 ]
+[e $U 490  ]
+[e :U 491 ]
 [; ;MISC.c: 430: {
 "430
 {
 [; ;MISC.c: 431: if((*Input >= 65) && (*Input <= 90 ))
 "431
-[e $ ! && >= -> *U _Input `i -> 65 `i <= -> *U _Input `i -> 90 `i 529  ]
+[e $ ! && >= -> *U _Input `i -> 65 `i <= -> *U _Input `i -> 90 `i 493  ]
 [; ;MISC.c: 432: {
 "432
 {
@@ -4928,21 +4253,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =+ *U _Input -> -> 32 `i `uc ]
 "434
 }
-[e :U 529 ]
+[e :U 493 ]
 [; ;MISC.c: 434: }
 [; ;MISC.c: 435: Input++;
 "435
 [e ++ _Input * -> -> 1 `i `x -> -> # *U _Input `i `x ]
 "436
 }
-[e :U 526 ]
+[e :U 490 ]
 "429
-[e $ != -> *U _Input `i -> 0 `i 527  ]
-[e :U 528 ]
+[e $ != -> *U _Input `i -> 0 `i 491  ]
+[e :U 492 ]
 [; ;MISC.c: 436: }
 [; ;MISC.c: 437: }
 "437
-[e :UE 525 ]
+[e :UE 489 ]
 }
 "444
 [v _MSC_LowercaseChar `(v ~T0 @X0 1 ef1`*uc ]
@@ -4957,7 +4282,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;MISC.c: 446: if((*Input >= 65) && (*Input <= 90 ))
 "446
-[e $ ! && >= -> *U _Input `i -> 65 `i <= -> *U _Input `i -> 90 `i 531  ]
+[e $ ! && >= -> *U _Input `i -> 65 `i <= -> *U _Input `i -> 90 `i 495  ]
 [; ;MISC.c: 447: {
 "447
 {
@@ -4966,11 +4291,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =+ *U _Input -> -> 32 `i `uc ]
 "449
 }
-[e :U 531 ]
+[e :U 495 ]
 [; ;MISC.c: 449: }
 [; ;MISC.c: 450: }
 "450
-[e :UE 530 ]
+[e :UE 494 ]
 }
 "457
 [v _MSC_ReverseByte `(uc ~T0 @X0 1 ef1`uc ]
@@ -5014,10 +4339,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 470: return temp;
 "470
 [e ) _temp ]
-[e $UE 532  ]
+[e $UE 496  ]
 [; ;MISC.c: 471: }
 "471
-[e :UE 532 ]
+[e :UE 496 ]
 }
 "478
 [v _MSC_ReverseInt `(ui ~T0 @X0 1 ef1`ui ]
@@ -5085,10 +4410,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 499: return temp;
 "499
 [e ) _temp ]
-[e $UE 533  ]
+[e $UE 497  ]
 [; ;MISC.c: 500: }
 "500
-[e :UE 533 ]
+[e :UE 497 ]
 }
 "507
 [v _MSC_ReverseLong `(ul ~T0 @X0 1 ef1`ul ]
@@ -5204,10 +4529,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 544: return temp;
 "544
 [e ) _temp ]
-[e $UE 534  ]
+[e $UE 498  ]
 [; ;MISC.c: 545: }
 "545
-[e :UE 534 ]
+[e :UE 498 ]
 }
 "552
 [v _MSC_GetNumber `(uc ~T0 @X0 1 ef3`*uc`uc`*l ]
@@ -5251,14 +4576,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 560: unsigned char tempThis;
 [; ;MISC.c: 562: while(*This != 0)
 "562
-[e $U 536  ]
-[e :U 537 ]
+[e $U 500  ]
+[e :U 501 ]
 [; ;MISC.c: 563: {
 "563
 {
 [; ;MISC.c: 564: if(*This == '0')
 "564
-[e $ ! == -> *U _This `ui -> 48 `ui 539  ]
+[e $ ! == -> *U _This `ui -> 48 `ui 503  ]
 [; ;MISC.c: 565: {
 "565
 {
@@ -5270,7 +4595,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 [; ;MISC.c: 568: if(*This == 'x' || *This == 'X')
 "568
-[e $ ! || == -> *U _This `ui -> 120 `ui == -> *U _This `ui -> 88 `ui 540  ]
+[e $ ! || == -> *U _This `ui -> 120 `ui == -> *U _This `ui -> 88 `ui 504  ]
 [; ;MISC.c: 569: {
 "569
 {
@@ -5279,7 +4604,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 [; ;MISC.c: 571: if(*This >='0' && *This <='9')
 "571
-[e $ ! && >= -> *U _This `ui -> 48 `ui <= -> *U _This `ui -> 57 `ui 541  ]
+[e $ ! && >= -> *U _This `ui -> 48 `ui <= -> *U _This `ui -> 57 `ui 505  ]
 [; ;MISC.c: 572: {
 "572
 {
@@ -5288,13 +4613,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _Hex -> -> 1 `i `uc ]
 "574
 }
-[e :U 541 ]
+[e :U 505 ]
 "575
 }
-[e :U 540 ]
+[e :U 504 ]
 "576
 }
-[e :U 539 ]
+[e :U 503 ]
 [; ;MISC.c: 574: }
 [; ;MISC.c: 575: }
 [; ;MISC.c: 576: }
@@ -5306,19 +4631,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 "579
 }
-[e :U 536 ]
+[e :U 500 ]
 "562
-[e $ != -> *U _This `i -> 0 `i 537  ]
-[e :U 538 ]
+[e $ != -> *U _This `i -> 0 `i 501  ]
+[e :U 502 ]
 [; ;MISC.c: 579: }
 [; ;MISC.c: 580: This-=count;
 "580
 [e =- _This * -> _count `ux -> -> # *U _This `ui `ux ]
 [; ;MISC.c: 582: SCAN:while(*This != '=' && *This != ',' && *This != 0)
 "582
-[e :U 542 ]
-[e $U 543  ]
-[e :U 544 ]
+[e :U 506 ]
+[e $U 507  ]
+[e :U 508 ]
 [; ;MISC.c: 583: {
 "583
 {
@@ -5327,35 +4652,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 "586
 }
-[e :U 543 ]
+[e :U 507 ]
 "582
-[e $ && && != -> *U _This `ui -> 61 `ui != -> *U _This `ui -> 44 `ui != -> *U _This `i -> 0 `i 544  ]
-[e :U 545 ]
+[e $ && && != -> *U _This `ui -> 61 `ui != -> *U _This `ui -> 44 `ui != -> *U _This `i -> 0 `i 508  ]
+[e :U 509 ]
 [; ;MISC.c: 586: }
 [; ;MISC.c: 587: if(*This == 0)
 "587
-[e $ ! == -> *U _This `i -> 0 `i 546  ]
+[e $ ! == -> *U _This `i -> 0 `i 510  ]
 [; ;MISC.c: 588: {
 "588
 {
 [; ;MISC.c: 589: return 1;
 "589
 [e ) -> -> 1 `i `uc ]
-[e $UE 535  ]
+[e $UE 499  ]
 "590
 }
 [; ;MISC.c: 590: }
-[e $U 547  ]
+[e $U 511  ]
 "591
-[e :U 546 ]
+[e :U 510 ]
 [; ;MISC.c: 591: else if(*This != '=' || *This != ',')
-[e $ ! || != -> *U _This `ui -> 61 `ui != -> *U _This `ui -> 44 `ui 548  ]
+[e $ ! || != -> *U _This `ui -> 61 `ui != -> *U _This `ui -> 44 `ui 512  ]
 [; ;MISC.c: 592: {
 "592
 {
 [; ;MISC.c: 593: if(tempCommaNumber < CommaNumber)
 "593
-[e $ ! < -> _tempCommaNumber `i -> _CommaNumber `i 549  ]
+[e $ ! < -> _tempCommaNumber `i -> _CommaNumber `i 513  ]
 [; ;MISC.c: 594: {
 "594
 {
@@ -5367,36 +4692,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 [; ;MISC.c: 597: goto SCAN;
 "597
-[e $U 542  ]
+[e $U 506  ]
 "598
 }
-[e :U 549 ]
+[e :U 513 ]
 "599
 }
-[e :U 548 ]
+[e :U 512 ]
 "600
-[e :U 547 ]
+[e :U 511 ]
 [; ;MISC.c: 598: }
 [; ;MISC.c: 599: }
 [; ;MISC.c: 600: if(*This == 0)
-[e $ ! == -> *U _This `i -> 0 `i 550  ]
+[e $ ! == -> *U _This `i -> 0 `i 514  ]
 [; ;MISC.c: 601: {
 "601
 {
 [; ;MISC.c: 602: return 1;
 "602
 [e ) -> -> 1 `i `uc ]
-[e $UE 535  ]
+[e $UE 499  ]
 "603
 }
-[e :U 550 ]
+[e :U 514 ]
 [; ;MISC.c: 603: }
 [; ;MISC.c: 604: This++;
 "604
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 [; ;MISC.c: 605: if(*This == ' ')
 "605
-[e $ ! == -> *U _This `ui -> 32 `ui 551  ]
+[e $ ! == -> *U _This `ui -> 32 `ui 515  ]
 [; ;MISC.c: 606: {
 "606
 {
@@ -5406,26 +4731,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 "609
 }
 [; ;MISC.c: 609: }
-[e $U 552  ]
+[e $U 516  ]
 "610
-[e :U 551 ]
+[e :U 515 ]
 [; ;MISC.c: 610: else if (*This == '=' || *This == ',')
-[e $ ! || == -> *U _This `ui -> 61 `ui == -> *U _This `ui -> 44 `ui 553  ]
+[e $ ! || == -> *U _This `ui -> 61 `ui == -> *U _This `ui -> 44 `ui 517  ]
 [; ;MISC.c: 611: {
 "611
 {
 [; ;MISC.c: 612: return 2;
 "612
 [e ) -> -> 2 `i `uc ]
-[e $UE 535  ]
+[e $UE 499  ]
 "613
 }
 [; ;MISC.c: 613: }
-[e $U 554  ]
+[e $U 518  ]
 "614
-[e :U 553 ]
+[e :U 517 ]
 [; ;MISC.c: 614: else if(*This == '-')
-[e $ ! == -> *U _This `ui -> 45 `ui 555  ]
+[e $ ! == -> *U _This `ui -> 45 `ui 519  ]
 [; ;MISC.c: 615: {
 "615
 {
@@ -5438,28 +4763,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 "619
 }
 [; ;MISC.c: 619: }
-[e $U 556  ]
+[e $U 520  ]
 "620
-[e :U 555 ]
+[e :U 519 ]
 [; ;MISC.c: 620: else if(*This == 0)
-[e $ ! == -> *U _This `i -> 0 `i 557  ]
+[e $ ! == -> *U _This `i -> 0 `i 521  ]
 [; ;MISC.c: 621: {
 "621
 {
 [; ;MISC.c: 622: return 3;
 "622
 [e ) -> -> 3 `i `uc ]
-[e $UE 535  ]
+[e $UE 499  ]
 "623
 }
-[e :U 557 ]
+[e :U 521 ]
 "624
-[e :U 556 ]
-[e :U 554 ]
-[e :U 552 ]
+[e :U 520 ]
+[e :U 518 ]
+[e :U 516 ]
 [; ;MISC.c: 623: }
 [; ;MISC.c: 624: if(Hex)
-[e $ ! != -> _Hex `i -> -> -> 0 `i `uc `i 558  ]
+[e $ ! != -> _Hex `i -> -> -> 0 `i `uc `i 522  ]
 [; ;MISC.c: 625: {
 "625
 {
@@ -5468,8 +4793,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _negative -> -> 0 `i `uc ]
 [; ;MISC.c: 627: while(*This != 'x' && *This != 'X')
 "627
-[e $U 559  ]
-[e :U 560 ]
+[e $U 523  ]
+[e :U 524 ]
 [; ;MISC.c: 628: {
 "628
 {
@@ -5478,34 +4803,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 "631
 }
-[e :U 559 ]
+[e :U 523 ]
 "627
-[e $ && != -> *U _This `ui -> 120 `ui != -> *U _This `ui -> 88 `ui 560  ]
-[e :U 561 ]
+[e $ && != -> *U _This `ui -> 120 `ui != -> *U _This `ui -> 88 `ui 524  ]
+[e :U 525 ]
 [; ;MISC.c: 631: }
 [; ;MISC.c: 632: This++;
 "632
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 "633
 }
-[e :U 558 ]
+[e :U 522 ]
 [; ;MISC.c: 633: }
 [; ;MISC.c: 634: while(*This != 0 && *This != ' ' && *This != ',' && *This != '=')
 "634
-[e $U 562  ]
-[e :U 563 ]
+[e $U 526  ]
+[e :U 527 ]
 [; ;MISC.c: 635: {
 "635
 {
 [; ;MISC.c: 636: if(!Hex)
 "636
-[e $ ! ! != -> _Hex `i -> -> -> 0 `i `uc `i 565  ]
+[e $ ! ! != -> _Hex `i -> -> -> 0 `i `uc `i 529  ]
 [; ;MISC.c: 637: {
 "637
 {
 [; ;MISC.c: 638: if(*This >=48 && *This <= 57)
 "638
-[e $ ! && >= -> *U _This `i -> 48 `i <= -> *U _This `i -> 57 `i 566  ]
+[e $ ! && >= -> *U _This `i -> 48 `i <= -> *U _This `i -> 57 `i 530  ]
 [; ;MISC.c: 639: {
 "639
 {
@@ -5520,35 +4845,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _i -> -> 1 `i `uc ]
 [; ;MISC.c: 643: if(i>32)
 "643
-[e $ ! > -> _i `i -> 32 `i 567  ]
+[e $ ! > -> _i `i -> 32 `i 531  ]
 [; ;MISC.c: 644: {
 "644
 {
 [; ;MISC.c: 645: return 4;
 "645
 [e ) -> -> 4 `i `uc ]
-[e $UE 535  ]
+[e $UE 499  ]
 "646
 }
-[e :U 567 ]
+[e :U 531 ]
 "647
 }
-[e :U 566 ]
+[e :U 530 ]
 "648
 }
 [; ;MISC.c: 646: }
 [; ;MISC.c: 647: }
 [; ;MISC.c: 648: }
-[e $U 568  ]
+[e $U 532  ]
 "649
-[e :U 565 ]
+[e :U 529 ]
 [; ;MISC.c: 649: else
 [; ;MISC.c: 650: {
 "650
 {
 [; ;MISC.c: 651: if((*This >=48 && *This <= 57) || (*This >=65 && *This <= 70) || (*This >= 97 && *This <= 102))
 "651
-[e $ ! || || && >= -> *U _This `i -> 48 `i <= -> *U _This `i -> 57 `i && >= -> *U _This `i -> 65 `i <= -> *U _This `i -> 70 `i && >= -> *U _This `i -> 97 `i <= -> *U _This `i -> 102 `i 569  ]
+[e $ ! || || && >= -> *U _This `i -> 48 `i <= -> *U _This `i -> 57 `i && >= -> *U _This `i -> 65 `i <= -> *U _This `i -> 70 `i && >= -> *U _This `i -> 97 `i <= -> *U _This `i -> 102 `i 533  ]
 [; ;MISC.c: 652: {
 "652
 {
@@ -5560,7 +4885,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _tempThis *U _This ]
 [; ;MISC.c: 655: if(IsLetter(tempThis))
 "655
-[e $ ! != -> ( _IsLetter (1 _tempThis `i -> -> -> 0 `i `uc `i 570  ]
+[e $ ! != -> ( _IsLetter (1 _tempThis `i -> -> -> 0 `i `uc `i 534  ]
 [; ;MISC.c: 656: {
 "656
 {
@@ -5573,9 +4898,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "659
 }
 [; ;MISC.c: 659: }
-[e $U 571  ]
+[e $U 535  ]
 "660
-[e :U 570 ]
+[e :U 534 ]
 [; ;MISC.c: 660: else
 [; ;MISC.c: 661: {
 "661
@@ -5585,30 +4910,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =+ _temp -> - -> *U _This `i -> 48 `i `l ]
 "663
 }
-[e :U 571 ]
+[e :U 535 ]
 [; ;MISC.c: 663: }
 [; ;MISC.c: 664: i++;
 "664
 [e ++ _i -> -> 1 `i `uc ]
 [; ;MISC.c: 665: if(i>32)
 "665
-[e $ ! > -> _i `i -> 32 `i 572  ]
+[e $ ! > -> _i `i -> 32 `i 536  ]
 [; ;MISC.c: 666: {
 "666
 {
 [; ;MISC.c: 667: return 4;
 "667
 [e ) -> -> 4 `i `uc ]
-[e $UE 535  ]
+[e $UE 499  ]
 "668
 }
-[e :U 572 ]
+[e :U 536 ]
 "669
 }
-[e :U 569 ]
+[e :U 533 ]
 "670
 }
-[e :U 568 ]
+[e :U 532 ]
 [; ;MISC.c: 668: }
 [; ;MISC.c: 669: }
 [; ;MISC.c: 670: }
@@ -5617,14 +4942,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 "672
 }
-[e :U 562 ]
+[e :U 526 ]
 "634
-[e $ && && && != -> *U _This `i -> 0 `i != -> *U _This `ui -> 32 `ui != -> *U _This `ui -> 44 `ui != -> *U _This `ui -> 61 `ui 563  ]
-[e :U 564 ]
+[e $ && && && != -> *U _This `i -> 0 `i != -> *U _This `ui -> 32 `ui != -> *U _This `ui -> 44 `ui != -> *U _This `ui -> 61 `ui 527  ]
+[e :U 528 ]
 [; ;MISC.c: 672: }
 [; ;MISC.c: 673: if(negative)
 "673
-[e $ ! != -> _negative `i -> -> -> 0 `i `uc `i 573  ]
+[e $ ! != -> _negative `i -> -> -> 0 `i `uc `i 537  ]
 [; ;MISC.c: 674: {
 "674
 {
@@ -5633,7 +4958,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _temp * _temp -> -U -> 1 `i `l ]
 "676
 }
-[e :U 573 ]
+[e :U 537 ]
 [; ;MISC.c: 676: }
 [; ;MISC.c: 677: *result = temp;
 "677
@@ -5641,10 +4966,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 678: return 0;
 "678
 [e ) -> -> 0 `i `uc ]
-[e $UE 535  ]
+[e $UE 499  ]
 [; ;MISC.c: 679: }
 "679
-[e :UE 535 ]
+[e :UE 499 ]
 }
 "686
 [v _MSC_GetNumberUnsigned `(uc ~T0 @X0 1 ef3`*uc`uc`*ul ]
@@ -5684,14 +5009,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 693: unsigned char tempThis;
 [; ;MISC.c: 695: while(*This != 0)
 "695
-[e $U 575  ]
-[e :U 576 ]
+[e $U 539  ]
+[e :U 540 ]
 [; ;MISC.c: 696: {
 "696
 {
 [; ;MISC.c: 697: if(*This == '0')
 "697
-[e $ ! == -> *U _This `ui -> 48 `ui 578  ]
+[e $ ! == -> *U _This `ui -> 48 `ui 542  ]
 [; ;MISC.c: 698: {
 "698
 {
@@ -5703,7 +5028,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 [; ;MISC.c: 701: if(*This == 'x' || *This == 'X')
 "701
-[e $ ! || == -> *U _This `ui -> 120 `ui == -> *U _This `ui -> 88 `ui 579  ]
+[e $ ! || == -> *U _This `ui -> 120 `ui == -> *U _This `ui -> 88 `ui 543  ]
 [; ;MISC.c: 702: {
 "702
 {
@@ -5712,7 +5037,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 [; ;MISC.c: 704: if(*This >='0' && *This <='9')
 "704
-[e $ ! && >= -> *U _This `ui -> 48 `ui <= -> *U _This `ui -> 57 `ui 580  ]
+[e $ ! && >= -> *U _This `ui -> 48 `ui <= -> *U _This `ui -> 57 `ui 544  ]
 [; ;MISC.c: 705: {
 "705
 {
@@ -5721,13 +5046,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _Hex -> -> 1 `i `uc ]
 "707
 }
-[e :U 580 ]
+[e :U 544 ]
 "708
 }
-[e :U 579 ]
+[e :U 543 ]
 "709
 }
-[e :U 578 ]
+[e :U 542 ]
 [; ;MISC.c: 707: }
 [; ;MISC.c: 708: }
 [; ;MISC.c: 709: }
@@ -5739,19 +5064,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 "712
 }
-[e :U 575 ]
+[e :U 539 ]
 "695
-[e $ != -> *U _This `i -> 0 `i 576  ]
-[e :U 577 ]
+[e $ != -> *U _This `i -> 0 `i 540  ]
+[e :U 541 ]
 [; ;MISC.c: 712: }
 [; ;MISC.c: 713: This-=count;
 "713
 [e =- _This * -> _count `ux -> -> # *U _This `ui `ux ]
 [; ;MISC.c: 715: SCAN:while(*This != '=' && *This != ',' && *This != 0)
 "715
-[e :U 581 ]
-[e $U 582  ]
-[e :U 583 ]
+[e :U 545 ]
+[e $U 546  ]
+[e :U 547 ]
 [; ;MISC.c: 716: {
 "716
 {
@@ -5760,35 +5085,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 "719
 }
-[e :U 582 ]
+[e :U 546 ]
 "715
-[e $ && && != -> *U _This `ui -> 61 `ui != -> *U _This `ui -> 44 `ui != -> *U _This `i -> 0 `i 583  ]
-[e :U 584 ]
+[e $ && && != -> *U _This `ui -> 61 `ui != -> *U _This `ui -> 44 `ui != -> *U _This `i -> 0 `i 547  ]
+[e :U 548 ]
 [; ;MISC.c: 719: }
 [; ;MISC.c: 720: if(*This == 0)
 "720
-[e $ ! == -> *U _This `i -> 0 `i 585  ]
+[e $ ! == -> *U _This `i -> 0 `i 549  ]
 [; ;MISC.c: 721: {
 "721
 {
 [; ;MISC.c: 722: return 1;
 "722
 [e ) -> -> 1 `i `uc ]
-[e $UE 574  ]
+[e $UE 538  ]
 "723
 }
 [; ;MISC.c: 723: }
-[e $U 586  ]
+[e $U 550  ]
 "724
-[e :U 585 ]
+[e :U 549 ]
 [; ;MISC.c: 724: else if(*This != '=' || *This != ',')
-[e $ ! || != -> *U _This `ui -> 61 `ui != -> *U _This `ui -> 44 `ui 587  ]
+[e $ ! || != -> *U _This `ui -> 61 `ui != -> *U _This `ui -> 44 `ui 551  ]
 [; ;MISC.c: 725: {
 "725
 {
 [; ;MISC.c: 726: if(tempCommaNumber < CommaNumber)
 "726
-[e $ ! < -> _tempCommaNumber `i -> _CommaNumber `i 588  ]
+[e $ ! < -> _tempCommaNumber `i -> _CommaNumber `i 552  ]
 [; ;MISC.c: 727: {
 "727
 {
@@ -5800,36 +5125,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 [; ;MISC.c: 730: goto SCAN;
 "730
-[e $U 581  ]
+[e $U 545  ]
 "731
 }
-[e :U 588 ]
+[e :U 552 ]
 "732
 }
-[e :U 587 ]
+[e :U 551 ]
 "733
-[e :U 586 ]
+[e :U 550 ]
 [; ;MISC.c: 731: }
 [; ;MISC.c: 732: }
 [; ;MISC.c: 733: if(*This == 0)
-[e $ ! == -> *U _This `i -> 0 `i 589  ]
+[e $ ! == -> *U _This `i -> 0 `i 553  ]
 [; ;MISC.c: 734: {
 "734
 {
 [; ;MISC.c: 735: return 1;
 "735
 [e ) -> -> 1 `i `uc ]
-[e $UE 574  ]
+[e $UE 538  ]
 "736
 }
-[e :U 589 ]
+[e :U 553 ]
 [; ;MISC.c: 736: }
 [; ;MISC.c: 737: This++;
 "737
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 [; ;MISC.c: 738: if(*This == ' ')
 "738
-[e $ ! == -> *U _This `ui -> 32 `ui 590  ]
+[e $ ! == -> *U _This `ui -> 32 `ui 554  ]
 [; ;MISC.c: 739: {
 "739
 {
@@ -5839,65 +5164,65 @@ Version 3.2 HI-TECH Software Intermediate Code
 "742
 }
 [; ;MISC.c: 742: }
-[e $U 591  ]
+[e $U 555  ]
 "743
-[e :U 590 ]
+[e :U 554 ]
 [; ;MISC.c: 743: else if (*This == '=' || *This == ',')
-[e $ ! || == -> *U _This `ui -> 61 `ui == -> *U _This `ui -> 44 `ui 592  ]
+[e $ ! || == -> *U _This `ui -> 61 `ui == -> *U _This `ui -> 44 `ui 556  ]
 [; ;MISC.c: 744: {
 "744
 {
 [; ;MISC.c: 745: return 2;
 "745
 [e ) -> -> 2 `i `uc ]
-[e $UE 574  ]
+[e $UE 538  ]
 "746
 }
 [; ;MISC.c: 746: }
-[e $U 593  ]
+[e $U 557  ]
 "747
-[e :U 592 ]
+[e :U 556 ]
 [; ;MISC.c: 747: else if(*This == '-')
-[e $ ! == -> *U _This `ui -> 45 `ui 594  ]
+[e $ ! == -> *U _This `ui -> 45 `ui 558  ]
 [; ;MISC.c: 748: {
 "748
 {
 [; ;MISC.c: 749: return 5;
 "749
 [e ) -> -> 5 `i `uc ]
-[e $UE 574  ]
+[e $UE 538  ]
 "751
 }
 [; ;MISC.c: 751: }
-[e $U 595  ]
+[e $U 559  ]
 "752
-[e :U 594 ]
+[e :U 558 ]
 [; ;MISC.c: 752: else if(*This == 0)
-[e $ ! == -> *U _This `i -> 0 `i 596  ]
+[e $ ! == -> *U _This `i -> 0 `i 560  ]
 [; ;MISC.c: 753: {
 "753
 {
 [; ;MISC.c: 754: return 3;
 "754
 [e ) -> -> 3 `i `uc ]
-[e $UE 574  ]
+[e $UE 538  ]
 "755
 }
-[e :U 596 ]
+[e :U 560 ]
 "756
-[e :U 595 ]
-[e :U 593 ]
-[e :U 591 ]
+[e :U 559 ]
+[e :U 557 ]
+[e :U 555 ]
 [; ;MISC.c: 755: }
 [; ;MISC.c: 756: if(Hex)
-[e $ ! != -> _Hex `i -> -> -> 0 `i `uc `i 597  ]
+[e $ ! != -> _Hex `i -> -> -> 0 `i `uc `i 561  ]
 [; ;MISC.c: 757: {
 "757
 {
 [; ;MISC.c: 758: while(*This != 'x' && *This != 'X')
 "758
-[e $U 598  ]
-[e :U 599 ]
+[e $U 562  ]
+[e :U 563 ]
 [; ;MISC.c: 759: {
 "759
 {
@@ -5906,34 +5231,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 "762
 }
-[e :U 598 ]
+[e :U 562 ]
 "758
-[e $ && != -> *U _This `ui -> 120 `ui != -> *U _This `ui -> 88 `ui 599  ]
-[e :U 600 ]
+[e $ && != -> *U _This `ui -> 120 `ui != -> *U _This `ui -> 88 `ui 563  ]
+[e :U 564 ]
 [; ;MISC.c: 762: }
 [; ;MISC.c: 763: This++;
 "763
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 "764
 }
-[e :U 597 ]
+[e :U 561 ]
 [; ;MISC.c: 764: }
 [; ;MISC.c: 765: while(*This != 0 && *This != ' ' && *This != ',' && *This != '=')
 "765
-[e $U 601  ]
-[e :U 602 ]
+[e $U 565  ]
+[e :U 566 ]
 [; ;MISC.c: 766: {
 "766
 {
 [; ;MISC.c: 767: if(!Hex)
 "767
-[e $ ! ! != -> _Hex `i -> -> -> 0 `i `uc `i 604  ]
+[e $ ! ! != -> _Hex `i -> -> -> 0 `i `uc `i 568  ]
 [; ;MISC.c: 768: {
 "768
 {
 [; ;MISC.c: 769: if(*This >=48 && *This <= 57)
 "769
-[e $ ! && >= -> *U _This `i -> 48 `i <= -> *U _This `i -> 57 `i 605  ]
+[e $ ! && >= -> *U _This `i -> 48 `i <= -> *U _This `i -> 57 `i 569  ]
 [; ;MISC.c: 770: {
 "770
 {
@@ -5948,35 +5273,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _i -> -> 1 `i `uc ]
 [; ;MISC.c: 774: if(i>32)
 "774
-[e $ ! > -> _i `i -> 32 `i 606  ]
+[e $ ! > -> _i `i -> 32 `i 570  ]
 [; ;MISC.c: 775: {
 "775
 {
 [; ;MISC.c: 776: return 4;
 "776
 [e ) -> -> 4 `i `uc ]
-[e $UE 574  ]
+[e $UE 538  ]
 "777
 }
-[e :U 606 ]
+[e :U 570 ]
 "778
 }
-[e :U 605 ]
+[e :U 569 ]
 "779
 }
 [; ;MISC.c: 777: }
 [; ;MISC.c: 778: }
 [; ;MISC.c: 779: }
-[e $U 607  ]
+[e $U 571  ]
 "780
-[e :U 604 ]
+[e :U 568 ]
 [; ;MISC.c: 780: else
 [; ;MISC.c: 781: {
 "781
 {
 [; ;MISC.c: 782: if((*This >=48 && *This <= 57) || (*This >=65 && *This <= 70) || (*This >= 97 && *This <= 102))
 "782
-[e $ ! || || && >= -> *U _This `i -> 48 `i <= -> *U _This `i -> 57 `i && >= -> *U _This `i -> 65 `i <= -> *U _This `i -> 70 `i && >= -> *U _This `i -> 97 `i <= -> *U _This `i -> 102 `i 608  ]
+[e $ ! || || && >= -> *U _This `i -> 48 `i <= -> *U _This `i -> 57 `i && >= -> *U _This `i -> 65 `i <= -> *U _This `i -> 70 `i && >= -> *U _This `i -> 97 `i <= -> *U _This `i -> 102 `i 572  ]
 [; ;MISC.c: 783: {
 "783
 {
@@ -5988,7 +5313,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _tempThis *U _This ]
 [; ;MISC.c: 786: if(IsLetter(tempThis))
 "786
-[e $ ! != -> ( _IsLetter (1 _tempThis `i -> -> -> 0 `i `uc `i 609  ]
+[e $ ! != -> ( _IsLetter (1 _tempThis `i -> -> -> 0 `i `uc `i 573  ]
 [; ;MISC.c: 787: {
 "787
 {
@@ -6001,9 +5326,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "790
 }
 [; ;MISC.c: 790: }
-[e $U 610  ]
+[e $U 574  ]
 "791
-[e :U 609 ]
+[e :U 573 ]
 [; ;MISC.c: 791: else
 [; ;MISC.c: 792: {
 "792
@@ -6013,30 +5338,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =+ _temp -> - -> *U _This `i -> 48 `i `l ]
 "794
 }
-[e :U 610 ]
+[e :U 574 ]
 [; ;MISC.c: 794: }
 [; ;MISC.c: 795: i++;
 "795
 [e ++ _i -> -> 1 `i `uc ]
 [; ;MISC.c: 796: if(i>32)
 "796
-[e $ ! > -> _i `i -> 32 `i 611  ]
+[e $ ! > -> _i `i -> 32 `i 575  ]
 [; ;MISC.c: 797: {
 "797
 {
 [; ;MISC.c: 798: return 4;
 "798
 [e ) -> -> 4 `i `uc ]
-[e $UE 574  ]
+[e $UE 538  ]
 "799
 }
-[e :U 611 ]
+[e :U 575 ]
 "800
 }
-[e :U 608 ]
+[e :U 572 ]
 "801
 }
-[e :U 607 ]
+[e :U 571 ]
 [; ;MISC.c: 799: }
 [; ;MISC.c: 800: }
 [; ;MISC.c: 801: }
@@ -6045,10 +5370,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 "803
 }
-[e :U 601 ]
+[e :U 565 ]
 "765
-[e $ && && && != -> *U _This `i -> 0 `i != -> *U _This `ui -> 32 `ui != -> *U _This `ui -> 44 `ui != -> *U _This `ui -> 61 `ui 602  ]
-[e :U 603 ]
+[e $ && && && != -> *U _This `i -> 0 `i != -> *U _This `ui -> 32 `ui != -> *U _This `ui -> 44 `ui != -> *U _This `ui -> 61 `ui 566  ]
+[e :U 567 ]
 [; ;MISC.c: 803: }
 [; ;MISC.c: 804: *result = temp;
 "804
@@ -6056,10 +5381,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 805: return 0;
 "805
 [e ) -> -> 0 `i `uc ]
-[e $UE 574  ]
+[e $UE 538  ]
 [; ;MISC.c: 806: }
 "806
-[e :UE 574 ]
+[e :UE 538 ]
 }
 "813
 [v _MSC_StringAddEqual `(uc ~T0 @X0 1 ef1`*uc ]
@@ -6093,15 +5418,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 "820
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 255 `i 613  ]
-[e $U 614  ]
+[e $ < -> _i `i -> 255 `i 577  ]
+[e $U 578  ]
 "821
-[e :U 613 ]
+[e :U 577 ]
 [; ;MISC.c: 821: {
 {
 [; ;MISC.c: 822: if(*Input == 0)
 "822
-[e $ ! == -> *U _Input `i -> 0 `i 616  ]
+[e $ ! == -> *U _Input `i -> 0 `i 580  ]
 [; ;MISC.c: 823: {
 "823
 {
@@ -6110,10 +5435,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _NullPosition _i ]
 [; ;MISC.c: 825: break;
 "825
-[e $U 614  ]
+[e $U 578  ]
 "826
 }
-[e :U 616 ]
+[e :U 580 ]
 [; ;MISC.c: 826: }
 [; ;MISC.c: 827: Input++;
 "827
@@ -6122,8 +5447,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "820
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 255 `i 613  ]
-[e :U 614 ]
+[e $ < -> _i `i -> 255 `i 577  ]
+[e :U 578 ]
 "828
 }
 [; ;MISC.c: 828: }
@@ -6138,14 +5463,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _i -> -> 0 `i `uc ]
 [; ;MISC.c: 832: while(Input[i] != 0)
 "832
-[e $U 617  ]
-[e :U 618 ]
+[e $U 581  ]
+[e :U 582 ]
 [; ;MISC.c: 833: {
 "833
 {
 [; ;MISC.c: 834: if(((Input[i] >= 48) && (Input[i] <= 57)) || (Input[i] == '-'))
 "834
-[e $ ! || && >= -> *U + _Input * -> _i `ux -> -> # *U _Input `ui `ux `i -> 48 `i <= -> *U + _Input * -> _i `ux -> -> # *U _Input `ui `ux `i -> 57 `i == -> *U + _Input * -> _i `ux -> -> # *U _Input `ui `ux `ui -> 45 `ui 620  ]
+[e $ ! || && >= -> *U + _Input * -> _i `ux -> -> # *U _Input `ui `ux `i -> 48 `i <= -> *U + _Input * -> _i `ux -> -> # *U _Input `ui `ux `i -> 57 `i == -> *U + _Input * -> _i `ux -> -> # *U _Input `ui `ux `ui -> 45 `ui 584  ]
 [; ;MISC.c: 835: {
 "835
 {
@@ -6154,42 +5479,42 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _firstnumber _i ]
 [; ;MISC.c: 837: break;
 "837
-[e $U 619  ]
+[e $U 583  ]
 "838
 }
-[e :U 620 ]
+[e :U 584 ]
 [; ;MISC.c: 838: }
 [; ;MISC.c: 839: i++;
 "839
 [e ++ _i -> -> 1 `i `uc ]
 "840
 }
-[e :U 617 ]
+[e :U 581 ]
 "832
-[e $ != -> *U + _Input * -> _i `ux -> -> # *U _Input `ui `ux `i -> 0 `i 618  ]
-[e :U 619 ]
+[e $ != -> *U + _Input * -> _i `ux -> -> # *U _Input `ui `ux `i -> 0 `i 582  ]
+[e :U 583 ]
 [; ;MISC.c: 840: }
 [; ;MISC.c: 841: if(firstnumber == 255)
 "841
-[e $ ! == -> _firstnumber `i -> 255 `i 621  ]
+[e $ ! == -> _firstnumber `i -> 255 `i 585  ]
 [; ;MISC.c: 842: {
 "842
 {
 [; ;MISC.c: 844: return 0;
 "844
 [e ) -> -> 0 `i `uc ]
-[e $UE 612  ]
+[e $UE 576  ]
 "845
 }
-[e :U 621 ]
+[e :U 585 ]
 [; ;MISC.c: 845: }
 [; ;MISC.c: 846: for(j=0;j<firstnumber;j++)
 "846
 {
 [e = _j -> -> 0 `i `uc ]
-[e $U 625  ]
+[e $U 589  ]
 "847
-[e :U 622 ]
+[e :U 586 ]
 [; ;MISC.c: 847: {
 {
 [; ;MISC.c: 848: temp[j] = Input[j];
@@ -6199,9 +5524,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "846
 [e ++ _j -> -> 1 `i `uc ]
-[e :U 625 ]
-[e $ < -> _j `i -> _firstnumber `i 622  ]
-[e :U 623 ]
+[e :U 589 ]
+[e $ < -> _j `i -> _firstnumber `i 586  ]
+[e :U 587 ]
 "849
 }
 [; ;MISC.c: 849: }
@@ -6212,10 +5537,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "851
 {
 [e = _j _firstnumber ]
-[e $ < -> _j `i -> 255 `i 626  ]
-[e $U 627  ]
+[e $ < -> _j `i -> 255 `i 590  ]
+[e $U 591  ]
 "852
-[e :U 626 ]
+[e :U 590 ]
 [; ;MISC.c: 852: {
 {
 [; ;MISC.c: 853: temp[j+1] = Input[j];
@@ -6223,22 +5548,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _temp * -> -> + -> _j `i -> 1 `i `ui `ux -> -> # *U &U _temp `ui `ux *U + _Input * -> _j `ux -> -> # *U _Input `ui `ux ]
 [; ;MISC.c: 854: if(Input[j] == 0)
 "854
-[e $ ! == -> *U + _Input * -> _j `ux -> -> # *U _Input `ui `ux `i -> 0 `i 629  ]
+[e $ ! == -> *U + _Input * -> _j `ux -> -> # *U _Input `ui `ux `i -> 0 `i 593  ]
 [; ;MISC.c: 855: {
 "855
 {
 [; ;MISC.c: 856: break;
 "856
-[e $U 627  ]
+[e $U 591  ]
 "857
 }
-[e :U 629 ]
+[e :U 593 ]
 "858
 }
 "851
 [e ++ _j -> -> 1 `i `uc ]
-[e $ < -> _j `i -> 255 `i 626  ]
-[e :U 627 ]
+[e $ < -> _j `i -> 255 `i 590  ]
+[e :U 591 ]
 "858
 }
 [; ;MISC.c: 857: }
@@ -6249,10 +5574,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 860: return 1;
 "860
 [e ) -> -> 1 `i `uc ]
-[e $UE 612  ]
+[e $UE 576  ]
 [; ;MISC.c: 861: }
 "861
-[e :UE 612 ]
+[e :UE 576 ]
 }
 "868
 [v _MSC_GetStringAfterComma `(uc ~T0 @X0 1 ef3`*uc`uc`*uc ]
@@ -6277,9 +5602,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _count -> -> 0 `i `uc ]
 [; ;MISC.c: 873: SCAN:while(*This != ',' && *This != 0)
 "873
-[e :U 631 ]
-[e $U 632  ]
-[e :U 633 ]
+[e :U 595 ]
+[e $U 596  ]
+[e :U 597 ]
 [; ;MISC.c: 874: {
 "874
 {
@@ -6288,35 +5613,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 "877
 }
-[e :U 632 ]
+[e :U 596 ]
 "873
-[e $ && != -> *U _This `ui -> 44 `ui != -> *U _This `i -> 0 `i 633  ]
-[e :U 634 ]
+[e $ && != -> *U _This `ui -> 44 `ui != -> *U _This `i -> 0 `i 597  ]
+[e :U 598 ]
 [; ;MISC.c: 877: }
 [; ;MISC.c: 878: if(*This == 0)
 "878
-[e $ ! == -> *U _This `i -> 0 `i 635  ]
+[e $ ! == -> *U _This `i -> 0 `i 599  ]
 [; ;MISC.c: 879: {
 "879
 {
 [; ;MISC.c: 880: return 1;
 "880
 [e ) -> -> 1 `i `uc ]
-[e $UE 630  ]
+[e $UE 594  ]
 "881
 }
 [; ;MISC.c: 881: }
-[e $U 636  ]
+[e $U 600  ]
 "882
-[e :U 635 ]
+[e :U 599 ]
 [; ;MISC.c: 882: else if(*This != ',')
-[e $ ! != -> *U _This `ui -> 44 `ui 637  ]
+[e $ ! != -> *U _This `ui -> 44 `ui 601  ]
 [; ;MISC.c: 883: {
 "883
 {
 [; ;MISC.c: 884: if(tempCommaNumber < CommaNumber)
 "884
-[e $ ! < -> _tempCommaNumber `i -> _CommaNumber `i 638  ]
+[e $ ! < -> _tempCommaNumber `i -> _CommaNumber `i 602  ]
 [; ;MISC.c: 885: {
 "885
 {
@@ -6328,36 +5653,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 [; ;MISC.c: 888: goto SCAN;
 "888
-[e $U 631  ]
+[e $U 595  ]
 "889
 }
-[e :U 638 ]
+[e :U 602 ]
 "890
 }
-[e :U 637 ]
+[e :U 601 ]
 "891
-[e :U 636 ]
+[e :U 600 ]
 [; ;MISC.c: 889: }
 [; ;MISC.c: 890: }
 [; ;MISC.c: 891: if(*This == 0)
-[e $ ! == -> *U _This `i -> 0 `i 639  ]
+[e $ ! == -> *U _This `i -> 0 `i 603  ]
 [; ;MISC.c: 892: {
 "892
 {
 [; ;MISC.c: 893: return 1;
 "893
 [e ) -> -> 1 `i `uc ]
-[e $UE 630  ]
+[e $UE 594  ]
 "894
 }
-[e :U 639 ]
+[e :U 603 ]
 [; ;MISC.c: 894: }
 [; ;MISC.c: 895: This++;
 "895
 [e ++ _This * -> -> 1 `i `x -> -> # *U _This `i `x ]
 [; ;MISC.c: 896: if(*This == ' ')
 "896
-[e $ ! == -> *U _This `ui -> 32 `ui 640  ]
+[e $ ! == -> *U _This `ui -> 32 `ui 604  ]
 [; ;MISC.c: 897: {
 "897
 {
@@ -6367,43 +5692,43 @@ Version 3.2 HI-TECH Software Intermediate Code
 "900
 }
 [; ;MISC.c: 900: }
-[e $U 641  ]
+[e $U 605  ]
 "901
-[e :U 640 ]
+[e :U 604 ]
 [; ;MISC.c: 901: else if (*This == ',')
-[e $ ! == -> *U _This `ui -> 44 `ui 642  ]
+[e $ ! == -> *U _This `ui -> 44 `ui 606  ]
 [; ;MISC.c: 902: {
 "902
 {
 [; ;MISC.c: 903: return 2;
 "903
 [e ) -> -> 2 `i `uc ]
-[e $UE 630  ]
+[e $UE 594  ]
 "904
 }
 [; ;MISC.c: 904: }
-[e $U 643  ]
+[e $U 607  ]
 "905
-[e :U 642 ]
+[e :U 606 ]
 [; ;MISC.c: 905: else if(*This == 0)
-[e $ ! == -> *U _This `i -> 0 `i 644  ]
+[e $ ! == -> *U _This `i -> 0 `i 608  ]
 [; ;MISC.c: 906: {
 "906
 {
 [; ;MISC.c: 907: return 3;
 "907
 [e ) -> -> 3 `i `uc ]
-[e $UE 630  ]
+[e $UE 594  ]
 "908
 }
-[e :U 644 ]
+[e :U 608 ]
 "909
-[e :U 643 ]
-[e :U 641 ]
+[e :U 607 ]
+[e :U 605 ]
 [; ;MISC.c: 908: }
 [; ;MISC.c: 909: while(*This != 0 && *This != ' ' && count < 10)
-[e $U 645  ]
-[e :U 646 ]
+[e $U 609  ]
+[e :U 610 ]
 [; ;MISC.c: 910: {
 "910
 {
@@ -6421,18 +5746,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _count -> -> 1 `i `uc ]
 "915
 }
-[e :U 645 ]
+[e :U 609 ]
 "909
-[e $ && && != -> *U _This `i -> 0 `i != -> *U _This `ui -> 32 `ui < -> _count `i -> 10 `i 646  ]
-[e :U 647 ]
+[e $ && && != -> *U _This `i -> 0 `i != -> *U _This `ui -> 32 `ui < -> _count `i -> 10 `i 610  ]
+[e :U 611 ]
 [; ;MISC.c: 915: }
 [; ;MISC.c: 916: return 0;
 "916
 [e ) -> -> 0 `i `uc ]
-[e $UE 630  ]
+[e $UE 594  ]
 [; ;MISC.c: 917: }
 "917
-[e :UE 630 ]
+[e :UE 594 ]
 }
 "924
 [v _MSC_DB_Round `(d ~T0 @X0 1 ef1`d ]
@@ -6460,10 +5785,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 931: return temp1;
 "931
 [e ) _temp1 ]
-[e $UE 648  ]
+[e $UE 612  ]
 [; ;MISC.c: 932: }
 "932
-[e :UE 648 ]
+[e :UE 612 ]
 }
 "942
 [v _MSC_LG_Round `(l ~T0 @X0 1 ef2`l`uc ]
@@ -6495,7 +5820,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 946: long temp_Input;
 [; ;MISC.c: 948: if(Input < 0)
 "948
-[e $ ! < _Input -> -> 0 `i `l 650  ]
+[e $ ! < _Input -> -> 0 `i `l 614  ]
 [; ;MISC.c: 949: {
 "949
 {
@@ -6508,9 +5833,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "952
 }
 [; ;MISC.c: 952: }
-[e $U 651  ]
+[e $U 615  ]
 "953
-[e :U 650 ]
+[e :U 614 ]
 [; ;MISC.c: 953: else
 [; ;MISC.c: 954: {
 "954
@@ -6520,24 +5845,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _temp_Input _Input ]
 "956
 }
-[e :U 651 ]
+[e :U 615 ]
 [; ;MISC.c: 956: }
 [; ;MISC.c: 958: redo:
 "958
-[e :U 652 ]
+[e :U 616 ]
 [; ;MISC.c: 959: if(!places)
 "959
-[e $ ! ! != -> _places `i -> -> -> 0 `i `uc `i 653  ]
+[e $ ! ! != -> _places `i -> -> -> 0 `i `uc `i 617  ]
 [; ;MISC.c: 960: {
 "960
 {
 [; ;MISC.c: 961: return Input;
 "961
 [e ) _Input ]
-[e $UE 649  ]
+[e $UE 613  ]
 "962
 }
-[e :U 653 ]
+[e :U 617 ]
 [; ;MISC.c: 962: }
 [; ;MISC.c: 963: temp1 = (long)pow(10,places);
 "963
@@ -6559,7 +5884,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _temp6 - _temp1 _temp4 ]
 [; ;MISC.c: 969: if(temp1 > temp_Input)
 "969
-[e $ ! > _temp1 _temp_Input 654  ]
+[e $ ! > _temp1 _temp_Input 618  ]
 [; ;MISC.c: 970: {
 "970
 {
@@ -6568,14 +5893,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e -- _places -> -> 1 `i `uc ]
 [; ;MISC.c: 972: goto redo;
 "972
-[e $U 652  ]
+[e $U 616  ]
 "973
 }
-[e :U 654 ]
+[e :U 618 ]
 [; ;MISC.c: 973: }
 [; ;MISC.c: 974: if(temp5 >= temp6)
 "974
-[e $ ! >= _temp5 _temp6 655  ]
+[e $ ! >= _temp5 _temp6 619  ]
 [; ;MISC.c: 975: {
 "975
 {
@@ -6585,9 +5910,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "977
 }
 [; ;MISC.c: 977: }
-[e $U 656  ]
+[e $U 620  ]
 "978
-[e :U 655 ]
+[e :U 619 ]
 [; ;MISC.c: 978: else
 [; ;MISC.c: 979: {
 "979
@@ -6597,11 +5922,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _temp7 _temp3 ]
 "981
 }
-[e :U 656 ]
+[e :U 620 ]
 [; ;MISC.c: 981: }
 [; ;MISC.c: 982: if(negative)
 "982
-[e $ ! != -> _negative `i -> -> -> 0 `i `uc `i 657  ]
+[e $ ! != -> _negative `i -> -> -> 0 `i `uc `i 621  ]
 [; ;MISC.c: 983: {
 "983
 {
@@ -6610,15 +5935,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =* _temp7 -> -U -> 1 `i `l ]
 "985
 }
-[e :U 657 ]
+[e :U 621 ]
 [; ;MISC.c: 985: }
 [; ;MISC.c: 986: return temp7;
 "986
 [e ) _temp7 ]
-[e $UE 649  ]
+[e $UE 613  ]
 [; ;MISC.c: 987: }
 "987
-[e :UE 649 ]
+[e :UE 613 ]
 }
 "994
 [v _MSC_Scale `(l ~T0 @X0 1 ef5`l`l`l`l`l ]
@@ -6656,10 +5981,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 1002: return (long)((((double)Input - (double)InputRangeLow) * tempScale) + (double)OutputRangeLow);
 "1002
 [e ) -> + * - -> _Input `d -> _InputRangeLow `d _tempScale -> _OutputRangeLow `d `l ]
-[e $UE 658  ]
+[e $UE 622  ]
 [; ;MISC.c: 1003: }
 "1003
-[e :UE 658 ]
+[e :UE 622 ]
 }
 "1010
 [v _MSC_HEXtoBCD `(ui ~T0 @X0 1 ef1`ui ]
@@ -6712,10 +6037,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 1026: return (temp0 + (temp1 << 4) + (temp2 << 8) + (temp3 << 12));
 "1026
 [e ) + + + _temp0 << _temp1 -> 4 `i << _temp2 -> 8 `i << _temp3 -> 12 `i ]
-[e $UE 659  ]
+[e $UE 623  ]
 [; ;MISC.c: 1027: }
 "1027
-[e :UE 659 ]
+[e :UE 623 ]
 }
 "1034
 [v _MSC_BCDtoHEX `(ui ~T0 @X0 1 ef1`ui ]
@@ -6768,10 +6093,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 1050: return (temp0 + (temp1 * 10) + (temp2 * 100) + (temp3 * 1000));
 "1050
 [e ) + + + _temp0 * _temp1 -> -> 10 `i `ui * _temp2 -> -> 100 `i `ui * _temp3 -> -> 1000 `i `ui ]
-[e $UE 660  ]
+[e $UE 624  ]
 [; ;MISC.c: 1051: }
 "1051
-[e :UE 660 ]
+[e :UE 624 ]
 }
 "1058
 [v _MSC_BufferMatch `(uc ~T0 @X0 1 ef3`*uc`*uc`ui ]
@@ -6793,31 +6118,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 "1061
 {
 [e = _i -> -> 0 `i `ui ]
-[e $U 665  ]
+[e $U 629  ]
 "1062
-[e :U 662 ]
+[e :U 626 ]
 [; ;MISC.c: 1062: {
 {
 [; ;MISC.c: 1063: if(This[i] != That[i])
 "1063
-[e $ ! != -> *U + _This * -> _i `ux -> -> # *U _This `ui `ux `i -> *U + _That * -> _i `ux -> -> # *U _That `ui `ux `i 666  ]
+[e $ ! != -> *U + _This * -> _i `ux -> -> # *U _This `ui `ux `i -> *U + _That * -> _i `ux -> -> # *U _That `ui `ux `i 630  ]
 [; ;MISC.c: 1064: {
 "1064
 {
 [; ;MISC.c: 1065: return 0;
 "1065
 [e ) -> -> 0 `i `uc ]
-[e $UE 661  ]
+[e $UE 625  ]
 "1066
 }
-[e :U 666 ]
+[e :U 630 ]
 "1067
 }
 "1061
 [e ++ _i -> -> 1 `i `ui ]
-[e :U 665 ]
-[e $ < _i _size 662  ]
-[e :U 663 ]
+[e :U 629 ]
+[e $ < _i _size 626  ]
+[e :U 627 ]
 "1067
 }
 [; ;MISC.c: 1066: }
@@ -6825,10 +6150,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 1068: return 1;
 "1068
 [e ) -> -> 1 `i `uc ]
-[e $UE 661  ]
+[e $UE 625  ]
 [; ;MISC.c: 1069: }
 "1069
-[e :UE 661 ]
+[e :UE 625 ]
 }
 "1076
 [v _MSC_TestFunctionPointer `(v ~T0 @X0 1 ef ]
@@ -6843,7 +6168,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( ___nop ..  ]
 [; ;MISC.c: 1079: }
 "1079
-[e :UE 667 ]
+[e :UE 631 ]
 }
 "1087
 [v _MSC_EndianInt `(ui ~T0 @X0 1 ef1`ui ]
@@ -6869,10 +6194,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 1094: return (temp2 | (temp1 << 8));
 "1094
 [e ) -> | -> _temp2 `i << -> _temp1 `i -> 8 `i `ui ]
-[e $UE 668  ]
+[e $UE 632  ]
 [; ;MISC.c: 1095: }
 "1095
-[e :UE 668 ]
+[e :UE 632 ]
 }
 "1103
 [v _MSC_EndianIntArray `(ui ~T0 @X0 1 ef1`*uc ]
@@ -6901,10 +6226,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 1111: return (temp1 | ((unsigned int) temp2 << 8));
 "1111
 [e ) | -> _temp1 `ui << -> _temp2 `ui -> 8 `i ]
-[e $UE 669  ]
+[e $UE 633  ]
 [; ;MISC.c: 1112: }
 "1112
-[e :UE 669 ]
+[e :UE 633 ]
 }
 "1120
 [v _MSC_EndianLong `(ul ~T0 @X0 1 ef1`ul ]
@@ -6918,30 +6243,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 "1121
 [f ]
 "1122
-[v _temp1 `uc ~T0 @X0 1 a ]
-[v _temp2 `uc ~T0 @X0 1 a ]
-[v _temp3 `uc ~T0 @X0 1 a ]
-[v _temp4 `uc ~T0 @X0 1 a ]
-[; ;MISC.c: 1122: unsigned char temp1, temp2, temp3, temp4;
-[; ;MISC.c: 1124: temp1 = (unsigned char) (number & 0x000000FF);
+[v _temp1 `ul ~T0 @X0 1 a ]
+[v _temp2 `ul ~T0 @X0 1 a ]
+[v _temp3 `ul ~T0 @X0 1 a ]
+[v _temp4 `ul ~T0 @X0 1 a ]
+[; ;MISC.c: 1122: unsigned long temp1, temp2, temp3, temp4;
+[; ;MISC.c: 1124: temp1 = (number & 0x000000FF);
 "1124
-[e = _temp1 -> & _number -> -> -> 255 `i `l `ul `uc ]
-[; ;MISC.c: 1125: temp2 = (unsigned char) (number & 0x0000FF00) >> 8;
+[e = _temp1 & _number -> -> -> 255 `i `l `ul ]
+[; ;MISC.c: 1125: temp2 = (number & 0x0000FF00) >> 8;
 "1125
-[e = _temp2 -> >> -> -> & _number -> -> 65280 `ui `ul `uc `i -> 8 `i `uc ]
-[; ;MISC.c: 1126: temp3 = (unsigned char) (number & 0x00FF0000) >> 16;
+[e = _temp2 >> & _number -> -> 65280 `ui `ul -> 8 `i ]
+[; ;MISC.c: 1126: temp3 = (number & 0x00FF0000) >> 16;
 "1126
-[e = _temp3 -> >> -> -> & _number -> -> 16711680 `l `ul `uc `i -> 16 `i `uc ]
-[; ;MISC.c: 1127: temp4 = (unsigned char) (number & 0xFF000000) >> 24;
+[e = _temp3 >> & _number -> -> 16711680 `l `ul -> 16 `i ]
+[; ;MISC.c: 1127: temp4 = (number & 0xFF000000) >> 24;
 "1127
-[e = _temp4 -> >> -> -> & _number -> -16777216 `ul `uc `i -> 24 `i `uc ]
+[e = _temp4 >> & _number -> -16777216 `ul -> 24 `i ]
 [; ;MISC.c: 1129: return ((temp4 << 24) | (temp3 << 16) | (temp2 << 8) | temp1);
 "1129
-[e ) -> -> | | | << -> _temp4 `i -> 24 `i << -> _temp3 `i -> 16 `i << -> _temp2 `i -> 8 `i -> _temp1 `i `l `ul ]
-[e $UE 670  ]
+[e ) | | | << _temp4 -> 24 `i << _temp3 -> 16 `i << _temp2 -> 8 `i _temp1 ]
+[e $UE 634  ]
 [; ;MISC.c: 1130: }
 "1130
-[e :UE 670 ]
+[e :UE 634 ]
 }
 "1138
 [v _MSC_EndianLongArray `(ul ~T0 @X0 1 ef1`*uc ]
@@ -6984,10 +6309,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.c: 1150: return ((unsigned long)temp1 | ((unsigned long) temp2 << 8) | ((unsigned long) temp3 << 16) | ((unsigned long) temp4 << 24));
 "1150
 [e ) | | | -> _temp1 `ul << -> _temp2 `ul -> 8 `i << -> _temp3 `ul -> 16 `i << -> _temp4 `ul -> 24 `i ]
-[e $UE 671  ]
+[e $UE 635  ]
 [; ;MISC.c: 1151: }
 "1151
-[e :UE 671 ]
+[e :UE 635 ]
 }
 "1158
 [v _MSC_BlinkLED `(v ~T0 @X0 1 ef2`ui`ui ]
@@ -7008,9 +6333,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "1162
 {
 [e = _i -> -> 0 `i `ui ]
-[e $U 676  ]
+[e $U 640  ]
 "1163
-[e :U 673 ]
+[e :U 637 ]
 [; ;MISC.c: 1163: {
 {
 [; ;MISC.c: 1164: MSC_DelayMS(speed);
@@ -7023,13 +6348,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "1162
 [e ++ _i -> -> 1 `i `ui ]
-[e :U 676 ]
-[e $ < _i << _blink -> 1 `i 673  ]
-[e :U 674 ]
+[e :U 640 ]
+[e $ < _i << _blink -> 1 `i 637  ]
+[e :U 638 ]
 "1166
 }
 [; ;MISC.c: 1166: }
 [; ;MISC.c: 1167: }
 "1167
-[e :UE 672 ]
+[e :UE 636 ]
 }
