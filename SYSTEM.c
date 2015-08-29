@@ -41,10 +41,33 @@
 /******************************************************************************/
 unsigned char System_State = RUN;
 unsigned char System_State_Change = FALSE;
+unsigned long Activity_Timer = 0;
 
 /******************************************************************************/
 /* Functions
 /******************************************************************************/
+
+/******************************************************************************/
+/* SYS_Idle
+ *
+ * The function puts the device in idle mode.
+/******************************************************************************/
+inline void SYS_Idle(void)
+{
+    OSCCON |= 0b10000000;  // enter idle mode on sleep instruction
+    asm("sleep");
+}
+
+/******************************************************************************/
+/* SYS_Sleep
+ *
+ * The function puts the device in sleep mode.
+/******************************************************************************/
+inline void SYS_Sleep(void)
+{
+    OSCCON &= ~0b10000000;  // enter sleep mode on sleep instruction
+    asm("sleep");
+}
 
 /******************************************************************************/
 /* SYS_ConfigureOscillator
@@ -56,6 +79,36 @@ void SYS_ConfigureOscillator(void)
     /* This functionality is done in the configuration bits */
     OSCTUNEbits.PLLEN = 1;      // PLL enabled
     while(!OSCCONbits.OSTS);    // Wait until primary oscillator is ready
+}
+
+/******************************************************************************/
+/* SYS_ActivityTimer
+ *
+ * The function check for activity an puts system to sleep if there is no
+ *  activity.
+/******************************************************************************/
+void SYS_ActivityTimer(void)
+{
+    if(Activity_Timer > ActivityTimeout)
+    {
+        SYS_ActivityTimerReset();
+        SYS_Sleep();
+    }
+    else
+    {
+        Activity_Timer++;
+    }
+}
+
+/******************************************************************************/
+/* SYS_ActivityTimerReset
+ *
+ * The function check for activity an puts system to sleep if there is no
+ *  activity.
+/******************************************************************************/
+void SYS_ActivityTimerReset(void)
+{
+    Activity_Timer = 0;
 }
 
 /*-----------------------------------------------------------------------------/

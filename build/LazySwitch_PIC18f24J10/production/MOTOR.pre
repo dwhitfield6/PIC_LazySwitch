@@ -4991,7 +4991,7 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 62 "SYSTEM.h"
+# 69 "SYSTEM.h"
 extern unsigned char System_State;
 extern unsigned char System_State_Change;
 
@@ -4999,6 +4999,10 @@ extern unsigned char System_State_Change;
 
 
 void SYS_ConfigureOscillator(void);
+inline void SYS_Idle(void);
+inline void SYS_Sleep(void);
+void SYS_ActivityTimer(void);
+void SYS_ActivityTimerReset(void);
 
 # 85 "MISC.h"
 void MSC_DelayMS(long US);
@@ -5035,7 +5039,7 @@ unsigned int MSC_EndianInt(unsigned int number);
 unsigned int MSC_EndianIntArray(unsigned char* buffer);
 unsigned long MSC_EndianLong(unsigned long number);
 unsigned long MSC_EndianLongArray(unsigned char* buffer);
-void MSC_BlinkLED(unsigned int blink);
+void MSC_BlinkLED(unsigned int blink, unsigned int speed);
 void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 

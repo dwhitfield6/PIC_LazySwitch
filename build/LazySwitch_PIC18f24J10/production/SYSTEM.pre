@@ -4952,7 +4952,7 @@ extern char * strrichr(const char *, int);
 void Init_App(void);
 void Init_System (void);
 
-# 62 "SYSTEM.h"
+# 69 "SYSTEM.h"
 extern unsigned char System_State;
 extern unsigned char System_State_Change;
 
@@ -4960,16 +4960,55 @@ extern unsigned char System_State_Change;
 
 
 void SYS_ConfigureOscillator(void);
+inline void SYS_Idle(void);
+inline void SYS_Sleep(void);
+void SYS_ActivityTimer(void);
+void SYS_ActivityTimerReset(void);
 
 # 42 "SYSTEM.c"
 unsigned char System_State = 8;
 unsigned char System_State_Change = 0;
+unsigned long Activity_Timer = 0;
 
-# 54
+# 55
+inline void SYS_Idle(void)
+{
+OSCCON |= 0b10000000;
+asm("sleep");
+}
+
+# 66
+inline void SYS_Sleep(void)
+{
+OSCCON &= ~0b10000000;
+asm("sleep");
+}
+
+# 77
 void SYS_ConfigureOscillator(void)
 {
 
 OSCTUNEbits.PLLEN = 1;
 while(!OSCCONbits.OSTS);
+}
+
+# 90
+void SYS_ActivityTimer(void)
+{
+if(Activity_Timer > 1000)
+{
+SYS_ActivityTimerReset();
+SYS_Sleep();
+}
+else
+{
+Activity_Timer++;
+}
+}
+
+# 109
+void SYS_ActivityTimerReset(void)
+{
+Activity_Timer = 0;
 }
 

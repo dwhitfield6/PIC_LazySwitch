@@ -37,18 +37,18 @@
 #include "RF.h"
 #include "MISC.h"
 #include "TIMERS.h"
+#include "FLASH.h"
 
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
 /******************************************************************************/
 volatile unsigned char RF_Data = FALSE;
 unsigned int RF_DataTiming[RFBUFFERSIZE];
-unsigned int RF_SavedTiming[RFBUFFERSIZE];
 unsigned char RF_DataPlace = 0;
 unsigned char RFStarted = FALSE;
 unsigned int RF_SyncLow  = 0;
 unsigned int RF_SyncHigh = 0;
-unsigned char RF_Saved = EMPTY;
+unsigned char RF_Saved = OLD;
 unsigned char RF_CodeSize = 0;
 double Rail_RSSI;
 
@@ -57,9 +57,9 @@ double Rail_RSSI;
 /******************************************************************************/
 
 /******************************************************************************/
-/* RF_DataInt
+/* RF_ReadReceiver
  *
- * The function controls the RF data interrupts.
+ * The function reads the RF receiver.
 /******************************************************************************/
 inline unsigned char RF_ReadReceiver(void)
 {
@@ -225,40 +225,41 @@ void RF_ResetData(void)
 }
 
 /******************************************************************************/
-/* RF_CalculateNewCode
- *
- * The function calculates the sync window for the new code.
-/******************************************************************************/
-void RF_CalculateNewCode(void)
-{
-    double Low = 0.0;
-    double High = 0.0;
-    
-    Low = (double)RF_DataTiming[0] * (1.0 - RF_TOLERANCESMALL);
-    High = (double)RF_DataTiming[0] * (1.0 + RF_TOLERANCESMALL);
-    
-    RF_SyncLow = (unsigned int) Low;
-    RF_SyncHigh = (unsigned int) High;
-}
-
-/******************************************************************************/
-/* RF_LoadDefaultCode
+/* RF_LoadCode
  *
  * The function loads the default code.
 /******************************************************************************/
-void RF_LoadDefaultCode(void)
+void RF_LoadCode(void)
 {   
     double Low = 0.0;
     double High = 0.0;
     
-    Low = (double)CONF1_ChanE_Sync * (1.0 - RF_TOLERANCESMALL);
-    High = (double)CONF1_ChanE_Sync * (1.0 + RF_TOLERANCESMALL);
+    Low = (double)RF_SavedTiming[0] * (1.0 - RF_TOLERANCESMALL);
+    High = (double)RF_SavedTiming[0] * (1.0 + RF_TOLERANCESMALL);
     
     RF_SyncLow = (unsigned int) Low;
     RF_SyncHigh = (unsigned int) High;
     
-    MSC_BufferCopyIntConst(&CONF1_ChanE_Timing,&RF_SavedTiming,CONF1_ChanE_Edges,0); 
-    RF_CodeSize = CONF1_ChanE_Edges;
+    RF_CodeSize = RF_CalculateCodesize();
+}
+
+/******************************************************************************/
+/* RF_CalculateCodesize
+ *
+ * The function calculates the code size of the saved RF code.
+/******************************************************************************/
+unsigned char RF_CalculateCodesize(void)
+{   
+    unsigned char i;
+    
+    for(i=0; i<RFBUFFERSIZE;i++)
+    {
+        if(RF_SavedTiming[i] == 0)
+        {
+            return i;
+        }
+    }
+    return RFBUFFERSIZE;
 }
 
 /******************************************************************************/
@@ -299,11 +300,27 @@ unsigned char RF_CheckCode(void)
     {
         if(RF_DataPlace >= RF_EDGENUM)
         {
+            for(i=0;i<RF_DataPlace;i++)
+            {
+                if(RF_DataTiming[i] < 5)
+                {
+                    /* There are some invalid values in this code */
+                    return FALSE;
+                }
+            }
+            
+            for(i=RF_DataPlace;i<RFBUFFERSIZE;i++)
+            {
+                /* clear unused buffer */
+                RF_DataTiming[i] = 0;
+            }
+            
             /* The RF signal is valid for program */
-            MSC_BufferCopyInt(&RF_DataTiming,&RF_SavedTiming,RFBUFFERSIZE,0);
+            RF_CodeSize = RF_DataPlace;
             RF_Saved = NEW;
+            Flash_Status = FSH_Write_IR_RF();
         }
-        return TRUE;
+        return FALSE;
     }
 }
 

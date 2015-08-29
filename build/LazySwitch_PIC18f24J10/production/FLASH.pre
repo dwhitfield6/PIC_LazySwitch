@@ -4920,9 +4920,1276 @@ extern char * strrichr(const char *, int);
 void Init_App(void);
 void Init_System (void);
 
-# 55 "FLASH.c"
+# 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 42
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 65 "FLASH.h"
+const unsigned char FlashWaste[512] __attribute__((address(0x2600))) = {
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+};
+
+
+
+extern unsigned char FlashBuffer[128];
+extern unsigned char Flash_Status;
+
+# 592
+void InitFlash(void);
+inline void FSH_Sequence(void);
+void FSH_EraseBlock(unsigned long Address);
+unsigned char FSH_Write_IR_RF(void);
+void FSH_AddressToBlock(unsigned long Address);
+void FSH_WriteIntArray(unsigned int* Array);
+unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
+
+# 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 42
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 83 "IR.h"
+const unsigned int IR_SavedTiming[128] __attribute__((address(0x2400)))= {
+8600,
+4200,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+1200,
+450,
+1200,
+450,
+1200,
+450
+};
+
+
+
+
+extern volatile unsigned char IR_Data;
+extern unsigned int IR_DataTiming[128];
+extern unsigned char IR_DataPlace;
+extern unsigned char IRStarted;
+extern unsigned int IR_SyncLow;
+extern unsigned int IR_SyncHigh;
+extern unsigned char IR_Saved;
+extern unsigned char IR_CodeSize;
+extern unsigned char IRValue_prev;
+extern unsigned char IRChange;
+
+# 174
+void InitIR(void);
+unsigned char IR_ReadReceiver(void);
+void IR_ResetData(void);
+void IR_LoadCode(void);
+unsigned char IR_CalculateCodesize(void);
+unsigned char IR_CheckCode(void);
+void IR_CleanBuffer(void);
+
+# 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 42
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 101 "RF.h"
+const unsigned int RF_SavedTiming[128] __attribute__((address(0x2500))) = {
+834,
+21,
+80,
+22,
+80,
+21,
+78,
+79,
+26,
+22,
+78,
+78,
+27,
+21,
+79,
+76,
+25,
+23,
+79,
+75,
+27,
+21,
+81,
+75,
+25,
+22,
+81,
+22,
+79,
+22,
+80,
+24,
+79,
+77,
+25,
+76,
+27,
+21,
+80,
+21,
+81,
+21,
+80,
+22,
+80,
+22,
+81,
+22,
+79,
+22,
+};
+
+
+
+
+extern volatile unsigned char RF_Data;
+extern unsigned int RF_DataTiming[128];
+extern unsigned char RF_DataPlace;
+extern unsigned char RFStarted;
+extern unsigned int RF_SyncLow;
+extern unsigned int RF_SyncHigh;
+extern unsigned char RF_Saved;
+extern unsigned char RF_CodeSize;
+extern double Rail_RSSI;
+
+# 174
+void InitRF(void);
+inline unsigned char RF_ReadReceiver(void);
+inline void RF_DataInt(unsigned char state);
+inline void RF_Receiver(unsigned char state);
+inline void RF_SetBandwidth(unsigned char band);
+inline void RF_SetSquelch(unsigned char state);
+void RF_ResetData(void);
+void RF_LoadCode(void);
+unsigned char RF_CalculateCodesize(void);
+unsigned char RF_CheckCode(void);
+void RF_Disable(void);
+void RF_Enable(void);
+
+# 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 42
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 69 "SYSTEM.h"
+extern unsigned char System_State;
+extern unsigned char System_State_Change;
+
+
+
+
+void SYS_ConfigureOscillator(void);
+inline void SYS_Idle(void);
+inline void SYS_Sleep(void);
+void SYS_ActivityTimer(void);
+void SYS_ActivityTimerReset(void);
+
+# 85 "MISC.h"
+void MSC_DelayMS(long US);
+unsigned char MSC_IsCharacter(unsigned char data);
+void MSC_CleanBuffer(unsigned char* data, unsigned int count);
+void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
+double MSC_Round(double input);
+void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
+unsigned char MSC_StringMatch(const unsigned char* This, const unsigned char* That);
+unsigned char MSC_StringMatchCaseInsensitive(const unsigned char* This, const unsigned char* That);
+unsigned char MSC_StringContains(const unsigned char* This, const unsigned char* That);
+unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
+void MSC_LowercaseChar(unsigned char* Input);
+void MSC_LowercaseString(unsigned char* Input);
+void MSC_DelayNOP(unsigned int NOPs);
+unsigned char MSC_ReverseByte(unsigned char This);
+unsigned int MSC_ReverseInt(unsigned int This);
+unsigned long MSC_ReverseLong(unsigned long This);
+unsigned char MSC_GetNumber(unsigned char* This, unsigned char CommaNumber, long* result);
+unsigned char MSC_StringAddEqual(unsigned char* Input);
+unsigned char MSC_GetStringAfterComma(unsigned char* This, unsigned char CommaNumber, unsigned char* result);
+unsigned char MSC_GetNumberUnsigned(unsigned char* This, unsigned char CommaNumber, unsigned long* result);
+unsigned char MSC_IsAlphaNumericString(unsigned char* data);
+unsigned char MSC_IsAlphaNumeric(unsigned char data);
+unsigned char MSC_IsNumber(unsigned char data);
+double MSC_DB_Round(double Input);
+long MSC_Scale(long Input, long InputRangeLow, long InputRangeHigh, long OutputRangeLow, long OutputRangeHigh);
+unsigned int MSC_BCDtoHEX(unsigned int input);
+unsigned int MSC_HEXtoBCD(unsigned int input);
+unsigned char MSC_BufferMatch(unsigned char* This, unsigned char* That, unsigned int size);
+long MSC_LG_Round(long Input,unsigned char places);
+void MSC_TestFunctionPointer(void);
+unsigned int MSC_EndianInt(unsigned int number);
+unsigned int MSC_EndianIntArray(unsigned char* buffer);
+unsigned long MSC_EndianLong(unsigned long number);
+unsigned long MSC_EndianLongArray(unsigned char* buffer);
+void MSC_BlinkLED(unsigned int blink, unsigned int speed);
+void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+
+# 45 "FLASH.c"
+unsigned char FlashBuffer[128];
+unsigned char Flash_Status = 0;
+
+# 57
+inline void FSH_Sequence(void)
+{
+asm("MOVLW 55h");
+asm("MOVWF EECON2");
+asm("MOVLW 0AAh");
+asm("MOVWF EECON2");
+}
+
+# 74
 void InitFlash(void)
 {
 
+__nop();
+}
+
+# 86
+void FSH_EraseBlock(unsigned long Address)
+{
+unsigned char highint = INTCONbits.GIE;
+unsigned char lowint = INTCONbits.PEIE;
+unsigned char WriteTries;
+unsigned long i;
+
+INTCONbits.GIE = 0;
+INTCONbits.PEIE = 0;
+
+restart:
+FSH_AddressToBlock(Address);
+
+WriteTries = 1;
+
+EECON1bits.WRERR = 0;
+EECON1bits.WREN = 1;
+EECON1bits.FREE = 1;
+FSH_Sequence();
+EECON1bits.WR = 1;
+__nop();
+__nop();
+MSC_DelayMS(500);
+
+EECON1bits.WREN = 0;
+if(EECON1bits.WRERR)
+{
+WriteTries++;
+if(WriteTries < 10)
+{
+goto restart;
+}
+}
+
+if(highint)
+{
+INTCONbits.GIE = 1;
+}
+if(lowint)
+{
+INTCONbits.PEIE = 1;
+}
+}
+
+# 135
+void FSH_WriteIntArray(unsigned int* Array)
+{
+unsigned char i;
+
+FSH_AddressToBlock(Array);
+
+for(i = 0; i<32; i++)
+{
+
+TABLAT =(Array[i] & 0xFF00) >> 8;
+asm("TBLWT*+");
+TABLAT = (Array[i] & 0x00FF);
+asm("TBLWT*+");
+}
+EECON1bits.WRERR = 0;
+EECON1bits.WREN = 1;
+EECON1bits.FREE = 0;
+FSH_Sequence();
+EECON1bits.WR = 1;
+while(EECON1bits.WRERR);
+EECON1bits.WREN = 0;
+}
+
+# 163
+unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array)
+{
+unsigned char i;
+
+for(i = 0; i<32; i++)
+{
+if(ConstArray[i] != Array[i])
+{
+return 0;
+}
+}
+return 1;
+}
+
+# 183
+unsigned char FSH_Write_IR_RF(void)
+{
+unsigned int i;
+unsigned char j;
+unsigned char highint = INTCONbits.GIE;
+unsigned char lowint = INTCONbits.PEIE;
+unsigned char WriteTries;
+unsigned char status = 0;
+unsigned int FlashWasteindex = 0;
+
+INTCONbits.GIE = 0;
+INTCONbits.PEIE = 0;
+
+if(IR_Saved == 90 && RF_Saved == 90)
+{
+
+IR_Saved = 91;
+RF_Saved = 91;
+goto END;
+}
+else if(IR_Saved != 90 && RF_Saved != 90)
+{
+
+IR_Saved = 91;
+RF_Saved = 91;
+goto END;
+}
+
+if(IR_Saved == 90)
+{
+
+RF_ResetData();
+MSC_BufferCopyIntConst(&RF_SavedTiming,&RF_DataTiming, 128, 0);
+}
+else
+{
+
+IR_ResetData();
+MSC_BufferCopyIntConst(&IR_SavedTiming,&IR_DataTiming, 128, 0);
+}
+
+FSH_EraseBlock(&IR_SavedTiming);
+
+
+
+
+WriteTries = 1;
+
+REDO1:
+
+FSH_WriteIntArray(&IR_SavedTiming[0]);
+
+
+if(!FSH_VerifyWriteIntArray(&IR_SavedTiming[0],&IR_DataTiming[0]))
+{
+WriteTries++;
+if(WriteTries > 10)
+{
+status = 0;
+goto END;
+}
+else
+{
+goto REDO1;
+}
+}
+
+
+WriteTries = 1;
+
+REDO2:
+
+FSH_WriteIntArray(&IR_SavedTiming[32]);
+
+
+if(!FSH_VerifyWriteIntArray(&IR_SavedTiming[32],&IR_DataTiming[32]))
+{
+WriteTries++;
+if(WriteTries > 10)
+{
+status = 0;
+goto END;
+}
+else
+{
+goto REDO2;
+}
+}
+
+
+WriteTries = 1;
+
+REDO3:
+
+FSH_WriteIntArray(&IR_SavedTiming[64]);
+
+
+if(!FSH_VerifyWriteIntArray(&IR_SavedTiming[64],&IR_DataTiming[64]))
+{
+WriteTries++;
+if(WriteTries > 10)
+{
+status = 0;
+goto END;
+}
+else
+{
+goto REDO3;
+}
+}
+
+
+WriteTries = 1;
+
+REDO4:
+
+FSH_WriteIntArray(&IR_SavedTiming[96]);
+
+
+if(!FSH_VerifyWriteIntArray(&IR_SavedTiming[96],&IR_DataTiming[96]))
+{
+WriteTries++;
+if(WriteTries > 10)
+{
+status = 0;
+goto END;
+}
+else
+{
+goto REDO4;
+}
+}
+
+
+WriteTries = 1;
+
+REDO5:
+
+FSH_WriteIntArray(&RF_SavedTiming[0]);
+
+
+if(!FSH_VerifyWriteIntArray(&RF_SavedTiming[0],&RF_DataTiming[0]))
+{
+WriteTries++;
+if(WriteTries > 10)
+{
+status = 0;
+goto END;
+}
+else
+{
+goto REDO5;
+}
+}
+
+
+WriteTries = 1;
+
+REDO6:
+
+FSH_WriteIntArray(&RF_SavedTiming[32]);
+
+
+if(!FSH_VerifyWriteIntArray(&RF_SavedTiming[32],&RF_DataTiming[32]))
+{
+WriteTries++;
+if(WriteTries > 10)
+{
+status = 0;
+goto END;
+}
+else
+{
+goto REDO6;
+}
+}
+
+
+WriteTries = 1;
+
+REDO7:
+
+FSH_WriteIntArray(&RF_SavedTiming[64]);
+
+
+if(!FSH_VerifyWriteIntArray(&RF_SavedTiming[64],&RF_DataTiming[64]))
+{
+WriteTries++;
+if(WriteTries > 10)
+{
+status = 0;
+goto END;
+}
+else
+{
+goto REDO7;
+}
+}
+
+
+WriteTries = 1;
+
+REDO8:
+
+FSH_WriteIntArray(&RF_SavedTiming[96]);
+
+
+if(!FSH_VerifyWriteIntArray(&RF_SavedTiming[96],&RF_DataTiming[96]))
+{
+WriteTries++;
+if(WriteTries > 10)
+{
+status = 0;
+goto END;
+}
+else
+{
+goto REDO8;
+}
+}
+
+
+for(j=8;j<16;j++)
+{
+WriteTries = 1;
+
+REDO9:
+i=0;
+FlashWasteindex = i + 64*(j-8);
+FSH_AddressToBlock(&FlashWaste[FlashWasteindex]);
+for(i = 0; i<64; i++)
+{
+
+TABLAT = 0xDA;
+asm("TBLWT*+");
+}
+EECON1bits.WREN = 1;
+EECON1bits.FREE = 0;
+FSH_Sequence();
+EECON1bits.WR = 1;
+EECON1bits.WREN = 1;
+
+
+for(i=0; i<64;i++)
+{
+if(FlashWaste[FlashWasteindex] != 0xDA)
+{
+WriteTries++;
+if(WriteTries > 10)
+{
+status = 0;
+goto END;
+}
+else
+{
+goto REDO9;
+}
+}
+FlashWasteindex++;
+}
+}
+status = 1;
+
+END:
+if(highint)
+{
+INTCONbits.GIE = 1;
+}
+if(lowint)
+{
+INTCONbits.PEIE = 1;
+}
+return status;
+}
+
+# 464
+void FSH_AddressToBlock(unsigned long Address)
+{
+TBLPTRU = (Address & 0x002F0000) >> 16;
+TBLPTRH = (Address & 0x0000FF00) >> 8;
+TBLPTRL = (Address & 0x000000FF);
 }
 

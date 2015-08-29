@@ -3750,9 +3750,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 66: extern char * strrichr(const char *, int);
 [; ;USER.h: 181: void Init_App(void);
 [; ;USER.h: 182: void Init_System (void);
-[; ;SYSTEM.h: 62: extern unsigned char System_State;
-[; ;SYSTEM.h: 63: extern unsigned char System_State_Change;
-[; ;SYSTEM.h: 68: void SYS_ConfigureOscillator(void);
+[; ;SYSTEM.h: 69: extern unsigned char System_State;
+[; ;SYSTEM.h: 70: extern unsigned char System_State_Change;
+[; ;SYSTEM.h: 75: void SYS_ConfigureOscillator(void);
+[; ;SYSTEM.h: 76: inline void SYS_Idle(void);
+[; ;SYSTEM.h: 77: inline void SYS_Sleep(void);
+[; ;SYSTEM.h: 78: void SYS_ActivityTimer(void);
+[; ;SYSTEM.h: 79: void SYS_ActivityTimerReset(void);
 [; ;MISC.h: 85: void MSC_DelayMS(long US);
 [; ;MISC.h: 86: unsigned char MSC_IsCharacter(unsigned char data);
 [; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
@@ -3787,7 +3791,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.h: 116: unsigned int MSC_EndianIntArray(unsigned char* buffer);
 [; ;MISC.h: 117: unsigned long MSC_EndianLong(unsigned long number);
 [; ;MISC.h: 118: unsigned long MSC_EndianLongArray(unsigned char* buffer);
-[; ;MISC.h: 119: void MSC_BlinkLED(unsigned int blink);
+[; ;MISC.h: 119: void MSC_BlinkLED(unsigned int blink, unsigned int speed);
 [; ;MISC.h: 120: void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 [; ;MISC.h: 121: void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 "47 MISC.c
@@ -6986,14 +6990,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 671 ]
 }
 "1158
-[v _MSC_BlinkLED `(v ~T0 @X0 1 ef1`ui ]
+[v _MSC_BlinkLED `(v ~T0 @X0 1 ef2`ui`ui ]
 "1159
 {
-[; ;MISC.c: 1158: void MSC_BlinkLED(unsigned int blink)
+[; ;MISC.c: 1158: void MSC_BlinkLED(unsigned int blink, unsigned int speed)
 [; ;MISC.c: 1159: {
 [e :U _MSC_BlinkLED ]
 "1158
 [v _blink `ui ~T0 @X0 1 r1 ]
+[v _speed `ui ~T0 @X0 1 r2 ]
 "1159
 [f ]
 "1160
@@ -7008,9 +7013,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 673 ]
 [; ;MISC.c: 1163: {
 {
-[; ;MISC.c: 1164: MSC_DelayMS(50);
+[; ;MISC.c: 1164: MSC_DelayMS(speed);
 "1164
-[e ( _MSC_DelayMS (1 -> -> 50 `i `l ]
+[e ( _MSC_DelayMS (1 -> _speed `l ]
 [; ;MISC.c: 1165: (LATC ^= 0x10);
 "1165
 [e =^ _LATC -> -> 16 `i `uc ]

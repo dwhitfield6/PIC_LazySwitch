@@ -1,5 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1619 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
+"5832 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
+[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
+"1619
 [s S78 :6 `uc 1 :1 `uc 1 ]
 [n S78 . . PLLEN ]
 "1618
@@ -18,6 +20,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S365 . . . ]
 "5850
 [v _OSCCONbits `VS365 ~T0 @X0 0 e@4051 ]
+"79 SYSTEM.h
+[v _SYS_ActivityTimerReset `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f24j10.h: 49: extern volatile unsigned char PORTA @ 0xF80;
@@ -3758,9 +3762,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 66: extern char * strrichr(const char *, int);
 [; ;USER.h: 181: void Init_App(void);
 [; ;USER.h: 182: void Init_System (void);
-[; ;SYSTEM.h: 62: extern unsigned char System_State;
-[; ;SYSTEM.h: 63: extern unsigned char System_State_Change;
-[; ;SYSTEM.h: 68: void SYS_ConfigureOscillator(void);
+[; ;SYSTEM.h: 69: extern unsigned char System_State;
+[; ;SYSTEM.h: 70: extern unsigned char System_State_Change;
+[; ;SYSTEM.h: 75: void SYS_ConfigureOscillator(void);
+[; ;SYSTEM.h: 76: inline void SYS_Idle(void);
+[; ;SYSTEM.h: 77: inline void SYS_Sleep(void);
+[; ;SYSTEM.h: 78: void SYS_ActivityTimer(void);
+[; ;SYSTEM.h: 79: void SYS_ActivityTimerReset(void);
 "42 SYSTEM.c
 [v _System_State `uc ~T0 @X0 1 e ]
 [i _System_State
@@ -3773,25 +3781,125 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;SYSTEM.c: 43: unsigned char System_State_Change = 0;
-"54
-[v _SYS_ConfigureOscillator `(v ~T0 @X0 1 ef ]
+"44
+[v _Activity_Timer `ul ~T0 @X0 1 e ]
+[i _Activity_Timer
+-> -> -> 0 `i `l `ul
+]
+[; ;SYSTEM.c: 44: unsigned long Activity_Timer = 0;
+[v F4198 `(v ~T0 @X0 1 tf ]
 "55
+[v _SYS_Idle `TF4198 ~T0 @X0 1 e ]
+"56
 {
-[; ;SYSTEM.c: 54: void SYS_ConfigureOscillator(void)
-[; ;SYSTEM.c: 55: {
-[e :U _SYS_ConfigureOscillator ]
+[; ;SYSTEM.c: 55: inline void SYS_Idle(void)
+[; ;SYSTEM.c: 56: {
+[e :U _SYS_Idle ]
 [f ]
-[; ;SYSTEM.c: 57: OSCTUNEbits.PLLEN = 1;
+[; ;SYSTEM.c: 57: OSCCON |= 0b10000000;
 "57
-[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
-[; ;SYSTEM.c: 58: while(!OSCCONbits.OSTS);
+[e =| _OSCCON -> -> 128 `i `uc ]
+[; ;SYSTEM.c: 58: asm("sleep");
 "58
-[e $U 431  ]
-[e :U 432 ]
-[e :U 431 ]
-[e $ ! != -> . . _OSCCONbits 0 2 `i -> -> -> 0 `i `Vuc `i 432  ]
-[e :U 433 ]
+[; <" sleep ;# ">
 [; ;SYSTEM.c: 59: }
 "59
 [e :UE 430 ]
+}
+[v F4201 `(v ~T0 @X0 1 tf ]
+"66
+[v _SYS_Sleep `TF4201 ~T0 @X0 1 e ]
+"67
+{
+[; ;SYSTEM.c: 66: inline void SYS_Sleep(void)
+[; ;SYSTEM.c: 67: {
+[e :U _SYS_Sleep ]
+[f ]
+[; ;SYSTEM.c: 68: OSCCON &= ~0b10000000;
+"68
+[e =& _OSCCON -> ~ -> 128 `i `uc ]
+[; ;SYSTEM.c: 69: asm("sleep");
+"69
+[; <" sleep ;# ">
+[; ;SYSTEM.c: 70: }
+"70
+[e :UE 431 ]
+}
+"77
+[v _SYS_ConfigureOscillator `(v ~T0 @X0 1 ef ]
+"78
+{
+[; ;SYSTEM.c: 77: void SYS_ConfigureOscillator(void)
+[; ;SYSTEM.c: 78: {
+[e :U _SYS_ConfigureOscillator ]
+[f ]
+[; ;SYSTEM.c: 80: OSCTUNEbits.PLLEN = 1;
+"80
+[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
+[; ;SYSTEM.c: 81: while(!OSCCONbits.OSTS);
+"81
+[e $U 433  ]
+[e :U 434 ]
+[e :U 433 ]
+[e $ ! != -> . . _OSCCONbits 0 2 `i -> -> -> 0 `i `Vuc `i 434  ]
+[e :U 435 ]
+[; ;SYSTEM.c: 82: }
+"82
+[e :UE 432 ]
+}
+"90
+[v _SYS_ActivityTimer `(v ~T0 @X0 1 ef ]
+"91
+{
+[; ;SYSTEM.c: 90: void SYS_ActivityTimer(void)
+[; ;SYSTEM.c: 91: {
+[e :U _SYS_ActivityTimer ]
+[f ]
+[; ;SYSTEM.c: 92: if(Activity_Timer > 1000)
+"92
+[e $ ! > _Activity_Timer -> -> -> 1000 `i `l `ul 437  ]
+[; ;SYSTEM.c: 93: {
+"93
+{
+[; ;SYSTEM.c: 94: SYS_ActivityTimerReset();
+"94
+[e ( _SYS_ActivityTimerReset ..  ]
+[; ;SYSTEM.c: 95: SYS_Sleep();
+"95
+[e ( _SYS_Sleep ..  ]
+"96
+}
+[; ;SYSTEM.c: 96: }
+[e $U 438  ]
+"97
+[e :U 437 ]
+[; ;SYSTEM.c: 97: else
+[; ;SYSTEM.c: 98: {
+"98
+{
+[; ;SYSTEM.c: 99: Activity_Timer++;
+"99
+[e ++ _Activity_Timer -> -> -> 1 `i `l `ul ]
+"100
+}
+[e :U 438 ]
+[; ;SYSTEM.c: 100: }
+[; ;SYSTEM.c: 101: }
+"101
+[e :UE 436 ]
+}
+"109
+[v _SYS_ActivityTimerReset `(v ~T0 @X0 1 ef ]
+"110
+{
+[; ;SYSTEM.c: 109: void SYS_ActivityTimerReset(void)
+[; ;SYSTEM.c: 110: {
+[e :U _SYS_ActivityTimerReset ]
+[f ]
+[; ;SYSTEM.c: 111: Activity_Timer = 0;
+"111
+[e = _Activity_Timer -> -> -> 0 `i `l `ul ]
+[; ;SYSTEM.c: 112: }
+"112
+[e :UE 439 ]
 }

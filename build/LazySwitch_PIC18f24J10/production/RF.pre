@@ -4952,8 +4952,8 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 119 "RF.h"
-const unsigned int CONF1_ChanE_Timing[50] = {
+# 101 "RF.h"
+const unsigned int RF_SavedTiming[128] __attribute__((address(0x2500))) = {
 834,
 21,
 80,
@@ -5003,15 +5003,14 @@ const unsigned int CONF1_ChanE_Timing[50] = {
 81,
 22,
 79,
-22
+22,
 };
 
 
 
 
 extern volatile unsigned char RF_Data;
-extern unsigned int RF_DataTiming[60];
-extern unsigned int RF_SavedTiming[60];
+extern unsigned int RF_DataTiming[128];
 extern unsigned char RF_DataPlace;
 extern unsigned char RFStarted;
 extern unsigned int RF_SyncLow;
@@ -5020,7 +5019,7 @@ extern unsigned char RF_Saved;
 extern unsigned char RF_CodeSize;
 extern double Rail_RSSI;
 
-# 193
+# 174
 void InitRF(void);
 inline unsigned char RF_ReadReceiver(void);
 inline void RF_DataInt(unsigned char state);
@@ -5028,8 +5027,8 @@ inline void RF_Receiver(unsigned char state);
 inline void RF_SetBandwidth(unsigned char band);
 inline void RF_SetSquelch(unsigned char state);
 void RF_ResetData(void);
-void RF_CalculateNewCode(void);
-void RF_LoadDefaultCode(void);
+void RF_LoadCode(void);
+unsigned char RF_CalculateCodesize(void);
 unsigned char RF_CheckCode(void);
 void RF_Disable(void);
 void RF_Enable(void);
@@ -5066,7 +5065,7 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 62 "SYSTEM.h"
+# 69 "SYSTEM.h"
 extern unsigned char System_State;
 extern unsigned char System_State_Change;
 
@@ -5074,6 +5073,10 @@ extern unsigned char System_State_Change;
 
 
 void SYS_ConfigureOscillator(void);
+inline void SYS_Idle(void);
+inline void SYS_Sleep(void);
+void SYS_ActivityTimer(void);
+void SYS_ActivityTimerReset(void);
 
 # 85 "MISC.h"
 void MSC_DelayMS(long US);
@@ -5110,7 +5113,7 @@ unsigned int MSC_EndianInt(unsigned int number);
 unsigned int MSC_EndianIntArray(unsigned char* buffer);
 unsigned long MSC_EndianLong(unsigned long number);
 unsigned long MSC_EndianLongArray(unsigned char* buffer);
-void MSC_BlinkLED(unsigned int blink);
+void MSC_BlinkLED(unsigned int blink, unsigned int speed);
 void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 
@@ -5174,15 +5177,576 @@ void TMR_Timer1Start(void);
 void TMR_Timer2Start(unsigned int time);
 void TMR_Timer1Function(unsigned char mode);
 
-# 44 "RF.c"
+# 22 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 42
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 65 "FLASH.h"
+const unsigned char FlashWaste[512] __attribute__((address(0x2600))) = {
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+0xDA,
+};
+
+
+
+extern unsigned char FlashBuffer[128];
+extern unsigned char Flash_Status;
+
+# 592
+void InitFlash(void);
+inline void FSH_Sequence(void);
+void FSH_EraseBlock(unsigned long Address);
+unsigned char FSH_Write_IR_RF(void);
+void FSH_AddressToBlock(unsigned long Address);
+void FSH_WriteIntArray(unsigned int* Array);
+unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
+
+# 45 "RF.c"
 volatile unsigned char RF_Data = 0;
-unsigned int RF_DataTiming[60];
-unsigned int RF_SavedTiming[60];
+unsigned int RF_DataTiming[128];
 unsigned char RF_DataPlace = 0;
 unsigned char RFStarted = 0;
 unsigned int RF_SyncLow = 0;
 unsigned int RF_SyncHigh = 0;
-unsigned char RF_Saved = 92;
+unsigned char RF_Saved = 91;
 unsigned char RF_CodeSize = 0;
 double Rail_RSSI;
 
@@ -5277,7 +5841,7 @@ void InitRF(void)
 {
 RF_Receiver(1);
 RF_SetBandwidth(2);
-MSC_CleanBufferInt(&RF_DataTiming,60);
+MSC_CleanBufferInt(&RF_DataTiming,128);
 RF_SetSquelch(1);
 INTCON3bits.INT1P = 1;
 INTCON3bits.INT2P = 1;
@@ -5312,35 +5876,36 @@ RFStarted = 0;
 }
 
 # 232
-void RF_CalculateNewCode(void)
+void RF_LoadCode(void)
 {
 double Low = 0.0;
 double High = 0.0;
 
-Low = (double)RF_DataTiming[0] * (1.0 - 0.05);
-High = (double)RF_DataTiming[0] * (1.0 + 0.05);
+Low = (double)RF_SavedTiming[0] * (1.0 - 0.02);
+High = (double)RF_SavedTiming[0] * (1.0 + 0.02);
 
 RF_SyncLow = (unsigned int) Low;
 RF_SyncHigh = (unsigned int) High;
+
+RF_CodeSize = RF_CalculateCodesize();
 }
 
-# 249
-void RF_LoadDefaultCode(void)
+# 251
+unsigned char RF_CalculateCodesize(void)
 {
-double Low = 0.0;
-double High = 0.0;
+unsigned char i;
 
-Low = (double)850 * (1.0 - 0.05);
-High = (double)850 * (1.0 + 0.05);
-
-RF_SyncLow = (unsigned int) Low;
-RF_SyncHigh = (unsigned int) High;
-
-MSC_BufferCopyIntConst(&CONF1_ChanE_Timing,&RF_SavedTiming,50,0);
-RF_CodeSize = 50;
+for(i=0; i<128;i++)
+{
+if(RF_SavedTiming[i] == 0)
+{
+return i;
+}
+}
+return 128;
 }
 
-# 270
+# 271
 unsigned char RF_CheckCode(void)
 {
 unsigned char i;
@@ -5353,8 +5918,8 @@ for(i=0; i<RF_CodeSize;i++)
 {
 if(i == 0)
 {
-Low = (double)RF_SavedTiming[i] * (1.0 - 0.05);
-High = (double)RF_SavedTiming[i] * (1.0 + 0.05);
+Low = (double)RF_SavedTiming[i] * (1.0 - 0.02);
+High = (double)RF_SavedTiming[i] * (1.0 + 0.02);
 }
 else
 {
@@ -5373,11 +5938,27 @@ else
 {
 if(RF_DataPlace >= 20)
 {
+for(i=0;i<RF_DataPlace;i++)
+{
+if(RF_DataTiming[i] < 5)
+{
 
-MSC_BufferCopyInt(&RF_DataTiming,&RF_SavedTiming,60,0);
-RF_Saved = 90;
+return 0;
 }
-return 1;
+}
+
+for(i=RF_DataPlace;i<128;i++)
+{
+
+RF_DataTiming[i] = 0;
+}
+
+
+RF_CodeSize = RF_DataPlace;
+RF_Saved = 90;
+Flash_Status = FSH_Write_IR_RF();
+}
+return 0;
 }
 }
 

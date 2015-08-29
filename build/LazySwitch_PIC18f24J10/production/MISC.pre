@@ -4948,7 +4948,7 @@ extern char * strrichr(const char *, int);
 void Init_App(void);
 void Init_System (void);
 
-# 62 "SYSTEM.h"
+# 69 "SYSTEM.h"
 extern unsigned char System_State;
 extern unsigned char System_State_Change;
 
@@ -4956,6 +4956,10 @@ extern unsigned char System_State_Change;
 
 
 void SYS_ConfigureOscillator(void);
+inline void SYS_Idle(void);
+inline void SYS_Sleep(void);
+void SYS_ActivityTimer(void);
+void SYS_ActivityTimerReset(void);
 
 # 85 "MISC.h"
 void MSC_DelayMS(long US);
@@ -4992,7 +4996,7 @@ unsigned int MSC_EndianInt(unsigned int number);
 unsigned int MSC_EndianIntArray(unsigned char* buffer);
 unsigned long MSC_EndianLong(unsigned long number);
 unsigned long MSC_EndianLongArray(unsigned char* buffer);
-void MSC_BlinkLED(unsigned int blink);
+void MSC_BlinkLED(unsigned int blink, unsigned int speed);
 void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 
@@ -5948,13 +5952,13 @@ return ((unsigned long)temp1 | ((unsigned long) temp2 << 8) | ((unsigned long) t
 }
 
 # 1158
-void MSC_BlinkLED(unsigned int blink)
+void MSC_BlinkLED(unsigned int blink, unsigned int speed)
 {
 unsigned int i;
 
 for(i=0;i<(blink<<1);i++)
 {
-MSC_DelayMS(50);
+MSC_DelayMS(speed);
 (LATC ^= 0x10);
 }
 }

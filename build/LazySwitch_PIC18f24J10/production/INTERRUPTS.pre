@@ -4994,8 +4994,8 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 97 "IR.h"
-const unsigned int PIONEER_PLUS_Timing[67] = {
+# 83 "IR.h"
+const unsigned int IR_SavedTiming[128] __attribute__((address(0x2400)))= {
 8600,
 4200,
 450,
@@ -5069,8 +5069,7 @@ const unsigned int PIONEER_PLUS_Timing[67] = {
 
 
 extern volatile unsigned char IR_Data;
-extern unsigned int IR_DataTiming[80];
-extern unsigned int IR_SavedTiming[80];
+extern unsigned int IR_DataTiming[128];
 extern unsigned char IR_DataPlace;
 extern unsigned char IRStarted;
 extern unsigned int IR_SyncLow;
@@ -5080,12 +5079,12 @@ extern unsigned char IR_CodeSize;
 extern unsigned char IRValue_prev;
 extern unsigned char IRChange;
 
-# 189
+# 174
 void InitIR(void);
 unsigned char IR_ReadReceiver(void);
 void IR_ResetData(void);
-void IR_CalculateNewCode(void);
-void IR_LoadDefaultCode(void);
+void IR_LoadCode(void);
+unsigned char IR_CalculateCodesize(void);
 unsigned char IR_CheckCode(void);
 void IR_CleanBuffer(void);
 
@@ -5121,8 +5120,8 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 119 "RF.h"
-const unsigned int CONF1_ChanE_Timing[50] = {
+# 101 "RF.h"
+const unsigned int RF_SavedTiming[128] __attribute__((address(0x2500))) = {
 834,
 21,
 80,
@@ -5172,15 +5171,14 @@ const unsigned int CONF1_ChanE_Timing[50] = {
 81,
 22,
 79,
-22
+22,
 };
 
 
 
 
 extern volatile unsigned char RF_Data;
-extern unsigned int RF_DataTiming[60];
-extern unsigned int RF_SavedTiming[60];
+extern unsigned int RF_DataTiming[128];
 extern unsigned char RF_DataPlace;
 extern unsigned char RFStarted;
 extern unsigned int RF_SyncLow;
@@ -5189,7 +5187,7 @@ extern unsigned char RF_Saved;
 extern unsigned char RF_CodeSize;
 extern double Rail_RSSI;
 
-# 193
+# 174
 void InitRF(void);
 inline unsigned char RF_ReadReceiver(void);
 inline void RF_DataInt(unsigned char state);
@@ -5197,8 +5195,8 @@ inline void RF_Receiver(unsigned char state);
 inline void RF_SetBandwidth(unsigned char band);
 inline void RF_SetSquelch(unsigned char state);
 void RF_ResetData(void);
-void RF_CalculateNewCode(void);
-void RF_LoadDefaultCode(void);
+void RF_LoadCode(void);
+unsigned char RF_CalculateCodesize(void);
 unsigned char RF_CheckCode(void);
 void RF_Disable(void);
 void RF_Enable(void);
@@ -5295,7 +5293,7 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 62 "SYSTEM.h"
+# 69 "SYSTEM.h"
 extern unsigned char System_State;
 extern unsigned char System_State_Change;
 
@@ -5303,6 +5301,10 @@ extern unsigned char System_State_Change;
 
 
 void SYS_ConfigureOscillator(void);
+inline void SYS_Idle(void);
+inline void SYS_Sleep(void);
+void SYS_ActivityTimer(void);
+void SYS_ActivityTimerReset(void);
 
 # 85 "MISC.h"
 void MSC_DelayMS(long US);
@@ -5339,7 +5341,7 @@ unsigned int MSC_EndianInt(unsigned int number);
 unsigned int MSC_EndianIntArray(unsigned char* buffer);
 unsigned long MSC_EndianLong(unsigned long number);
 unsigned long MSC_EndianLongArray(unsigned char* buffer);
-void MSC_BlinkLED(unsigned int blink);
+void MSC_BlinkLED(unsigned int blink, unsigned int speed);
 void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 
@@ -5425,7 +5427,8 @@ RFStarted = 1;
 }
 if(RFStarted)
 {
-if(RF_DataPlace < 60)
+SYS_ActivityTimerReset();
+if(RF_DataPlace < 128)
 {
 RF_DataTiming[RF_DataPlace] = RFtemp;
 RF_DataPlace++;
@@ -5438,12 +5441,6 @@ RF_Data = RF_CheckCode();
 TMR_Timer0(0);
 RF_ResetData();
 }
-}
-else
-{
-
-TMR_Timer0(0);
-RF_ResetData();
 }
 }
 }
@@ -5477,13 +5474,13 @@ unsigned int IRtemp = 0;
 if(INTCONbits.RBIF)
 {
 
-# 139
+# 134
 button_state = BUT_ReadButton();
 IR_state = IR_ReadReceiver();
+SYS_ActivityTimerReset();
 if(ButtonChange)
 {
 
-BUT_IR_PinChangeInt(0);
 TMR_Timer2(0);
 if(button_state)
 {
@@ -5540,7 +5537,7 @@ IRStarted = 1;
 }
 else
 {
-if(IRtemp >= 2000 && IRtemp <= 16000)
+if(IRtemp >= 6000 && IRtemp <= 10000)
 {
 IRStarted = 1;
 }
@@ -5549,7 +5546,7 @@ IRStarted = 1;
 if(IRStarted)
 {
 RF_Disable();
-if(IR_DataPlace < 80)
+if(IR_DataPlace < 128)
 {
 IR_DataTiming[IR_DataPlace] = IRtemp;
 IR_DataPlace++;
@@ -5566,17 +5563,9 @@ IR_ResetData();
 }
 }
 }
-else
-{
-
-TMR_Timer1(0);
-IR_ResetData();
-}
 }
 }
 IRChange = 0;
-IR_ReadReceiver();
-IR_ReadReceiver();
 }
 else
 {
@@ -5601,10 +5590,6 @@ else if(Timer2Use == 18)
 {
 System_State = 8;
 System_State_Change = 1;
-}
-else
-{
-BUT_IR_PinChangeInt(1);
 }
 }
 else

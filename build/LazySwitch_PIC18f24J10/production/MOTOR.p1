@@ -3779,9 +3779,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;SYSTEM.h: 62: extern unsigned char System_State;
-[; ;SYSTEM.h: 63: extern unsigned char System_State_Change;
-[; ;SYSTEM.h: 68: void SYS_ConfigureOscillator(void);
+[; ;SYSTEM.h: 69: extern unsigned char System_State;
+[; ;SYSTEM.h: 70: extern unsigned char System_State_Change;
+[; ;SYSTEM.h: 75: void SYS_ConfigureOscillator(void);
+[; ;SYSTEM.h: 76: inline void SYS_Idle(void);
+[; ;SYSTEM.h: 77: inline void SYS_Sleep(void);
+[; ;SYSTEM.h: 78: void SYS_ActivityTimer(void);
+[; ;SYSTEM.h: 79: void SYS_ActivityTimerReset(void);
 [; ;MISC.h: 85: void MSC_DelayMS(long US);
 [; ;MISC.h: 86: unsigned char MSC_IsCharacter(unsigned char data);
 [; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
@@ -3816,7 +3820,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.h: 116: unsigned int MSC_EndianIntArray(unsigned char* buffer);
 [; ;MISC.h: 117: unsigned long MSC_EndianLong(unsigned long number);
 [; ;MISC.h: 118: unsigned long MSC_EndianLongArray(unsigned char* buffer);
-[; ;MISC.h: 119: void MSC_BlinkLED(unsigned int blink);
+[; ;MISC.h: 119: void MSC_BlinkLED(unsigned int blink, unsigned int speed);
 [; ;MISC.h: 120: void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 [; ;MISC.h: 121: void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 [i _DC_Motor
@@ -3824,9 +3828,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;MOTOR.c: 43: unsigned char DC_Motor = 0;
-[v F4363 `(v ~T0 @X0 1 tf1`uc ]
+[v F4374 `(v ~T0 @X0 1 tf1`uc ]
 "54
-[v _MTR_IN1 `TF4363 ~T0 @X0 1 e ]
+[v _MTR_IN1 `TF4374 ~T0 @X0 1 e ]
 "55
 {
 [; ;MOTOR.c: 54: inline void MTR_IN1(unsigned char state)
@@ -3866,9 +3870,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "64
 [e :UE 430 ]
 }
-[v F4366 `(v ~T0 @X0 1 tf1`uc ]
+[v F4377 `(v ~T0 @X0 1 tf1`uc ]
 "71
-[v _MTR_IN2 `TF4366 ~T0 @X0 1 e ]
+[v _MTR_IN2 `TF4377 ~T0 @X0 1 e ]
 "72
 {
 [; ;MOTOR.c: 71: inline void MTR_IN2(unsigned char state)

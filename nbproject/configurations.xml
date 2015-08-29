@@ -88,7 +88,7 @@
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>
         <property key="optimization-assembler" value="true"/>
         <property key="optimization-assembler-files" value="true"/>
-        <property key="optimization-debug" value="false"/>
+        <property key="optimization-debug" value="true"/>
         <property key="optimization-global" value="true"/>
         <property key="optimization-invariant-enable" value="false"/>
         <property key="optimization-invariant-value" value="16"/>
@@ -115,7 +115,7 @@
         <property key="calibrate-oscillator" value="false"/>
         <property key="calibrate-oscillator-value" value="0x3400"/>
         <property key="clear-bss" value="true"/>
-        <property key="code-model-external" value="wordwrite"/>
+        <property key="code-model-external" value="bytewrite"/>
         <property key="code-model-rom" value=""/>
         <property key="create-html-files" value="false"/>
         <property key="data-model-ram" value=""/>
@@ -131,14 +131,14 @@
         <property key="fill-flash-options-inc-const" value="1"/>
         <property key="fill-flash-options-increment" value=""/>
         <property key="fill-flash-options-seq" value=""/>
-        <property key="fill-flash-options-what" value="0"/>
+        <property key="fill-flash-options-what" value="1"/>
         <property key="format-hex-file-for-download" value="false"/>
         <property key="initialize-data" value="true"/>
         <property key="keep-generated-startup.as" value="false"/>
         <property key="link-in-c-library" value="true"/>
         <property key="link-in-peripheral-library" value="true"/>
         <property key="managed-stack" value="false"/>
-        <property key="opt-xc8-linker-file" value="false"/>
+        <property key="opt-xc8-linker-file" value="true"/>
         <property key="opt-xc8-linker-link_startup" value="false"/>
         <property key="opt-xc8-linker-serial" value=""/>
         <property key="program-the-device-with-default-config-words" value="true"/>
@@ -149,7 +149,6 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
-        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

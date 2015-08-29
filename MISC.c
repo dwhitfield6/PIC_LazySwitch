@@ -1155,13 +1155,13 @@ unsigned long MSC_EndianLongArray(unsigned char* buffer)
  *
  * This function blinks the LED a certain number of times.
 /******************************************************************************/
-void MSC_BlinkLED(unsigned int blink)
+void MSC_BlinkLED(unsigned int blink, unsigned int speed)
 {
     unsigned int i;
     
     for(i=0;i<(blink<<1);i++)
     {
-        MSC_DelayMS(BLINK_MEDIUM);
+        MSC_DelayMS(speed);
         MSC_RedLEDTOGGLE();
     }
 }

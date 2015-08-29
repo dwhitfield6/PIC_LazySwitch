@@ -11,6 +11,8 @@
  *                          Increased clock from 8MHz oto 32MHz. (This was a
  *                            bug in the previous versions as the system was
  *                            was always supposed to be at 32MHz.)
+ *                          Added internal flash modification functionality.
+ *                         Added sleep capability.
  * 08/27/15     2.0a        Version change only. Tagged version!
  * 08/26/15     2.0_DW0a    Initial project make.
  *                          Derived from project 'Catalyst_RPI_daughter'.
@@ -57,6 +59,7 @@
 #include "MOTOR.h"
 #include "ADC.h"
 #include "LDO.h"
+#include "FLASH.h"
 
 /******************************************************************************/
 /* Defines                                                                    */
@@ -77,29 +80,10 @@ int main (void)
     Init_App();
     Init_System();
 
-    /* load RF code */
-    if(RF_Saved == EMPTY)
-    {
-        RF_LoadDefaultCode();
-        MSC_BlinkLED(10);
-    }
-    else
-    {
-        MSC_BlinkLED(4);
-    }
-    MSC_RedLEDOFF();    
-    MSC_DelayMS(1000);
-    
-    /* load IR code */
-    if(IR_Saved == EMPTY)
-    {
-        IR_LoadDefaultCode();
-        MSC_BlinkLED(10);
-    }
-    else
-    {
-        MSC_BlinkLED(4);
-    }
+    /* load codes */
+    RF_LoadCode();
+    IR_LoadCode();
+    MSC_BlinkLED(4,BLINK_MEDIUM);
     MSC_RedLEDOFF();
     
     while(1)
@@ -113,12 +97,26 @@ int main (void)
                 MSC_RedLEDOFF();
                 if(RF_Saved == NEW)
                 {
-                    MSC_BlinkLED(4);
+                    if(Flash_Status == PASS)
+                    {
+                        MSC_BlinkLED(4,BLINK_MEDIUM);
+                    }
+                    else
+                    {
+                        MSC_BlinkLED(6,BLINK_SLOW);
+                    }
                     RF_Saved = OLD;
                 }
                 if(IR_Saved == NEW)
                 {
-                    MSC_BlinkLED(4);
+                    if(Flash_Status == PASS)
+                    {
+                        MSC_BlinkLED(4,BLINK_MEDIUM);
+                    }
+                    else
+                    {
+                        MSC_BlinkLED(6,BLINK_SLOW);
+                    }
                     IR_Saved = OLD;
                 }
                 System_State_Change = FALSE;
@@ -137,6 +135,7 @@ int main (void)
                 MSC_DelayMS(BLINK_VERYSLOW);
                 MSC_RedLEDTOGGLE();
             }
+            SYS_ActivityTimer();
         }
         else if(System_State == PROGRAM)
         {

@@ -1,4 +1,4 @@
-[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[p LITE_MODE AUTOSTATIC LFSROK ]
 [d version 1.1 ]
 [d edition pro ]
 [d chip 18F24J10 ]
@@ -18,7 +18,6 @@
 [v i1_ADC_ChangeChannel ADC_ChangeChannel `(v  1 e 0 0 ]
 "55 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\BUTTON.c
 [v _BUT_IR_PinChangeInt BUT_IR_PinChangeInt `T(v  1 e 0 0 ]
-[v i1_BUT_IR_PinChangeInt BUT_IR_PinChangeInt `T(v  1 e 0 0 ]
 "78
 [v _InitButton InitButton `(v  1 e 0 0 ]
 "92
@@ -44,6 +43,7 @@
 [v ___flmul __flmul `(d  1 e 3 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
+[v i1___ftpack __ftpack `(f  1 e 3 0 ]
 [v i2___ftpack __ftpack `(f  1 e 3 0 ]
 "13 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c
 [v _floor floor `(d  1 e 3 0 ]
@@ -63,6 +63,7 @@
 [v i2___ftge __ftge `(b  1 e 0 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftmul.c
 [v ___ftmul __ftmul `(f  1 e 3 0 ]
+[v i1___ftmul __ftmul `(f  1 e 3 0 ]
 [v i2___ftmul __ftmul `(f  1 e 3 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftneg.c
 [v ___ftneg __ftneg `(f  1 e 3 0 ]
@@ -80,6 +81,7 @@
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "28 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwtoft.c
 [v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+[v i1___lwtoft __lwtoft `(f  1 e 3 0 ]
 [v i2___lwtoft __lwtoft `(f  1 e 3 0 ]
 "5 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
 [v _pow pow `(d  1 e 3 0 ]
@@ -87,35 +89,60 @@
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"55 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\FLASH.c
+"57 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\FLASH.c
+[v _FSH_Sequence FSH_Sequence `T(v  1 e 0 0 ]
+[v i2_FSH_Sequence FSH_Sequence `T(v  1 e 0 0 ]
+"74
 [v _InitFlash InitFlash `(v  1 e 0 0 ]
+"86
+[v _FSH_EraseBlock FSH_EraseBlock `(v  1 e 0 0 ]
+[v i2_FSH_EraseBlock FSH_EraseBlock `(v  1 e 0 0 ]
+"135
+[v _FSH_WriteIntArray FSH_WriteIntArray `(v  1 e 0 0 ]
+[v i2_FSH_WriteIntArray FSH_WriteIntArray `(v  1 e 0 0 ]
+"163
+[v _FSH_VerifyWriteIntArray FSH_VerifyWriteIntArray `(uc  1 e 1 0 ]
+[v i2_FSH_VerifyWriteIntArray FSH_VerifyWriteIntArray `(uc  1 e 1 0 ]
+"183
+[v _FSH_Write_IR_RF FSH_Write_IR_RF `(uc  1 e 1 0 ]
+[v i2_FSH_Write_IR_RF FSH_Write_IR_RF `(uc  1 e 1 0 ]
+"464
+[v _FSH_AddressToBlock FSH_AddressToBlock `(v  1 e 0 0 ]
+[v i2_FSH_AddressToBlock FSH_AddressToBlock `(v  1 e 0 0 ]
 "48 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\INTERRUPTS.c
 [v _high_isr high_isr `II(v  1 e 0 0 ]
-"127
+"122
 [v _low_isr low_isr `IIL(v  1 e 0 0 ]
-"69 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
+"70 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
 [v _InitIR InitIR `(v  1 e 0 0 ]
-"79
+"80
 [v _IR_ReadReceiver IR_ReadReceiver `(uc  1 e 1 0 ]
 [v i1_IR_ReadReceiver IR_ReadReceiver `(uc  1 e 1 0 ]
-"106
+"107
 [v _IR_ResetData IR_ResetData `(v  1 e 0 0 ]
-"118
+[v i2_IR_ResetData IR_ResetData `(v  1 e 0 0 ]
+"119
 [v _IR_CleanBuffer IR_CleanBuffer `(v  1 e 0 0 ]
-"145
-[v _IR_LoadDefaultCode IR_LoadDefaultCode `(v  1 e 0 0 ]
-"166
+"129
+[v _IR_LoadCode IR_LoadCode `(v  1 e 0 0 ]
+"148
+[v _IR_CalculateCodesize IR_CalculateCodesize `(uc  1 e 1 0 ]
+"168
 [v _IR_CheckCode IR_CheckCode `(uc  1 e 1 0 ]
 "52 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\LDO.c
 [v _LDO_Pass LDO_Pass `T(v  1 e 0 0 ]
 "75
 [v _InitLDO InitLDO `(v  1 e 0 0 ]
-"73 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\main.c
+"76 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\main.c
 [v _main main `(i  1 e 2 0 ]
 "47 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
 [v _MSC_DelayMS MSC_DelayMS `(v  1 e 0 0 ]
+[v i1_MSC_DelayMS MSC_DelayMS `(v  1 e 0 0 ]
+[v i2_MSC_DelayMS MSC_DelayMS `(v  1 e 0 0 ]
 "62
 [v _MSC_DelayNOP MSC_DelayNOP `(v  1 e 0 0 ]
+[v i1_MSC_DelayNOP MSC_DelayNOP `(v  1 e 0 0 ]
+[v i2_MSC_DelayNOP MSC_DelayNOP `(v  1 e 0 0 ]
 "76
 [v _IsLetter IsLetter `(uc  1 e 1 0 ]
 "90
@@ -130,11 +157,9 @@
 [v i2_MSC_CleanBufferInt MSC_CleanBufferInt `(v  1 e 0 0 ]
 "192
 [v _MSC_BufferCopy MSC_BufferCopy `(v  1 e 0 0 ]
-"215
-[v _MSC_BufferCopyInt MSC_BufferCopyInt `(v  1 e 0 0 ]
-[v i2_MSC_BufferCopyInt MSC_BufferCopyInt `(v  1 e 0 0 ]
 "238
 [v _MSC_BufferCopyIntConst MSC_BufferCopyIntConst `(v  1 e 0 0 ]
+[v i2_MSC_BufferCopyIntConst MSC_BufferCopyIntConst `(v  1 e 0 0 ]
 "444
 [v _MSC_LowercaseChar MSC_LowercaseChar `(v  1 e 0 0 ]
 "1158
@@ -150,6 +175,7 @@
 "78 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\RF.c
 [v _RF_DataInt RF_DataInt `T(v  1 e 0 0 ]
 [v i1_RF_DataInt RF_DataInt `T(v  1 e 0 0 ]
+[v i2_RF_DataInt RF_DataInt `T(v  1 e 0 0 ]
 "100
 [v _RF_Receiver RF_Receiver `T(v  1 e 0 0 ]
 "119
@@ -162,14 +188,26 @@
 [v _RF_Disable RF_Disable `(v  1 e 0 0 ]
 "206
 [v _RF_Enable RF_Enable `(v  1 e 0 0 ]
+[v i2_RF_Enable RF_Enable `(v  1 e 0 0 ]
 "221
 [v _RF_ResetData RF_ResetData `(v  1 e 0 0 ]
-"249
-[v _RF_LoadDefaultCode RF_LoadDefaultCode `(v  1 e 0 0 ]
-"270
+[v i2_RF_ResetData RF_ResetData `(v  1 e 0 0 ]
+"232
+[v _RF_LoadCode RF_LoadCode `(v  1 e 0 0 ]
+"251
+[v _RF_CalculateCodesize RF_CalculateCodesize `(uc  1 e 1 0 ]
+"271
 [v _RF_CheckCode RF_CheckCode `(uc  1 e 1 0 ]
-"54 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\SYSTEM.c
+"66 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\SYSTEM.c
+[v _SYS_Sleep SYS_Sleep `T(v  1 e 0 0 ]
+"77
 [v _SYS_ConfigureOscillator SYS_ConfigureOscillator `(v  1 e 0 0 ]
+"90
+[v _SYS_ActivityTimer SYS_ActivityTimer `(v  1 e 0 0 ]
+"109
+[v _SYS_ActivityTimerReset SYS_ActivityTimerReset `(v  1 e 0 0 ]
+[v i1_SYS_ActivityTimerReset SYS_ActivityTimerReset `(v  1 e 0 0 ]
+[v i2_SYS_ActivityTimerReset SYS_ActivityTimerReset `(v  1 e 0 0 ]
 "56 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\TIMERS.c
 [v _TMR_Timer0Status TMR_Timer0Status `T(uc  1 e 1 0 ]
 "72
@@ -195,6 +233,7 @@
 "208
 [v _TMR_Timer0Int TMR_Timer0Int `T(v  1 e 0 0 ]
 [v i1_TMR_Timer0Int TMR_Timer0Int `T(v  1 e 0 0 ]
+[v i2_TMR_Timer0Int TMR_Timer0Int `T(v  1 e 0 0 ]
 "227
 [v _TMR_Timer1Int TMR_Timer1Int `T(v  1 e 0 0 ]
 "246
@@ -239,7 +278,7 @@
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
 "886
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
-[s S475 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S480 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -247,16 +286,16 @@
 `uc 1 TRISA5 1 0 :1:5 
 ]
 "1046
-[s S482 . 1 `uc 1 RA0 1 0 :1:0 
+[s S487 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 RA5 1 0 :1:5 
 ]
-[u S489 . 1 `S475 1 . 1 0 `S482 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES489  1 e 1 @3986 ]
-[s S507 . 1 `uc 1 TRISB0 1 0 :1:0 
+[u S494 . 1 `S480 1 . 1 0 `S487 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES494  1 e 1 @3986 ]
+[s S512 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -266,7 +305,7 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "1203
-[s S516 . 1 `uc 1 RB0 1 0 :1:0 
+[s S521 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -275,9 +314,9 @@
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-[u S525 . 1 `S507 1 . 1 0 `S516 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES525  1 e 1 @3987 ]
-[s S435 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S530 . 1 `S512 1 . 1 0 `S521 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES530  1 e 1 @3987 ]
+[s S440 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -287,7 +326,7 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1424
-[s S444 . 1 `uc 1 RC0 1 0 :1:0 
+[s S449 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -296,15 +335,15 @@
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S453 . 1 `S435 1 . 1 0 `S444 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES453  1 e 1 @3988 ]
-[s S738 . 1 `uc 1 . 1 0 :6:0 
+[u S458 . 1 `S440 1 . 1 0 `S449 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES458  1 e 1 @3988 ]
+[s S745 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 PLLEN 1 0 :1:6 
 ]
 "1624
-[u S741 . 1 `S738 1 . 1 0 ]
-[v _OSCTUNEbits OSCTUNEbits `VES741  1 e 1 @3995 ]
-[s S1523 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S748 . 1 `S745 1 . 1 0 ]
+[v _OSCTUNEbits OSCTUNEbits `VES748  1 e 1 @3995 ]
+[s S1536 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSP1IE 1 0 :1:3 
@@ -313,14 +352,14 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1655
-[s S1531 . 1 `uc 1 . 1 0 :3:0 
+[s S1544 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIE 1 0 :1:3 
 `uc 1 TX1IE 1 0 :1:4 
 `uc 1 RC1IE 1 0 :1:5 
 ]
-[u S1536 . 1 `S1523 1 . 1 0 `S1531 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES1536  1 e 1 @3997 ]
-[s S313 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S1549 . 1 `S1536 1 . 1 0 `S1544 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES1549  1 e 1 @3997 ]
+[s S318 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -329,14 +368,14 @@
 `uc 1 ADIF 1 0 :1:6 
 ]
 "1731
-[s S321 . 1 `uc 1 . 1 0 :3:0 
+[s S326 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIF 1 0 :1:3 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 ]
-[u S326 . 1 `S313 1 . 1 0 `S321 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES326  1 e 1 @3998 ]
-[s S1592 . 1 `uc 1 TMR1IP 1 0 :1:0 
+[u S331 . 1 `S318 1 . 1 0 `S326 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES331  1 e 1 @3998 ]
+[s S1605 . 1 `uc 1 TMR1IP 1 0 :1:0 
 `uc 1 TMR2IP 1 0 :1:1 
 `uc 1 CCP1IP 1 0 :1:2 
 `uc 1 SSP1IP 1 0 :1:3 
@@ -345,59 +384,68 @@
 `uc 1 ADIP 1 0 :1:6 
 ]
 "1807
-[s S1600 . 1 `uc 1 . 1 0 :3:0 
+[s S1613 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIP 1 0 :1:3 
 `uc 1 TX1IP 1 0 :1:4 
 `uc 1 RC1IP 1 0 :1:5 
 ]
-[u S1605 . 1 `S1592 1 . 1 0 `S1600 1 . 1 0 ]
-[v _IPR1bits IPR1bits `VES1605  1 e 1 @3999 ]
-[s S1832 . 1 `uc 1 ADCS 1 0 :3:0 
+[u S1618 . 1 `S1605 1 . 1 0 `S1613 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES1618  1 e 1 @3999 ]
+[s S1775 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 WREN 1 0 :1:2 
+`uc 1 WRERR 1 0 :1:3 
+`uc 1 FREE 1 0 :1:4 
+]
+"2019
+[u S1781 . 1 `S1775 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES1781  1 e 1 @4006 ]
+[s S1965 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "3339
-[s S1837 . 1 `uc 1 ADCS0 1 0 :1:0 
+[s S1970 . 1 `uc 1 ADCS0 1 0 :1:0 
 `uc 1 ADCS1 1 0 :1:1 
 `uc 1 ADCS2 1 0 :1:2 
 `uc 1 ACQT0 1 0 :1:3 
 `uc 1 ACQT1 1 0 :1:4 
 `uc 1 ACQT2 1 0 :1:5 
 ]
-[u S1844 . 1 `S1832 1 . 1 0 `S1837 1 . 1 0 ]
-[v _ADCON2bits ADCON2bits `VES1844  1 e 1 @4032 ]
-[s S390 . 1 `uc 1 PCFG 1 0 :4:0 
+[u S1977 . 1 `S1965 1 . 1 0 `S1970 1 . 1 0 ]
+[v _ADCON2bits ADCON2bits `VES1977  1 e 1 @4032 ]
+[s S395 . 1 `uc 1 PCFG 1 0 :4:0 
 `uc 1 VCFG 1 0 :2:4 
 ]
 "3419
-[s S393 . 1 `uc 1 PCFG0 1 0 :1:0 
+[s S398 . 1 `uc 1 PCFG0 1 0 :1:0 
 `uc 1 PCFG1 1 0 :1:1 
 `uc 1 PCFG2 1 0 :1:2 
 `uc 1 PCFG3 1 0 :1:3 
 `uc 1 VCFG0 1 0 :1:4 
 `uc 1 VCFG1 1 0 :1:5 
 ]
-[s S400 . 1 `uc 1 . 1 0 :3:0 
+[s S405 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CHSN3 1 0 :1:3 
 ]
-[s S403 . 1 `uc 1 . 1 0 :4:0 
+[s S408 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 VCFG01 1 0 :1:4 
 ]
-[s S406 . 1 `uc 1 . 1 0 :5:0 
+[s S411 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 VCFG11 1 0 :1:5 
 ]
-[u S409 . 1 `S390 1 . 1 0 `S393 1 . 1 0 `S400 1 . 1 0 `S403 1 . 1 0 `S406 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES409  1 e 1 @4033 ]
-[s S1710 . 1 `uc 1 . 1 0 :1:0 
+[u S414 . 1 `S395 1 . 1 0 `S398 1 . 1 0 `S405 1 . 1 0 `S408 1 . 1 0 `S411 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES414  1 e 1 @4033 ]
+[s S1843 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "3528
-[s S1713 . 1 `uc 1 ADON 1 0 :1:0 
+[s S1846 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 ]
-[s S1720 . 1 `uc 1 . 1 0 :1:0 
+[s S1853 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -406,33 +454,33 @@
 `uc 1 . 1 0 :1:6 
 `uc 1 ADCAL 1 0 :1:7 
 ]
-[s S1729 . 1 `uc 1 . 1 0 :1:0 
+[s S1862 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[s S1732 . 1 `uc 1 . 1 0 :1:0 
+[s S1865 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S1735 . 1 `uc 1 . 1 0 :1:0 
+[s S1868 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S1738 . 1 `uc 1 . 1 0 :1:0 
+[s S1871 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S1741 . 1 `uc 1 . 1 0 :1:0 
+[s S1874 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S1744 . 1 `S1710 1 . 1 0 `S1713 1 . 1 0 `S1710 1 . 1 0 `S1720 1 . 1 0 `S1729 1 . 1 0 `S1732 1 . 1 0 `S1735 1 . 1 0 `S1738 1 . 1 0 `S1741 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES1744  1 e 1 @4034 ]
+[u S1877 . 1 `S1843 1 . 1 0 `S1846 1 . 1 0 `S1843 1 . 1 0 `S1853 1 . 1 0 `S1862 1 . 1 0 `S1865 1 . 1 0 `S1868 1 . 1 0 `S1871 1 . 1 0 `S1874 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES1877  1 e 1 @4034 ]
 "3613
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "3619
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
-[s S1430 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S1443 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "5364
-[s S1434 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S1447 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -440,23 +488,23 @@
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[s S1442 . 1 `uc 1 . 1 0 :3:0 
+[s S1455 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 TOUTPS0 1 0 :1:3 
 `uc 1 TOUTPS1 1 0 :1:4 
 `uc 1 TOUTPS2 1 0 :1:5 
 `uc 1 TOUTPS3 1 0 :1:6 
 ]
-[u S1448 . 1 `S1430 1 . 1 0 `S1434 1 . 1 0 `S1442 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES1448  1 e 1 @4042 ]
+[u S1461 . 1 `S1443 1 . 1 0 `S1447 1 . 1 0 `S1455 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES1461  1 e 1 @4042 ]
 "5433
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
 "5542
 [v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
-[s S1370 . 1 `uc 1 . 1 0 :2:0 
+[s S1383 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 ]
 "5587
-[s S1373 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S1386 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 TMR1CS 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -464,43 +512,43 @@
 `uc 1 T1RUN 1 0 :1:6 
 `uc 1 RD16 1 0 :1:7 
 ]
-[s S1381 . 1 `uc 1 . 1 0 :2:0 
+[s S1394 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 ]
-[s S1387 . 1 `uc 1 . 1 0 :2:0 
+[s S1400 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1INSYNC 1 0 :1:2 
 ]
-[s S1390 . 1 `uc 1 . 1 0 :3:0 
+[s S1403 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN 1 0 :1:3 
 ]
-[s S1393 . 1 `uc 1 . 1 0 :7:0 
+[s S1406 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 T1RD16 1 0 :1:7 
 ]
-[u S1396 . 1 `S1370 1 . 1 0 `S1373 1 . 1 0 `S1381 1 . 1 0 `S1387 1 . 1 0 `S1390 1 . 1 0 `S1393 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES1396  1 e 1 @4045 ]
+[u S1409 . 1 `S1383 1 . 1 0 `S1386 1 . 1 0 `S1394 1 . 1 0 `S1400 1 . 1 0 `S1403 1 . 1 0 `S1406 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES1409  1 e 1 @4045 ]
 "5667
 [v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
 "5673
 [v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
-[s S628 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S633 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "5721
-[s S630 . 1 `uc 1 . 1 0 :1:0 
+[s S635 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S633 . 1 `uc 1 . 1 0 :2:0 
+[s S638 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S636 . 1 `uc 1 . 1 0 :3:0 
+[s S641 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S639 . 1 `uc 1 . 1 0 :4:0 
+[s S644 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S642 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S647 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -508,27 +556,29 @@
 `uc 1 . 1 0 :2:5 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S650 . 1 `uc 1 BOR 1 0 :1:0 
+[s S655 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
-[u S656 . 1 `S628 1 . 1 0 `S630 1 . 1 0 `S633 1 . 1 0 `S636 1 . 1 0 `S639 1 . 1 0 `S642 1 . 1 0 `S650 1 . 1 0 ]
-[v _RCONbits RCONbits `VES656  1 e 1 @4048 ]
-[s S747 . 1 `uc 1 SCS 1 0 :2:0 
+[u S661 . 1 `S633 1 . 1 0 `S635 1 . 1 0 `S638 1 . 1 0 `S641 1 . 1 0 `S644 1 . 1 0 `S647 1 . 1 0 `S655 1 . 1 0 ]
+[v _RCONbits RCONbits `VES661  1 e 1 @4048 ]
+"5832
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+[s S754 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 . 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 IDLEN 1 0 :1:7 
 ]
 "5850
-[s S753 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S760 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 ]
-[u S756 . 1 `S747 1 . 1 0 `S753 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES756  1 e 1 @4051 ]
-[s S1344 . 1 `uc 1 T0PS 1 0 :3:0 
+[u S763 . 1 `S754 1 . 1 0 `S760 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES763  1 e 1 @4051 ]
+[s S1357 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -536,17 +586,17 @@
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "5899
-[s S1351 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S1364 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 ]
-[u S1355 . 1 `S1344 1 . 1 0 `S1351 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES1355  1 e 1 @4053 ]
+[u S1368 . 1 `S1357 1 . 1 0 `S1364 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES1368  1 e 1 @4053 ]
 "5954
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "5960
 [v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
-[s S74 . 1 `uc 1 INT1IF 1 0 :1:0 
+[s S81 . 1 `uc 1 INT1IF 1 0 :1:0 
 `uc 1 INT2IF 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1IE 1 0 :1:3 
@@ -556,7 +606,7 @@
 `uc 1 INT2IP 1 0 :1:7 
 ]
 "6227
-[s S83 . 1 `uc 1 INT1F 1 0 :1:0 
+[s S90 . 1 `uc 1 INT1F 1 0 :1:0 
 `uc 1 INT2F 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1E 1 0 :1:3 
@@ -565,13 +615,13 @@
 `uc 1 INT1P 1 0 :1:6 
 `uc 1 INT2P 1 0 :1:7 
 ]
-[u S92 . 1 `S74 1 . 1 0 `S83 1 . 1 0 ]
-[v _INTCON3bits INTCON3bits `VES92  1 e 1 @4080 ]
-[s S810 . 1 `uc 1 . 1 0 :7:0 
+[u S99 . 1 `S81 1 . 1 0 `S90 1 . 1 0 ]
+[v _INTCON3bits INTCON3bits `VES99  1 e 1 @4080 ]
+[s S826 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "6318
-[s S813 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S829 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -580,14 +630,14 @@
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S822 . 1 `uc 1 . 1 0 :2:0 
+[s S838 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IP 1 0 :1:2 
 `uc 1 . 1 0 :4:3 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S827 . 1 `S810 1 . 1 0 `S813 1 . 1 0 `S822 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES827  1 e 1 @4081 ]
-[s S152 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S843 . 1 `S826 1 . 1 0 `S829 1 . 1 0 `S838 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES843  1 e 1 @4081 ]
+[s S163 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -597,7 +647,7 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "6419
-[s S161 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S172 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -606,7 +656,7 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S170 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S181 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -615,7 +665,7 @@
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[s S179 . 1 `uc 1 . 1 0 :1:0 
+[s S190 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -624,46 +674,54 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S188 . 1 `uc 1 . 1 0 :6:0 
+[s S199 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S192 . 1 `S152 1 . 1 0 `S161 1 . 1 0 `S170 1 . 1 0 `S179 1 . 1 0 `S188 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES192  1 e 1 @4082 ]
-"44 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
+[u S203 . 1 `S163 1 . 1 0 `S172 1 . 1 0 `S181 1 . 1 0 `S190 1 . 1 0 `S199 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES203  1 e 1 @4082 ]
+"6521
+[v _TABLAT TABLAT `VEuc  1 e 1 @4085 ]
+"6535
+[v _TBLPTRL TBLPTRL `VEuc  1 e 1 @4086 ]
+"6541
+[v _TBLPTRH TBLPTRH `VEuc  1 e 1 @4087 ]
+"6547
+[v _TBLPTRU TBLPTRU `VEuc  1 e 1 @4088 ]
+"46 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\FLASH.c
+[v _Flash_Status Flash_Status `uc  1 e 1 0 ]
+"65 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\FLASH.h
+[v _FlashWaste FlashWaste `C[512]uc  1 e 512 @9728 ]
+"46 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
 [v _IR_Data IR_Data `VEuc  1 e 1 0 ]
-"45
-[v _IR_DataTiming IR_DataTiming `[80]ui  1 e 160 0 ]
-"46
-[v _IR_SavedTiming IR_SavedTiming `[80]ui  1 e 160 0 ]
 "47
-[v _IR_DataPlace IR_DataPlace `uc  1 e 1 0 ]
+[v _IR_DataTiming IR_DataTiming `[128]ui  1 e 256 0 ]
 "48
-[v _IRStarted IRStarted `uc  1 e 1 0 ]
+[v _IR_DataPlace IR_DataPlace `uc  1 e 1 0 ]
 "49
-[v _IR_SyncLow IR_SyncLow `ui  1 e 2 0 ]
+[v _IRStarted IRStarted `uc  1 e 1 0 ]
 "50
-[v _IR_SyncHigh IR_SyncHigh `ui  1 e 2 0 ]
+[v _IR_SyncLow IR_SyncLow `ui  1 e 2 0 ]
 "51
-[v _IR_Saved IR_Saved `uc  1 e 1 0 ]
+[v _IR_SyncHigh IR_SyncHigh `ui  1 e 2 0 ]
 "52
-[v _IR_CodeSize IR_CodeSize `uc  1 e 1 0 ]
+[v _IR_Saved IR_Saved `uc  1 e 1 0 ]
 "53
-[v _IRValue_prev IRValue_prev `uc  1 e 1 0 ]
+[v _IR_CodeSize IR_CodeSize `uc  1 e 1 0 ]
 "54
+[v _IRValue_prev IRValue_prev `uc  1 e 1 0 ]
+"55
 [v _IRChange IRChange `uc  1 e 1 0 ]
-"97 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.h
-[v _PIONEER_PLUS_Timing PIONEER_PLUS_Timing `C[67]ui  1 e 134 0 ]
+"83 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.h
+[v _IR_SavedTiming IR_SavedTiming `C[128]ui  1 e 256 @9216 ]
 "41 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\LDO.c
 [v _Rail_VIN Rail_VIN `d  1 e 3 0 ]
 "56 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MOTOR.h
 [v _DC_Motor DC_Motor `uc  1 e 1 0 ]
-"44 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\RF.c
+"45 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\RF.c
 [v _RF_Data RF_Data `VEuc  1 e 1 0 ]
-"45
-[v _RF_DataTiming RF_DataTiming `[60]ui  1 e 120 0 ]
 "46
-[v _RF_SavedTiming RF_SavedTiming `[60]ui  1 e 120 0 ]
+[v _RF_DataTiming RF_DataTiming `[128]ui  1 e 256 0 ]
 "47
 [v _RF_DataPlace RF_DataPlace `uc  1 e 1 0 ]
 "48
@@ -678,43 +736,67 @@
 [v _RF_CodeSize RF_CodeSize `uc  1 e 1 0 ]
 "53
 [v _Rail_RSSI Rail_RSSI `d  1 e 3 0 ]
-"119 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\RF.h
-[v _CONF1_ChanE_Timing CONF1_ChanE_Timing `C[50]ui  1 e 100 0 ]
+"101 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\RF.h
+[v _RF_SavedTiming RF_SavedTiming `C[128]ui  1 e 256 @9472 ]
 "42 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\SYSTEM.c
 [v _System_State System_State `uc  1 e 1 0 ]
 "43
 [v _System_State_Change System_State_Change `uc  1 e 1 0 ]
+"44
+[v _Activity_Timer Activity_Timer `ul  1 e 4 0 ]
 "42 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\TIMERS.c
 [v _Timer2Use Timer2Use `uc  1 e 1 0 ]
 "43
 [v _Timer2Post Timer2Post `ui  1 e 2 0 ]
 "44
 [v _Timer2PostCount Timer2PostCount `ui  1 e 2 0 ]
-"73 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\main.c
+"76 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"169
+"168
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftge.c
 [v ___ftge __ftge `(b  1 e 0 0 ]
 {
-[v ___ftge@ff1 ff1 `f  1 p 3 49 ]
-[v ___ftge@ff2 ff2 `f  1 p 3 52 ]
+[v ___ftge@ff1 ff1 `f  1 p 3 0 ]
+[v ___ftge@ff2 ff2 `f  1 p 3 3 ]
 "13
 } 0
-"54 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\SYSTEM.c
+"77 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\SYSTEM.c
 [v _SYS_ConfigureOscillator SYS_ConfigureOscillator `(v  1 e 0 0 ]
 {
-"59
+"82
 } 0
-"249 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\RF.c
-[v _RF_LoadDefaultCode RF_LoadDefaultCode `(v  1 e 0 0 ]
+"90
+[v _SYS_ActivityTimer SYS_ActivityTimer `(v  1 e 0 0 ]
 {
-"252
-[v RF_LoadDefaultCode@High High `d  1 a 3 14 ]
+"101
+} 0
+"66
+[v _SYS_Sleep SYS_Sleep `T(v  1 e 0 0 ]
+{
+"70
+} 0
+"109
+[v _SYS_ActivityTimerReset SYS_ActivityTimerReset `(v  1 e 0 0 ]
+{
+"112
+} 0
+"232 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\RF.c
+[v _RF_LoadCode RF_LoadCode `(v  1 e 0 0 ]
+{
+"235
+[v RF_LoadCode@High High `d  1 a 3 29 ]
+"234
+[v RF_LoadCode@Low Low `d  1 a 3 26 ]
+"244
+} 0
 "251
-[v RF_LoadDefaultCode@Low Low `d  1 a 3 11 ]
-"262
+[v _RF_CalculateCodesize RF_CalculateCodesize `(uc  1 e 1 0 ]
+{
+"253
+[v RF_CalculateCodesize@i i `uc  1 a 1 0 ]
+"263
 } 0
 "104 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MOTOR.c
 [v _MTR_Rotate MTR_Rotate `(v  1 e 0 0 ]
@@ -727,7 +809,7 @@
 [v MTR_IN2@state state `uc  1 a 1 wreg ]
 [v MTR_IN2@state state `uc  1 a 1 wreg ]
 "73
-[v MTR_IN2@state state `uc  1 a 1 49 ]
+[v MTR_IN2@state state `uc  1 a 1 0 ]
 "81
 } 0
 "54
@@ -736,34 +818,35 @@
 [v MTR_IN1@state state `uc  1 a 1 wreg ]
 [v MTR_IN1@state state `uc  1 a 1 wreg ]
 "56
-[v MTR_IN1@state state `uc  1 a 1 49 ]
+[v MTR_IN1@state state `uc  1 a 1 0 ]
 "64
 } 0
 "1158 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
 [v _MSC_BlinkLED MSC_BlinkLED `(v  1 e 0 0 ]
 {
 "1160
-[v MSC_BlinkLED@i i `ui  1 a 2 9 ]
+[v MSC_BlinkLED@i i `ui  1 a 2 19 ]
 "1158
-[v MSC_BlinkLED@blink blink `ui  1 p 2 5 ]
+[v MSC_BlinkLED@blink blink `ui  1 p 2 13 ]
+[v MSC_BlinkLED@speed speed `ui  1 p 2 15 ]
 "1167
 } 0
 "47
 [v _MSC_DelayMS MSC_DelayMS `(v  1 e 0 0 ]
 {
 "49
-[v MSC_DelayMS@i i `l  1 a 4 1 ]
+[v MSC_DelayMS@i i `l  1 a 4 9 ]
 "47
-[v MSC_DelayMS@US US `l  1 p 4 53 ]
+[v MSC_DelayMS@US US `l  1 p 4 4 ]
 "55
 } 0
 "62
 [v _MSC_DelayNOP MSC_DelayNOP `(v  1 e 0 0 ]
 {
 "64
-[v MSC_DelayNOP@i i `ui  1 a 2 51 ]
+[v MSC_DelayNOP@i i `ui  1 a 2 2 ]
 "62
-[v MSC_DelayNOP@NOPs NOPs `ui  1 p 2 49 ]
+[v MSC_DelayNOP@NOPs NOPs `ui  1 p 2 0 ]
 "69
 } 0
 "153 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\USER.c
@@ -787,7 +870,7 @@
 [v TMR_Timer2Int@state state `uc  1 a 1 wreg ]
 [v TMR_Timer2Int@state state `uc  1 a 1 wreg ]
 "248
-[v TMR_Timer2Int@state state `uc  1 a 1 49 ]
+[v TMR_Timer2Int@state state `uc  1 a 1 0 ]
 "258
 } 0
 "125
@@ -796,7 +879,7 @@
 [v TMR_Timer2@state state `uc  1 a 1 wreg ]
 [v TMR_Timer2@state state `uc  1 a 1 wreg ]
 "127
-[v TMR_Timer2@state state `uc  1 a 1 49 ]
+[v TMR_Timer2@state state `uc  1 a 1 0 ]
 "137
 } 0
 "333
@@ -810,7 +893,7 @@
 [v TMR_Timer1Int@state state `uc  1 a 1 wreg ]
 [v TMR_Timer1Int@state state `uc  1 a 1 wreg ]
 "229
-[v TMR_Timer1Int@state state `uc  1 a 1 49 ]
+[v TMR_Timer1Int@state state `uc  1 a 1 0 ]
 "239
 } 0
 "402
@@ -819,7 +902,7 @@
 [v TMR_Timer1Function@mode mode `uc  1 a 1 wreg ]
 [v TMR_Timer1Function@mode mode `uc  1 a 1 wreg ]
 "404
-[v TMR_Timer1Function@mode mode `uc  1 a 1 51 ]
+[v TMR_Timer1Function@mode mode `uc  1 a 1 2 ]
 "416
 } 0
 "265
@@ -828,14 +911,14 @@
 [v TMR_Timer1Osc@state state `uc  1 a 1 wreg ]
 [v TMR_Timer1Osc@state state `uc  1 a 1 wreg ]
 "267
-[v TMR_Timer1Osc@state state `uc  1 a 1 49 ]
+[v TMR_Timer1Osc@state state `uc  1 a 1 0 ]
 "279
 } 0
 "162
 [v _TMR_ResetTimer1 TMR_ResetTimer1 `T(v  1 e 0 0 ]
 {
 "164
-[v TMR_ResetTimer1@TimerOn TimerOn `uc  1 a 1 50 ]
+[v TMR_ResetTimer1@TimerOn TimerOn `uc  1 a 1 1 ]
 "173
 } 0
 "106
@@ -844,7 +927,7 @@
 [v TMR_Timer1@state state `uc  1 a 1 wreg ]
 [v TMR_Timer1@state state `uc  1 a 1 wreg ]
 "108
-[v TMR_Timer1@state state `uc  1 a 1 49 ]
+[v TMR_Timer1@state state `uc  1 a 1 0 ]
 "118
 } 0
 "316
@@ -858,14 +941,14 @@
 [v TMR_Timer0Int@state state `uc  1 a 1 wreg ]
 [v TMR_Timer0Int@state state `uc  1 a 1 wreg ]
 "210
-[v TMR_Timer0Int@state state `uc  1 a 1 49 ]
+[v TMR_Timer0Int@state state `uc  1 a 1 0 ]
 "220
 } 0
 "144
 [v _TMR_ResetTimer0 TMR_ResetTimer0 `T(v  1 e 0 0 ]
 {
 "146
-[v TMR_ResetTimer0@TimerOn TimerOn `uc  1 a 1 50 ]
+[v TMR_ResetTimer0@TimerOn TimerOn `uc  1 a 1 1 ]
 "155
 } 0
 "87
@@ -874,7 +957,7 @@
 [v TMR_Timer0@state state `uc  1 a 1 wreg ]
 [v TMR_Timer0@state state `uc  1 a 1 wreg ]
 "89
-[v TMR_Timer0@state state `uc  1 a 1 49 ]
+[v TMR_Timer0@state state `uc  1 a 1 0 ]
 "99
 } 0
 "177 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\RF.c
@@ -888,7 +971,7 @@
 [v RF_SetSquelch@state state `uc  1 a 1 wreg ]
 [v RF_SetSquelch@state state `uc  1 a 1 wreg ]
 "155
-[v RF_SetSquelch@state state `uc  1 a 1 49 ]
+[v RF_SetSquelch@state state `uc  1 a 1 0 ]
 "165
 } 0
 "119
@@ -897,7 +980,7 @@
 [v RF_SetBandwidth@band band `uc  1 a 1 wreg ]
 [v RF_SetBandwidth@band band `uc  1 a 1 wreg ]
 "121
-[v RF_SetBandwidth@band band `uc  1 a 1 49 ]
+[v RF_SetBandwidth@band band `uc  1 a 1 0 ]
 "145
 } 0
 "100
@@ -906,7 +989,7 @@
 [v RF_Receiver@state state `uc  1 a 1 wreg ]
 [v RF_Receiver@state state `uc  1 a 1 wreg ]
 "102
-[v RF_Receiver@state state `uc  1 a 1 49 ]
+[v RF_Receiver@state state `uc  1 a 1 0 ]
 "112
 } 0
 "78
@@ -915,7 +998,7 @@
 [v RF_DataInt@state state `uc  1 a 1 wreg ]
 [v RF_DataInt@state state `uc  1 a 1 wreg ]
 "80
-[v RF_DataInt@state state `uc  1 a 1 49 ]
+[v RF_DataInt@state state `uc  1 a 1 0 ]
 "92
 } 0
 "92 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MOTOR.c
@@ -934,18 +1017,28 @@
 [v LDO_Pass@state state `uc  1 a 1 wreg ]
 [v LDO_Pass@state state `uc  1 a 1 wreg ]
 "54
-[v LDO_Pass@state state `uc  1 a 1 49 ]
+[v LDO_Pass@state state `uc  1 a 1 0 ]
 "65
 } 0
-"69 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
+"70 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
 [v _InitIR InitIR `(v  1 e 0 0 ]
 {
-"72
+"73
 } 0
-"55 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\FLASH.c
+"166 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
+[v _MSC_CleanBufferInt MSC_CleanBufferInt `(v  1 e 0 0 ]
+{
+"168
+[v MSC_CleanBufferInt@i i `ui  1 a 2 4 ]
+"166
+[v MSC_CleanBufferInt@data data `*.39ui  1 p 2 0 ]
+[v MSC_CleanBufferInt@count count `ui  1 p 2 2 ]
+"173
+} 0
+"74 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\FLASH.c
 [v _InitFlash InitFlash `(v  1 e 0 0 ]
 {
-"58
+"78
 } 0
 "78 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\BUTTON.c
 [v _InitButton InitButton `(v  1 e 0 0 ]
@@ -956,7 +1049,7 @@
 [v _BUT_ReadButton BUT_ReadButton `(uc  1 e 1 0 ]
 {
 "94
-[v BUT_ReadButton@value value `uc  1 a 1 49 ]
+[v BUT_ReadButton@value value `uc  1 a 1 0 ]
 "113
 } 0
 "55
@@ -965,7 +1058,7 @@
 [v BUT_IR_PinChangeInt@state state `uc  1 a 1 wreg ]
 [v BUT_IR_PinChangeInt@state state `uc  1 a 1 wreg ]
 "57
-[v BUT_IR_PinChangeInt@state state `uc  1 a 1 49 ]
+[v BUT_IR_PinChangeInt@state state `uc  1 a 1 0 ]
 "67
 } 0
 "122 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\ADC.c
@@ -979,7 +1072,7 @@
 [v ADC_Module@state state `uc  1 a 1 wreg ]
 [v ADC_Module@state state `uc  1 a 1 wreg ]
 "58
-[v ADC_Module@state state `uc  1 a 1 49 ]
+[v ADC_Module@state state `uc  1 a 1 0 ]
 "68
 } 0
 "99
@@ -988,7 +1081,7 @@
 [v ADC_ConversionInt@state state `uc  1 a 1 wreg ]
 [v ADC_ConversionInt@state state `uc  1 a 1 wreg ]
 "101
-[v ADC_ConversionInt@state state `uc  1 a 1 49 ]
+[v ADC_ConversionInt@state state `uc  1 a 1 0 ]
 "111
 } 0
 "166
@@ -996,97 +1089,106 @@
 {
 "178
 } 0
-"79 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
+"80 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
 [v _IR_ReadReceiver IR_ReadReceiver `(uc  1 e 1 0 ]
 {
-"81
-[v IR_ReadReceiver@value value `uc  1 a 1 49 ]
-"99
+"82
+[v IR_ReadReceiver@value value `uc  1 a 1 0 ]
+"100
 } 0
 "72 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\USER.c
 [v _Init_App Init_App `(v  1 e 0 0 ]
 {
 "146
 } 0
-"145 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
-[v _IR_LoadDefaultCode IR_LoadDefaultCode `(v  1 e 0 0 ]
+"129 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
+[v _IR_LoadCode IR_LoadCode `(v  1 e 0 0 ]
 {
-"148
-[v IR_LoadDefaultCode@High High `d  1 a 3 14 ]
-"147
-[v IR_LoadDefaultCode@Low Low `d  1 a 3 11 ]
-"158
+"132
+[v IR_LoadCode@High High `d  1 a 3 29 ]
+"131
+[v IR_LoadCode@Low Low `d  1 a 3 26 ]
+"141
+} 0
+"28 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+{
+[v ___lwtoft@c c `ui  1 p 2 8 ]
+"31
 } 0
 "44 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fttol.c
 [v ___fttol __fttol `(l  1 e 4 0 ]
 {
 "47
-[v ___fttol@lval lval `ul  1 a 4 6 ]
+[v ___fttol@lval lval `ul  1 a 4 10 ]
 "46
-[v ___fttol@exp1 exp1 `uc  1 a 1 10 ]
-[v ___fttol@sign1 sign1 `uc  1 a 1 5 ]
+[v ___fttol@exp1 exp1 `uc  1 a 1 14 ]
+[v ___fttol@sign1 sign1 `uc  1 a 1 9 ]
 "44
-[v ___fttol@f1 f1 `f  1 p 3 49 ]
+[v ___fttol@f1 f1 `f  1 p 3 0 ]
 "73
 } 0
-"238 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
-[v _MSC_BufferCopyIntConst MSC_BufferCopyIntConst `(v  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
 {
-"240
-[v MSC_BufferCopyIntConst@i i `ui  1 a 2 55 ]
-"238
-[v MSC_BufferCopyIntConst@from from `*.25Cui  1 p 2 0 ]
-[v MSC_BufferCopyIntConst@to to `*.39ui  1 p 2 2 ]
-[v MSC_BufferCopyIntConst@count count `ui  1 p 2 4 ]
-[v MSC_BufferCopyIntConst@shift shift `ui  1 p 2 6 ]
-"254
+"65
+[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 21 ]
+"64
+[v ___ftmul@sign sign `uc  1 a 1 25 ]
+[v ___ftmul@cntr cntr `uc  1 a 1 24 ]
+[v ___ftmul@exp exp `uc  1 a 1 20 ]
+"62
+[v ___ftmul@f1 f1 `f  1 p 3 11 ]
+[v ___ftmul@f2 f2 `f  1 p 3 14 ]
+"157
 } 0
-"166
-[v _MSC_CleanBufferInt MSC_CleanBufferInt `(v  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
 {
-"168
-[v MSC_CleanBufferInt@i i `ui  1 a 2 53 ]
-"166
-[v MSC_CleanBufferInt@data data `*.39ui  1 p 2 49 ]
-[v MSC_CleanBufferInt@count count `ui  1 p 2 51 ]
-"173
+[v ___ftpack@arg arg `um  1 p 3 0 ]
+[v ___ftpack@exp exp `uc  1 p 1 3 ]
+[v ___ftpack@sign sign `uc  1 p 1 4 ]
+"86
+} 0
+"148 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
+[v _IR_CalculateCodesize IR_CalculateCodesize `(uc  1 e 1 0 ]
+{
+"150
+[v IR_CalculateCodesize@i i `uc  1 a 1 0 ]
+"160
 } 0
 "75 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\ADC.c
 [v _ADC_Start ADC_Start `T(v  1 e 0 0 ]
 {
 "78
 } 0
-"127 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\INTERRUPTS.c
+"122 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\INTERRUPTS.c
 [v _low_isr low_isr `IIL(v  1 e 0 0 ]
 {
-"131
+"126
 [v low_isr@IRtemp IRtemp `ui  1 a 2 69 ]
-"129
+"124
 [v low_isr@button_state button_state `uc  1 a 1 68 ]
-"130
+"125
 [v low_isr@IR_state IR_state `uc  1 a 1 67 ]
-"302
+"285
 } 0
-"79 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
+"109 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\SYSTEM.c
+[v i1_SYS_ActivityTimerReset SYS_ActivityTimerReset `(v  1 e 0 0 ]
+{
+"112
+} 0
+"80 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
 [v i1_IR_ReadReceiver IR_ReadReceiver `(uc  1 e 1 0 ]
 {
 [v i1IR_ReadReceiver@value IR_ReadReceiver `uc  1 a 1 0 ]
-"99
+"100
 } 0
 "92 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\BUTTON.c
 [v i1_BUT_ReadButton BUT_ReadButton `(uc  1 e 1 0 ]
 {
 [v i1BUT_ReadButton@value BUT_ReadButton `uc  1 a 1 0 ]
 "113
-} 0
-"55
-[v i1_BUT_IR_PinChangeInt BUT_IR_PinChangeInt `T(v  1 e 0 0 ]
-{
-[v i1BUT_IR_PinChangeInt@state state `uc  1 a 1 wreg ]
-[v i1BUT_IR_PinChangeInt@state state `uc  1 a 1 wreg ]
-"57
-[v i1BUT_IR_PinChangeInt@state state `uc  1 a 1 0 ]
-"67
 } 0
 "387 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\TIMERS.c
 [v _TMR_Timer2Start TMR_Timer2Start `(v  1 e 0 0 ]
@@ -1149,10 +1251,77 @@
 [v i1TMR_Timer0@state state `uc  1 a 1 0 ]
 "99
 } 0
-"106 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
+"119 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
+[v _IR_CleanBuffer IR_CleanBuffer `(v  1 e 0 0 ]
+{
+"122
+} 0
+"168
+[v _IR_CheckCode IR_CheckCode `(uc  1 e 1 0 ]
+{
+"172
+[v IR_CheckCode@High High `d  1 a 3 46 ]
+"171
+[v IR_CheckCode@Low Low `d  1 a 3 43 ]
+"170
+[v IR_CheckCode@i i `uc  1 a 1 49 ]
+"234
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftge.c
+[v i1___ftge __ftge `(b  1 e 0 0 ]
+{
+[v i1___ftge@ff1 ff1 `f  1 p 3 11 ]
+[v i1___ftge@ff2 ff2 `f  1 p 3 14 ]
+"13
+} 0
+"183 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\FLASH.c
+[v _FSH_Write_IR_RF FSH_Write_IR_RF `(uc  1 e 1 0 ]
+{
+"185
+[v FSH_Write_IR_RF@i i `ui  1 a 2 32 ]
+"191
+[v FSH_Write_IR_RF@FlashWasteindex FlashWasteindex `ui  1 a 2 28 ]
+"189
+[v FSH_Write_IR_RF@WriteTries WriteTries `uc  1 a 1 34 ]
+"190
+[v FSH_Write_IR_RF@status status `uc  1 a 1 31 ]
+"186
+[v FSH_Write_IR_RF@j j `uc  1 a 1 30 ]
+"188
+[v FSH_Write_IR_RF@lowint lowint `uc  1 a 1 27 ]
+"187
+[v FSH_Write_IR_RF@highint highint `uc  1 a 1 26 ]
+"456
+} 0
+"221 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\RF.c
+[v _RF_ResetData RF_ResetData `(v  1 e 0 0 ]
+{
+"225
+} 0
+"238 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
+[v _MSC_BufferCopyIntConst MSC_BufferCopyIntConst `(v  1 e 0 0 ]
+{
+"240
+[v MSC_BufferCopyIntConst@i i `ui  1 a 2 15 ]
+"238
+[v MSC_BufferCopyIntConst@from from `*.33Cui  1 p 3 6 ]
+[v MSC_BufferCopyIntConst@to to `*.39ui  1 p 2 9 ]
+[v MSC_BufferCopyIntConst@count count `ui  1 p 2 11 ]
+[v MSC_BufferCopyIntConst@shift shift `ui  1 p 2 13 ]
+"254
+} 0
+"166
+[v i1_MSC_CleanBufferInt MSC_CleanBufferInt `(v  1 e 0 0 ]
+{
+[v i1MSC_CleanBufferInt@i MSC_CleanBufferInt `ui  1 a 2 4 ]
+[v i1MSC_CleanBufferInt@data data `*.39ui  1 p 2 0 ]
+[v i1MSC_CleanBufferInt@count count `ui  1 p 2 2 ]
+"173
+} 0
+"107 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
 [v _IR_ResetData IR_ResetData `(v  1 e 0 0 ]
 {
-"111
+"112
 } 0
 "206 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\RF.c
 [v _RF_Enable RF_Enable `(v  1 e 0 0 ]
@@ -1177,48 +1346,62 @@
 [v i1RF_DataInt@state state `uc  1 a 1 0 ]
 "92
 } 0
-"118 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
-[v _IR_CleanBuffer IR_CleanBuffer `(v  1 e 0 0 ]
+"135 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\FLASH.c
+[v _FSH_WriteIntArray FSH_WriteIntArray `(v  1 e 0 0 ]
 {
-"121
+"137
+[v FSH_WriteIntArray@i i `uc  1 a 1 12 ]
+"135
+[v FSH_WriteIntArray@Array Array `*.33ui  1 p 3 4 ]
+"156
 } 0
-"166
-[v _IR_CheckCode IR_CheckCode `(uc  1 e 1 0 ]
+"163
+[v _FSH_VerifyWriteIntArray FSH_VerifyWriteIntArray `(uc  1 e 1 0 ]
 {
-"170
-[v IR_CheckCode@High High `d  1 a 3 46 ]
-"169
-[v IR_CheckCode@Low Low `d  1 a 3 43 ]
-"168
-[v IR_CheckCode@i i `uc  1 a 1 49 ]
-"209
+"165
+[v FSH_VerifyWriteIntArray@i i `uc  1 a 1 10 ]
+"163
+[v FSH_VerifyWriteIntArray@ConstArray ConstArray `*.33Cui  1 p 3 0 ]
+[v FSH_VerifyWriteIntArray@Array Array `*.39ui  1 p 2 3 ]
+"175
 } 0
-"4 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftge.c
-[v i1___ftge __ftge `(b  1 e 0 0 ]
+"86
+[v _FSH_EraseBlock FSH_EraseBlock `(v  1 e 0 0 ]
 {
-[v i1___ftge@ff1 ff1 `f  1 p 3 11 ]
-[v i1___ftge@ff2 ff2 `f  1 p 3 14 ]
-"13
+"90
+[v FSH_EraseBlock@WriteTries WriteTries `uc  1 a 1 19 ]
+"89
+[v FSH_EraseBlock@lowint lowint `uc  1 a 1 18 ]
+"88
+[v FSH_EraseBlock@highint highint `uc  1 a 1 17 ]
+"86
+[v FSH_EraseBlock@Address Address `ul  1 p 4 13 ]
+"128
 } 0
-"215 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
-[v _MSC_BufferCopyInt MSC_BufferCopyInt `(v  1 e 0 0 ]
+"47 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
+[v i1_MSC_DelayMS MSC_DelayMS `(v  1 e 0 0 ]
 {
-"217
-[v MSC_BufferCopyInt@i i `ui  1 a 2 16 ]
-"215
-[v MSC_BufferCopyInt@from from `*.39ui  1 p 2 6 ]
-[v MSC_BufferCopyInt@to to `*.39ui  1 p 2 8 ]
-[v MSC_BufferCopyInt@count count `ui  1 p 2 10 ]
-[v MSC_BufferCopyInt@shift shift `ui  1 p 2 12 ]
-"231
+[v i1MSC_DelayMS@i MSC_DelayMS `l  1 a 4 9 ]
+[v i1MSC_DelayMS@US US `l  1 p 4 4 ]
+"55
 } 0
-"166
-[v i1_MSC_CleanBufferInt MSC_CleanBufferInt `(v  1 e 0 0 ]
+"62
+[v i1_MSC_DelayNOP MSC_DelayNOP `(v  1 e 0 0 ]
 {
-[v i1MSC_CleanBufferInt@i MSC_CleanBufferInt `ui  1 a 2 4 ]
-[v i1MSC_CleanBufferInt@data data `*.39ui  1 p 2 0 ]
-[v i1MSC_CleanBufferInt@count count `ui  1 p 2 2 ]
-"173
+[v i1MSC_DelayNOP@i MSC_DelayNOP `ui  1 a 2 2 ]
+[v i1MSC_DelayNOP@NOPs NOPs `ui  1 p 2 0 ]
+"69
+} 0
+"57 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\FLASH.c
+[v _FSH_Sequence FSH_Sequence `T(v  1 e 0 0 ]
+{
+"63
+} 0
+"464
+[v _FSH_AddressToBlock FSH_AddressToBlock `(v  1 e 0 0 ]
+{
+[v FSH_AddressToBlock@Address Address `ul  1 p 4 0 ]
+"469
 } 0
 "140 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\ADC.c
 [v _ADC_CalculateVoltage ADC_CalculateVoltage `(v  1 e 0 0 ]
@@ -1229,30 +1412,27 @@
 [v ADC_CalculateVoltage@ADCcounts ADCcounts `ui  1 a 2 41 ]
 "159
 } 0
-"166
-[v i1_ADC_ChangeChannel ADC_ChangeChannel `(v  1 e 0 0 ]
-{
-"178
-} 0
 "28 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwtoft.c
-[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+[v i1___lwtoft __lwtoft `(f  1 e 3 0 ]
 {
-[v ___lwtoft@c c `ui  1 p 2 8 ]
+[v i1___lwtoft@c c `ui  1 p 2 8 ]
 "31
 } 0
 "62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftmul.c
-[v ___ftmul __ftmul `(f  1 e 3 0 ]
+[v i1___ftmul __ftmul `(f  1 e 3 0 ]
 {
-"65
-[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 36 ]
-"64
-[v ___ftmul@sign sign `uc  1 a 1 40 ]
-[v ___ftmul@cntr cntr `uc  1 a 1 39 ]
-[v ___ftmul@exp exp `uc  1 a 1 35 ]
-"62
-[v ___ftmul@f1 f1 `f  1 p 3 26 ]
-[v ___ftmul@f2 f2 `f  1 p 3 29 ]
+[v i1___ftmul@f3_as_product __ftmul `um  1 a 3 36 ]
+[v i1___ftmul@sign __ftmul `uc  1 a 1 40 ]
+[v i1___ftmul@cntr __ftmul `uc  1 a 1 39 ]
+[v i1___ftmul@exp __ftmul `uc  1 a 1 35 ]
+[v i1___ftmul@f1 f1 `f  1 p 3 26 ]
+[v i1___ftmul@f2 f2 `f  1 p 3 29 ]
 "157
+} 0
+"166 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\ADC.c
+[v i1_ADC_ChangeChannel ADC_ChangeChannel `(v  1 e 0 0 ]
+{
+"178
 } 0
 "54 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 3 0 ]
@@ -1269,19 +1449,24 @@
 "86
 } 0
 "62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\float.c
-[v ___ftpack __ftpack `(f  1 e 3 0 ]
+[v i1___ftpack __ftpack `(f  1 e 3 0 ]
 {
-[v ___ftpack@arg arg `um  1 p 3 0 ]
-[v ___ftpack@exp exp `uc  1 p 1 3 ]
-[v ___ftpack@sign sign `uc  1 p 1 4 ]
+[v i1___ftpack@arg arg `um  1 p 3 0 ]
+[v i1___ftpack@exp exp `uc  1 p 1 3 ]
+[v i1___ftpack@sign sign `uc  1 p 1 4 ]
 "86
 } 0
 "48 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\INTERRUPTS.c
 [v _high_isr high_isr `II(v  1 e 0 0 ]
 {
 "50
-[v high_isr@RFtemp RFtemp `ui  1 a 2 47 ]
-"122
+[v high_isr@RFtemp RFtemp `ui  1 a 2 58 ]
+"117
+} 0
+"109 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\SYSTEM.c
+[v i2_SYS_ActivityTimerReset SYS_ActivityTimerReset `(v  1 e 0 0 ]
+{
+"112
 } 0
 "56 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\TIMERS.c
 [v _TMR_Timer0Status TMR_Timer0Status `T(uc  1 e 1 0 ]
@@ -1308,21 +1493,16 @@
 [v i2TMR_Timer0@state state `uc  1 a 1 0 ]
 "99
 } 0
-"221 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\RF.c
-[v _RF_ResetData RF_ResetData `(v  1 e 0 0 ]
-{
-"225
-} 0
-"270
+"271 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\RF.c
 [v _RF_CheckCode RF_CheckCode `(uc  1 e 1 0 ]
 {
+"275
+[v RF_CheckCode@High High `d  1 a 3 40 ]
 "274
-[v RF_CheckCode@High High `d  1 a 3 29 ]
+[v RF_CheckCode@Low Low `d  1 a 3 37 ]
 "273
-[v RF_CheckCode@Low Low `d  1 a 3 26 ]
-"272
-[v RF_CheckCode@i i `uc  1 a 1 32 ]
-"308
+[v RF_CheckCode@i i `uc  1 a 1 43 ]
+"325
 } 0
 "28 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwtoft.c
 [v i2___lwtoft __lwtoft `(f  1 e 3 0 ]
@@ -1356,15 +1536,32 @@
 [v i2___ftge@ff2 ff2 `f  1 p 3 14 ]
 "13
 } 0
-"215 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
-[v i2_MSC_BufferCopyInt MSC_BufferCopyInt `(v  1 e 0 0 ]
+"183 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\FLASH.c
+[v i2_FSH_Write_IR_RF FSH_Write_IR_RF `(uc  1 e 1 0 ]
 {
-[v i2MSC_BufferCopyInt@i MSC_BufferCopyInt `ui  1 a 2 16 ]
-[v i2MSC_BufferCopyInt@from from `*.39ui  1 p 2 6 ]
-[v i2MSC_BufferCopyInt@to to `*.39ui  1 p 2 8 ]
-[v i2MSC_BufferCopyInt@count count `ui  1 p 2 10 ]
-[v i2MSC_BufferCopyInt@shift shift `ui  1 p 2 12 ]
-"231
+[v i2FSH_Write_IR_RF@i FSH_Write_IR_RF `ui  1 a 2 32 ]
+[v i2FSH_Write_IR_RF@FlashWasteindex FSH_Write_IR_RF `ui  1 a 2 28 ]
+[v i2FSH_Write_IR_RF@WriteTries FSH_Write_IR_RF `uc  1 a 1 34 ]
+[v i2FSH_Write_IR_RF@status FSH_Write_IR_RF `uc  1 a 1 31 ]
+[v i2FSH_Write_IR_RF@j FSH_Write_IR_RF `uc  1 a 1 30 ]
+[v i2FSH_Write_IR_RF@lowint FSH_Write_IR_RF `uc  1 a 1 27 ]
+[v i2FSH_Write_IR_RF@highint FSH_Write_IR_RF `uc  1 a 1 26 ]
+"456
+} 0
+"221 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\RF.c
+[v i2_RF_ResetData RF_ResetData `(v  1 e 0 0 ]
+{
+"225
+} 0
+"238 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
+[v i2_MSC_BufferCopyIntConst MSC_BufferCopyIntConst `(v  1 e 0 0 ]
+{
+[v i2MSC_BufferCopyIntConst@i MSC_BufferCopyIntConst `ui  1 a 2 15 ]
+[v i2MSC_BufferCopyIntConst@from from `*.33Cui  1 p 3 6 ]
+[v i2MSC_BufferCopyIntConst@to to `*.39ui  1 p 2 9 ]
+[v i2MSC_BufferCopyIntConst@count count `ui  1 p 2 11 ]
+[v i2MSC_BufferCopyIntConst@shift shift `ui  1 p 2 13 ]
+"254
 } 0
 "166
 [v i2_MSC_CleanBufferInt MSC_CleanBufferInt `(v  1 e 0 0 ]
@@ -1373,4 +1570,81 @@
 [v i2MSC_CleanBufferInt@data data `*.39ui  1 p 2 0 ]
 [v i2MSC_CleanBufferInt@count count `ui  1 p 2 2 ]
 "173
+} 0
+"107 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\IR.c
+[v i2_IR_ResetData IR_ResetData `(v  1 e 0 0 ]
+{
+"112
+} 0
+"206 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\RF.c
+[v i2_RF_Enable RF_Enable `(v  1 e 0 0 ]
+{
+"213
+} 0
+"208 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\TIMERS.c
+[v i2_TMR_Timer0Int TMR_Timer0Int `T(v  1 e 0 0 ]
+{
+[v i2TMR_Timer0Int@state state `uc  1 a 1 wreg ]
+[v i2TMR_Timer0Int@state state `uc  1 a 1 wreg ]
+"210
+[v i2TMR_Timer0Int@state state `uc  1 a 1 0 ]
+"220
+} 0
+"78 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\RF.c
+[v i2_RF_DataInt RF_DataInt `T(v  1 e 0 0 ]
+{
+[v i2RF_DataInt@state state `uc  1 a 1 wreg ]
+[v i2RF_DataInt@state state `uc  1 a 1 wreg ]
+"80
+[v i2RF_DataInt@state state `uc  1 a 1 0 ]
+"92
+} 0
+"135 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\FLASH.c
+[v i2_FSH_WriteIntArray FSH_WriteIntArray `(v  1 e 0 0 ]
+{
+[v i2FSH_WriteIntArray@i FSH_WriteIntArray `uc  1 a 1 12 ]
+[v i2FSH_WriteIntArray@Array Array `*.33ui  1 p 3 4 ]
+"156
+} 0
+"163
+[v i2_FSH_VerifyWriteIntArray FSH_VerifyWriteIntArray `(uc  1 e 1 0 ]
+{
+[v i2FSH_VerifyWriteIntArray@i FSH_VerifyWriteIntArray `uc  1 a 1 10 ]
+[v i2FSH_VerifyWriteIntArray@ConstArray ConstArray `*.33Cui  1 p 3 0 ]
+[v i2FSH_VerifyWriteIntArray@Array Array `*.39ui  1 p 2 3 ]
+"175
+} 0
+"86
+[v i2_FSH_EraseBlock FSH_EraseBlock `(v  1 e 0 0 ]
+{
+[v i2FSH_EraseBlock@WriteTries FSH_EraseBlock `uc  1 a 1 19 ]
+[v i2FSH_EraseBlock@lowint FSH_EraseBlock `uc  1 a 1 18 ]
+[v i2FSH_EraseBlock@highint FSH_EraseBlock `uc  1 a 1 17 ]
+[v i2FSH_EraseBlock@Address Address `ul  1 p 4 13 ]
+"128
+} 0
+"47 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\MISC.c
+[v i2_MSC_DelayMS MSC_DelayMS `(v  1 e 0 0 ]
+{
+[v i2MSC_DelayMS@i MSC_DelayMS `l  1 a 4 9 ]
+[v i2MSC_DelayMS@US US `l  1 p 4 4 ]
+"55
+} 0
+"62
+[v i2_MSC_DelayNOP MSC_DelayNOP `(v  1 e 0 0 ]
+{
+[v i2MSC_DelayNOP@i MSC_DelayNOP `ui  1 a 2 2 ]
+[v i2MSC_DelayNOP@NOPs NOPs `ui  1 p 2 0 ]
+"69
+} 0
+"57 C:\Users\dwhitfield\Documents\GitHub\PIC_LazySwitch\FLASH.c
+[v i2_FSH_Sequence FSH_Sequence `T(v  1 e 0 0 ]
+{
+"63
+} 0
+"464
+[v i2_FSH_AddressToBlock FSH_AddressToBlock `(v  1 e 0 0 ]
+{
+[v i2FSH_AddressToBlock@Address Address `ul  1 p 4 0 ]
+"469
 } 0

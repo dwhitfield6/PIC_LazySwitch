@@ -10,40 +10,42 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S377 . . . ]
 "6227
 [v _INTCON3bits `VS377 ~T0 @X0 0 e@4080 ]
-[v F4449 `(uc ~T0 @X0 1 tf ]
+[v F4447 `(uc ~T0 @X0 1 tf ]
 "69 TIMERS.h
-[v _TMR_Timer0Status `TF4449 ~T0 @X0 0 e ]
+[v _TMR_Timer0Status `TF4447 ~T0 @X0 0 e ]
 "85
 [v _TMR_Timer0Start `(v ~T0 @X0 0 ef ]
 "5954 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
 [v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
 "5960
 [v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
-[v F4464 `(v ~T0 @X0 1 tf ]
+[v F4462 `(v ~T0 @X0 1 tf ]
 "74 TIMERS.h
-[v _TMR_ResetTimer0 `TF4464 ~T0 @X0 0 e ]
-"179 RF.h
+[v _TMR_ResetTimer0 `TF4462 ~T0 @X0 0 e ]
+"160 RF.h
 [v _RFStarted `uc ~T0 @X0 0 e ]
-"62 SYSTEM.h
+"69 SYSTEM.h
 [v _System_State `uc ~T0 @X0 0 e ]
-"180 RF.h
+"161 RF.h
 [v _RF_SyncLow `ui ~T0 @X0 0 e ]
-"181
+"162
 [v _RF_SyncHigh `ui ~T0 @X0 0 e ]
-"178
+"79 SYSTEM.h
+[v _SYS_ActivityTimerReset `(v ~T0 @X0 0 ef ]
+"159 RF.h
 [v _RF_DataPlace `uc ~T0 @X0 0 e ]
-"176
+"158
 [v _RF_DataTiming `ui ~T0 @X0 -> 0 `x e ]
-"183
+"164
 [v _RF_CodeSize `uc ~T0 @X0 0 e ]
-"175
+"157
 [v _RF_Data `Vuc ~T0 @X0 0 e ]
-"202
+"183
 [v _RF_CheckCode `(uc ~T0 @X0 0 ef ]
-[v F4455 `(v ~T0 @X0 1 tf1`uc ]
+[v F4453 `(v ~T0 @X0 1 tf1`uc ]
 "71 TIMERS.h
-[v _TMR_Timer0 `TF4455 ~T0 @X0 0 e ]
-"199 RF.h
+[v _TMR_Timer0 `TF4453 ~T0 @X0 0 e ]
+"180 RF.h
 [v _RF_ResetData `(v ~T0 @X0 0 ef ]
 "6373 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
 [s S385 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -70,58 +72,55 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p i ___nop ]
 "77 BUTTON.h
 [v _BUT_ReadButton `(uc ~T0 @X0 0 ef ]
-"190 IR.h
+"175 IR.h
 [v _IR_ReadReceiver `(uc ~T0 @X0 0 ef ]
 "66 BUTTON.h
 [v _ButtonChange `uc ~T0 @X0 0 e ]
-[v F4199 `(v ~T0 @X0 1 tf1`uc ]
-"76
-[v _BUT_IR_PinChangeInt `TF4199 ~T0 @X0 0 e ]
-[v F4461 `(v ~T0 @X0 1 tf1`uc ]
+[v F4459 `(v ~T0 @X0 1 tf1`uc ]
 "73 TIMERS.h
-[v _TMR_Timer2 `TF4461 ~T0 @X0 0 e ]
+[v _TMR_Timer2 `TF4459 ~T0 @X0 0 e ]
 "57
 [v _Timer2Use `uc ~T0 @X0 0 e ]
 "87
 [v _TMR_Timer2Start `(v ~T0 @X0 0 ef1`ui ]
 "64 BUTTON.h
 [v _Button_Data `Vuc ~T0 @X0 0 e ]
-"180 IR.h
+"165 IR.h
 [v _IRChange `uc ~T0 @X0 0 e ]
-[v F4452 `(uc ~T0 @X0 1 tf ]
+[v F4450 `(uc ~T0 @X0 1 tf ]
 "70 TIMERS.h
-[v _TMR_Timer1Status `TF4452 ~T0 @X0 0 e ]
+[v _TMR_Timer1Status `TF4450 ~T0 @X0 0 e ]
 "86
 [v _TMR_Timer1Start `(v ~T0 @X0 0 ef ]
 "5667 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
 [v _TMR1L `Vuc ~T0 @X0 0 e@4046 ]
 "5673
 [v _TMR1H `Vuc ~T0 @X0 0 e@4047 ]
-[v F4467 `(v ~T0 @X0 1 tf ]
+[v F4465 `(v ~T0 @X0 1 tf ]
 "75 TIMERS.h
-[v _TMR_ResetTimer1 `TF4467 ~T0 @X0 0 e ]
-"174 IR.h
+[v _TMR_ResetTimer1 `TF4465 ~T0 @X0 0 e ]
+"159 IR.h
 [v _IRStarted `uc ~T0 @X0 0 e ]
-"175
+"160
 [v _IR_SyncLow `ui ~T0 @X0 0 e ]
-"176
+"161
 [v _IR_SyncHigh `ui ~T0 @X0 0 e ]
-"203 RF.h
+"184 RF.h
 [v _RF_Disable `(v ~T0 @X0 0 ef ]
-"173 IR.h
+"158 IR.h
 [v _IR_DataPlace `uc ~T0 @X0 0 e ]
-"171
+"157
 [v _IR_DataTiming `ui ~T0 @X0 -> 0 `x e ]
-"178
+"163
 [v _IR_CodeSize `uc ~T0 @X0 0 e ]
-"170
+"156
 [v _IR_Data `Vuc ~T0 @X0 0 e ]
-"194
+"179
 [v _IR_CheckCode `(uc ~T0 @X0 0 ef ]
-[v F4458 `(v ~T0 @X0 1 tf1`uc ]
+[v F4456 `(v ~T0 @X0 1 tf1`uc ]
 "72 TIMERS.h
-[v _TMR_Timer1 `TF4458 ~T0 @X0 0 e ]
-"191 IR.h
+[v _TMR_Timer1 `TF4456 ~T0 @X0 0 e ]
+"176 IR.h
 [v _IR_ResetData `(v ~T0 @X0 0 ef ]
 "1715 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
 [s S83 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -138,11 +137,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Timer2PostCount `ui ~T0 @X0 0 e ]
 "58
 [v _Timer2Post `ui ~T0 @X0 0 e ]
-"63 SYSTEM.h
+"70 SYSTEM.h
 [v _System_State_Change `uc ~T0 @X0 0 e ]
 "84 ADC.h
 [v _ADC_CalculateVoltage `(v ~T0 @X0 0 ef ]
-"195 IR.h
+"180 IR.h
 [v _IR_CleanBuffer `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3916,14 +3915,42 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-"97 IR.h
-[v _PIONEER_PLUS_Timing `Cui ~T0 @X0 -> 67 `i e ]
-[i _PIONEER_PLUS_Timing
+"83 IR.h
+[v _IR_SavedTiming `Cui ~T0 @X0 -> 128 `i e@9216 ]
+[i _IR_SavedTiming
 :U ..
-"98
+"84
 -> -> 8600 `i `ui
-"99
+"85
 -> -> 4200 `i `ui
+"86
+-> -> 450 `i `ui
+"87
+-> -> 1200 `i `ui
+"88
+-> -> 450 `i `ui
+"89
+-> -> 450 `i `ui
+"90
+-> -> 450 `i `ui
+"91
+-> -> 1200 `i `ui
+"92
+-> -> 450 `i `ui
+"93
+-> -> 1200 `i `ui
+"94
+-> -> 450 `i `ui
+"95
+-> -> 450 `i `ui
+"96
+-> -> 450 `i `ui
+"97
+-> -> 1200 `i `ui
+"98
+-> -> 450 `i `ui
+"99
+-> -> 450 `i `ui
 "100
 -> -> 450 `i `ui
 "101
@@ -3939,7 +3966,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "106
 -> -> 450 `i `ui
 "107
--> -> 1200 `i `ui
+-> -> 450 `i `ui
 "108
 -> -> 450 `i `ui
 "109
@@ -3963,11 +3990,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "118
 -> -> 450 `i `ui
 "119
--> -> 1200 `i `ui
+-> -> 450 `i `ui
 "120
 -> -> 450 `i `ui
 "121
--> -> 450 `i `ui
+-> -> 1200 `i `ui
 "122
 -> -> 450 `i `ui
 "123
@@ -3983,7 +4010,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "128
 -> -> 450 `i `ui
 "129
--> -> 1200 `i `ui
+-> -> 450 `i `ui
 "130
 -> -> 450 `i `ui
 "131
@@ -4011,54 +4038,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 "142
 -> -> 450 `i `ui
 "143
--> -> 450 `i `ui
+-> -> 1200 `i `ui
 "144
 -> -> 450 `i `ui
 "145
--> -> 450 `i `ui
+-> -> 1200 `i `ui
 "146
 -> -> 450 `i `ui
 "147
--> -> 450 `i `ui
+-> -> 1200 `i `ui
 "148
 -> -> 450 `i `ui
 "149
 -> -> 1200 `i `ui
-"150
--> -> 450 `i `ui
 "151
--> -> 450 `i `ui
-"152
--> -> 450 `i `ui
-"153
--> -> 1200 `i `ui
-"154
--> -> 450 `i `ui
-"155
--> -> 450 `i `ui
-"156
--> -> 450 `i `ui
-"157
--> -> 1200 `i `ui
-"158
--> -> 450 `i `ui
-"159
--> -> 1200 `i `ui
-"160
--> -> 450 `i `ui
-"161
--> -> 1200 `i `ui
-"162
--> -> 450 `i `ui
-"163
--> -> 1200 `i `ui
-"165
 -> -> 450 `i `ui
 ..
 ]
-[; ;IR.h: 97: const unsigned int PIONEER_PLUS_Timing[67] = {
-[; ;IR.h: 98: 8600,
-[; ;IR.h: 99: 4200,
+[; ;IR.h: 83: const unsigned int IR_SavedTiming[128] __attribute__((address(0x2400)))= {
+[; ;IR.h: 84: 8600,
+[; ;IR.h: 85: 4200,
+[; ;IR.h: 86: 450,
+[; ;IR.h: 87: 1200,
+[; ;IR.h: 88: 450,
+[; ;IR.h: 89: 450,
+[; ;IR.h: 90: 450,
+[; ;IR.h: 91: 1200,
+[; ;IR.h: 92: 450,
+[; ;IR.h: 93: 1200,
+[; ;IR.h: 94: 450,
+[; ;IR.h: 95: 450,
+[; ;IR.h: 96: 450,
+[; ;IR.h: 97: 1200,
+[; ;IR.h: 98: 450,
+[; ;IR.h: 99: 450,
 [; ;IR.h: 100: 450,
 [; ;IR.h: 101: 1200,
 [; ;IR.h: 102: 450,
@@ -4066,7 +4079,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;IR.h: 104: 450,
 [; ;IR.h: 105: 1200,
 [; ;IR.h: 106: 450,
-[; ;IR.h: 107: 1200,
+[; ;IR.h: 107: 450,
 [; ;IR.h: 108: 450,
 [; ;IR.h: 109: 450,
 [; ;IR.h: 110: 450,
@@ -4078,9 +4091,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;IR.h: 116: 450,
 [; ;IR.h: 117: 450,
 [; ;IR.h: 118: 450,
-[; ;IR.h: 119: 1200,
+[; ;IR.h: 119: 450,
 [; ;IR.h: 120: 450,
-[; ;IR.h: 121: 450,
+[; ;IR.h: 121: 1200,
 [; ;IR.h: 122: 450,
 [; ;IR.h: 123: 450,
 [; ;IR.h: 124: 450,
@@ -4088,7 +4101,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;IR.h: 126: 450,
 [; ;IR.h: 127: 450,
 [; ;IR.h: 128: 450,
-[; ;IR.h: 129: 1200,
+[; ;IR.h: 129: 450,
 [; ;IR.h: 130: 450,
 [; ;IR.h: 131: 450,
 [; ;IR.h: 132: 450,
@@ -4102,47 +4115,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;IR.h: 140: 450,
 [; ;IR.h: 141: 450,
 [; ;IR.h: 142: 450,
-[; ;IR.h: 143: 450,
+[; ;IR.h: 143: 1200,
 [; ;IR.h: 144: 450,
-[; ;IR.h: 145: 450,
+[; ;IR.h: 145: 1200,
 [; ;IR.h: 146: 450,
-[; ;IR.h: 147: 450,
+[; ;IR.h: 147: 1200,
 [; ;IR.h: 148: 450,
 [; ;IR.h: 149: 1200,
-[; ;IR.h: 150: 450,
-[; ;IR.h: 151: 450,
-[; ;IR.h: 152: 450,
-[; ;IR.h: 153: 1200,
-[; ;IR.h: 154: 450,
-[; ;IR.h: 155: 450,
-[; ;IR.h: 156: 450,
-[; ;IR.h: 157: 1200,
-[; ;IR.h: 158: 450,
-[; ;IR.h: 159: 1200,
-[; ;IR.h: 160: 450,
-[; ;IR.h: 161: 1200,
-[; ;IR.h: 162: 450,
-[; ;IR.h: 163: 1200,
-[; ;IR.h: 164: 450
-[; ;IR.h: 165: };
-[; ;IR.h: 170: extern volatile unsigned char IR_Data;
-[; ;IR.h: 171: extern unsigned int IR_DataTiming[80];
-[; ;IR.h: 172: extern unsigned int IR_SavedTiming[80];
-[; ;IR.h: 173: extern unsigned char IR_DataPlace;
-[; ;IR.h: 174: extern unsigned char IRStarted;
-[; ;IR.h: 175: extern unsigned int IR_SyncLow;
-[; ;IR.h: 176: extern unsigned int IR_SyncHigh;
-[; ;IR.h: 177: extern unsigned char IR_Saved;
-[; ;IR.h: 178: extern unsigned char IR_CodeSize;
-[; ;IR.h: 179: extern unsigned char IRValue_prev;
-[; ;IR.h: 180: extern unsigned char IRChange;
-[; ;IR.h: 189: void InitIR(void);
-[; ;IR.h: 190: unsigned char IR_ReadReceiver(void);
-[; ;IR.h: 191: void IR_ResetData(void);
-[; ;IR.h: 192: void IR_CalculateNewCode(void);
-[; ;IR.h: 193: void IR_LoadDefaultCode(void);
-[; ;IR.h: 194: unsigned char IR_CheckCode(void);
-[; ;IR.h: 195: void IR_CleanBuffer(void);
+[; ;IR.h: 150: 450
+[; ;IR.h: 151: };
+[; ;IR.h: 156: extern volatile unsigned char IR_Data;
+[; ;IR.h: 157: extern unsigned int IR_DataTiming[128];
+[; ;IR.h: 158: extern unsigned char IR_DataPlace;
+[; ;IR.h: 159: extern unsigned char IRStarted;
+[; ;IR.h: 160: extern unsigned int IR_SyncLow;
+[; ;IR.h: 161: extern unsigned int IR_SyncHigh;
+[; ;IR.h: 162: extern unsigned char IR_Saved;
+[; ;IR.h: 163: extern unsigned char IR_CodeSize;
+[; ;IR.h: 164: extern unsigned char IRValue_prev;
+[; ;IR.h: 165: extern unsigned char IRChange;
+[; ;IR.h: 174: void InitIR(void);
+[; ;IR.h: 175: unsigned char IR_ReadReceiver(void);
+[; ;IR.h: 176: void IR_ResetData(void);
+[; ;IR.h: 177: void IR_LoadCode(void);
+[; ;IR.h: 178: unsigned char IR_CalculateCodesize(void);
+[; ;IR.h: 179: unsigned char IR_CheckCode(void);
+[; ;IR.h: 180: void IR_CleanBuffer(void);
 [; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
 [; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
 [; ;string.h: 24: extern void * memset(void *, int, size_t);
@@ -4169,186 +4167,185 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-"119 RF.h
-[v _CONF1_ChanE_Timing `Cui ~T0 @X0 -> 50 `i e ]
-[i _CONF1_ChanE_Timing
+"101 RF.h
+[v _RF_SavedTiming `Cui ~T0 @X0 -> 128 `i e@9472 ]
+[i _RF_SavedTiming
 :U ..
-"120
+"102
 -> -> 834 `i `ui
-"121
+"103
 -> -> 21 `i `ui
-"122
+"104
 -> -> 80 `i `ui
-"123
+"105
 -> -> 22 `i `ui
-"124
+"106
 -> -> 80 `i `ui
-"125
+"107
 -> -> 21 `i `ui
-"126
+"108
 -> -> 78 `i `ui
-"127
+"109
 -> -> 79 `i `ui
-"128
+"110
 -> -> 26 `i `ui
+"111
+-> -> 22 `i `ui
+"112
+-> -> 78 `i `ui
+"113
+-> -> 78 `i `ui
+"114
+-> -> 27 `i `ui
+"115
+-> -> 21 `i `ui
+"116
+-> -> 79 `i `ui
+"117
+-> -> 76 `i `ui
+"118
+-> -> 25 `i `ui
+"119
+-> -> 23 `i `ui
+"120
+-> -> 79 `i `ui
+"121
+-> -> 75 `i `ui
+"122
+-> -> 27 `i `ui
+"123
+-> -> 21 `i `ui
+"124
+-> -> 81 `i `ui
+"125
+-> -> 75 `i `ui
+"126
+-> -> 25 `i `ui
+"127
+-> -> 22 `i `ui
+"128
+-> -> 81 `i `ui
 "129
 -> -> 22 `i `ui
 "130
--> -> 78 `i `ui
+-> -> 79 `i `ui
 "131
--> -> 78 `i `ui
+-> -> 22 `i `ui
 "132
--> -> 27 `i `ui
+-> -> 80 `i `ui
 "133
--> -> 21 `i `ui
+-> -> 24 `i `ui
 "134
 -> -> 79 `i `ui
 "135
--> -> 76 `i `ui
+-> -> 77 `i `ui
 "136
 -> -> 25 `i `ui
 "137
--> -> 23 `i `ui
+-> -> 76 `i `ui
 "138
--> -> 79 `i `ui
-"139
--> -> 75 `i `ui
-"140
 -> -> 27 `i `ui
+"139
+-> -> 21 `i `ui
+"140
+-> -> 80 `i `ui
 "141
 -> -> 21 `i `ui
 "142
 -> -> 81 `i `ui
 "143
--> -> 75 `i `ui
+-> -> 21 `i `ui
 "144
--> -> 25 `i `ui
+-> -> 80 `i `ui
 "145
 -> -> 22 `i `ui
 "146
--> -> 81 `i `ui
+-> -> 80 `i `ui
 "147
 -> -> 22 `i `ui
 "148
--> -> 79 `i `ui
+-> -> 81 `i `ui
 "149
 -> -> 22 `i `ui
 "150
--> -> 80 `i `ui
+-> -> 79 `i `ui
 "151
--> -> 24 `i `ui
-"152
--> -> 79 `i `ui
-"153
--> -> 77 `i `ui
-"154
--> -> 25 `i `ui
-"155
--> -> 76 `i `ui
-"156
--> -> 27 `i `ui
-"157
--> -> 21 `i `ui
-"158
--> -> 80 `i `ui
-"159
--> -> 21 `i `ui
-"160
--> -> 81 `i `ui
-"161
--> -> 21 `i `ui
-"162
--> -> 80 `i `ui
-"163
--> -> 22 `i `ui
-"164
--> -> 80 `i `ui
-"165
--> -> 22 `i `ui
-"166
--> -> 81 `i `ui
-"167
--> -> 22 `i `ui
-"168
--> -> 79 `i `ui
-"170
 -> -> 22 `i `ui
 ..
 ]
-[; ;RF.h: 119: const unsigned int CONF1_ChanE_Timing[50] = {
-[; ;RF.h: 120: 834,
-[; ;RF.h: 121: 21,
-[; ;RF.h: 122: 80,
-[; ;RF.h: 123: 22,
-[; ;RF.h: 124: 80,
-[; ;RF.h: 125: 21,
-[; ;RF.h: 126: 78,
-[; ;RF.h: 127: 79,
-[; ;RF.h: 128: 26,
+[; ;RF.h: 101: const unsigned int RF_SavedTiming[128] __attribute__((address(0x2500))) = {
+[; ;RF.h: 102: 834,
+[; ;RF.h: 103: 21,
+[; ;RF.h: 104: 80,
+[; ;RF.h: 105: 22,
+[; ;RF.h: 106: 80,
+[; ;RF.h: 107: 21,
+[; ;RF.h: 108: 78,
+[; ;RF.h: 109: 79,
+[; ;RF.h: 110: 26,
+[; ;RF.h: 111: 22,
+[; ;RF.h: 112: 78,
+[; ;RF.h: 113: 78,
+[; ;RF.h: 114: 27,
+[; ;RF.h: 115: 21,
+[; ;RF.h: 116: 79,
+[; ;RF.h: 117: 76,
+[; ;RF.h: 118: 25,
+[; ;RF.h: 119: 23,
+[; ;RF.h: 120: 79,
+[; ;RF.h: 121: 75,
+[; ;RF.h: 122: 27,
+[; ;RF.h: 123: 21,
+[; ;RF.h: 124: 81,
+[; ;RF.h: 125: 75,
+[; ;RF.h: 126: 25,
+[; ;RF.h: 127: 22,
+[; ;RF.h: 128: 81,
 [; ;RF.h: 129: 22,
-[; ;RF.h: 130: 78,
-[; ;RF.h: 131: 78,
-[; ;RF.h: 132: 27,
-[; ;RF.h: 133: 21,
+[; ;RF.h: 130: 79,
+[; ;RF.h: 131: 22,
+[; ;RF.h: 132: 80,
+[; ;RF.h: 133: 24,
 [; ;RF.h: 134: 79,
-[; ;RF.h: 135: 76,
+[; ;RF.h: 135: 77,
 [; ;RF.h: 136: 25,
-[; ;RF.h: 137: 23,
-[; ;RF.h: 138: 79,
-[; ;RF.h: 139: 75,
-[; ;RF.h: 140: 27,
+[; ;RF.h: 137: 76,
+[; ;RF.h: 138: 27,
+[; ;RF.h: 139: 21,
+[; ;RF.h: 140: 80,
 [; ;RF.h: 141: 21,
 [; ;RF.h: 142: 81,
-[; ;RF.h: 143: 75,
-[; ;RF.h: 144: 25,
+[; ;RF.h: 143: 21,
+[; ;RF.h: 144: 80,
 [; ;RF.h: 145: 22,
-[; ;RF.h: 146: 81,
+[; ;RF.h: 146: 80,
 [; ;RF.h: 147: 22,
-[; ;RF.h: 148: 79,
+[; ;RF.h: 148: 81,
 [; ;RF.h: 149: 22,
-[; ;RF.h: 150: 80,
-[; ;RF.h: 151: 24,
-[; ;RF.h: 152: 79,
-[; ;RF.h: 153: 77,
-[; ;RF.h: 154: 25,
-[; ;RF.h: 155: 76,
-[; ;RF.h: 156: 27,
-[; ;RF.h: 157: 21,
-[; ;RF.h: 158: 80,
-[; ;RF.h: 159: 21,
-[; ;RF.h: 160: 81,
-[; ;RF.h: 161: 21,
-[; ;RF.h: 162: 80,
-[; ;RF.h: 163: 22,
-[; ;RF.h: 164: 80,
-[; ;RF.h: 165: 22,
-[; ;RF.h: 166: 81,
-[; ;RF.h: 167: 22,
-[; ;RF.h: 168: 79,
-[; ;RF.h: 169: 22
-[; ;RF.h: 170: };
-[; ;RF.h: 175: extern volatile unsigned char RF_Data;
-[; ;RF.h: 176: extern unsigned int RF_DataTiming[60];
-[; ;RF.h: 177: extern unsigned int RF_SavedTiming[60];
-[; ;RF.h: 178: extern unsigned char RF_DataPlace;
-[; ;RF.h: 179: extern unsigned char RFStarted;
-[; ;RF.h: 180: extern unsigned int RF_SyncLow;
-[; ;RF.h: 181: extern unsigned int RF_SyncHigh;
-[; ;RF.h: 182: extern unsigned char RF_Saved;
-[; ;RF.h: 183: extern unsigned char RF_CodeSize;
-[; ;RF.h: 184: extern double Rail_RSSI;
-[; ;RF.h: 193: void InitRF(void);
-[; ;RF.h: 194: inline unsigned char RF_ReadReceiver(void);
-[; ;RF.h: 195: inline void RF_DataInt(unsigned char state);
-[; ;RF.h: 196: inline void RF_Receiver(unsigned char state);
-[; ;RF.h: 197: inline void RF_SetBandwidth(unsigned char band);
-[; ;RF.h: 198: inline void RF_SetSquelch(unsigned char state);
-[; ;RF.h: 199: void RF_ResetData(void);
-[; ;RF.h: 200: void RF_CalculateNewCode(void);
-[; ;RF.h: 201: void RF_LoadDefaultCode(void);
-[; ;RF.h: 202: unsigned char RF_CheckCode(void);
-[; ;RF.h: 203: void RF_Disable(void);
-[; ;RF.h: 204: void RF_Enable(void);
+[; ;RF.h: 150: 79,
+[; ;RF.h: 151: 22,
+[; ;RF.h: 152: };
+[; ;RF.h: 157: extern volatile unsigned char RF_Data;
+[; ;RF.h: 158: extern unsigned int RF_DataTiming[128];
+[; ;RF.h: 159: extern unsigned char RF_DataPlace;
+[; ;RF.h: 160: extern unsigned char RFStarted;
+[; ;RF.h: 161: extern unsigned int RF_SyncLow;
+[; ;RF.h: 162: extern unsigned int RF_SyncHigh;
+[; ;RF.h: 163: extern unsigned char RF_Saved;
+[; ;RF.h: 164: extern unsigned char RF_CodeSize;
+[; ;RF.h: 165: extern double Rail_RSSI;
+[; ;RF.h: 174: void InitRF(void);
+[; ;RF.h: 175: inline unsigned char RF_ReadReceiver(void);
+[; ;RF.h: 176: inline void RF_DataInt(unsigned char state);
+[; ;RF.h: 177: inline void RF_Receiver(unsigned char state);
+[; ;RF.h: 178: inline void RF_SetBandwidth(unsigned char band);
+[; ;RF.h: 179: inline void RF_SetSquelch(unsigned char state);
+[; ;RF.h: 180: void RF_ResetData(void);
+[; ;RF.h: 181: void RF_LoadCode(void);
+[; ;RF.h: 182: unsigned char RF_CalculateCodesize(void);
+[; ;RF.h: 183: unsigned char RF_CheckCode(void);
+[; ;RF.h: 184: void RF_Disable(void);
+[; ;RF.h: 185: void RF_Enable(void);
 [; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
 [; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
 [; ;string.h: 24: extern void * memset(void *, int, size_t);
@@ -4425,9 +4422,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;SYSTEM.h: 62: extern unsigned char System_State;
-[; ;SYSTEM.h: 63: extern unsigned char System_State_Change;
-[; ;SYSTEM.h: 68: void SYS_ConfigureOscillator(void);
+[; ;SYSTEM.h: 69: extern unsigned char System_State;
+[; ;SYSTEM.h: 70: extern unsigned char System_State_Change;
+[; ;SYSTEM.h: 75: void SYS_ConfigureOscillator(void);
+[; ;SYSTEM.h: 76: inline void SYS_Idle(void);
+[; ;SYSTEM.h: 77: inline void SYS_Sleep(void);
+[; ;SYSTEM.h: 78: void SYS_ActivityTimer(void);
+[; ;SYSTEM.h: 79: void SYS_ActivityTimerReset(void);
 [; ;MISC.h: 85: void MSC_DelayMS(long US);
 [; ;MISC.h: 86: unsigned char MSC_IsCharacter(unsigned char data);
 [; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
@@ -4462,7 +4463,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.h: 116: unsigned int MSC_EndianIntArray(unsigned char* buffer);
 [; ;MISC.h: 117: unsigned long MSC_EndianLong(unsigned long number);
 [; ;MISC.h: 118: unsigned long MSC_EndianLongArray(unsigned char* buffer);
-[; ;MISC.h: 119: void MSC_BlinkLED(unsigned int blink);
+[; ;MISC.h: 119: void MSC_BlinkLED(unsigned int blink, unsigned int speed);
 [; ;MISC.h: 120: void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 [; ;MISC.h: 121: void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 [; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
@@ -4500,9 +4501,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ADC.h: 83: inline void ADC_ConversionInt(unsigned char state);
 [; ;ADC.h: 84: void ADC_CalculateVoltage(void);
 [; ;ADC.h: 85: void ADC_ChangeChannel(void);
-[v F4744 `(v ~T0 @X0 1 tf ]
+[v F4753 `(v ~T0 @X0 1 tf ]
 "48 INTERRUPTS.c
-[v _high_isr `IF4744 ~T0 @X0 1 e ]
+[v _high_isr `IF4753 ~T0 @X0 1 e ]
 "49
 {
 [; ;INTERRUPTS.c: 48: void interrupt high_isr(void)
@@ -4609,646 +4610,598 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;INTERRUPTS.c: 83: {
 "83
 {
-[; ;INTERRUPTS.c: 84: if(RF_DataPlace < 60)
+[; ;INTERRUPTS.c: 84: SYS_ActivityTimerReset();
 "84
-[e $ ! < -> _RF_DataPlace `i -> 60 `i 440  ]
-[; ;INTERRUPTS.c: 85: {
+[e ( _SYS_ActivityTimerReset ..  ]
+[; ;INTERRUPTS.c: 85: if(RF_DataPlace < 128)
 "85
-{
-[; ;INTERRUPTS.c: 86: RF_DataTiming[RF_DataPlace] = RFtemp;
+[e $ ! < -> _RF_DataPlace `i -> 128 `i 440  ]
+[; ;INTERRUPTS.c: 86: {
 "86
-[e = *U + &U _RF_DataTiming * -> _RF_DataPlace `ux -> -> # *U &U _RF_DataTiming `ui `ux _RFtemp ]
-[; ;INTERRUPTS.c: 87: RF_DataPlace++;
+{
+[; ;INTERRUPTS.c: 87: RF_DataTiming[RF_DataPlace] = RFtemp;
 "87
-[e ++ _RF_DataPlace -> -> 1 `i `uc ]
-[; ;INTERRUPTS.c: 88: if(RF_DataPlace >= RF_CodeSize)
+[e = *U + &U _RF_DataTiming * -> _RF_DataPlace `ux -> -> # *U &U _RF_DataTiming `ui `ux _RFtemp ]
+[; ;INTERRUPTS.c: 88: RF_DataPlace++;
 "88
-[e $ ! >= -> _RF_DataPlace `i -> _RF_CodeSize `i 441  ]
-[; ;INTERRUPTS.c: 89: {
+[e ++ _RF_DataPlace -> -> 1 `i `uc ]
+[; ;INTERRUPTS.c: 89: if(RF_DataPlace >= RF_CodeSize)
 "89
-{
-[; ;INTERRUPTS.c: 90: if(!RF_Data)
+[e $ ! >= -> _RF_DataPlace `i -> _RF_CodeSize `i 441  ]
+[; ;INTERRUPTS.c: 90: {
 "90
-[e $ ! ! != -> _RF_Data `i -> -> -> 0 `i `Vuc `i 442  ]
-[; ;INTERRUPTS.c: 91: {
-"91
 {
-[; ;INTERRUPTS.c: 92: RF_Data = RF_CheckCode();
+[; ;INTERRUPTS.c: 91: if(!RF_Data)
+"91
+[e $ ! ! != -> _RF_Data `i -> -> -> 0 `i `Vuc `i 442  ]
+[; ;INTERRUPTS.c: 92: {
 "92
-[e = _RF_Data ( _RF_CheckCode ..  ]
+{
+[; ;INTERRUPTS.c: 93: RF_Data = RF_CheckCode();
 "93
+[e = _RF_Data ( _RF_CheckCode ..  ]
+"94
 }
 [e :U 442 ]
-[; ;INTERRUPTS.c: 93: }
-[; ;INTERRUPTS.c: 94: TMR_Timer0(0);
-"94
-[e ( _TMR_Timer0 (1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 95: RF_ResetData();
+[; ;INTERRUPTS.c: 94: }
+[; ;INTERRUPTS.c: 95: TMR_Timer0(0);
 "95
-[e ( _RF_ResetData ..  ]
+[e ( _TMR_Timer0 (1 -> -> 0 `i `uc ]
+[; ;INTERRUPTS.c: 96: RF_ResetData();
 "96
-}
-[e :U 441 ]
+[e ( _RF_ResetData ..  ]
 "97
 }
-[; ;INTERRUPTS.c: 96: }
-[; ;INTERRUPTS.c: 97: }
-[e $U 443  ]
+[e :U 441 ]
 "98
-[e :U 440 ]
-[; ;INTERRUPTS.c: 98: else
-[; ;INTERRUPTS.c: 99: {
-"99
-{
-[; ;INTERRUPTS.c: 101: TMR_Timer0(0);
-"101
-[e ( _TMR_Timer0 (1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 102: RF_ResetData();
-"102
-[e ( _RF_ResetData ..  ]
-"103
 }
-[e :U 443 ]
-"104
+[e :U 440 ]
+"99
 }
 [e :U 439 ]
-"105
+"100
 }
 [e :U 433 ]
-[; ;INTERRUPTS.c: 103: }
-[; ;INTERRUPTS.c: 104: }
-[; ;INTERRUPTS.c: 105: }
-[; ;INTERRUPTS.c: 106: INTCON3bits.INT1IF = 0;
-"106
+[; ;INTERRUPTS.c: 97: }
+[; ;INTERRUPTS.c: 98: }
+[; ;INTERRUPTS.c: 99: }
+[; ;INTERRUPTS.c: 100: }
+[; ;INTERRUPTS.c: 101: INTCON3bits.INT1IF = 0;
+"101
 [e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 107: INTCON3bits.INT2IF = 0;
-"107
+[; ;INTERRUPTS.c: 102: INTCON3bits.INT2IF = 0;
+"102
 [e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
-"108
+"103
 }
-[; ;INTERRUPTS.c: 108: }
-[e $U 444  ]
-"109
+[; ;INTERRUPTS.c: 103: }
+[e $U 443  ]
+"104
 [e :U 431 ]
-[; ;INTERRUPTS.c: 109: else if(INTCONbits.TMR0IF)
-[e $ ! != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i 445  ]
-[; ;INTERRUPTS.c: 110: {
-"110
+[; ;INTERRUPTS.c: 104: else if(INTCONbits.TMR0IF)
+[e $ ! != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i 444  ]
+[; ;INTERRUPTS.c: 105: {
+"105
 {
-[; ;INTERRUPTS.c: 112: TMR_Timer0(0);
-"112
+[; ;INTERRUPTS.c: 107: TMR_Timer0(0);
+"107
 [e ( _TMR_Timer0 (1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 113: TMR_ResetTimer0();
-"113
+[; ;INTERRUPTS.c: 108: TMR_ResetTimer0();
+"108
 [e ( _TMR_ResetTimer0 ..  ]
-[; ;INTERRUPTS.c: 114: RF_ResetData();
-"114
+[; ;INTERRUPTS.c: 109: RF_ResetData();
+"109
 [e ( _RF_ResetData ..  ]
-[; ;INTERRUPTS.c: 115: INTCONbits.TMR0IF = 0;
-"115
+[; ;INTERRUPTS.c: 110: INTCONbits.TMR0IF = 0;
+"110
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+"111
+}
+[; ;INTERRUPTS.c: 111: }
+[e $U 445  ]
+"112
+[e :U 444 ]
+[; ;INTERRUPTS.c: 112: else
+[; ;INTERRUPTS.c: 113: {
+"113
+{
+[; ;INTERRUPTS.c: 115: __nop();
+"115
+[e ( ___nop ..  ]
 "116
 }
-[; ;INTERRUPTS.c: 116: }
-[e $U 446  ]
-"117
 [e :U 445 ]
-[; ;INTERRUPTS.c: 117: else
-[; ;INTERRUPTS.c: 118: {
-"118
-{
-[; ;INTERRUPTS.c: 120: __nop();
-"120
-[e ( ___nop ..  ]
-"121
-}
-[e :U 446 ]
-[e :U 444 ]
-[; ;INTERRUPTS.c: 121: }
-[; ;INTERRUPTS.c: 122: }
-"122
+[e :U 443 ]
+[; ;INTERRUPTS.c: 116: }
+[; ;INTERRUPTS.c: 117: }
+"117
 [e :UE 430 ]
 }
-[v F4749 `(v ~T0 @X0 1 tf ]
-"127
-[v _low_isr `ILF4749 ~T0 @X0 1 e ]
-"128
+[v F4758 `(v ~T0 @X0 1 tf ]
+"122
+[v _low_isr `ILF4758 ~T0 @X0 1 e ]
+"123
 {
-[; ;INTERRUPTS.c: 127: void low_priority interrupt low_isr(void)
-[; ;INTERRUPTS.c: 128: {
+[; ;INTERRUPTS.c: 122: void low_priority interrupt low_isr(void)
+[; ;INTERRUPTS.c: 123: {
 [e :U _low_isr ]
 [f ]
-"129
+"124
 [v _button_state `uc ~T0 @X0 1 a ]
-"130
+"125
 [v _IR_state `uc ~T0 @X0 1 a ]
-"131
+"126
 [v _IRtemp `ui ~T0 @X0 1 a ]
-[; ;INTERRUPTS.c: 129: unsigned char button_state;
-[; ;INTERRUPTS.c: 130: unsigned char IR_state;
-[; ;INTERRUPTS.c: 131: unsigned int IRtemp = 0;
+[; ;INTERRUPTS.c: 124: unsigned char button_state;
+[; ;INTERRUPTS.c: 125: unsigned char IR_state;
+[; ;INTERRUPTS.c: 126: unsigned int IRtemp = 0;
 [e = _IRtemp -> -> 0 `i `ui ]
-[; ;INTERRUPTS.c: 133: if(INTCONbits.RBIF)
-"133
-[e $ ! != -> . . _INTCONbits 0 0 `i -> -> -> 0 `i `Vuc `i 448  ]
-[; ;INTERRUPTS.c: 134: {
-"134
+[; ;INTERRUPTS.c: 128: if(INTCONbits.RBIF)
+"128
+[e $ ! != -> . . _INTCONbits 0 0 `i -> -> -> 0 `i `Vuc `i 447  ]
+[; ;INTERRUPTS.c: 129: {
+"129
 {
-[; ;INTERRUPTS.c: 139: button_state = BUT_ReadButton();
-"139
+[; ;INTERRUPTS.c: 134: button_state = BUT_ReadButton();
+"134
 [e = _button_state ( _BUT_ReadButton ..  ]
-[; ;INTERRUPTS.c: 140: IR_state = IR_ReadReceiver();
-"140
+[; ;INTERRUPTS.c: 135: IR_state = IR_ReadReceiver();
+"135
 [e = _IR_state ( _IR_ReadReceiver ..  ]
-[; ;INTERRUPTS.c: 141: if(ButtonChange)
+[; ;INTERRUPTS.c: 136: SYS_ActivityTimerReset();
+"136
+[e ( _SYS_ActivityTimerReset ..  ]
+[; ;INTERRUPTS.c: 137: if(ButtonChange)
+"137
+[e $ ! != -> _ButtonChange `i -> -> -> 0 `i `uc `i 448  ]
+[; ;INTERRUPTS.c: 138: {
+"138
+{
+[; ;INTERRUPTS.c: 140: TMR_Timer2(0);
+"140
+[e ( _TMR_Timer2 (1 -> -> 0 `i `uc ]
+[; ;INTERRUPTS.c: 141: if(button_state)
 "141
-[e $ ! != -> _ButtonChange `i -> -> -> 0 `i `uc `i 449  ]
+[e $ ! != -> _button_state `i -> -> -> 0 `i `uc `i 449  ]
 [; ;INTERRUPTS.c: 142: {
 "142
 {
-[; ;INTERRUPTS.c: 144: BUT_IR_PinChangeInt(0);
+[; ;INTERRUPTS.c: 144: if(System_State == 8)
 "144
-[e ( _BUT_IR_PinChangeInt (1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 145: TMR_Timer2(0);
+[e $ ! == -> _System_State `i -> 8 `i 450  ]
+[; ;INTERRUPTS.c: 145: {
 "145
-[e ( _TMR_Timer2 (1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 146: if(button_state)
-"146
-[e $ ! != -> _button_state `i -> -> -> 0 `i `uc `i 450  ]
-[; ;INTERRUPTS.c: 147: {
-"147
 {
-[; ;INTERRUPTS.c: 149: if(System_State == 8)
+[; ;INTERRUPTS.c: 146: Timer2Use = 17;
+"146
+[e = _Timer2Use -> -> 17 `i `uc ]
+[; ;INTERRUPTS.c: 147: TMR_Timer2Start(400);
+"147
+[e ( _TMR_Timer2Start (1 -> -> 400 `i `ui ]
+"148
+}
+[; ;INTERRUPTS.c: 148: }
+[e $U 451  ]
 "149
-[e $ ! == -> _System_State `i -> 8 `i 451  ]
+[e :U 450 ]
+[; ;INTERRUPTS.c: 149: else
 [; ;INTERRUPTS.c: 150: {
 "150
 {
-[; ;INTERRUPTS.c: 151: Timer2Use = 17;
+[; ;INTERRUPTS.c: 151: Timer2Use = 19;
 "151
-[e = _Timer2Use -> -> 17 `i `uc ]
-[; ;INTERRUPTS.c: 152: TMR_Timer2Start(400);
+[e = _Timer2Use -> -> 19 `i `uc ]
+[; ;INTERRUPTS.c: 152: TMR_Timer2Start(8);
 "152
-[e ( _TMR_Timer2Start (1 -> -> 400 `i `ui ]
+[e ( _TMR_Timer2Start (1 -> -> 8 `i `ui ]
 "153
 }
-[; ;INTERRUPTS.c: 153: }
-[e $U 452  ]
-"154
 [e :U 451 ]
-[; ;INTERRUPTS.c: 154: else
-[; ;INTERRUPTS.c: 155: {
+"154
+}
+[; ;INTERRUPTS.c: 153: }
+[; ;INTERRUPTS.c: 154: }
+[e $U 452  ]
 "155
-{
-[; ;INTERRUPTS.c: 156: Timer2Use = 19;
+[e :U 449 ]
+[; ;INTERRUPTS.c: 155: else
+[; ;INTERRUPTS.c: 156: {
 "156
-[e = _Timer2Use -> -> 19 `i `uc ]
-[; ;INTERRUPTS.c: 157: TMR_Timer2Start(8);
+{
+[; ;INTERRUPTS.c: 157: if(System_State != 10)
 "157
-[e ( _TMR_Timer2Start (1 -> -> 8 `i `ui ]
+[e $ ! != -> _System_State `i -> 10 `i 453  ]
+[; ;INTERRUPTS.c: 158: {
 "158
-}
-[e :U 452 ]
-"159
-}
-[; ;INTERRUPTS.c: 158: }
-[; ;INTERRUPTS.c: 159: }
-[e $U 453  ]
+{
+[; ;INTERRUPTS.c: 160: Button_Data = 1;
 "160
-[e :U 450 ]
-[; ;INTERRUPTS.c: 160: else
-[; ;INTERRUPTS.c: 161: {
-"161
-{
-[; ;INTERRUPTS.c: 162: if(System_State != 10)
-"162
-[e $ ! != -> _System_State `i -> 10 `i 454  ]
-[; ;INTERRUPTS.c: 163: {
-"163
-{
-[; ;INTERRUPTS.c: 165: Button_Data = 1;
-"165
 [e = _Button_Data -> -> 1 `i `uc ]
-[; ;INTERRUPTS.c: 166: Timer2Use = 19;
-"166
+[; ;INTERRUPTS.c: 161: Timer2Use = 19;
+"161
 [e = _Timer2Use -> -> 19 `i `uc ]
-[; ;INTERRUPTS.c: 167: TMR_Timer2Start(8);
-"167
+[; ;INTERRUPTS.c: 162: TMR_Timer2Start(8);
+"162
 [e ( _TMR_Timer2Start (1 -> -> 8 `i `ui ]
+"163
+}
+[; ;INTERRUPTS.c: 163: }
+[e $U 454  ]
+"164
+[e :U 453 ]
+[; ;INTERRUPTS.c: 164: else
+[; ;INTERRUPTS.c: 165: {
+"165
+{
+[; ;INTERRUPTS.c: 166: Timer2Use = 18;
+"166
+[e = _Timer2Use -> -> 18 `i `uc ]
+[; ;INTERRUPTS.c: 167: TMR_Timer2Start(500);
+"167
+[e ( _TMR_Timer2Start (1 -> -> 500 `i `ui ]
 "168
 }
-[; ;INTERRUPTS.c: 168: }
-[e $U 455  ]
-"169
 [e :U 454 ]
-[; ;INTERRUPTS.c: 169: else
-[; ;INTERRUPTS.c: 170: {
+"169
+}
+[e :U 452 ]
+[; ;INTERRUPTS.c: 168: }
+[; ;INTERRUPTS.c: 169: }
+[; ;INTERRUPTS.c: 170: ButtonChange = 0;
 "170
-{
-[; ;INTERRUPTS.c: 171: Timer2Use = 18;
-"171
-[e = _Timer2Use -> -> 18 `i `uc ]
-[; ;INTERRUPTS.c: 172: TMR_Timer2Start(500);
-"172
-[e ( _TMR_Timer2Start (1 -> -> 500 `i `ui ]
-"173
-}
-[e :U 455 ]
-"174
-}
-[e :U 453 ]
-[; ;INTERRUPTS.c: 173: }
-[; ;INTERRUPTS.c: 174: }
-[; ;INTERRUPTS.c: 175: ButtonChange = 0;
-"175
 [e = _ButtonChange -> -> 0 `i `uc ]
-"176
+"171
 }
-[; ;INTERRUPTS.c: 176: }
-[e $U 456  ]
-"177
-[e :U 449 ]
-[; ;INTERRUPTS.c: 177: else if(IRChange)
-[e $ ! != -> _IRChange `i -> -> -> 0 `i `uc `i 457  ]
-[; ;INTERRUPTS.c: 178: {
-"178
+[; ;INTERRUPTS.c: 171: }
+[e $U 455  ]
+"172
+[e :U 448 ]
+[; ;INTERRUPTS.c: 172: else if(IRChange)
+[e $ ! != -> _IRChange `i -> -> -> 0 `i `uc `i 456  ]
+[; ;INTERRUPTS.c: 173: {
+"173
 {
-[; ;INTERRUPTS.c: 180: if(!TMR_Timer1Status())
+[; ;INTERRUPTS.c: 175: if(!TMR_Timer1Status())
+"175
+[e $ ! ! != -> ( _TMR_Timer1Status ..  `i -> -> -> 0 `i `uc `i 457  ]
+[; ;INTERRUPTS.c: 176: {
+"176
+{
+[; ;INTERRUPTS.c: 178: TMR_Timer1Start();
+"178
+[e ( _TMR_Timer1Start ..  ]
+"179
+}
+[; ;INTERRUPTS.c: 179: }
+[e $U 458  ]
 "180
-[e $ ! ! != -> ( _TMR_Timer1Status ..  `i -> -> -> 0 `i `uc `i 458  ]
+[e :U 457 ]
+[; ;INTERRUPTS.c: 180: else
 [; ;INTERRUPTS.c: 181: {
 "181
 {
-[; ;INTERRUPTS.c: 183: TMR_Timer1Start();
+[; ;INTERRUPTS.c: 182: IRtemp = TMR1L;
+"182
+[e = _IRtemp -> _TMR1L `ui ]
+[; ;INTERRUPTS.c: 183: IRtemp += (unsigned int)TMR1H << 8;
 "183
-[e ( _TMR_Timer1Start ..  ]
+[e =+ _IRtemp << -> _TMR1H `ui -> 8 `i ]
+[; ;INTERRUPTS.c: 184: TMR_ResetTimer1();
 "184
-}
-[; ;INTERRUPTS.c: 184: }
-[e $U 459  ]
+[e ( _TMR_ResetTimer1 ..  ]
+[; ;INTERRUPTS.c: 185: if(!IRStarted)
 "185
-[e :U 458 ]
-[; ;INTERRUPTS.c: 185: else
+[e $ ! ! != -> _IRStarted `i -> -> -> 0 `i `uc `i 459  ]
 [; ;INTERRUPTS.c: 186: {
 "186
 {
-[; ;INTERRUPTS.c: 187: IRtemp = TMR1L;
+[; ;INTERRUPTS.c: 187: if(System_State == 8)
 "187
-[e = _IRtemp -> _TMR1L `ui ]
-[; ;INTERRUPTS.c: 188: IRtemp += (unsigned int)TMR1H << 8;
+[e $ ! == -> _System_State `i -> 8 `i 460  ]
+[; ;INTERRUPTS.c: 188: {
 "188
-[e =+ _IRtemp << -> _TMR1H `ui -> 8 `i ]
-[; ;INTERRUPTS.c: 189: TMR_ResetTimer1();
+{
+[; ;INTERRUPTS.c: 189: if(IRtemp >= IR_SyncLow && IRtemp <= IR_SyncHigh)
 "189
-[e ( _TMR_ResetTimer1 ..  ]
-[; ;INTERRUPTS.c: 190: if(!IRStarted)
+[e $ ! && >= _IRtemp _IR_SyncLow <= _IRtemp _IR_SyncHigh 461  ]
+[; ;INTERRUPTS.c: 190: {
 "190
-[e $ ! ! != -> _IRStarted `i -> -> -> 0 `i `uc `i 460  ]
-[; ;INTERRUPTS.c: 191: {
+{
+[; ;INTERRUPTS.c: 191: IRStarted = 1;
 "191
-{
-[; ;INTERRUPTS.c: 192: if(System_State == 8)
+[e = _IRStarted -> -> 1 `i `uc ]
 "192
-[e $ ! == -> _System_State `i -> 8 `i 461  ]
-[; ;INTERRUPTS.c: 193: {
+}
+[e :U 461 ]
 "193
-{
-[; ;INTERRUPTS.c: 194: if(IRtemp >= IR_SyncLow && IRtemp <= IR_SyncHigh)
+}
+[; ;INTERRUPTS.c: 192: }
+[; ;INTERRUPTS.c: 193: }
+[e $U 462  ]
 "194
-[e $ ! && >= _IRtemp _IR_SyncLow <= _IRtemp _IR_SyncHigh 462  ]
+[e :U 460 ]
+[; ;INTERRUPTS.c: 194: else
 [; ;INTERRUPTS.c: 195: {
 "195
 {
-[; ;INTERRUPTS.c: 196: IRStarted = 1;
+[; ;INTERRUPTS.c: 196: if(IRtemp >= 6000 && IRtemp <= 10000)
 "196
-[e = _IRStarted -> -> 1 `i `uc ]
+[e $ ! && >= _IRtemp -> -> 6000 `i `ui <= _IRtemp -> -> 10000 `i `ui 463  ]
+[; ;INTERRUPTS.c: 197: {
 "197
-}
-[e :U 462 ]
+{
+[; ;INTERRUPTS.c: 198: IRStarted = 1;
 "198
-}
-[; ;INTERRUPTS.c: 197: }
-[; ;INTERRUPTS.c: 198: }
-[e $U 463  ]
-"199
-[e :U 461 ]
-[; ;INTERRUPTS.c: 199: else
-[; ;INTERRUPTS.c: 200: {
-"200
-{
-[; ;INTERRUPTS.c: 201: if(IRtemp >= 2000 && IRtemp <= 16000)
-"201
-[e $ ! && >= _IRtemp -> -> 2000 `i `ui <= _IRtemp -> -> 16000 `i `ui 464  ]
-[; ;INTERRUPTS.c: 202: {
-"202
-{
-[; ;INTERRUPTS.c: 203: IRStarted = 1;
-"203
 [e = _IRStarted -> -> 1 `i `uc ]
-"204
-}
-[e :U 464 ]
-"205
+"199
 }
 [e :U 463 ]
-"206
+"200
 }
-[e :U 460 ]
-[; ;INTERRUPTS.c: 204: }
-[; ;INTERRUPTS.c: 205: }
-[; ;INTERRUPTS.c: 206: }
-[; ;INTERRUPTS.c: 207: if(IRStarted)
-"207
-[e $ ! != -> _IRStarted `i -> -> -> 0 `i `uc `i 465  ]
-[; ;INTERRUPTS.c: 208: {
-"208
-{
-[; ;INTERRUPTS.c: 209: RF_Disable();
-"209
-[e ( _RF_Disable ..  ]
-[; ;INTERRUPTS.c: 210: if(IR_DataPlace < 80)
-"210
-[e $ ! < -> _IR_DataPlace `i -> 80 `i 466  ]
-[; ;INTERRUPTS.c: 211: {
-"211
-{
-[; ;INTERRUPTS.c: 212: IR_DataTiming[IR_DataPlace] = IRtemp;
-"212
-[e = *U + &U _IR_DataTiming * -> _IR_DataPlace `ux -> -> # *U &U _IR_DataTiming `ui `ux _IRtemp ]
-[; ;INTERRUPTS.c: 213: IR_DataPlace++;
-"213
-[e ++ _IR_DataPlace -> -> 1 `i `uc ]
-[; ;INTERRUPTS.c: 214: if(System_State == 8)
-"214
-[e $ ! == -> _System_State `i -> 8 `i 467  ]
-[; ;INTERRUPTS.c: 215: {
-"215
-{
-[; ;INTERRUPTS.c: 216: if(IR_DataPlace >= IR_CodeSize)
-"216
-[e $ ! >= -> _IR_DataPlace `i -> _IR_CodeSize `i 468  ]
-[; ;INTERRUPTS.c: 217: {
-"217
-{
-[; ;INTERRUPTS.c: 218: if(!IR_Data)
-"218
-[e $ ! ! != -> _IR_Data `i -> -> -> 0 `i `Vuc `i 469  ]
-[; ;INTERRUPTS.c: 219: {
-"219
-{
-[; ;INTERRUPTS.c: 220: IR_Data = IR_CheckCode();
-"220
-[e = _IR_Data ( _IR_CheckCode ..  ]
-"221
-}
-[e :U 469 ]
-[; ;INTERRUPTS.c: 221: }
-[; ;INTERRUPTS.c: 222: TMR_Timer1(0);
-"222
-[e ( _TMR_Timer1 (1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 223: IR_ResetData();
-"223
-[e ( _IR_ResetData ..  ]
-"224
-}
-[e :U 468 ]
-"225
-}
-[e :U 467 ]
-"226
-}
-[; ;INTERRUPTS.c: 224: }
-[; ;INTERRUPTS.c: 225: }
-[; ;INTERRUPTS.c: 226: }
-[e $U 470  ]
-"227
-[e :U 466 ]
-[; ;INTERRUPTS.c: 227: else
-[; ;INTERRUPTS.c: 228: {
-"228
-{
-[; ;INTERRUPTS.c: 230: TMR_Timer1(0);
-"230
-[e ( _TMR_Timer1 (1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 231: IR_ResetData();
-"231
-[e ( _IR_ResetData ..  ]
-"232
-}
-[e :U 470 ]
-"233
-}
-[e :U 465 ]
-"234
+[e :U 462 ]
+"201
 }
 [e :U 459 ]
-[; ;INTERRUPTS.c: 232: }
-[; ;INTERRUPTS.c: 233: }
-[; ;INTERRUPTS.c: 234: }
-[; ;INTERRUPTS.c: 235: IRChange = 0;
-"235
-[e = _IRChange -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 236: IR_ReadReceiver();
-"236
-[e ( _IR_ReadReceiver ..  ]
-[; ;INTERRUPTS.c: 237: IR_ReadReceiver();
-"237
-[e ( _IR_ReadReceiver ..  ]
-"238
+[; ;INTERRUPTS.c: 199: }
+[; ;INTERRUPTS.c: 200: }
+[; ;INTERRUPTS.c: 201: }
+[; ;INTERRUPTS.c: 202: if(IRStarted)
+"202
+[e $ ! != -> _IRStarted `i -> -> -> 0 `i `uc `i 464  ]
+[; ;INTERRUPTS.c: 203: {
+"203
+{
+[; ;INTERRUPTS.c: 204: RF_Disable();
+"204
+[e ( _RF_Disable ..  ]
+[; ;INTERRUPTS.c: 205: if(IR_DataPlace < 128)
+"205
+[e $ ! < -> _IR_DataPlace `i -> 128 `i 465  ]
+[; ;INTERRUPTS.c: 206: {
+"206
+{
+[; ;INTERRUPTS.c: 207: IR_DataTiming[IR_DataPlace] = IRtemp;
+"207
+[e = *U + &U _IR_DataTiming * -> _IR_DataPlace `ux -> -> # *U &U _IR_DataTiming `ui `ux _IRtemp ]
+[; ;INTERRUPTS.c: 208: IR_DataPlace++;
+"208
+[e ++ _IR_DataPlace -> -> 1 `i `uc ]
+[; ;INTERRUPTS.c: 209: if(System_State == 8)
+"209
+[e $ ! == -> _System_State `i -> 8 `i 466  ]
+[; ;INTERRUPTS.c: 210: {
+"210
+{
+[; ;INTERRUPTS.c: 211: if(IR_DataPlace >= IR_CodeSize)
+"211
+[e $ ! >= -> _IR_DataPlace `i -> _IR_CodeSize `i 467  ]
+[; ;INTERRUPTS.c: 212: {
+"212
+{
+[; ;INTERRUPTS.c: 213: if(!IR_Data)
+"213
+[e $ ! ! != -> _IR_Data `i -> -> -> 0 `i `Vuc `i 468  ]
+[; ;INTERRUPTS.c: 214: {
+"214
+{
+[; ;INTERRUPTS.c: 215: IR_Data = IR_CheckCode();
+"215
+[e = _IR_Data ( _IR_CheckCode ..  ]
+"216
 }
-[; ;INTERRUPTS.c: 238: }
-[e $U 471  ]
+[e :U 468 ]
+[; ;INTERRUPTS.c: 216: }
+[; ;INTERRUPTS.c: 217: TMR_Timer1(0);
+"217
+[e ( _TMR_Timer1 (1 -> -> 0 `i `uc ]
+[; ;INTERRUPTS.c: 218: IR_ResetData();
+"218
+[e ( _IR_ResetData ..  ]
+"219
+}
+[e :U 467 ]
+"220
+}
+[e :U 466 ]
+"221
+}
+[e :U 465 ]
+"222
+}
+[e :U 464 ]
+"223
+}
+[e :U 458 ]
+[; ;INTERRUPTS.c: 219: }
+[; ;INTERRUPTS.c: 220: }
+[; ;INTERRUPTS.c: 221: }
+[; ;INTERRUPTS.c: 222: }
+[; ;INTERRUPTS.c: 223: }
+[; ;INTERRUPTS.c: 224: IRChange = 0;
+"224
+[e = _IRChange -> -> 0 `i `uc ]
+"225
+}
+[; ;INTERRUPTS.c: 225: }
+[e $U 469  ]
+"226
+[e :U 456 ]
+[; ;INTERRUPTS.c: 226: else
+[; ;INTERRUPTS.c: 227: {
+"227
+{
+[; ;INTERRUPTS.c: 229: __nop();
+"229
+[e ( ___nop ..  ]
+"230
+}
+[e :U 469 ]
+[e :U 455 ]
+[; ;INTERRUPTS.c: 230: }
+[; ;INTERRUPTS.c: 231: INTCONbits.RBIF = 0;
+"231
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+"232
+}
+[; ;INTERRUPTS.c: 232: }
+[e $U 470  ]
+"233
+[e :U 447 ]
+[; ;INTERRUPTS.c: 233: else if(PIR1bits.TMR2IF)
+[e $ ! != -> . . _PIR1bits 0 1 `i -> -> -> 0 `i `Vuc `i 471  ]
+[; ;INTERRUPTS.c: 234: {
+"234
+{
+[; ;INTERRUPTS.c: 236: if(Timer2PostCount >= Timer2Post)
+"236
+[e $ ! >= _Timer2PostCount _Timer2Post 472  ]
+[; ;INTERRUPTS.c: 237: {
+"237
+{
+[; ;INTERRUPTS.c: 238: TMR_Timer2(0);
+"238
+[e ( _TMR_Timer2 (1 -> -> 0 `i `uc ]
+[; ;INTERRUPTS.c: 239: if(Timer2Use == 17)
 "239
-[e :U 457 ]
-[; ;INTERRUPTS.c: 239: else
+[e $ ! == -> _Timer2Use `i -> 17 `i 473  ]
 [; ;INTERRUPTS.c: 240: {
 "240
 {
-[; ;INTERRUPTS.c: 242: __nop();
+[; ;INTERRUPTS.c: 242: System_State = 10;
 "242
-[e ( ___nop ..  ]
-"243
-}
-[e :U 471 ]
-[e :U 456 ]
-[; ;INTERRUPTS.c: 243: }
-[; ;INTERRUPTS.c: 244: INTCONbits.RBIF = 0;
-"244
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-"245
-}
-[; ;INTERRUPTS.c: 245: }
-[e $U 472  ]
-"246
-[e :U 448 ]
-[; ;INTERRUPTS.c: 246: else if(PIR1bits.TMR2IF)
-[e $ ! != -> . . _PIR1bits 0 1 `i -> -> -> 0 `i `Vuc `i 473  ]
-[; ;INTERRUPTS.c: 247: {
-"247
-{
-[; ;INTERRUPTS.c: 249: if(Timer2PostCount >= Timer2Post)
-"249
-[e $ ! >= _Timer2PostCount _Timer2Post 474  ]
-[; ;INTERRUPTS.c: 250: {
-"250
-{
-[; ;INTERRUPTS.c: 251: TMR_Timer2(0);
-"251
-[e ( _TMR_Timer2 (1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 252: if(Timer2Use == 17)
-"252
-[e $ ! == -> _Timer2Use `i -> 17 `i 475  ]
-[; ;INTERRUPTS.c: 253: {
-"253
-{
-[; ;INTERRUPTS.c: 255: System_State = 10;
-"255
 [e = _System_State -> -> 10 `i `uc ]
-[; ;INTERRUPTS.c: 256: System_State_Change = 1;
-"256
+[; ;INTERRUPTS.c: 243: System_State_Change = 1;
+"243
 [e = _System_State_Change -> -> 1 `i `uc ]
-"257
+"244
 }
-[; ;INTERRUPTS.c: 257: }
-[e $U 476  ]
-"258
-[e :U 475 ]
-[; ;INTERRUPTS.c: 258: else if(Timer2Use == 18)
-[e $ ! == -> _Timer2Use `i -> 18 `i 477  ]
-[; ;INTERRUPTS.c: 259: {
-"259
+[; ;INTERRUPTS.c: 244: }
+[e $U 474  ]
+"245
+[e :U 473 ]
+[; ;INTERRUPTS.c: 245: else if(Timer2Use == 18)
+[e $ ! == -> _Timer2Use `i -> 18 `i 475  ]
+[; ;INTERRUPTS.c: 246: {
+"246
 {
-[; ;INTERRUPTS.c: 260: System_State = 8;
-"260
+[; ;INTERRUPTS.c: 247: System_State = 8;
+"247
 [e = _System_State -> -> 8 `i `uc ]
-[; ;INTERRUPTS.c: 261: System_State_Change = 1;
-"261
+[; ;INTERRUPTS.c: 248: System_State_Change = 1;
+"248
 [e = _System_State_Change -> -> 1 `i `uc ]
+"249
+}
+[e :U 475 ]
+"250
+[e :U 474 ]
+}
+[; ;INTERRUPTS.c: 249: }
+[; ;INTERRUPTS.c: 250: }
+[e $U 476  ]
+"251
+[e :U 472 ]
+[; ;INTERRUPTS.c: 251: else
+[; ;INTERRUPTS.c: 252: {
+"252
+{
+[; ;INTERRUPTS.c: 253: Timer2PostCount++;
+"253
+[e ++ _Timer2PostCount -> -> 1 `i `ui ]
+"254
+}
+[e :U 476 ]
+[; ;INTERRUPTS.c: 254: }
+[; ;INTERRUPTS.c: 255: PIR1bits.TMR2IF = 0;
+"255
+[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+"256
+}
+[; ;INTERRUPTS.c: 256: }
+[e $U 477  ]
+"257
+[e :U 471 ]
+[; ;INTERRUPTS.c: 257: else if(PIR1bits.ADIF)
+[e $ ! != -> . . _PIR1bits 0 6 `i -> -> -> 0 `i `Vuc `i 478  ]
+[; ;INTERRUPTS.c: 258: {
+"258
+{
+[; ;INTERRUPTS.c: 260: ADC_CalculateVoltage();
+"260
+[e ( _ADC_CalculateVoltage ..  ]
+[; ;INTERRUPTS.c: 261: PIR1bits.ADIF = 0;
+"261
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
 "262
 }
 [; ;INTERRUPTS.c: 262: }
-[e $U 478  ]
+[e $U 479  ]
 "263
-[e :U 477 ]
-[; ;INTERRUPTS.c: 263: else
+[e :U 478 ]
+[; ;INTERRUPTS.c: 263: else if(PIR1bits.TMR1IF)
+[e $ ! != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i 480  ]
 [; ;INTERRUPTS.c: 264: {
 "264
 {
-[; ;INTERRUPTS.c: 265: BUT_IR_PinChangeInt(1);
-"265
-[e ( _BUT_IR_PinChangeInt (1 -> -> 1 `i `uc ]
+[; ;INTERRUPTS.c: 266: TMR_Timer1(0);
 "266
-}
-[e :U 478 ]
-[e :U 476 ]
+[e ( _TMR_Timer1 (1 -> -> 0 `i `uc ]
+[; ;INTERRUPTS.c: 267: if(System_State == 10)
 "267
-}
-[; ;INTERRUPTS.c: 266: }
-[; ;INTERRUPTS.c: 267: }
-[e $U 479  ]
+[e $ ! == -> _System_State `i -> 10 `i 481  ]
+[; ;INTERRUPTS.c: 268: {
 "268
-[e :U 474 ]
-[; ;INTERRUPTS.c: 268: else
-[; ;INTERRUPTS.c: 269: {
-"269
 {
-[; ;INTERRUPTS.c: 270: Timer2PostCount++;
+[; ;INTERRUPTS.c: 269: if(IR_DataPlace >= 40)
+"269
+[e $ ! >= -> _IR_DataPlace `i -> 40 `i 482  ]
+[; ;INTERRUPTS.c: 270: {
 "270
-[e ++ _Timer2PostCount -> -> 1 `i `ui ]
-"271
-}
-[e :U 479 ]
-[; ;INTERRUPTS.c: 271: }
-[; ;INTERRUPTS.c: 272: PIR1bits.TMR2IF = 0;
+{
+[; ;INTERRUPTS.c: 272: IR_Data = IR_CheckCode();
 "272
-[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+[e = _IR_Data ( _IR_CheckCode ..  ]
 "273
 }
-[; ;INTERRUPTS.c: 273: }
-[e $U 480  ]
+[e :U 482 ]
 "274
-[e :U 473 ]
-[; ;INTERRUPTS.c: 274: else if(PIR1bits.ADIF)
-[e $ ! != -> . . _PIR1bits 0 6 `i -> -> -> 0 `i `Vuc `i 481  ]
-[; ;INTERRUPTS.c: 275: {
+}
+[e :U 481 ]
+[; ;INTERRUPTS.c: 273: }
+[; ;INTERRUPTS.c: 274: }
+[; ;INTERRUPTS.c: 275: TMR_ResetTimer1();
 "275
-{
-[; ;INTERRUPTS.c: 277: ADC_CalculateVoltage();
+[e ( _TMR_ResetTimer1 ..  ]
+[; ;INTERRUPTS.c: 276: IR_ResetData();
+"276
+[e ( _IR_ResetData ..  ]
+[; ;INTERRUPTS.c: 277: IR_CleanBuffer();
 "277
-[e ( _ADC_CalculateVoltage ..  ]
-[; ;INTERRUPTS.c: 278: PIR1bits.ADIF = 0;
+[e ( _IR_CleanBuffer ..  ]
+[; ;INTERRUPTS.c: 278: PIR1bits.TMR1IF = 0;
 "278
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
 "279
 }
 [; ;INTERRUPTS.c: 279: }
-[e $U 482  ]
+[e $U 483  ]
 "280
-[e :U 481 ]
-[; ;INTERRUPTS.c: 280: else if(PIR1bits.TMR1IF)
-[e $ ! != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i 483  ]
+[e :U 480 ]
+[; ;INTERRUPTS.c: 280: else
 [; ;INTERRUPTS.c: 281: {
 "281
 {
-[; ;INTERRUPTS.c: 283: TMR_Timer1(0);
+[; ;INTERRUPTS.c: 283: __nop();
 "283
-[e ( _TMR_Timer1 (1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 284: if(System_State == 10)
-"284
-[e $ ! == -> _System_State `i -> 10 `i 484  ]
-[; ;INTERRUPTS.c: 285: {
-"285
-{
-[; ;INTERRUPTS.c: 286: if(IR_DataPlace >= 40)
-"286
-[e $ ! >= -> _IR_DataPlace `i -> 40 `i 485  ]
-[; ;INTERRUPTS.c: 287: {
-"287
-{
-[; ;INTERRUPTS.c: 289: IR_Data = IR_CheckCode();
-"289
-[e = _IR_Data ( _IR_CheckCode ..  ]
-"290
-}
-[e :U 485 ]
-"291
-}
-[e :U 484 ]
-[; ;INTERRUPTS.c: 290: }
-[; ;INTERRUPTS.c: 291: }
-[; ;INTERRUPTS.c: 292: TMR_ResetTimer1();
-"292
-[e ( _TMR_ResetTimer1 ..  ]
-[; ;INTERRUPTS.c: 293: IR_ResetData();
-"293
-[e ( _IR_ResetData ..  ]
-[; ;INTERRUPTS.c: 294: IR_CleanBuffer();
-"294
-[e ( _IR_CleanBuffer ..  ]
-[; ;INTERRUPTS.c: 295: PIR1bits.TMR1IF = 0;
-"295
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-"296
-}
-[; ;INTERRUPTS.c: 296: }
-[e $U 486  ]
-"297
-[e :U 483 ]
-[; ;INTERRUPTS.c: 297: else
-[; ;INTERRUPTS.c: 298: {
-"298
-{
-[; ;INTERRUPTS.c: 300: __nop();
-"300
 [e ( ___nop ..  ]
-"301
+"284
 }
-[e :U 486 ]
-[e :U 482 ]
-[e :U 480 ]
-[e :U 472 ]
-[; ;INTERRUPTS.c: 301: }
-[; ;INTERRUPTS.c: 302: }
-"302
-[e :UE 447 ]
+[e :U 483 ]
+[e :U 479 ]
+[e :U 477 ]
+[e :U 470 ]
+[; ;INTERRUPTS.c: 284: }
+[; ;INTERRUPTS.c: 285: }
+"285
+[e :UE 446 ]
 }

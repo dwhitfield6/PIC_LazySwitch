@@ -31,23 +31,6 @@
 #endif
 
 /******************************************************************************/
-/* Default RF code
-
- *
- * This sets the timings for the default RF code. The default is the Westek 
- * RFA-108 channel E. This device:
- *
- * 315MHz transmission
- *
- * Settings:
-/******************************************************************************/
-/* Sync bit/pause */
-/* Nominal 4096 cycles or about 7.680mS*/
-#define CONF1_ChanE_Sync 850
-/* this is the number of edges for one code cycle */
-#define CONF1_ChanE_Edges 50
-
-/******************************************************************************/
 /* RF_TOLERANCE
 
  *
@@ -56,7 +39,7 @@
  *  portions.
 /******************************************************************************/
 #define RF_TOLERANCELARGE    0.5
-#define RF_TOLERANCESMALL    0.05
+#define RF_TOLERANCESMALL    0.02
 
 /******************************************************************************/
 /* RF_PROGRAMSYNCLOW
@@ -87,7 +70,7 @@
  *
  * This sets the size of the RF buffer.
 /******************************************************************************/
-#define RFBUFFERSIZE    60
+#define RFBUFFERSIZE    128
 
 /******************************************************************************/
 /* Baud Rates
@@ -107,7 +90,6 @@
 /******************************************************************************/
 #define NEW     90
 #define OLD     91
-#define EMPTY   92
 
 /******************************************************************************/
 /* Defines                                                                    */
@@ -116,57 +98,57 @@
 /******************************************************************************/
 /* Default RF code timing (Westek RFA-108 channel code E)                     */
 /******************************************************************************/
-const unsigned int CONF1_ChanE_Timing[CONF1_ChanE_Edges] = {                        
-                                                                        834,
-                                                                        21,
-                                                                        80,
-                                                                        22,
-                                                                        80,
-                                                                        21,
-                                                                        78,
-                                                                        79,
-                                                                        26,
-                                                                        22,
-                                                                        78,
-                                                                        78,
-                                                                        27,
-                                                                        21,
-                                                                        79,
-                                                                        76,
-                                                                        25,
-                                                                        23,
-                                                                        79,
-                                                                        75,
-                                                                        27,
-                                                                        21,
-                                                                        81,
-                                                                        75,
-                                                                        25,
-                                                                        22,
-                                                                        81,
-                                                                        22,
-                                                                        79,
-                                                                        22,
-                                                                        80,
-                                                                        24,
-                                                                        79,
-                                                                        77,
-                                                                        25,
-                                                                        76,
-                                                                        27,
-                                                                        21,
-                                                                        80,
-                                                                        21,
-                                                                        81,
-                                                                        21,
-                                                                        80,
-                                                                        22,
-                                                                        80,
-                                                                        22,
-                                                                        81,
-                                                                        22,
-                                                                        79,
-                                                                        22
+const unsigned int RF_SavedTiming[RFBUFFERSIZE] __at(0x2500) = {                        
+                                                834,    //    [    0    ]
+                                                21,    //    [    1    ]
+                                                80,    //    [    2    ]
+                                                22,    //    [    3    ]
+                                                80,    //    [    4    ]
+                                                21,    //    [    5    ]
+                                                78,    //    [    6    ]
+                                                79,    //    [    7    ]
+                                                26,    //    [    8    ]
+                                                22,    //    [    9    ]
+                                                78,    //    [    10    ]
+                                                78,    //    [    11    ]
+                                                27,    //    [    12    ]
+                                                21,    //    [    13    ]
+                                                79,    //    [    14    ]
+                                                76,    //    [    15    ]
+                                                25,    //    [    16    ]
+                                                23,    //    [    17    ]
+                                                79,    //    [    18    ]
+                                                75,    //    [    19    ]
+                                                27,    //    [    20    ]
+                                                21,    //    [    21    ]
+                                                81,    //    [    22    ]
+                                                75,    //    [    23    ]
+                                                25,    //    [    24    ]
+                                                22,    //    [    25    ]
+                                                81,    //    [    26    ]
+                                                22,    //    [    27    ]
+                                                79,    //    [    28    ]
+                                                22,    //    [    29    ]
+                                                80,    //    [    30    ]
+                                                24,    //    [    31    ]
+                                                79,    //    [    32    ]
+                                                77,    //    [    33    ]
+                                                25,    //    [    34    ]
+                                                76,    //    [    35    ]
+                                                27,    //    [    36    ]
+                                                21,    //    [    37    ]
+                                                80,    //    [    38    ]
+                                                21,    //    [    39    ]
+                                                81,    //    [    40    ]
+                                                21,    //    [    41    ]
+                                                80,    //    [    42    ]
+                                                22,    //    [    43    ]
+                                                80,    //    [    44    ]
+                                                22,    //    [    45    ]
+                                                81,    //    [    46    ]
+                                                22,    //    [    47    ]
+                                                79,    //    [    48    ]
+                                                22,    //    [    49    ]
 };
 
 /******************************************************************************/
@@ -174,7 +156,6 @@ const unsigned int CONF1_ChanE_Timing[CONF1_ChanE_Edges] = {
 /******************************************************************************/
 extern volatile unsigned char RF_Data;
 extern unsigned int RF_DataTiming[RFBUFFERSIZE];
-extern unsigned int RF_SavedTiming[RFBUFFERSIZE];
 extern unsigned char RF_DataPlace;
 extern unsigned char RFStarted;
 extern unsigned int RF_SyncLow;
@@ -197,8 +178,8 @@ inline void RF_Receiver(unsigned char state);
 inline void RF_SetBandwidth(unsigned char band);
 inline void RF_SetSquelch(unsigned char state);
 void RF_ResetData(void);
-void RF_CalculateNewCode(void);
-void RF_LoadDefaultCode(void);
+void RF_LoadCode(void);
+unsigned char RF_CalculateCodesize(void);
 unsigned char RF_CheckCode(void);
 void RF_Disable(void);
 void RF_Enable(void);

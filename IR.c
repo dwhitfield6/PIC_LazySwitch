@@ -37,18 +37,19 @@
 #include "IR.h"
 #include "RF.h"
 #include "MISC.h"
+#include "FLASH.h"
+#include "BUTTON.h"
 
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
 /******************************************************************************/
 volatile unsigned char IR_Data = FALSE;
 unsigned int IR_DataTiming[IRBUFFERSIZE];
-unsigned int IR_SavedTiming[IRBUFFERSIZE];
 unsigned char IR_DataPlace = 0;
 unsigned char IRStarted = FALSE;
 unsigned int IR_SyncLow  = 0;
 unsigned int IR_SyncHigh = 0;
-unsigned char IR_Saved = EMPTY;
+unsigned char IR_Saved = OLD;
 unsigned char IR_CodeSize = 0;
 unsigned char IRValue_prev = FALSE;
 unsigned char IRChange = FALSE;
@@ -121,40 +122,41 @@ void IR_CleanBuffer(void)
 }
 
 /******************************************************************************/
-/* IR_CalculateNewCode
- *
- * The function calculates the sync window for the new code.
-/******************************************************************************/
-void IR_CalculateNewCode(void)
-{
-    double Low = 0.0;
-    double High = 0.0;
-    
-    Low = (double)IR_DataTiming[0] * (1.0 - IR_TOLERANCESMALL);
-    High = (double)IR_DataTiming[0] * (1.0 + IR_TOLERANCESMALL);
-    
-    IR_SyncLow = (unsigned int) Low;
-    IR_SyncHigh = (unsigned int) High;
-}
-
-/******************************************************************************/
-/* IR_LoadDefaultCode
+/* IR_LoadCode
  *
  * The function loads the default code.
 /******************************************************************************/
-void IR_LoadDefaultCode(void)
+void IR_LoadCode(void)
 {   
     double Low = 0.0;
     double High = 0.0;
     
-    Low = (double)PIONEER_PLUS_Sync * (1.0 - IR_TOLERANCESMALL);
-    High = (double)PIONEER_PLUS_Sync * (1.0 + IR_TOLERANCESMALL);
+    Low = (double)IR_SavedTiming[0] * (1.0 - IR_TOLERANCESMALL);
+    High = (double)IR_SavedTiming[0] * (1.0 + IR_TOLERANCESMALL);
     
     IR_SyncLow = (unsigned int) Low;
     IR_SyncHigh = (unsigned int) High;
     
-    MSC_BufferCopyIntConst(&PIONEER_PLUS_Timing,&IR_SavedTiming,PIONEER_PLUS_Edges,0); 
-    IR_CodeSize = PIONEER_PLUS_Edges;
+    IR_CodeSize = IR_CalculateCodesize();
+}
+
+/******************************************************************************/
+/* IR_CalculateCodesize
+ *
+ * The function calculates the code size of the saved IR code.
+/******************************************************************************/
+unsigned char IR_CalculateCodesize(void)
+{   
+    unsigned char i;
+    
+    for(i=0; i<IRBUFFERSIZE;i++)
+    {
+        if(IR_SavedTiming[i] == 0)
+        {
+            return i;
+        }
+    }
+    return IRBUFFERSIZE;
 }
 
 /******************************************************************************/
@@ -200,11 +202,34 @@ unsigned char IR_CheckCode(void)
     {
         if(IR_DataPlace >= IR_EDGENUM)
         {
-            /* The IR signal is valid for program */
-            MSC_BufferCopyInt(&IR_DataTiming,&IR_SavedTiming,IRBUFFERSIZE,0);
+            for(i=0;i<IR_DataPlace;i++)
+            {
+                if(IR_DataTiming[i] < 40)
+                {
+                    /* There are some invalid values in this code */
+                    return FALSE;
+                }
+                else if(IR_DataTiming[i] < 200)
+                {
+                    IR_DataTiming[i] +=350;
+                }
+                else if(IR_DataTiming[i] < 320)
+                {
+                    IR_DataTiming[i] +=150;
+                }
+            }
+            for(i=IR_DataPlace;i<IRBUFFERSIZE;i++)
+            {
+                /* clear unused buffer */
+                IR_DataTiming[i] = 0;
+            }
+            
+            /* The RF signal is valid for program */
+            IR_CodeSize = IR_DataPlace;
             IR_Saved = NEW;
+            Flash_Status = FSH_Write_IR_RF();
         }
-        return TRUE;
+        return FALSE;
     }
 }
 /*-----------------------------------------------------------------------------/

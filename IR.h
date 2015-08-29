@@ -31,20 +31,6 @@
 #endif
 
 /******************************************************************************/
-/* Default IR code
-
- *
- * This sets the timings for the default IR code. The default is the the + sign
- *  on the pioneer cxc3173 controller. 
- *
- * Settings:
-/******************************************************************************/
-/* Sync bit */
-#define PIONEER_PLUS_Sync 8800
-/* this is the number of edges for one code cycle */
-#define PIONEER_PLUS_Edges 67
-
-/******************************************************************************/
 /* IR_TOLERANCE
 
  *
@@ -54,7 +40,7 @@
 /******************************************************************************/
 #define IR_TOLERANCELARGE    1.1
 #define IR_TOLERANCEMEDUIM   0.75
-#define IR_TOLERANCESMALL    0.2
+#define IR_TOLERANCESMALL    0.3
 
 /******************************************************************************/
 /* IR_PROGRAMSYNCLOW
@@ -62,7 +48,7 @@
  *
  * This sets the noise floor for a program IR signal sync bit.
 /******************************************************************************/
-#define IR_PROGRAMSYNCLOW    2000
+#define IR_PROGRAMSYNCLOW    6000
 
 /******************************************************************************/
 /* IR_PROGRAMSYNCHIGH
@@ -70,7 +56,7 @@
  *
  * This sets the timeout of an IR signal during program.
 /******************************************************************************/
-#define IR_PROGRAMSYNCHIGH   16000
+#define IR_PROGRAMSYNCHIGH   10000
 
 /******************************************************************************/
 /* IR_EDGENUM
@@ -85,7 +71,7 @@
  *
  * This sets the size of the IR buffer.
 /******************************************************************************/
-#define IRBUFFERSIZE    80
+#define IRBUFFERSIZE    128
 
 /******************************************************************************/
 /* Defines                                                                    */
@@ -94,7 +80,7 @@
 /******************************************************************************/
 /* Default IR code timing (Pioneer CXC3173 plus button)                       */
 /******************************************************************************/
-const unsigned int PIONEER_PLUS_Timing[PIONEER_PLUS_Edges] = {                        
+const unsigned int IR_SavedTiming[IRBUFFERSIZE] __at(0x2400)= {                        
                                                     8600,    //    [    0    ]
                                                     4200,    //    [    1    ]
                                                     450,    //    [    2    ]
@@ -169,7 +155,6 @@ const unsigned int PIONEER_PLUS_Timing[PIONEER_PLUS_Edges] = {
 /******************************************************************************/
 extern volatile unsigned char IR_Data;
 extern unsigned int IR_DataTiming[IRBUFFERSIZE];
-extern unsigned int IR_SavedTiming[IRBUFFERSIZE];
 extern unsigned char IR_DataPlace;
 extern unsigned char IRStarted;
 extern unsigned int IR_SyncLow;
@@ -189,8 +174,8 @@ extern unsigned char IRChange;
 void InitIR(void);
 unsigned char IR_ReadReceiver(void);
 void IR_ResetData(void);
-void IR_CalculateNewCode(void);
-void IR_LoadDefaultCode(void);
+void IR_LoadCode(void);
+unsigned char IR_CalculateCodesize(void);
 unsigned char IR_CheckCode(void);
 void IR_CleanBuffer(void);
 

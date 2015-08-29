@@ -49,7 +49,7 @@
 /* Special Variables                                                          */
 /******************************************************************************/
 #ifdef PCB_REVB
-const unsigned char PCB_Version[] = "PCB revA";
+const unsigned char PCB_Version[] = "PCB revB";
 #endif
 
 /******************************************************************************/

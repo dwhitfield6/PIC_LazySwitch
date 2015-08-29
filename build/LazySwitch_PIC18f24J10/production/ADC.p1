@@ -92,7 +92,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ADRESL `Vuc ~T0 @X0 0 e@4035 ]
 "70 LDO.h
 [v _Rail_VIN `d ~T0 @X0 0 e ]
-"184 RF.h
+"165 RF.h
 [v _Rail_RSSI `d ~T0 @X0 0 e ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3897,186 +3897,185 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-"119 RF.h
-[v _CONF1_ChanE_Timing `Cui ~T0 @X0 -> 50 `i e ]
-[i _CONF1_ChanE_Timing
+"101 RF.h
+[v _RF_SavedTiming `Cui ~T0 @X0 -> 128 `i e@9472 ]
+[i _RF_SavedTiming
 :U ..
-"120
+"102
 -> -> 834 `i `ui
-"121
+"103
 -> -> 21 `i `ui
-"122
+"104
 -> -> 80 `i `ui
-"123
+"105
 -> -> 22 `i `ui
-"124
+"106
 -> -> 80 `i `ui
-"125
+"107
 -> -> 21 `i `ui
-"126
+"108
 -> -> 78 `i `ui
-"127
+"109
 -> -> 79 `i `ui
-"128
+"110
 -> -> 26 `i `ui
+"111
+-> -> 22 `i `ui
+"112
+-> -> 78 `i `ui
+"113
+-> -> 78 `i `ui
+"114
+-> -> 27 `i `ui
+"115
+-> -> 21 `i `ui
+"116
+-> -> 79 `i `ui
+"117
+-> -> 76 `i `ui
+"118
+-> -> 25 `i `ui
+"119
+-> -> 23 `i `ui
+"120
+-> -> 79 `i `ui
+"121
+-> -> 75 `i `ui
+"122
+-> -> 27 `i `ui
+"123
+-> -> 21 `i `ui
+"124
+-> -> 81 `i `ui
+"125
+-> -> 75 `i `ui
+"126
+-> -> 25 `i `ui
+"127
+-> -> 22 `i `ui
+"128
+-> -> 81 `i `ui
 "129
 -> -> 22 `i `ui
 "130
--> -> 78 `i `ui
+-> -> 79 `i `ui
 "131
--> -> 78 `i `ui
+-> -> 22 `i `ui
 "132
--> -> 27 `i `ui
+-> -> 80 `i `ui
 "133
--> -> 21 `i `ui
+-> -> 24 `i `ui
 "134
 -> -> 79 `i `ui
 "135
--> -> 76 `i `ui
+-> -> 77 `i `ui
 "136
 -> -> 25 `i `ui
 "137
--> -> 23 `i `ui
+-> -> 76 `i `ui
 "138
--> -> 79 `i `ui
-"139
--> -> 75 `i `ui
-"140
 -> -> 27 `i `ui
+"139
+-> -> 21 `i `ui
+"140
+-> -> 80 `i `ui
 "141
 -> -> 21 `i `ui
 "142
 -> -> 81 `i `ui
 "143
--> -> 75 `i `ui
+-> -> 21 `i `ui
 "144
--> -> 25 `i `ui
+-> -> 80 `i `ui
 "145
 -> -> 22 `i `ui
 "146
--> -> 81 `i `ui
+-> -> 80 `i `ui
 "147
 -> -> 22 `i `ui
 "148
--> -> 79 `i `ui
+-> -> 81 `i `ui
 "149
 -> -> 22 `i `ui
 "150
--> -> 80 `i `ui
+-> -> 79 `i `ui
 "151
--> -> 24 `i `ui
-"152
--> -> 79 `i `ui
-"153
--> -> 77 `i `ui
-"154
--> -> 25 `i `ui
-"155
--> -> 76 `i `ui
-"156
--> -> 27 `i `ui
-"157
--> -> 21 `i `ui
-"158
--> -> 80 `i `ui
-"159
--> -> 21 `i `ui
-"160
--> -> 81 `i `ui
-"161
--> -> 21 `i `ui
-"162
--> -> 80 `i `ui
-"163
--> -> 22 `i `ui
-"164
--> -> 80 `i `ui
-"165
--> -> 22 `i `ui
-"166
--> -> 81 `i `ui
-"167
--> -> 22 `i `ui
-"168
--> -> 79 `i `ui
-"170
 -> -> 22 `i `ui
 ..
 ]
-[; ;RF.h: 119: const unsigned int CONF1_ChanE_Timing[50] = {
-[; ;RF.h: 120: 834,
-[; ;RF.h: 121: 21,
-[; ;RF.h: 122: 80,
-[; ;RF.h: 123: 22,
-[; ;RF.h: 124: 80,
-[; ;RF.h: 125: 21,
-[; ;RF.h: 126: 78,
-[; ;RF.h: 127: 79,
-[; ;RF.h: 128: 26,
+[; ;RF.h: 101: const unsigned int RF_SavedTiming[128] __attribute__((address(0x2500))) = {
+[; ;RF.h: 102: 834,
+[; ;RF.h: 103: 21,
+[; ;RF.h: 104: 80,
+[; ;RF.h: 105: 22,
+[; ;RF.h: 106: 80,
+[; ;RF.h: 107: 21,
+[; ;RF.h: 108: 78,
+[; ;RF.h: 109: 79,
+[; ;RF.h: 110: 26,
+[; ;RF.h: 111: 22,
+[; ;RF.h: 112: 78,
+[; ;RF.h: 113: 78,
+[; ;RF.h: 114: 27,
+[; ;RF.h: 115: 21,
+[; ;RF.h: 116: 79,
+[; ;RF.h: 117: 76,
+[; ;RF.h: 118: 25,
+[; ;RF.h: 119: 23,
+[; ;RF.h: 120: 79,
+[; ;RF.h: 121: 75,
+[; ;RF.h: 122: 27,
+[; ;RF.h: 123: 21,
+[; ;RF.h: 124: 81,
+[; ;RF.h: 125: 75,
+[; ;RF.h: 126: 25,
+[; ;RF.h: 127: 22,
+[; ;RF.h: 128: 81,
 [; ;RF.h: 129: 22,
-[; ;RF.h: 130: 78,
-[; ;RF.h: 131: 78,
-[; ;RF.h: 132: 27,
-[; ;RF.h: 133: 21,
+[; ;RF.h: 130: 79,
+[; ;RF.h: 131: 22,
+[; ;RF.h: 132: 80,
+[; ;RF.h: 133: 24,
 [; ;RF.h: 134: 79,
-[; ;RF.h: 135: 76,
+[; ;RF.h: 135: 77,
 [; ;RF.h: 136: 25,
-[; ;RF.h: 137: 23,
-[; ;RF.h: 138: 79,
-[; ;RF.h: 139: 75,
-[; ;RF.h: 140: 27,
+[; ;RF.h: 137: 76,
+[; ;RF.h: 138: 27,
+[; ;RF.h: 139: 21,
+[; ;RF.h: 140: 80,
 [; ;RF.h: 141: 21,
 [; ;RF.h: 142: 81,
-[; ;RF.h: 143: 75,
-[; ;RF.h: 144: 25,
+[; ;RF.h: 143: 21,
+[; ;RF.h: 144: 80,
 [; ;RF.h: 145: 22,
-[; ;RF.h: 146: 81,
+[; ;RF.h: 146: 80,
 [; ;RF.h: 147: 22,
-[; ;RF.h: 148: 79,
+[; ;RF.h: 148: 81,
 [; ;RF.h: 149: 22,
-[; ;RF.h: 150: 80,
-[; ;RF.h: 151: 24,
-[; ;RF.h: 152: 79,
-[; ;RF.h: 153: 77,
-[; ;RF.h: 154: 25,
-[; ;RF.h: 155: 76,
-[; ;RF.h: 156: 27,
-[; ;RF.h: 157: 21,
-[; ;RF.h: 158: 80,
-[; ;RF.h: 159: 21,
-[; ;RF.h: 160: 81,
-[; ;RF.h: 161: 21,
-[; ;RF.h: 162: 80,
-[; ;RF.h: 163: 22,
-[; ;RF.h: 164: 80,
-[; ;RF.h: 165: 22,
-[; ;RF.h: 166: 81,
-[; ;RF.h: 167: 22,
-[; ;RF.h: 168: 79,
-[; ;RF.h: 169: 22
-[; ;RF.h: 170: };
-[; ;RF.h: 175: extern volatile unsigned char RF_Data;
-[; ;RF.h: 176: extern unsigned int RF_DataTiming[60];
-[; ;RF.h: 177: extern unsigned int RF_SavedTiming[60];
-[; ;RF.h: 178: extern unsigned char RF_DataPlace;
-[; ;RF.h: 179: extern unsigned char RFStarted;
-[; ;RF.h: 180: extern unsigned int RF_SyncLow;
-[; ;RF.h: 181: extern unsigned int RF_SyncHigh;
-[; ;RF.h: 182: extern unsigned char RF_Saved;
-[; ;RF.h: 183: extern unsigned char RF_CodeSize;
-[; ;RF.h: 184: extern double Rail_RSSI;
-[; ;RF.h: 193: void InitRF(void);
-[; ;RF.h: 194: inline unsigned char RF_ReadReceiver(void);
-[; ;RF.h: 195: inline void RF_DataInt(unsigned char state);
-[; ;RF.h: 196: inline void RF_Receiver(unsigned char state);
-[; ;RF.h: 197: inline void RF_SetBandwidth(unsigned char band);
-[; ;RF.h: 198: inline void RF_SetSquelch(unsigned char state);
-[; ;RF.h: 199: void RF_ResetData(void);
-[; ;RF.h: 200: void RF_CalculateNewCode(void);
-[; ;RF.h: 201: void RF_LoadDefaultCode(void);
-[; ;RF.h: 202: unsigned char RF_CheckCode(void);
-[; ;RF.h: 203: void RF_Disable(void);
-[; ;RF.h: 204: void RF_Enable(void);
+[; ;RF.h: 150: 79,
+[; ;RF.h: 151: 22,
+[; ;RF.h: 152: };
+[; ;RF.h: 157: extern volatile unsigned char RF_Data;
+[; ;RF.h: 158: extern unsigned int RF_DataTiming[128];
+[; ;RF.h: 159: extern unsigned char RF_DataPlace;
+[; ;RF.h: 160: extern unsigned char RFStarted;
+[; ;RF.h: 161: extern unsigned int RF_SyncLow;
+[; ;RF.h: 162: extern unsigned int RF_SyncHigh;
+[; ;RF.h: 163: extern unsigned char RF_Saved;
+[; ;RF.h: 164: extern unsigned char RF_CodeSize;
+[; ;RF.h: 165: extern double Rail_RSSI;
+[; ;RF.h: 174: void InitRF(void);
+[; ;RF.h: 175: inline unsigned char RF_ReadReceiver(void);
+[; ;RF.h: 176: inline void RF_DataInt(unsigned char state);
+[; ;RF.h: 177: inline void RF_Receiver(unsigned char state);
+[; ;RF.h: 178: inline void RF_SetBandwidth(unsigned char band);
+[; ;RF.h: 179: inline void RF_SetSquelch(unsigned char state);
+[; ;RF.h: 180: void RF_ResetData(void);
+[; ;RF.h: 181: void RF_LoadCode(void);
+[; ;RF.h: 182: unsigned char RF_CalculateCodesize(void);
+[; ;RF.h: 183: unsigned char RF_CheckCode(void);
+[; ;RF.h: 184: void RF_Disable(void);
+[; ;RF.h: 185: void RF_Enable(void);
 "44 ADC.c
 [v _ADC_CurrentSource `uc ~T0 @X0 1 e ]
 [i _ADC_CurrentSource

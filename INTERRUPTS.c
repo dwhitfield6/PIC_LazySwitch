@@ -81,6 +81,7 @@ void interrupt high_isr(void)
             }
             if(RFStarted)
             {
+                SYS_ActivityTimerReset();
                 if(RF_DataPlace < RFBUFFERSIZE)
                 {
                     RF_DataTiming[RF_DataPlace] = RFtemp;
@@ -94,12 +95,6 @@ void interrupt high_isr(void)
                         TMR_Timer0(OFF);
                         RF_ResetData();
                     }
-                }
-                else
-                {
-                    /* Too many edges */
-                    TMR_Timer0(OFF);
-                    RF_ResetData();
                 }
             }
         }
@@ -137,11 +132,11 @@ void low_priority interrupt low_isr(void)
          */
         
         button_state = BUT_ReadButton();
-        IR_state = IR_ReadReceiver();        
+        IR_state = IR_ReadReceiver();
+        SYS_ActivityTimerReset(); 
         if(ButtonChange)
         {
             /* the push button is the source of the interrupt */
-            BUT_IR_PinChangeInt(OFF);
             TMR_Timer2(OFF);           
             if(button_state)
             {
@@ -224,17 +219,9 @@ void low_priority interrupt low_isr(void)
                             }
                         }
                     }
-                    else
-                    {
-                        /* Too many edges */
-                        TMR_Timer1(OFF);
-                        IR_ResetData();
-                    }
                 }
             }
             IRChange = 0;
-            IR_ReadReceiver();
-            IR_ReadReceiver();
         }
         else
         {
@@ -259,10 +246,6 @@ void low_priority interrupt low_isr(void)
             {
                 System_State = RUN; 
                 System_State_Change = TRUE;
-            }
-            else
-            {
-                BUT_IR_PinChangeInt(ON);
             }
         }
         else

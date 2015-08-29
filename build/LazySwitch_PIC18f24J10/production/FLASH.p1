@@ -1,4 +1,61 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"42 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
+[v ___nop `(v ~T0 @X0 0 ef ]
+[p i ___nop ]
+"6373 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
+[s S385 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S385 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"6383
+[s S386 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S386 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE GIE ]
+"6393
+[s S387 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S387 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE GIEL GIEH ]
+"6403
+[s S388 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S388 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"6413
+[s S389 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S389 . . GIEL GIEH ]
+"6372
+[u S384 `S385 1 `S386 1 `S387 1 `S388 1 `S389 1 ]
+[n S384 . . . . . . ]
+"6419
+[v _INTCONbits `VS384 ~T0 @X0 0 e@4082 ]
+"596 FLASH.h
+[v _FSH_AddressToBlock `(v ~T0 @X0 0 ef1`ul ]
+"2011 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
+[s S98 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S98 . . WR WREN WRERR FREE ]
+"2010
+[u S97 `S98 1 ]
+[n S97 . . ]
+"2019
+[v _EECON1bits `VS97 ~T0 @X0 0 e@4006 ]
+"85 MISC.h
+[v _MSC_DelayMS `(v ~T0 @X0 0 ef1`l ]
+"6521 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
+[v _TABLAT `Vuc ~T0 @X0 0 e@4085 ]
+"162 IR.h
+[v _IR_Saved `uc ~T0 @X0 0 e ]
+"163 RF.h
+[v _RF_Saved `uc ~T0 @X0 0 e ]
+"180
+[v _RF_ResetData `(v ~T0 @X0 0 ef ]
+"121 MISC.h
+[v _MSC_BufferCopyIntConst `(v ~T0 @X0 0 ef4`*Cui`*ui`ui`ui ]
+"158 RF.h
+[v _RF_DataTiming `ui ~T0 @X0 -> 0 `x e ]
+"176 IR.h
+[v _IR_ResetData `(v ~T0 @X0 0 ef ]
+"157
+[v _IR_DataTiming `ui ~T0 @X0 -> 0 `x e ]
+"6547 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f24j10.h
+[v _TBLPTRU `Vuc ~T0 @X0 0 e@4088 ]
+"6541
+[v _TBLPTRH `Vuc ~T0 @X0 0 e@4087 ]
+"6535
+[v _TBLPTRL `Vuc ~T0 @X0 0 e@4086 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f24j10.h: 49: extern volatile unsigned char PORTA @ 0xF80;
@@ -3713,15 +3770,3138 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 66: extern char * strrichr(const char *, int);
 [; ;USER.h: 181: void Init_App(void);
 [; ;USER.h: 182: void Init_System (void);
-"55 FLASH.c
-[v _InitFlash `(v ~T0 @X0 1 ef ]
-"56
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+"65 FLASH.h
+[v _FlashWaste `Cuc ~T0 @X0 -> 512 `i e@9728 ]
+[i _FlashWaste
+:U ..
+"66
+-> -> 218 `i `uc
+"67
+-> -> 218 `i `uc
+"68
+-> -> 218 `i `uc
+"69
+-> -> 218 `i `uc
+"70
+-> -> 218 `i `uc
+"71
+-> -> 218 `i `uc
+"72
+-> -> 218 `i `uc
+"73
+-> -> 218 `i `uc
+"74
+-> -> 218 `i `uc
+"75
+-> -> 218 `i `uc
+"76
+-> -> 218 `i `uc
+"77
+-> -> 218 `i `uc
+"78
+-> -> 218 `i `uc
+"79
+-> -> 218 `i `uc
+"80
+-> -> 218 `i `uc
+"81
+-> -> 218 `i `uc
+"82
+-> -> 218 `i `uc
+"83
+-> -> 218 `i `uc
+"84
+-> -> 218 `i `uc
+"85
+-> -> 218 `i `uc
+"86
+-> -> 218 `i `uc
+"87
+-> -> 218 `i `uc
+"88
+-> -> 218 `i `uc
+"89
+-> -> 218 `i `uc
+"90
+-> -> 218 `i `uc
+"91
+-> -> 218 `i `uc
+"92
+-> -> 218 `i `uc
+"93
+-> -> 218 `i `uc
+"94
+-> -> 218 `i `uc
+"95
+-> -> 218 `i `uc
+"96
+-> -> 218 `i `uc
+"97
+-> -> 218 `i `uc
+"98
+-> -> 218 `i `uc
+"99
+-> -> 218 `i `uc
+"100
+-> -> 218 `i `uc
+"101
+-> -> 218 `i `uc
+"102
+-> -> 218 `i `uc
+"103
+-> -> 218 `i `uc
+"104
+-> -> 218 `i `uc
+"105
+-> -> 218 `i `uc
+"106
+-> -> 218 `i `uc
+"107
+-> -> 218 `i `uc
+"108
+-> -> 218 `i `uc
+"109
+-> -> 218 `i `uc
+"110
+-> -> 218 `i `uc
+"111
+-> -> 218 `i `uc
+"112
+-> -> 218 `i `uc
+"113
+-> -> 218 `i `uc
+"114
+-> -> 218 `i `uc
+"115
+-> -> 218 `i `uc
+"116
+-> -> 218 `i `uc
+"117
+-> -> 218 `i `uc
+"118
+-> -> 218 `i `uc
+"119
+-> -> 218 `i `uc
+"120
+-> -> 218 `i `uc
+"121
+-> -> 218 `i `uc
+"122
+-> -> 218 `i `uc
+"123
+-> -> 218 `i `uc
+"124
+-> -> 218 `i `uc
+"125
+-> -> 218 `i `uc
+"126
+-> -> 218 `i `uc
+"127
+-> -> 218 `i `uc
+"128
+-> -> 218 `i `uc
+"129
+-> -> 218 `i `uc
+"130
+-> -> 218 `i `uc
+"131
+-> -> 218 `i `uc
+"132
+-> -> 218 `i `uc
+"133
+-> -> 218 `i `uc
+"134
+-> -> 218 `i `uc
+"135
+-> -> 218 `i `uc
+"136
+-> -> 218 `i `uc
+"137
+-> -> 218 `i `uc
+"138
+-> -> 218 `i `uc
+"139
+-> -> 218 `i `uc
+"140
+-> -> 218 `i `uc
+"141
+-> -> 218 `i `uc
+"142
+-> -> 218 `i `uc
+"143
+-> -> 218 `i `uc
+"144
+-> -> 218 `i `uc
+"145
+-> -> 218 `i `uc
+"146
+-> -> 218 `i `uc
+"147
+-> -> 218 `i `uc
+"148
+-> -> 218 `i `uc
+"149
+-> -> 218 `i `uc
+"150
+-> -> 218 `i `uc
+"151
+-> -> 218 `i `uc
+"152
+-> -> 218 `i `uc
+"153
+-> -> 218 `i `uc
+"154
+-> -> 218 `i `uc
+"155
+-> -> 218 `i `uc
+"156
+-> -> 218 `i `uc
+"157
+-> -> 218 `i `uc
+"158
+-> -> 218 `i `uc
+"159
+-> -> 218 `i `uc
+"160
+-> -> 218 `i `uc
+"161
+-> -> 218 `i `uc
+"162
+-> -> 218 `i `uc
+"163
+-> -> 218 `i `uc
+"164
+-> -> 218 `i `uc
+"165
+-> -> 218 `i `uc
+"166
+-> -> 218 `i `uc
+"167
+-> -> 218 `i `uc
+"168
+-> -> 218 `i `uc
+"169
+-> -> 218 `i `uc
+"170
+-> -> 218 `i `uc
+"171
+-> -> 218 `i `uc
+"172
+-> -> 218 `i `uc
+"173
+-> -> 218 `i `uc
+"174
+-> -> 218 `i `uc
+"175
+-> -> 218 `i `uc
+"176
+-> -> 218 `i `uc
+"177
+-> -> 218 `i `uc
+"178
+-> -> 218 `i `uc
+"179
+-> -> 218 `i `uc
+"180
+-> -> 218 `i `uc
+"181
+-> -> 218 `i `uc
+"182
+-> -> 218 `i `uc
+"183
+-> -> 218 `i `uc
+"184
+-> -> 218 `i `uc
+"185
+-> -> 218 `i `uc
+"186
+-> -> 218 `i `uc
+"187
+-> -> 218 `i `uc
+"188
+-> -> 218 `i `uc
+"189
+-> -> 218 `i `uc
+"190
+-> -> 218 `i `uc
+"191
+-> -> 218 `i `uc
+"192
+-> -> 218 `i `uc
+"193
+-> -> 218 `i `uc
+"194
+-> -> 218 `i `uc
+"195
+-> -> 218 `i `uc
+"196
+-> -> 218 `i `uc
+"197
+-> -> 218 `i `uc
+"198
+-> -> 218 `i `uc
+"199
+-> -> 218 `i `uc
+"200
+-> -> 218 `i `uc
+"201
+-> -> 218 `i `uc
+"202
+-> -> 218 `i `uc
+"203
+-> -> 218 `i `uc
+"204
+-> -> 218 `i `uc
+"205
+-> -> 218 `i `uc
+"206
+-> -> 218 `i `uc
+"207
+-> -> 218 `i `uc
+"208
+-> -> 218 `i `uc
+"209
+-> -> 218 `i `uc
+"210
+-> -> 218 `i `uc
+"211
+-> -> 218 `i `uc
+"212
+-> -> 218 `i `uc
+"213
+-> -> 218 `i `uc
+"214
+-> -> 218 `i `uc
+"215
+-> -> 218 `i `uc
+"216
+-> -> 218 `i `uc
+"217
+-> -> 218 `i `uc
+"218
+-> -> 218 `i `uc
+"219
+-> -> 218 `i `uc
+"220
+-> -> 218 `i `uc
+"221
+-> -> 218 `i `uc
+"222
+-> -> 218 `i `uc
+"223
+-> -> 218 `i `uc
+"224
+-> -> 218 `i `uc
+"225
+-> -> 218 `i `uc
+"226
+-> -> 218 `i `uc
+"227
+-> -> 218 `i `uc
+"228
+-> -> 218 `i `uc
+"229
+-> -> 218 `i `uc
+"230
+-> -> 218 `i `uc
+"231
+-> -> 218 `i `uc
+"232
+-> -> 218 `i `uc
+"233
+-> -> 218 `i `uc
+"234
+-> -> 218 `i `uc
+"235
+-> -> 218 `i `uc
+"236
+-> -> 218 `i `uc
+"237
+-> -> 218 `i `uc
+"238
+-> -> 218 `i `uc
+"239
+-> -> 218 `i `uc
+"240
+-> -> 218 `i `uc
+"241
+-> -> 218 `i `uc
+"242
+-> -> 218 `i `uc
+"243
+-> -> 218 `i `uc
+"244
+-> -> 218 `i `uc
+"245
+-> -> 218 `i `uc
+"246
+-> -> 218 `i `uc
+"247
+-> -> 218 `i `uc
+"248
+-> -> 218 `i `uc
+"249
+-> -> 218 `i `uc
+"250
+-> -> 218 `i `uc
+"251
+-> -> 218 `i `uc
+"252
+-> -> 218 `i `uc
+"253
+-> -> 218 `i `uc
+"254
+-> -> 218 `i `uc
+"255
+-> -> 218 `i `uc
+"256
+-> -> 218 `i `uc
+"257
+-> -> 218 `i `uc
+"258
+-> -> 218 `i `uc
+"259
+-> -> 218 `i `uc
+"260
+-> -> 218 `i `uc
+"261
+-> -> 218 `i `uc
+"262
+-> -> 218 `i `uc
+"263
+-> -> 218 `i `uc
+"264
+-> -> 218 `i `uc
+"265
+-> -> 218 `i `uc
+"266
+-> -> 218 `i `uc
+"267
+-> -> 218 `i `uc
+"268
+-> -> 218 `i `uc
+"269
+-> -> 218 `i `uc
+"270
+-> -> 218 `i `uc
+"271
+-> -> 218 `i `uc
+"272
+-> -> 218 `i `uc
+"273
+-> -> 218 `i `uc
+"274
+-> -> 218 `i `uc
+"275
+-> -> 218 `i `uc
+"276
+-> -> 218 `i `uc
+"277
+-> -> 218 `i `uc
+"278
+-> -> 218 `i `uc
+"279
+-> -> 218 `i `uc
+"280
+-> -> 218 `i `uc
+"281
+-> -> 218 `i `uc
+"282
+-> -> 218 `i `uc
+"283
+-> -> 218 `i `uc
+"284
+-> -> 218 `i `uc
+"285
+-> -> 218 `i `uc
+"286
+-> -> 218 `i `uc
+"287
+-> -> 218 `i `uc
+"288
+-> -> 218 `i `uc
+"289
+-> -> 218 `i `uc
+"290
+-> -> 218 `i `uc
+"291
+-> -> 218 `i `uc
+"292
+-> -> 218 `i `uc
+"293
+-> -> 218 `i `uc
+"294
+-> -> 218 `i `uc
+"295
+-> -> 218 `i `uc
+"296
+-> -> 218 `i `uc
+"297
+-> -> 218 `i `uc
+"298
+-> -> 218 `i `uc
+"299
+-> -> 218 `i `uc
+"300
+-> -> 218 `i `uc
+"301
+-> -> 218 `i `uc
+"302
+-> -> 218 `i `uc
+"303
+-> -> 218 `i `uc
+"304
+-> -> 218 `i `uc
+"305
+-> -> 218 `i `uc
+"306
+-> -> 218 `i `uc
+"307
+-> -> 218 `i `uc
+"308
+-> -> 218 `i `uc
+"309
+-> -> 218 `i `uc
+"310
+-> -> 218 `i `uc
+"311
+-> -> 218 `i `uc
+"312
+-> -> 218 `i `uc
+"313
+-> -> 218 `i `uc
+"314
+-> -> 218 `i `uc
+"315
+-> -> 218 `i `uc
+"316
+-> -> 218 `i `uc
+"317
+-> -> 218 `i `uc
+"318
+-> -> 218 `i `uc
+"319
+-> -> 218 `i `uc
+"320
+-> -> 218 `i `uc
+"321
+-> -> 218 `i `uc
+"322
+-> -> 218 `i `uc
+"323
+-> -> 218 `i `uc
+"324
+-> -> 218 `i `uc
+"325
+-> -> 218 `i `uc
+"326
+-> -> 218 `i `uc
+"327
+-> -> 218 `i `uc
+"328
+-> -> 218 `i `uc
+"329
+-> -> 218 `i `uc
+"330
+-> -> 218 `i `uc
+"331
+-> -> 218 `i `uc
+"332
+-> -> 218 `i `uc
+"333
+-> -> 218 `i `uc
+"334
+-> -> 218 `i `uc
+"335
+-> -> 218 `i `uc
+"336
+-> -> 218 `i `uc
+"337
+-> -> 218 `i `uc
+"338
+-> -> 218 `i `uc
+"339
+-> -> 218 `i `uc
+"340
+-> -> 218 `i `uc
+"341
+-> -> 218 `i `uc
+"342
+-> -> 218 `i `uc
+"343
+-> -> 218 `i `uc
+"344
+-> -> 218 `i `uc
+"345
+-> -> 218 `i `uc
+"346
+-> -> 218 `i `uc
+"347
+-> -> 218 `i `uc
+"348
+-> -> 218 `i `uc
+"349
+-> -> 218 `i `uc
+"350
+-> -> 218 `i `uc
+"351
+-> -> 218 `i `uc
+"352
+-> -> 218 `i `uc
+"353
+-> -> 218 `i `uc
+"354
+-> -> 218 `i `uc
+"355
+-> -> 218 `i `uc
+"356
+-> -> 218 `i `uc
+"357
+-> -> 218 `i `uc
+"358
+-> -> 218 `i `uc
+"359
+-> -> 218 `i `uc
+"360
+-> -> 218 `i `uc
+"361
+-> -> 218 `i `uc
+"362
+-> -> 218 `i `uc
+"363
+-> -> 218 `i `uc
+"364
+-> -> 218 `i `uc
+"365
+-> -> 218 `i `uc
+"366
+-> -> 218 `i `uc
+"367
+-> -> 218 `i `uc
+"368
+-> -> 218 `i `uc
+"369
+-> -> 218 `i `uc
+"370
+-> -> 218 `i `uc
+"371
+-> -> 218 `i `uc
+"372
+-> -> 218 `i `uc
+"373
+-> -> 218 `i `uc
+"374
+-> -> 218 `i `uc
+"375
+-> -> 218 `i `uc
+"376
+-> -> 218 `i `uc
+"377
+-> -> 218 `i `uc
+"378
+-> -> 218 `i `uc
+"379
+-> -> 218 `i `uc
+"380
+-> -> 218 `i `uc
+"381
+-> -> 218 `i `uc
+"382
+-> -> 218 `i `uc
+"383
+-> -> 218 `i `uc
+"384
+-> -> 218 `i `uc
+"385
+-> -> 218 `i `uc
+"386
+-> -> 218 `i `uc
+"387
+-> -> 218 `i `uc
+"388
+-> -> 218 `i `uc
+"389
+-> -> 218 `i `uc
+"390
+-> -> 218 `i `uc
+"391
+-> -> 218 `i `uc
+"392
+-> -> 218 `i `uc
+"393
+-> -> 218 `i `uc
+"394
+-> -> 218 `i `uc
+"395
+-> -> 218 `i `uc
+"396
+-> -> 218 `i `uc
+"397
+-> -> 218 `i `uc
+"398
+-> -> 218 `i `uc
+"399
+-> -> 218 `i `uc
+"400
+-> -> 218 `i `uc
+"401
+-> -> 218 `i `uc
+"402
+-> -> 218 `i `uc
+"403
+-> -> 218 `i `uc
+"404
+-> -> 218 `i `uc
+"405
+-> -> 218 `i `uc
+"406
+-> -> 218 `i `uc
+"407
+-> -> 218 `i `uc
+"408
+-> -> 218 `i `uc
+"409
+-> -> 218 `i `uc
+"410
+-> -> 218 `i `uc
+"411
+-> -> 218 `i `uc
+"412
+-> -> 218 `i `uc
+"413
+-> -> 218 `i `uc
+"414
+-> -> 218 `i `uc
+"415
+-> -> 218 `i `uc
+"416
+-> -> 218 `i `uc
+"417
+-> -> 218 `i `uc
+"418
+-> -> 218 `i `uc
+"419
+-> -> 218 `i `uc
+"420
+-> -> 218 `i `uc
+"421
+-> -> 218 `i `uc
+"422
+-> -> 218 `i `uc
+"423
+-> -> 218 `i `uc
+"424
+-> -> 218 `i `uc
+"425
+-> -> 218 `i `uc
+"426
+-> -> 218 `i `uc
+"427
+-> -> 218 `i `uc
+"428
+-> -> 218 `i `uc
+"429
+-> -> 218 `i `uc
+"430
+-> -> 218 `i `uc
+"431
+-> -> 218 `i `uc
+"432
+-> -> 218 `i `uc
+"433
+-> -> 218 `i `uc
+"434
+-> -> 218 `i `uc
+"435
+-> -> 218 `i `uc
+"436
+-> -> 218 `i `uc
+"437
+-> -> 218 `i `uc
+"438
+-> -> 218 `i `uc
+"439
+-> -> 218 `i `uc
+"440
+-> -> 218 `i `uc
+"441
+-> -> 218 `i `uc
+"442
+-> -> 218 `i `uc
+"443
+-> -> 218 `i `uc
+"444
+-> -> 218 `i `uc
+"445
+-> -> 218 `i `uc
+"446
+-> -> 218 `i `uc
+"447
+-> -> 218 `i `uc
+"448
+-> -> 218 `i `uc
+"449
+-> -> 218 `i `uc
+"450
+-> -> 218 `i `uc
+"451
+-> -> 218 `i `uc
+"452
+-> -> 218 `i `uc
+"453
+-> -> 218 `i `uc
+"454
+-> -> 218 `i `uc
+"455
+-> -> 218 `i `uc
+"456
+-> -> 218 `i `uc
+"457
+-> -> 218 `i `uc
+"458
+-> -> 218 `i `uc
+"459
+-> -> 218 `i `uc
+"460
+-> -> 218 `i `uc
+"461
+-> -> 218 `i `uc
+"462
+-> -> 218 `i `uc
+"463
+-> -> 218 `i `uc
+"464
+-> -> 218 `i `uc
+"465
+-> -> 218 `i `uc
+"466
+-> -> 218 `i `uc
+"467
+-> -> 218 `i `uc
+"468
+-> -> 218 `i `uc
+"469
+-> -> 218 `i `uc
+"470
+-> -> 218 `i `uc
+"471
+-> -> 218 `i `uc
+"472
+-> -> 218 `i `uc
+"473
+-> -> 218 `i `uc
+"474
+-> -> 218 `i `uc
+"475
+-> -> 218 `i `uc
+"476
+-> -> 218 `i `uc
+"477
+-> -> 218 `i `uc
+"478
+-> -> 218 `i `uc
+"479
+-> -> 218 `i `uc
+"480
+-> -> 218 `i `uc
+"481
+-> -> 218 `i `uc
+"482
+-> -> 218 `i `uc
+"483
+-> -> 218 `i `uc
+"484
+-> -> 218 `i `uc
+"485
+-> -> 218 `i `uc
+"486
+-> -> 218 `i `uc
+"487
+-> -> 218 `i `uc
+"488
+-> -> 218 `i `uc
+"489
+-> -> 218 `i `uc
+"490
+-> -> 218 `i `uc
+"491
+-> -> 218 `i `uc
+"492
+-> -> 218 `i `uc
+"493
+-> -> 218 `i `uc
+"494
+-> -> 218 `i `uc
+"495
+-> -> 218 `i `uc
+"496
+-> -> 218 `i `uc
+"497
+-> -> 218 `i `uc
+"498
+-> -> 218 `i `uc
+"499
+-> -> 218 `i `uc
+"500
+-> -> 218 `i `uc
+"501
+-> -> 218 `i `uc
+"502
+-> -> 218 `i `uc
+"503
+-> -> 218 `i `uc
+"504
+-> -> 218 `i `uc
+"505
+-> -> 218 `i `uc
+"506
+-> -> 218 `i `uc
+"507
+-> -> 218 `i `uc
+"508
+-> -> 218 `i `uc
+"509
+-> -> 218 `i `uc
+"510
+-> -> 218 `i `uc
+"511
+-> -> 218 `i `uc
+"512
+-> -> 218 `i `uc
+"513
+-> -> 218 `i `uc
+"514
+-> -> 218 `i `uc
+"515
+-> -> 218 `i `uc
+"516
+-> -> 218 `i `uc
+"517
+-> -> 218 `i `uc
+"518
+-> -> 218 `i `uc
+"519
+-> -> 218 `i `uc
+"520
+-> -> 218 `i `uc
+"521
+-> -> 218 `i `uc
+"522
+-> -> 218 `i `uc
+"523
+-> -> 218 `i `uc
+"524
+-> -> 218 `i `uc
+"525
+-> -> 218 `i `uc
+"526
+-> -> 218 `i `uc
+"527
+-> -> 218 `i `uc
+"528
+-> -> 218 `i `uc
+"529
+-> -> 218 `i `uc
+"530
+-> -> 218 `i `uc
+"531
+-> -> 218 `i `uc
+"532
+-> -> 218 `i `uc
+"533
+-> -> 218 `i `uc
+"534
+-> -> 218 `i `uc
+"535
+-> -> 218 `i `uc
+"536
+-> -> 218 `i `uc
+"537
+-> -> 218 `i `uc
+"538
+-> -> 218 `i `uc
+"539
+-> -> 218 `i `uc
+"540
+-> -> 218 `i `uc
+"541
+-> -> 218 `i `uc
+"542
+-> -> 218 `i `uc
+"543
+-> -> 218 `i `uc
+"544
+-> -> 218 `i `uc
+"545
+-> -> 218 `i `uc
+"546
+-> -> 218 `i `uc
+"547
+-> -> 218 `i `uc
+"548
+-> -> 218 `i `uc
+"549
+-> -> 218 `i `uc
+"550
+-> -> 218 `i `uc
+"551
+-> -> 218 `i `uc
+"552
+-> -> 218 `i `uc
+"553
+-> -> 218 `i `uc
+"554
+-> -> 218 `i `uc
+"555
+-> -> 218 `i `uc
+"556
+-> -> 218 `i `uc
+"557
+-> -> 218 `i `uc
+"558
+-> -> 218 `i `uc
+"559
+-> -> 218 `i `uc
+"560
+-> -> 218 `i `uc
+"561
+-> -> 218 `i `uc
+"562
+-> -> 218 `i `uc
+"563
+-> -> 218 `i `uc
+"564
+-> -> 218 `i `uc
+"565
+-> -> 218 `i `uc
+"566
+-> -> 218 `i `uc
+"567
+-> -> 218 `i `uc
+"568
+-> -> 218 `i `uc
+"569
+-> -> 218 `i `uc
+"570
+-> -> 218 `i `uc
+"571
+-> -> 218 `i `uc
+"572
+-> -> 218 `i `uc
+"573
+-> -> 218 `i `uc
+"574
+-> -> 218 `i `uc
+"575
+-> -> 218 `i `uc
+"576
+-> -> 218 `i `uc
+"577
+-> -> 218 `i `uc
+..
+]
+[; ;FLASH.h: 65: const unsigned char FlashWaste[512] __attribute__((address(0x2600))) = {
+[; ;FLASH.h: 66: 0xDA,
+[; ;FLASH.h: 67: 0xDA,
+[; ;FLASH.h: 68: 0xDA,
+[; ;FLASH.h: 69: 0xDA,
+[; ;FLASH.h: 70: 0xDA,
+[; ;FLASH.h: 71: 0xDA,
+[; ;FLASH.h: 72: 0xDA,
+[; ;FLASH.h: 73: 0xDA,
+[; ;FLASH.h: 74: 0xDA,
+[; ;FLASH.h: 75: 0xDA,
+[; ;FLASH.h: 76: 0xDA,
+[; ;FLASH.h: 77: 0xDA,
+[; ;FLASH.h: 78: 0xDA,
+[; ;FLASH.h: 79: 0xDA,
+[; ;FLASH.h: 80: 0xDA,
+[; ;FLASH.h: 81: 0xDA,
+[; ;FLASH.h: 82: 0xDA,
+[; ;FLASH.h: 83: 0xDA,
+[; ;FLASH.h: 84: 0xDA,
+[; ;FLASH.h: 85: 0xDA,
+[; ;FLASH.h: 86: 0xDA,
+[; ;FLASH.h: 87: 0xDA,
+[; ;FLASH.h: 88: 0xDA,
+[; ;FLASH.h: 89: 0xDA,
+[; ;FLASH.h: 90: 0xDA,
+[; ;FLASH.h: 91: 0xDA,
+[; ;FLASH.h: 92: 0xDA,
+[; ;FLASH.h: 93: 0xDA,
+[; ;FLASH.h: 94: 0xDA,
+[; ;FLASH.h: 95: 0xDA,
+[; ;FLASH.h: 96: 0xDA,
+[; ;FLASH.h: 97: 0xDA,
+[; ;FLASH.h: 98: 0xDA,
+[; ;FLASH.h: 99: 0xDA,
+[; ;FLASH.h: 100: 0xDA,
+[; ;FLASH.h: 101: 0xDA,
+[; ;FLASH.h: 102: 0xDA,
+[; ;FLASH.h: 103: 0xDA,
+[; ;FLASH.h: 104: 0xDA,
+[; ;FLASH.h: 105: 0xDA,
+[; ;FLASH.h: 106: 0xDA,
+[; ;FLASH.h: 107: 0xDA,
+[; ;FLASH.h: 108: 0xDA,
+[; ;FLASH.h: 109: 0xDA,
+[; ;FLASH.h: 110: 0xDA,
+[; ;FLASH.h: 111: 0xDA,
+[; ;FLASH.h: 112: 0xDA,
+[; ;FLASH.h: 113: 0xDA,
+[; ;FLASH.h: 114: 0xDA,
+[; ;FLASH.h: 115: 0xDA,
+[; ;FLASH.h: 116: 0xDA,
+[; ;FLASH.h: 117: 0xDA,
+[; ;FLASH.h: 118: 0xDA,
+[; ;FLASH.h: 119: 0xDA,
+[; ;FLASH.h: 120: 0xDA,
+[; ;FLASH.h: 121: 0xDA,
+[; ;FLASH.h: 122: 0xDA,
+[; ;FLASH.h: 123: 0xDA,
+[; ;FLASH.h: 124: 0xDA,
+[; ;FLASH.h: 125: 0xDA,
+[; ;FLASH.h: 126: 0xDA,
+[; ;FLASH.h: 127: 0xDA,
+[; ;FLASH.h: 128: 0xDA,
+[; ;FLASH.h: 129: 0xDA,
+[; ;FLASH.h: 130: 0xDA,
+[; ;FLASH.h: 131: 0xDA,
+[; ;FLASH.h: 132: 0xDA,
+[; ;FLASH.h: 133: 0xDA,
+[; ;FLASH.h: 134: 0xDA,
+[; ;FLASH.h: 135: 0xDA,
+[; ;FLASH.h: 136: 0xDA,
+[; ;FLASH.h: 137: 0xDA,
+[; ;FLASH.h: 138: 0xDA,
+[; ;FLASH.h: 139: 0xDA,
+[; ;FLASH.h: 140: 0xDA,
+[; ;FLASH.h: 141: 0xDA,
+[; ;FLASH.h: 142: 0xDA,
+[; ;FLASH.h: 143: 0xDA,
+[; ;FLASH.h: 144: 0xDA,
+[; ;FLASH.h: 145: 0xDA,
+[; ;FLASH.h: 146: 0xDA,
+[; ;FLASH.h: 147: 0xDA,
+[; ;FLASH.h: 148: 0xDA,
+[; ;FLASH.h: 149: 0xDA,
+[; ;FLASH.h: 150: 0xDA,
+[; ;FLASH.h: 151: 0xDA,
+[; ;FLASH.h: 152: 0xDA,
+[; ;FLASH.h: 153: 0xDA,
+[; ;FLASH.h: 154: 0xDA,
+[; ;FLASH.h: 155: 0xDA,
+[; ;FLASH.h: 156: 0xDA,
+[; ;FLASH.h: 157: 0xDA,
+[; ;FLASH.h: 158: 0xDA,
+[; ;FLASH.h: 159: 0xDA,
+[; ;FLASH.h: 160: 0xDA,
+[; ;FLASH.h: 161: 0xDA,
+[; ;FLASH.h: 162: 0xDA,
+[; ;FLASH.h: 163: 0xDA,
+[; ;FLASH.h: 164: 0xDA,
+[; ;FLASH.h: 165: 0xDA,
+[; ;FLASH.h: 166: 0xDA,
+[; ;FLASH.h: 167: 0xDA,
+[; ;FLASH.h: 168: 0xDA,
+[; ;FLASH.h: 169: 0xDA,
+[; ;FLASH.h: 170: 0xDA,
+[; ;FLASH.h: 171: 0xDA,
+[; ;FLASH.h: 172: 0xDA,
+[; ;FLASH.h: 173: 0xDA,
+[; ;FLASH.h: 174: 0xDA,
+[; ;FLASH.h: 175: 0xDA,
+[; ;FLASH.h: 176: 0xDA,
+[; ;FLASH.h: 177: 0xDA,
+[; ;FLASH.h: 178: 0xDA,
+[; ;FLASH.h: 179: 0xDA,
+[; ;FLASH.h: 180: 0xDA,
+[; ;FLASH.h: 181: 0xDA,
+[; ;FLASH.h: 182: 0xDA,
+[; ;FLASH.h: 183: 0xDA,
+[; ;FLASH.h: 184: 0xDA,
+[; ;FLASH.h: 185: 0xDA,
+[; ;FLASH.h: 186: 0xDA,
+[; ;FLASH.h: 187: 0xDA,
+[; ;FLASH.h: 188: 0xDA,
+[; ;FLASH.h: 189: 0xDA,
+[; ;FLASH.h: 190: 0xDA,
+[; ;FLASH.h: 191: 0xDA,
+[; ;FLASH.h: 192: 0xDA,
+[; ;FLASH.h: 193: 0xDA,
+[; ;FLASH.h: 194: 0xDA,
+[; ;FLASH.h: 195: 0xDA,
+[; ;FLASH.h: 196: 0xDA,
+[; ;FLASH.h: 197: 0xDA,
+[; ;FLASH.h: 198: 0xDA,
+[; ;FLASH.h: 199: 0xDA,
+[; ;FLASH.h: 200: 0xDA,
+[; ;FLASH.h: 201: 0xDA,
+[; ;FLASH.h: 202: 0xDA,
+[; ;FLASH.h: 203: 0xDA,
+[; ;FLASH.h: 204: 0xDA,
+[; ;FLASH.h: 205: 0xDA,
+[; ;FLASH.h: 206: 0xDA,
+[; ;FLASH.h: 207: 0xDA,
+[; ;FLASH.h: 208: 0xDA,
+[; ;FLASH.h: 209: 0xDA,
+[; ;FLASH.h: 210: 0xDA,
+[; ;FLASH.h: 211: 0xDA,
+[; ;FLASH.h: 212: 0xDA,
+[; ;FLASH.h: 213: 0xDA,
+[; ;FLASH.h: 214: 0xDA,
+[; ;FLASH.h: 215: 0xDA,
+[; ;FLASH.h: 216: 0xDA,
+[; ;FLASH.h: 217: 0xDA,
+[; ;FLASH.h: 218: 0xDA,
+[; ;FLASH.h: 219: 0xDA,
+[; ;FLASH.h: 220: 0xDA,
+[; ;FLASH.h: 221: 0xDA,
+[; ;FLASH.h: 222: 0xDA,
+[; ;FLASH.h: 223: 0xDA,
+[; ;FLASH.h: 224: 0xDA,
+[; ;FLASH.h: 225: 0xDA,
+[; ;FLASH.h: 226: 0xDA,
+[; ;FLASH.h: 227: 0xDA,
+[; ;FLASH.h: 228: 0xDA,
+[; ;FLASH.h: 229: 0xDA,
+[; ;FLASH.h: 230: 0xDA,
+[; ;FLASH.h: 231: 0xDA,
+[; ;FLASH.h: 232: 0xDA,
+[; ;FLASH.h: 233: 0xDA,
+[; ;FLASH.h: 234: 0xDA,
+[; ;FLASH.h: 235: 0xDA,
+[; ;FLASH.h: 236: 0xDA,
+[; ;FLASH.h: 237: 0xDA,
+[; ;FLASH.h: 238: 0xDA,
+[; ;FLASH.h: 239: 0xDA,
+[; ;FLASH.h: 240: 0xDA,
+[; ;FLASH.h: 241: 0xDA,
+[; ;FLASH.h: 242: 0xDA,
+[; ;FLASH.h: 243: 0xDA,
+[; ;FLASH.h: 244: 0xDA,
+[; ;FLASH.h: 245: 0xDA,
+[; ;FLASH.h: 246: 0xDA,
+[; ;FLASH.h: 247: 0xDA,
+[; ;FLASH.h: 248: 0xDA,
+[; ;FLASH.h: 249: 0xDA,
+[; ;FLASH.h: 250: 0xDA,
+[; ;FLASH.h: 251: 0xDA,
+[; ;FLASH.h: 252: 0xDA,
+[; ;FLASH.h: 253: 0xDA,
+[; ;FLASH.h: 254: 0xDA,
+[; ;FLASH.h: 255: 0xDA,
+[; ;FLASH.h: 256: 0xDA,
+[; ;FLASH.h: 257: 0xDA,
+[; ;FLASH.h: 258: 0xDA,
+[; ;FLASH.h: 259: 0xDA,
+[; ;FLASH.h: 260: 0xDA,
+[; ;FLASH.h: 261: 0xDA,
+[; ;FLASH.h: 262: 0xDA,
+[; ;FLASH.h: 263: 0xDA,
+[; ;FLASH.h: 264: 0xDA,
+[; ;FLASH.h: 265: 0xDA,
+[; ;FLASH.h: 266: 0xDA,
+[; ;FLASH.h: 267: 0xDA,
+[; ;FLASH.h: 268: 0xDA,
+[; ;FLASH.h: 269: 0xDA,
+[; ;FLASH.h: 270: 0xDA,
+[; ;FLASH.h: 271: 0xDA,
+[; ;FLASH.h: 272: 0xDA,
+[; ;FLASH.h: 273: 0xDA,
+[; ;FLASH.h: 274: 0xDA,
+[; ;FLASH.h: 275: 0xDA,
+[; ;FLASH.h: 276: 0xDA,
+[; ;FLASH.h: 277: 0xDA,
+[; ;FLASH.h: 278: 0xDA,
+[; ;FLASH.h: 279: 0xDA,
+[; ;FLASH.h: 280: 0xDA,
+[; ;FLASH.h: 281: 0xDA,
+[; ;FLASH.h: 282: 0xDA,
+[; ;FLASH.h: 283: 0xDA,
+[; ;FLASH.h: 284: 0xDA,
+[; ;FLASH.h: 285: 0xDA,
+[; ;FLASH.h: 286: 0xDA,
+[; ;FLASH.h: 287: 0xDA,
+[; ;FLASH.h: 288: 0xDA,
+[; ;FLASH.h: 289: 0xDA,
+[; ;FLASH.h: 290: 0xDA,
+[; ;FLASH.h: 291: 0xDA,
+[; ;FLASH.h: 292: 0xDA,
+[; ;FLASH.h: 293: 0xDA,
+[; ;FLASH.h: 294: 0xDA,
+[; ;FLASH.h: 295: 0xDA,
+[; ;FLASH.h: 296: 0xDA,
+[; ;FLASH.h: 297: 0xDA,
+[; ;FLASH.h: 298: 0xDA,
+[; ;FLASH.h: 299: 0xDA,
+[; ;FLASH.h: 300: 0xDA,
+[; ;FLASH.h: 301: 0xDA,
+[; ;FLASH.h: 302: 0xDA,
+[; ;FLASH.h: 303: 0xDA,
+[; ;FLASH.h: 304: 0xDA,
+[; ;FLASH.h: 305: 0xDA,
+[; ;FLASH.h: 306: 0xDA,
+[; ;FLASH.h: 307: 0xDA,
+[; ;FLASH.h: 308: 0xDA,
+[; ;FLASH.h: 309: 0xDA,
+[; ;FLASH.h: 310: 0xDA,
+[; ;FLASH.h: 311: 0xDA,
+[; ;FLASH.h: 312: 0xDA,
+[; ;FLASH.h: 313: 0xDA,
+[; ;FLASH.h: 314: 0xDA,
+[; ;FLASH.h: 315: 0xDA,
+[; ;FLASH.h: 316: 0xDA,
+[; ;FLASH.h: 317: 0xDA,
+[; ;FLASH.h: 318: 0xDA,
+[; ;FLASH.h: 319: 0xDA,
+[; ;FLASH.h: 320: 0xDA,
+[; ;FLASH.h: 321: 0xDA,
+[; ;FLASH.h: 322: 0xDA,
+[; ;FLASH.h: 323: 0xDA,
+[; ;FLASH.h: 324: 0xDA,
+[; ;FLASH.h: 325: 0xDA,
+[; ;FLASH.h: 326: 0xDA,
+[; ;FLASH.h: 327: 0xDA,
+[; ;FLASH.h: 328: 0xDA,
+[; ;FLASH.h: 329: 0xDA,
+[; ;FLASH.h: 330: 0xDA,
+[; ;FLASH.h: 331: 0xDA,
+[; ;FLASH.h: 332: 0xDA,
+[; ;FLASH.h: 333: 0xDA,
+[; ;FLASH.h: 334: 0xDA,
+[; ;FLASH.h: 335: 0xDA,
+[; ;FLASH.h: 336: 0xDA,
+[; ;FLASH.h: 337: 0xDA,
+[; ;FLASH.h: 338: 0xDA,
+[; ;FLASH.h: 339: 0xDA,
+[; ;FLASH.h: 340: 0xDA,
+[; ;FLASH.h: 341: 0xDA,
+[; ;FLASH.h: 342: 0xDA,
+[; ;FLASH.h: 343: 0xDA,
+[; ;FLASH.h: 344: 0xDA,
+[; ;FLASH.h: 345: 0xDA,
+[; ;FLASH.h: 346: 0xDA,
+[; ;FLASH.h: 347: 0xDA,
+[; ;FLASH.h: 348: 0xDA,
+[; ;FLASH.h: 349: 0xDA,
+[; ;FLASH.h: 350: 0xDA,
+[; ;FLASH.h: 351: 0xDA,
+[; ;FLASH.h: 352: 0xDA,
+[; ;FLASH.h: 353: 0xDA,
+[; ;FLASH.h: 354: 0xDA,
+[; ;FLASH.h: 355: 0xDA,
+[; ;FLASH.h: 356: 0xDA,
+[; ;FLASH.h: 357: 0xDA,
+[; ;FLASH.h: 358: 0xDA,
+[; ;FLASH.h: 359: 0xDA,
+[; ;FLASH.h: 360: 0xDA,
+[; ;FLASH.h: 361: 0xDA,
+[; ;FLASH.h: 362: 0xDA,
+[; ;FLASH.h: 363: 0xDA,
+[; ;FLASH.h: 364: 0xDA,
+[; ;FLASH.h: 365: 0xDA,
+[; ;FLASH.h: 366: 0xDA,
+[; ;FLASH.h: 367: 0xDA,
+[; ;FLASH.h: 368: 0xDA,
+[; ;FLASH.h: 369: 0xDA,
+[; ;FLASH.h: 370: 0xDA,
+[; ;FLASH.h: 371: 0xDA,
+[; ;FLASH.h: 372: 0xDA,
+[; ;FLASH.h: 373: 0xDA,
+[; ;FLASH.h: 374: 0xDA,
+[; ;FLASH.h: 375: 0xDA,
+[; ;FLASH.h: 376: 0xDA,
+[; ;FLASH.h: 377: 0xDA,
+[; ;FLASH.h: 378: 0xDA,
+[; ;FLASH.h: 379: 0xDA,
+[; ;FLASH.h: 380: 0xDA,
+[; ;FLASH.h: 381: 0xDA,
+[; ;FLASH.h: 382: 0xDA,
+[; ;FLASH.h: 383: 0xDA,
+[; ;FLASH.h: 384: 0xDA,
+[; ;FLASH.h: 385: 0xDA,
+[; ;FLASH.h: 386: 0xDA,
+[; ;FLASH.h: 387: 0xDA,
+[; ;FLASH.h: 388: 0xDA,
+[; ;FLASH.h: 389: 0xDA,
+[; ;FLASH.h: 390: 0xDA,
+[; ;FLASH.h: 391: 0xDA,
+[; ;FLASH.h: 392: 0xDA,
+[; ;FLASH.h: 393: 0xDA,
+[; ;FLASH.h: 394: 0xDA,
+[; ;FLASH.h: 395: 0xDA,
+[; ;FLASH.h: 396: 0xDA,
+[; ;FLASH.h: 397: 0xDA,
+[; ;FLASH.h: 398: 0xDA,
+[; ;FLASH.h: 399: 0xDA,
+[; ;FLASH.h: 400: 0xDA,
+[; ;FLASH.h: 401: 0xDA,
+[; ;FLASH.h: 402: 0xDA,
+[; ;FLASH.h: 403: 0xDA,
+[; ;FLASH.h: 404: 0xDA,
+[; ;FLASH.h: 405: 0xDA,
+[; ;FLASH.h: 406: 0xDA,
+[; ;FLASH.h: 407: 0xDA,
+[; ;FLASH.h: 408: 0xDA,
+[; ;FLASH.h: 409: 0xDA,
+[; ;FLASH.h: 410: 0xDA,
+[; ;FLASH.h: 411: 0xDA,
+[; ;FLASH.h: 412: 0xDA,
+[; ;FLASH.h: 413: 0xDA,
+[; ;FLASH.h: 414: 0xDA,
+[; ;FLASH.h: 415: 0xDA,
+[; ;FLASH.h: 416: 0xDA,
+[; ;FLASH.h: 417: 0xDA,
+[; ;FLASH.h: 418: 0xDA,
+[; ;FLASH.h: 419: 0xDA,
+[; ;FLASH.h: 420: 0xDA,
+[; ;FLASH.h: 421: 0xDA,
+[; ;FLASH.h: 422: 0xDA,
+[; ;FLASH.h: 423: 0xDA,
+[; ;FLASH.h: 424: 0xDA,
+[; ;FLASH.h: 425: 0xDA,
+[; ;FLASH.h: 426: 0xDA,
+[; ;FLASH.h: 427: 0xDA,
+[; ;FLASH.h: 428: 0xDA,
+[; ;FLASH.h: 429: 0xDA,
+[; ;FLASH.h: 430: 0xDA,
+[; ;FLASH.h: 431: 0xDA,
+[; ;FLASH.h: 432: 0xDA,
+[; ;FLASH.h: 433: 0xDA,
+[; ;FLASH.h: 434: 0xDA,
+[; ;FLASH.h: 435: 0xDA,
+[; ;FLASH.h: 436: 0xDA,
+[; ;FLASH.h: 437: 0xDA,
+[; ;FLASH.h: 438: 0xDA,
+[; ;FLASH.h: 439: 0xDA,
+[; ;FLASH.h: 440: 0xDA,
+[; ;FLASH.h: 441: 0xDA,
+[; ;FLASH.h: 442: 0xDA,
+[; ;FLASH.h: 443: 0xDA,
+[; ;FLASH.h: 444: 0xDA,
+[; ;FLASH.h: 445: 0xDA,
+[; ;FLASH.h: 446: 0xDA,
+[; ;FLASH.h: 447: 0xDA,
+[; ;FLASH.h: 448: 0xDA,
+[; ;FLASH.h: 449: 0xDA,
+[; ;FLASH.h: 450: 0xDA,
+[; ;FLASH.h: 451: 0xDA,
+[; ;FLASH.h: 452: 0xDA,
+[; ;FLASH.h: 453: 0xDA,
+[; ;FLASH.h: 454: 0xDA,
+[; ;FLASH.h: 455: 0xDA,
+[; ;FLASH.h: 456: 0xDA,
+[; ;FLASH.h: 457: 0xDA,
+[; ;FLASH.h: 458: 0xDA,
+[; ;FLASH.h: 459: 0xDA,
+[; ;FLASH.h: 460: 0xDA,
+[; ;FLASH.h: 461: 0xDA,
+[; ;FLASH.h: 462: 0xDA,
+[; ;FLASH.h: 463: 0xDA,
+[; ;FLASH.h: 464: 0xDA,
+[; ;FLASH.h: 465: 0xDA,
+[; ;FLASH.h: 466: 0xDA,
+[; ;FLASH.h: 467: 0xDA,
+[; ;FLASH.h: 468: 0xDA,
+[; ;FLASH.h: 469: 0xDA,
+[; ;FLASH.h: 470: 0xDA,
+[; ;FLASH.h: 471: 0xDA,
+[; ;FLASH.h: 472: 0xDA,
+[; ;FLASH.h: 473: 0xDA,
+[; ;FLASH.h: 474: 0xDA,
+[; ;FLASH.h: 475: 0xDA,
+[; ;FLASH.h: 476: 0xDA,
+[; ;FLASH.h: 477: 0xDA,
+[; ;FLASH.h: 478: 0xDA,
+[; ;FLASH.h: 479: 0xDA,
+[; ;FLASH.h: 480: 0xDA,
+[; ;FLASH.h: 481: 0xDA,
+[; ;FLASH.h: 482: 0xDA,
+[; ;FLASH.h: 483: 0xDA,
+[; ;FLASH.h: 484: 0xDA,
+[; ;FLASH.h: 485: 0xDA,
+[; ;FLASH.h: 486: 0xDA,
+[; ;FLASH.h: 487: 0xDA,
+[; ;FLASH.h: 488: 0xDA,
+[; ;FLASH.h: 489: 0xDA,
+[; ;FLASH.h: 490: 0xDA,
+[; ;FLASH.h: 491: 0xDA,
+[; ;FLASH.h: 492: 0xDA,
+[; ;FLASH.h: 493: 0xDA,
+[; ;FLASH.h: 494: 0xDA,
+[; ;FLASH.h: 495: 0xDA,
+[; ;FLASH.h: 496: 0xDA,
+[; ;FLASH.h: 497: 0xDA,
+[; ;FLASH.h: 498: 0xDA,
+[; ;FLASH.h: 499: 0xDA,
+[; ;FLASH.h: 500: 0xDA,
+[; ;FLASH.h: 501: 0xDA,
+[; ;FLASH.h: 502: 0xDA,
+[; ;FLASH.h: 503: 0xDA,
+[; ;FLASH.h: 504: 0xDA,
+[; ;FLASH.h: 505: 0xDA,
+[; ;FLASH.h: 506: 0xDA,
+[; ;FLASH.h: 507: 0xDA,
+[; ;FLASH.h: 508: 0xDA,
+[; ;FLASH.h: 509: 0xDA,
+[; ;FLASH.h: 510: 0xDA,
+[; ;FLASH.h: 511: 0xDA,
+[; ;FLASH.h: 512: 0xDA,
+[; ;FLASH.h: 513: 0xDA,
+[; ;FLASH.h: 514: 0xDA,
+[; ;FLASH.h: 515: 0xDA,
+[; ;FLASH.h: 516: 0xDA,
+[; ;FLASH.h: 517: 0xDA,
+[; ;FLASH.h: 518: 0xDA,
+[; ;FLASH.h: 519: 0xDA,
+[; ;FLASH.h: 520: 0xDA,
+[; ;FLASH.h: 521: 0xDA,
+[; ;FLASH.h: 522: 0xDA,
+[; ;FLASH.h: 523: 0xDA,
+[; ;FLASH.h: 524: 0xDA,
+[; ;FLASH.h: 525: 0xDA,
+[; ;FLASH.h: 526: 0xDA,
+[; ;FLASH.h: 527: 0xDA,
+[; ;FLASH.h: 528: 0xDA,
+[; ;FLASH.h: 529: 0xDA,
+[; ;FLASH.h: 530: 0xDA,
+[; ;FLASH.h: 531: 0xDA,
+[; ;FLASH.h: 532: 0xDA,
+[; ;FLASH.h: 533: 0xDA,
+[; ;FLASH.h: 534: 0xDA,
+[; ;FLASH.h: 535: 0xDA,
+[; ;FLASH.h: 536: 0xDA,
+[; ;FLASH.h: 537: 0xDA,
+[; ;FLASH.h: 538: 0xDA,
+[; ;FLASH.h: 539: 0xDA,
+[; ;FLASH.h: 540: 0xDA,
+[; ;FLASH.h: 541: 0xDA,
+[; ;FLASH.h: 542: 0xDA,
+[; ;FLASH.h: 543: 0xDA,
+[; ;FLASH.h: 544: 0xDA,
+[; ;FLASH.h: 545: 0xDA,
+[; ;FLASH.h: 546: 0xDA,
+[; ;FLASH.h: 547: 0xDA,
+[; ;FLASH.h: 548: 0xDA,
+[; ;FLASH.h: 549: 0xDA,
+[; ;FLASH.h: 550: 0xDA,
+[; ;FLASH.h: 551: 0xDA,
+[; ;FLASH.h: 552: 0xDA,
+[; ;FLASH.h: 553: 0xDA,
+[; ;FLASH.h: 554: 0xDA,
+[; ;FLASH.h: 555: 0xDA,
+[; ;FLASH.h: 556: 0xDA,
+[; ;FLASH.h: 557: 0xDA,
+[; ;FLASH.h: 558: 0xDA,
+[; ;FLASH.h: 559: 0xDA,
+[; ;FLASH.h: 560: 0xDA,
+[; ;FLASH.h: 561: 0xDA,
+[; ;FLASH.h: 562: 0xDA,
+[; ;FLASH.h: 563: 0xDA,
+[; ;FLASH.h: 564: 0xDA,
+[; ;FLASH.h: 565: 0xDA,
+[; ;FLASH.h: 566: 0xDA,
+[; ;FLASH.h: 567: 0xDA,
+[; ;FLASH.h: 568: 0xDA,
+[; ;FLASH.h: 569: 0xDA,
+[; ;FLASH.h: 570: 0xDA,
+[; ;FLASH.h: 571: 0xDA,
+[; ;FLASH.h: 572: 0xDA,
+[; ;FLASH.h: 573: 0xDA,
+[; ;FLASH.h: 574: 0xDA,
+[; ;FLASH.h: 575: 0xDA,
+[; ;FLASH.h: 576: 0xDA,
+[; ;FLASH.h: 577: 0xDA,
+[; ;FLASH.h: 578: };
+[; ;FLASH.h: 582: extern unsigned char FlashBuffer[128];
+[; ;FLASH.h: 583: extern unsigned char Flash_Status;
+[; ;FLASH.h: 592: void InitFlash(void);
+[; ;FLASH.h: 593: inline void FSH_Sequence(void);
+[; ;FLASH.h: 594: void FSH_EraseBlock(unsigned long Address);
+[; ;FLASH.h: 595: unsigned char FSH_Write_IR_RF(void);
+[; ;FLASH.h: 596: void FSH_AddressToBlock(unsigned long Address);
+[; ;FLASH.h: 597: void FSH_WriteIntArray(unsigned int* Array);
+[; ;FLASH.h: 598: unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+"83 IR.h
+[v _IR_SavedTiming `Cui ~T0 @X0 -> 128 `i e@9216 ]
+[i _IR_SavedTiming
+:U ..
+"84
+-> -> 8600 `i `ui
+"85
+-> -> 4200 `i `ui
+"86
+-> -> 450 `i `ui
+"87
+-> -> 1200 `i `ui
+"88
+-> -> 450 `i `ui
+"89
+-> -> 450 `i `ui
+"90
+-> -> 450 `i `ui
+"91
+-> -> 1200 `i `ui
+"92
+-> -> 450 `i `ui
+"93
+-> -> 1200 `i `ui
+"94
+-> -> 450 `i `ui
+"95
+-> -> 450 `i `ui
+"96
+-> -> 450 `i `ui
+"97
+-> -> 1200 `i `ui
+"98
+-> -> 450 `i `ui
+"99
+-> -> 450 `i `ui
+"100
+-> -> 450 `i `ui
+"101
+-> -> 1200 `i `ui
+"102
+-> -> 450 `i `ui
+"103
+-> -> 450 `i `ui
+"104
+-> -> 450 `i `ui
+"105
+-> -> 1200 `i `ui
+"106
+-> -> 450 `i `ui
+"107
+-> -> 450 `i `ui
+"108
+-> -> 450 `i `ui
+"109
+-> -> 450 `i `ui
+"110
+-> -> 450 `i `ui
+"111
+-> -> 1200 `i `ui
+"112
+-> -> 450 `i `ui
+"113
+-> -> 450 `i `ui
+"114
+-> -> 450 `i `ui
+"115
+-> -> 1200 `i `ui
+"116
+-> -> 450 `i `ui
+"117
+-> -> 450 `i `ui
+"118
+-> -> 450 `i `ui
+"119
+-> -> 450 `i `ui
+"120
+-> -> 450 `i `ui
+"121
+-> -> 1200 `i `ui
+"122
+-> -> 450 `i `ui
+"123
+-> -> 450 `i `ui
+"124
+-> -> 450 `i `ui
+"125
+-> -> 1200 `i `ui
+"126
+-> -> 450 `i `ui
+"127
+-> -> 450 `i `ui
+"128
+-> -> 450 `i `ui
+"129
+-> -> 450 `i `ui
+"130
+-> -> 450 `i `ui
+"131
+-> -> 450 `i `ui
+"132
+-> -> 450 `i `ui
+"133
+-> -> 450 `i `ui
+"134
+-> -> 450 `i `ui
+"135
+-> -> 1200 `i `ui
+"136
+-> -> 450 `i `ui
+"137
+-> -> 450 `i `ui
+"138
+-> -> 450 `i `ui
+"139
+-> -> 1200 `i `ui
+"140
+-> -> 450 `i `ui
+"141
+-> -> 450 `i `ui
+"142
+-> -> 450 `i `ui
+"143
+-> -> 1200 `i `ui
+"144
+-> -> 450 `i `ui
+"145
+-> -> 1200 `i `ui
+"146
+-> -> 450 `i `ui
+"147
+-> -> 1200 `i `ui
+"148
+-> -> 450 `i `ui
+"149
+-> -> 1200 `i `ui
+"151
+-> -> 450 `i `ui
+..
+]
+[; ;IR.h: 83: const unsigned int IR_SavedTiming[128] __attribute__((address(0x2400)))= {
+[; ;IR.h: 84: 8600,
+[; ;IR.h: 85: 4200,
+[; ;IR.h: 86: 450,
+[; ;IR.h: 87: 1200,
+[; ;IR.h: 88: 450,
+[; ;IR.h: 89: 450,
+[; ;IR.h: 90: 450,
+[; ;IR.h: 91: 1200,
+[; ;IR.h: 92: 450,
+[; ;IR.h: 93: 1200,
+[; ;IR.h: 94: 450,
+[; ;IR.h: 95: 450,
+[; ;IR.h: 96: 450,
+[; ;IR.h: 97: 1200,
+[; ;IR.h: 98: 450,
+[; ;IR.h: 99: 450,
+[; ;IR.h: 100: 450,
+[; ;IR.h: 101: 1200,
+[; ;IR.h: 102: 450,
+[; ;IR.h: 103: 450,
+[; ;IR.h: 104: 450,
+[; ;IR.h: 105: 1200,
+[; ;IR.h: 106: 450,
+[; ;IR.h: 107: 450,
+[; ;IR.h: 108: 450,
+[; ;IR.h: 109: 450,
+[; ;IR.h: 110: 450,
+[; ;IR.h: 111: 1200,
+[; ;IR.h: 112: 450,
+[; ;IR.h: 113: 450,
+[; ;IR.h: 114: 450,
+[; ;IR.h: 115: 1200,
+[; ;IR.h: 116: 450,
+[; ;IR.h: 117: 450,
+[; ;IR.h: 118: 450,
+[; ;IR.h: 119: 450,
+[; ;IR.h: 120: 450,
+[; ;IR.h: 121: 1200,
+[; ;IR.h: 122: 450,
+[; ;IR.h: 123: 450,
+[; ;IR.h: 124: 450,
+[; ;IR.h: 125: 1200,
+[; ;IR.h: 126: 450,
+[; ;IR.h: 127: 450,
+[; ;IR.h: 128: 450,
+[; ;IR.h: 129: 450,
+[; ;IR.h: 130: 450,
+[; ;IR.h: 131: 450,
+[; ;IR.h: 132: 450,
+[; ;IR.h: 133: 450,
+[; ;IR.h: 134: 450,
+[; ;IR.h: 135: 1200,
+[; ;IR.h: 136: 450,
+[; ;IR.h: 137: 450,
+[; ;IR.h: 138: 450,
+[; ;IR.h: 139: 1200,
+[; ;IR.h: 140: 450,
+[; ;IR.h: 141: 450,
+[; ;IR.h: 142: 450,
+[; ;IR.h: 143: 1200,
+[; ;IR.h: 144: 450,
+[; ;IR.h: 145: 1200,
+[; ;IR.h: 146: 450,
+[; ;IR.h: 147: 1200,
+[; ;IR.h: 148: 450,
+[; ;IR.h: 149: 1200,
+[; ;IR.h: 150: 450
+[; ;IR.h: 151: };
+[; ;IR.h: 156: extern volatile unsigned char IR_Data;
+[; ;IR.h: 157: extern unsigned int IR_DataTiming[128];
+[; ;IR.h: 158: extern unsigned char IR_DataPlace;
+[; ;IR.h: 159: extern unsigned char IRStarted;
+[; ;IR.h: 160: extern unsigned int IR_SyncLow;
+[; ;IR.h: 161: extern unsigned int IR_SyncHigh;
+[; ;IR.h: 162: extern unsigned char IR_Saved;
+[; ;IR.h: 163: extern unsigned char IR_CodeSize;
+[; ;IR.h: 164: extern unsigned char IRValue_prev;
+[; ;IR.h: 165: extern unsigned char IRChange;
+[; ;IR.h: 174: void InitIR(void);
+[; ;IR.h: 175: unsigned char IR_ReadReceiver(void);
+[; ;IR.h: 176: void IR_ResetData(void);
+[; ;IR.h: 177: void IR_LoadCode(void);
+[; ;IR.h: 178: unsigned char IR_CalculateCodesize(void);
+[; ;IR.h: 179: unsigned char IR_CheckCode(void);
+[; ;IR.h: 180: void IR_CleanBuffer(void);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+"101 RF.h
+[v _RF_SavedTiming `Cui ~T0 @X0 -> 128 `i e@9472 ]
+[i _RF_SavedTiming
+:U ..
+"102
+-> -> 834 `i `ui
+"103
+-> -> 21 `i `ui
+"104
+-> -> 80 `i `ui
+"105
+-> -> 22 `i `ui
+"106
+-> -> 80 `i `ui
+"107
+-> -> 21 `i `ui
+"108
+-> -> 78 `i `ui
+"109
+-> -> 79 `i `ui
+"110
+-> -> 26 `i `ui
+"111
+-> -> 22 `i `ui
+"112
+-> -> 78 `i `ui
+"113
+-> -> 78 `i `ui
+"114
+-> -> 27 `i `ui
+"115
+-> -> 21 `i `ui
+"116
+-> -> 79 `i `ui
+"117
+-> -> 76 `i `ui
+"118
+-> -> 25 `i `ui
+"119
+-> -> 23 `i `ui
+"120
+-> -> 79 `i `ui
+"121
+-> -> 75 `i `ui
+"122
+-> -> 27 `i `ui
+"123
+-> -> 21 `i `ui
+"124
+-> -> 81 `i `ui
+"125
+-> -> 75 `i `ui
+"126
+-> -> 25 `i `ui
+"127
+-> -> 22 `i `ui
+"128
+-> -> 81 `i `ui
+"129
+-> -> 22 `i `ui
+"130
+-> -> 79 `i `ui
+"131
+-> -> 22 `i `ui
+"132
+-> -> 80 `i `ui
+"133
+-> -> 24 `i `ui
+"134
+-> -> 79 `i `ui
+"135
+-> -> 77 `i `ui
+"136
+-> -> 25 `i `ui
+"137
+-> -> 76 `i `ui
+"138
+-> -> 27 `i `ui
+"139
+-> -> 21 `i `ui
+"140
+-> -> 80 `i `ui
+"141
+-> -> 21 `i `ui
+"142
+-> -> 81 `i `ui
+"143
+-> -> 21 `i `ui
+"144
+-> -> 80 `i `ui
+"145
+-> -> 22 `i `ui
+"146
+-> -> 80 `i `ui
+"147
+-> -> 22 `i `ui
+"148
+-> -> 81 `i `ui
+"149
+-> -> 22 `i `ui
+"150
+-> -> 79 `i `ui
+"151
+-> -> 22 `i `ui
+..
+]
+[; ;RF.h: 101: const unsigned int RF_SavedTiming[128] __attribute__((address(0x2500))) = {
+[; ;RF.h: 102: 834,
+[; ;RF.h: 103: 21,
+[; ;RF.h: 104: 80,
+[; ;RF.h: 105: 22,
+[; ;RF.h: 106: 80,
+[; ;RF.h: 107: 21,
+[; ;RF.h: 108: 78,
+[; ;RF.h: 109: 79,
+[; ;RF.h: 110: 26,
+[; ;RF.h: 111: 22,
+[; ;RF.h: 112: 78,
+[; ;RF.h: 113: 78,
+[; ;RF.h: 114: 27,
+[; ;RF.h: 115: 21,
+[; ;RF.h: 116: 79,
+[; ;RF.h: 117: 76,
+[; ;RF.h: 118: 25,
+[; ;RF.h: 119: 23,
+[; ;RF.h: 120: 79,
+[; ;RF.h: 121: 75,
+[; ;RF.h: 122: 27,
+[; ;RF.h: 123: 21,
+[; ;RF.h: 124: 81,
+[; ;RF.h: 125: 75,
+[; ;RF.h: 126: 25,
+[; ;RF.h: 127: 22,
+[; ;RF.h: 128: 81,
+[; ;RF.h: 129: 22,
+[; ;RF.h: 130: 79,
+[; ;RF.h: 131: 22,
+[; ;RF.h: 132: 80,
+[; ;RF.h: 133: 24,
+[; ;RF.h: 134: 79,
+[; ;RF.h: 135: 77,
+[; ;RF.h: 136: 25,
+[; ;RF.h: 137: 76,
+[; ;RF.h: 138: 27,
+[; ;RF.h: 139: 21,
+[; ;RF.h: 140: 80,
+[; ;RF.h: 141: 21,
+[; ;RF.h: 142: 81,
+[; ;RF.h: 143: 21,
+[; ;RF.h: 144: 80,
+[; ;RF.h: 145: 22,
+[; ;RF.h: 146: 80,
+[; ;RF.h: 147: 22,
+[; ;RF.h: 148: 81,
+[; ;RF.h: 149: 22,
+[; ;RF.h: 150: 79,
+[; ;RF.h: 151: 22,
+[; ;RF.h: 152: };
+[; ;RF.h: 157: extern volatile unsigned char RF_Data;
+[; ;RF.h: 158: extern unsigned int RF_DataTiming[128];
+[; ;RF.h: 159: extern unsigned char RF_DataPlace;
+[; ;RF.h: 160: extern unsigned char RFStarted;
+[; ;RF.h: 161: extern unsigned int RF_SyncLow;
+[; ;RF.h: 162: extern unsigned int RF_SyncHigh;
+[; ;RF.h: 163: extern unsigned char RF_Saved;
+[; ;RF.h: 164: extern unsigned char RF_CodeSize;
+[; ;RF.h: 165: extern double Rail_RSSI;
+[; ;RF.h: 174: void InitRF(void);
+[; ;RF.h: 175: inline unsigned char RF_ReadReceiver(void);
+[; ;RF.h: 176: inline void RF_DataInt(unsigned char state);
+[; ;RF.h: 177: inline void RF_Receiver(unsigned char state);
+[; ;RF.h: 178: inline void RF_SetBandwidth(unsigned char band);
+[; ;RF.h: 179: inline void RF_SetSquelch(unsigned char state);
+[; ;RF.h: 180: void RF_ResetData(void);
+[; ;RF.h: 181: void RF_LoadCode(void);
+[; ;RF.h: 182: unsigned char RF_CalculateCodesize(void);
+[; ;RF.h: 183: unsigned char RF_CheckCode(void);
+[; ;RF.h: 184: void RF_Disable(void);
+[; ;RF.h: 185: void RF_Enable(void);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;SYSTEM.h: 69: extern unsigned char System_State;
+[; ;SYSTEM.h: 70: extern unsigned char System_State_Change;
+[; ;SYSTEM.h: 75: void SYS_ConfigureOscillator(void);
+[; ;SYSTEM.h: 76: inline void SYS_Idle(void);
+[; ;SYSTEM.h: 77: inline void SYS_Sleep(void);
+[; ;SYSTEM.h: 78: void SYS_ActivityTimer(void);
+[; ;SYSTEM.h: 79: void SYS_ActivityTimerReset(void);
+[; ;MISC.h: 85: void MSC_DelayMS(long US);
+[; ;MISC.h: 86: unsigned char MSC_IsCharacter(unsigned char data);
+[; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
+[; ;MISC.h: 88: void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
+[; ;MISC.h: 89: double MSC_Round(double input);
+[; ;MISC.h: 90: void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 91: unsigned char MSC_StringMatch(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 92: unsigned char MSC_StringMatchCaseInsensitive(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 93: unsigned char MSC_StringContains(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 94: unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
+[; ;MISC.h: 95: void MSC_LowercaseChar(unsigned char* Input);
+[; ;MISC.h: 96: void MSC_LowercaseString(unsigned char* Input);
+[; ;MISC.h: 97: void MSC_DelayNOP(unsigned int NOPs);
+[; ;MISC.h: 98: unsigned char MSC_ReverseByte(unsigned char This);
+[; ;MISC.h: 99: unsigned int MSC_ReverseInt(unsigned int This);
+[; ;MISC.h: 100: unsigned long MSC_ReverseLong(unsigned long This);
+[; ;MISC.h: 101: unsigned char MSC_GetNumber(unsigned char* This, unsigned char CommaNumber, long* result);
+[; ;MISC.h: 102: unsigned char MSC_StringAddEqual(unsigned char* Input);
+[; ;MISC.h: 103: unsigned char MSC_GetStringAfterComma(unsigned char* This, unsigned char CommaNumber, unsigned char* result);
+[; ;MISC.h: 104: unsigned char MSC_GetNumberUnsigned(unsigned char* This, unsigned char CommaNumber, unsigned long* result);
+[; ;MISC.h: 105: unsigned char MSC_IsAlphaNumericString(unsigned char* data);
+[; ;MISC.h: 106: unsigned char MSC_IsAlphaNumeric(unsigned char data);
+[; ;MISC.h: 107: unsigned char MSC_IsNumber(unsigned char data);
+[; ;MISC.h: 108: double MSC_DB_Round(double Input);
+[; ;MISC.h: 109: long MSC_Scale(long Input, long InputRangeLow, long InputRangeHigh, long OutputRangeLow, long OutputRangeHigh);
+[; ;MISC.h: 110: unsigned int MSC_BCDtoHEX(unsigned int input);
+[; ;MISC.h: 111: unsigned int MSC_HEXtoBCD(unsigned int input);
+[; ;MISC.h: 112: unsigned char MSC_BufferMatch(unsigned char* This, unsigned char* That, unsigned int size);
+[; ;MISC.h: 113: long MSC_LG_Round(long Input,unsigned char places);
+[; ;MISC.h: 114: void MSC_TestFunctionPointer(void);
+[; ;MISC.h: 115: unsigned int MSC_EndianInt(unsigned int number);
+[; ;MISC.h: 116: unsigned int MSC_EndianIntArray(unsigned char* buffer);
+[; ;MISC.h: 117: unsigned long MSC_EndianLong(unsigned long number);
+[; ;MISC.h: 118: unsigned long MSC_EndianLongArray(unsigned char* buffer);
+[; ;MISC.h: 119: void MSC_BlinkLED(unsigned int blink, unsigned int speed);
+[; ;MISC.h: 120: void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 121: void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+"45 FLASH.c
+[v _FlashBuffer `uc ~T0 @X0 -> 128 `i e ]
+[; ;FLASH.c: 45: unsigned char FlashBuffer[128];
+"46
+[v _Flash_Status `uc ~T0 @X0 1 e ]
+[i _Flash_Status
+-> -> 0 `i `uc
+]
+[; ;FLASH.c: 46: unsigned char Flash_Status = 0;
+[v F4199 `(v ~T0 @X0 1 tf ]
+"57
+[v _FSH_Sequence `TF4199 ~T0 @X0 1 e ]
+"58
 {
-[; ;FLASH.c: 55: void InitFlash(void)
-[; ;FLASH.c: 56: {
+[; ;FLASH.c: 57: inline void FSH_Sequence(void)
+[; ;FLASH.c: 58: {
+[e :U _FSH_Sequence ]
+[f ]
+[; ;FLASH.c: 59: asm("MOVLW 55h");
+"59
+[; <" MOVLW 55h ;# ">
+[; ;FLASH.c: 60: asm("MOVWF EECON2");
+"60
+[; <" MOVWF EECON2 ;# ">
+[; ;FLASH.c: 61: asm("MOVLW 0AAh");
+"61
+[; <" MOVLW 0AAh ;# ">
+[; ;FLASH.c: 62: asm("MOVWF EECON2");
+"62
+[; <" MOVWF EECON2 ;# ">
+[; ;FLASH.c: 63: }
+"63
+[e :UE 430 ]
+}
+"74
+[v _InitFlash `(v ~T0 @X0 1 ef ]
+"75
+{
+[; ;FLASH.c: 74: void InitFlash(void)
+[; ;FLASH.c: 75: {
 [e :U _InitFlash ]
 [f ]
-[; ;FLASH.c: 58: }
-"58
-[e :UE 430 ]
+[; ;FLASH.c: 77: __nop();
+"77
+[e ( ___nop ..  ]
+[; ;FLASH.c: 78: }
+"78
+[e :UE 431 ]
+}
+"86
+[v _FSH_EraseBlock `(v ~T0 @X0 1 ef1`ul ]
+"87
+{
+[; ;FLASH.c: 86: void FSH_EraseBlock(unsigned long Address)
+[; ;FLASH.c: 87: {
+[e :U _FSH_EraseBlock ]
+"86
+[v _Address `ul ~T0 @X0 1 r1 ]
+"87
+[f ]
+"88
+[v _highint `uc ~T0 @X0 1 a ]
+[; ;FLASH.c: 88: unsigned char highint = INTCONbits.GIE;
+[e = _highint . . _INTCONbits 1 7 ]
+"89
+[v _lowint `uc ~T0 @X0 1 a ]
+[; ;FLASH.c: 89: unsigned char lowint = INTCONbits.PEIE;
+[e = _lowint . . _INTCONbits 1 6 ]
+"90
+[v _WriteTries `uc ~T0 @X0 1 a ]
+"91
+[v _i `ul ~T0 @X0 1 a ]
+[; ;FLASH.c: 90: unsigned char WriteTries;
+[; ;FLASH.c: 91: unsigned long i;
+[; ;FLASH.c: 93: INTCONbits.GIE = 0;
+"93
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;FLASH.c: 94: INTCONbits.PEIE = 0;
+"94
+[e = . . _INTCONbits 1 6 -> -> 0 `i `uc ]
+[; ;FLASH.c: 96: restart:
+"96
+[e :U 433 ]
+[; ;FLASH.c: 97: FSH_AddressToBlock(Address);
+"97
+[e ( _FSH_AddressToBlock (1 _Address ]
+[; ;FLASH.c: 99: WriteTries = 1;
+"99
+[e = _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 101: EECON1bits.WRERR = 0;
+"101
+[e = . . _EECON1bits 0 3 -> -> 0 `i `uc ]
+[; ;FLASH.c: 102: EECON1bits.WREN = 1;
+"102
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+[; ;FLASH.c: 103: EECON1bits.FREE = 1;
+"103
+[e = . . _EECON1bits 0 4 -> -> 1 `i `uc ]
+[; ;FLASH.c: 104: FSH_Sequence();
+"104
+[e ( _FSH_Sequence ..  ]
+[; ;FLASH.c: 105: EECON1bits.WR = 1;
+"105
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+[; ;FLASH.c: 106: __nop();
+"106
+[e ( ___nop ..  ]
+[; ;FLASH.c: 107: __nop();
+"107
+[e ( ___nop ..  ]
+[; ;FLASH.c: 108: MSC_DelayMS(500);
+"108
+[e ( _MSC_DelayMS (1 -> -> 500 `i `l ]
+[; ;FLASH.c: 110: EECON1bits.WREN = 0;
+"110
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
+[; ;FLASH.c: 111: if(EECON1bits.WRERR)
+"111
+[e $ ! != -> . . _EECON1bits 0 3 `i -> -> -> 0 `i `Vuc `i 434  ]
+[; ;FLASH.c: 112: {
+"112
+{
+[; ;FLASH.c: 113: WriteTries++;
+"113
+[e ++ _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 114: if(WriteTries < 10)
+"114
+[e $ ! < -> _WriteTries `i -> 10 `i 435  ]
+[; ;FLASH.c: 115: {
+"115
+{
+[; ;FLASH.c: 116: goto restart;
+"116
+[e $U 433  ]
+"117
+}
+[e :U 435 ]
+"118
+}
+[e :U 434 ]
+[; ;FLASH.c: 117: }
+[; ;FLASH.c: 118: }
+[; ;FLASH.c: 120: if(highint)
+"120
+[e $ ! != -> _highint `i -> -> -> 0 `i `uc `i 436  ]
+[; ;FLASH.c: 121: {
+"121
+{
+[; ;FLASH.c: 122: INTCONbits.GIE = 1;
+"122
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"123
+}
+[e :U 436 ]
+[; ;FLASH.c: 123: }
+[; ;FLASH.c: 124: if(lowint)
+"124
+[e $ ! != -> _lowint `i -> -> -> 0 `i `uc `i 437  ]
+[; ;FLASH.c: 125: {
+"125
+{
+[; ;FLASH.c: 126: INTCONbits.PEIE = 1;
+"126
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+"127
+}
+[e :U 437 ]
+[; ;FLASH.c: 127: }
+[; ;FLASH.c: 128: }
+"128
+[e :UE 432 ]
+}
+"135
+[v _FSH_WriteIntArray `(v ~T0 @X0 1 ef1`*ui ]
+"136
+{
+[; ;FLASH.c: 135: void FSH_WriteIntArray(unsigned int* Array)
+[; ;FLASH.c: 136: {
+[e :U _FSH_WriteIntArray ]
+"135
+[v _Array `*ui ~T0 @X0 1 r1 ]
+"136
+[f ]
+"137
+[v _i `uc ~T0 @X0 1 a ]
+[; ;FLASH.c: 137: unsigned char i;
+[; ;FLASH.c: 139: FSH_AddressToBlock(Array);
+"139
+[e ( _FSH_AddressToBlock (1 -> _Array `ul ]
+[; ;FLASH.c: 141: for(i = 0; i<32; i++)
+"141
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 32 `i 439  ]
+[e $U 440  ]
+"142
+[e :U 439 ]
+[; ;FLASH.c: 142: {
+{
+[; ;FLASH.c: 144: TABLAT =(Array[i] & 0xFF00) >> 8;
+"144
+[e = _TABLAT -> >> & *U + _Array * -> _i `ux -> -> # *U _Array `ui `ux -> 65280 `ui -> 8 `i `uc ]
+[; ;FLASH.c: 145: asm("TBLWT*+");
+"145
+[; <" TBLWT*+ ;# ">
+[; ;FLASH.c: 146: TABLAT = (Array[i] & 0x00FF);
+"146
+[e = _TABLAT -> & *U + _Array * -> _i `ux -> -> # *U _Array `ui `ux -> -> 255 `i `ui `uc ]
+[; ;FLASH.c: 147: asm("TBLWT*+");
+"147
+[; <" TBLWT*+ ;# ">
+"148
+}
+"141
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 32 `i 439  ]
+[e :U 440 ]
+"148
+}
+[; ;FLASH.c: 148: }
+[; ;FLASH.c: 149: EECON1bits.WRERR = 0;
+"149
+[e = . . _EECON1bits 0 3 -> -> 0 `i `uc ]
+[; ;FLASH.c: 150: EECON1bits.WREN = 1;
+"150
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+[; ;FLASH.c: 151: EECON1bits.FREE = 0;
+"151
+[e = . . _EECON1bits 0 4 -> -> 0 `i `uc ]
+[; ;FLASH.c: 152: FSH_Sequence();
+"152
+[e ( _FSH_Sequence ..  ]
+[; ;FLASH.c: 153: EECON1bits.WR = 1;
+"153
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+[; ;FLASH.c: 154: while(EECON1bits.WRERR);
+"154
+[e $U 442  ]
+[e :U 443 ]
+[e :U 442 ]
+[e $ != -> . . _EECON1bits 0 3 `i -> -> -> 0 `i `Vuc `i 443  ]
+[e :U 444 ]
+[; ;FLASH.c: 155: EECON1bits.WREN = 0;
+"155
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
+[; ;FLASH.c: 156: }
+"156
+[e :UE 438 ]
+}
+"163
+[v _FSH_VerifyWriteIntArray `(uc ~T0 @X0 1 ef2`*Cui`*ui ]
+"164
+{
+[; ;FLASH.c: 163: unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array)
+[; ;FLASH.c: 164: {
+[e :U _FSH_VerifyWriteIntArray ]
+"163
+[v _ConstArray `*Cui ~T0 @X0 1 r1 ]
+[v _Array `*ui ~T0 @X0 1 r2 ]
+"164
+[f ]
+"165
+[v _i `uc ~T0 @X0 1 a ]
+[; ;FLASH.c: 165: unsigned char i;
+[; ;FLASH.c: 167: for(i = 0; i<32; i++)
+"167
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 32 `i 446  ]
+[e $U 447  ]
+"168
+[e :U 446 ]
+[; ;FLASH.c: 168: {
+{
+[; ;FLASH.c: 169: if(ConstArray[i] != Array[i])
+"169
+[e $ ! != *U + _ConstArray * -> _i `ux -> -> # *U _ConstArray `ui `ux *U + _Array * -> _i `ux -> -> # *U _Array `ui `ux 449  ]
+[; ;FLASH.c: 170: {
+"170
+{
+[; ;FLASH.c: 171: return 0;
+"171
+[e ) -> -> 0 `i `uc ]
+[e $UE 445  ]
+"172
+}
+[e :U 449 ]
+"173
+}
+"167
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 32 `i 446  ]
+[e :U 447 ]
+"173
+}
+[; ;FLASH.c: 172: }
+[; ;FLASH.c: 173: }
+[; ;FLASH.c: 174: return 1;
+"174
+[e ) -> -> 1 `i `uc ]
+[e $UE 445  ]
+[; ;FLASH.c: 175: }
+"175
+[e :UE 445 ]
+}
+"183
+[v _FSH_Write_IR_RF `(uc ~T0 @X0 1 ef ]
+"184
+{
+[; ;FLASH.c: 183: unsigned char FSH_Write_IR_RF(void)
+[; ;FLASH.c: 184: {
+[e :U _FSH_Write_IR_RF ]
+[f ]
+"185
+[v _i `ui ~T0 @X0 1 a ]
+"186
+[v _j `uc ~T0 @X0 1 a ]
+"187
+[v _highint `uc ~T0 @X0 1 a ]
+[; ;FLASH.c: 185: unsigned int i;
+[; ;FLASH.c: 186: unsigned char j;
+[; ;FLASH.c: 187: unsigned char highint = INTCONbits.GIE;
+[e = _highint . . _INTCONbits 1 7 ]
+"188
+[v _lowint `uc ~T0 @X0 1 a ]
+[; ;FLASH.c: 188: unsigned char lowint = INTCONbits.PEIE;
+[e = _lowint . . _INTCONbits 1 6 ]
+"189
+[v _WriteTries `uc ~T0 @X0 1 a ]
+"190
+[v _status `uc ~T0 @X0 1 a ]
+[; ;FLASH.c: 189: unsigned char WriteTries;
+[; ;FLASH.c: 190: unsigned char status = 0;
+[e = _status -> -> 0 `i `uc ]
+"191
+[v _FlashWasteindex `ui ~T0 @X0 1 a ]
+[; ;FLASH.c: 191: unsigned int FlashWasteindex = 0;
+[e = _FlashWasteindex -> -> 0 `i `ui ]
+[; ;FLASH.c: 193: INTCONbits.GIE = 0;
+"193
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;FLASH.c: 194: INTCONbits.PEIE = 0;
+"194
+[e = . . _INTCONbits 1 6 -> -> 0 `i `uc ]
+[; ;FLASH.c: 196: if(IR_Saved == 90 && RF_Saved == 90)
+"196
+[e $ ! && == -> _IR_Saved `i -> 90 `i == -> _RF_Saved `i -> 90 `i 451  ]
+[; ;FLASH.c: 197: {
+"197
+{
+[; ;FLASH.c: 199: IR_Saved = 91;
+"199
+[e = _IR_Saved -> -> 91 `i `uc ]
+[; ;FLASH.c: 200: RF_Saved = 91;
+"200
+[e = _RF_Saved -> -> 91 `i `uc ]
+[; ;FLASH.c: 201: goto END;
+"201
+[e $U 452  ]
+"202
+}
+[; ;FLASH.c: 202: }
+[e $U 453  ]
+"203
+[e :U 451 ]
+[; ;FLASH.c: 203: else if(IR_Saved != 90 && RF_Saved != 90)
+[e $ ! && != -> _IR_Saved `i -> 90 `i != -> _RF_Saved `i -> 90 `i 454  ]
+[; ;FLASH.c: 204: {
+"204
+{
+[; ;FLASH.c: 206: IR_Saved = 91;
+"206
+[e = _IR_Saved -> -> 91 `i `uc ]
+[; ;FLASH.c: 207: RF_Saved = 91;
+"207
+[e = _RF_Saved -> -> 91 `i `uc ]
+[; ;FLASH.c: 208: goto END;
+"208
+[e $U 452  ]
+"209
+}
+[e :U 454 ]
+"211
+[e :U 453 ]
+[; ;FLASH.c: 209: }
+[; ;FLASH.c: 211: if(IR_Saved == 90)
+[e $ ! == -> _IR_Saved `i -> 90 `i 455  ]
+[; ;FLASH.c: 212: {
+"212
+{
+[; ;FLASH.c: 214: RF_ResetData();
+"214
+[e ( _RF_ResetData ..  ]
+[; ;FLASH.c: 215: MSC_BufferCopyIntConst(&RF_SavedTiming,&RF_DataTiming, 128, 0);
+"215
+[e ( _MSC_BufferCopyIntConst (4 , , , &U _RF_SavedTiming &U _RF_DataTiming -> -> 128 `i `ui -> -> 0 `i `ui ]
+"216
+}
+[; ;FLASH.c: 216: }
+[e $U 456  ]
+"217
+[e :U 455 ]
+[; ;FLASH.c: 217: else
+[; ;FLASH.c: 218: {
+"218
+{
+[; ;FLASH.c: 220: IR_ResetData();
+"220
+[e ( _IR_ResetData ..  ]
+[; ;FLASH.c: 221: MSC_BufferCopyIntConst(&IR_SavedTiming,&IR_DataTiming, 128, 0);
+"221
+[e ( _MSC_BufferCopyIntConst (4 , , , &U _IR_SavedTiming &U _IR_DataTiming -> -> 128 `i `ui -> -> 0 `i `ui ]
+"222
+}
+[e :U 456 ]
+[; ;FLASH.c: 222: }
+[; ;FLASH.c: 224: FSH_EraseBlock(&IR_SavedTiming);
+"224
+[e ( _FSH_EraseBlock (1 -> &U _IR_SavedTiming `ul ]
+[; ;FLASH.c: 229: WriteTries = 1;
+"229
+[e = _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 231: REDO1:
+"231
+[e :U 457 ]
+[; ;FLASH.c: 233: FSH_WriteIntArray(&IR_SavedTiming[0]);
+"233
+[e ( _FSH_WriteIntArray (1 -> &U *U + &U _IR_SavedTiming * -> -> -> 0 `i `ui `ux -> -> # *U &U _IR_SavedTiming `ui `ux `*ui ]
+[; ;FLASH.c: 236: if(!FSH_VerifyWriteIntArray(&IR_SavedTiming[0],&IR_DataTiming[0]))
+"236
+[e $ ! ! != -> ( _FSH_VerifyWriteIntArray (2 , &U *U + &U _IR_SavedTiming * -> -> -> 0 `i `ui `ux -> -> # *U &U _IR_SavedTiming `ui `ux &U *U + &U _IR_DataTiming * -> -> -> 0 `i `ui `ux -> -> # *U &U _IR_DataTiming `ui `ux `i -> -> -> 0 `i `uc `i 458  ]
+[; ;FLASH.c: 237: {
+"237
+{
+[; ;FLASH.c: 238: WriteTries++;
+"238
+[e ++ _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 239: if(WriteTries > 10)
+"239
+[e $ ! > -> _WriteTries `i -> 10 `i 459  ]
+[; ;FLASH.c: 240: {
+"240
+{
+[; ;FLASH.c: 241: status = 0;
+"241
+[e = _status -> -> 0 `i `uc ]
+[; ;FLASH.c: 242: goto END;
+"242
+[e $U 452  ]
+"243
+}
+[; ;FLASH.c: 243: }
+[e $U 460  ]
+"244
+[e :U 459 ]
+[; ;FLASH.c: 244: else
+[; ;FLASH.c: 245: {
+"245
+{
+[; ;FLASH.c: 246: goto REDO1;
+"246
+[e $U 457  ]
+"247
+}
+[e :U 460 ]
+"248
+}
+[e :U 458 ]
+[; ;FLASH.c: 247: }
+[; ;FLASH.c: 248: }
+[; ;FLASH.c: 251: WriteTries = 1;
+"251
+[e = _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 253: REDO2:
+"253
+[e :U 461 ]
+[; ;FLASH.c: 255: FSH_WriteIntArray(&IR_SavedTiming[32]);
+"255
+[e ( _FSH_WriteIntArray (1 -> &U *U + &U _IR_SavedTiming * -> -> -> 32 `i `ui `ux -> -> # *U &U _IR_SavedTiming `ui `ux `*ui ]
+[; ;FLASH.c: 258: if(!FSH_VerifyWriteIntArray(&IR_SavedTiming[32],&IR_DataTiming[32]))
+"258
+[e $ ! ! != -> ( _FSH_VerifyWriteIntArray (2 , &U *U + &U _IR_SavedTiming * -> -> -> 32 `i `ui `ux -> -> # *U &U _IR_SavedTiming `ui `ux &U *U + &U _IR_DataTiming * -> -> -> 32 `i `ui `ux -> -> # *U &U _IR_DataTiming `ui `ux `i -> -> -> 0 `i `uc `i 462  ]
+[; ;FLASH.c: 259: {
+"259
+{
+[; ;FLASH.c: 260: WriteTries++;
+"260
+[e ++ _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 261: if(WriteTries > 10)
+"261
+[e $ ! > -> _WriteTries `i -> 10 `i 463  ]
+[; ;FLASH.c: 262: {
+"262
+{
+[; ;FLASH.c: 263: status = 0;
+"263
+[e = _status -> -> 0 `i `uc ]
+[; ;FLASH.c: 264: goto END;
+"264
+[e $U 452  ]
+"265
+}
+[; ;FLASH.c: 265: }
+[e $U 464  ]
+"266
+[e :U 463 ]
+[; ;FLASH.c: 266: else
+[; ;FLASH.c: 267: {
+"267
+{
+[; ;FLASH.c: 268: goto REDO2;
+"268
+[e $U 461  ]
+"269
+}
+[e :U 464 ]
+"270
+}
+[e :U 462 ]
+[; ;FLASH.c: 269: }
+[; ;FLASH.c: 270: }
+[; ;FLASH.c: 273: WriteTries = 1;
+"273
+[e = _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 275: REDO3:
+"275
+[e :U 465 ]
+[; ;FLASH.c: 277: FSH_WriteIntArray(&IR_SavedTiming[64]);
+"277
+[e ( _FSH_WriteIntArray (1 -> &U *U + &U _IR_SavedTiming * -> -> -> 64 `i `ui `ux -> -> # *U &U _IR_SavedTiming `ui `ux `*ui ]
+[; ;FLASH.c: 280: if(!FSH_VerifyWriteIntArray(&IR_SavedTiming[64],&IR_DataTiming[64]))
+"280
+[e $ ! ! != -> ( _FSH_VerifyWriteIntArray (2 , &U *U + &U _IR_SavedTiming * -> -> -> 64 `i `ui `ux -> -> # *U &U _IR_SavedTiming `ui `ux &U *U + &U _IR_DataTiming * -> -> -> 64 `i `ui `ux -> -> # *U &U _IR_DataTiming `ui `ux `i -> -> -> 0 `i `uc `i 466  ]
+[; ;FLASH.c: 281: {
+"281
+{
+[; ;FLASH.c: 282: WriteTries++;
+"282
+[e ++ _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 283: if(WriteTries > 10)
+"283
+[e $ ! > -> _WriteTries `i -> 10 `i 467  ]
+[; ;FLASH.c: 284: {
+"284
+{
+[; ;FLASH.c: 285: status = 0;
+"285
+[e = _status -> -> 0 `i `uc ]
+[; ;FLASH.c: 286: goto END;
+"286
+[e $U 452  ]
+"287
+}
+[; ;FLASH.c: 287: }
+[e $U 468  ]
+"288
+[e :U 467 ]
+[; ;FLASH.c: 288: else
+[; ;FLASH.c: 289: {
+"289
+{
+[; ;FLASH.c: 290: goto REDO3;
+"290
+[e $U 465  ]
+"291
+}
+[e :U 468 ]
+"292
+}
+[e :U 466 ]
+[; ;FLASH.c: 291: }
+[; ;FLASH.c: 292: }
+[; ;FLASH.c: 295: WriteTries = 1;
+"295
+[e = _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 297: REDO4:
+"297
+[e :U 469 ]
+[; ;FLASH.c: 299: FSH_WriteIntArray(&IR_SavedTiming[96]);
+"299
+[e ( _FSH_WriteIntArray (1 -> &U *U + &U _IR_SavedTiming * -> -> -> 96 `i `ui `ux -> -> # *U &U _IR_SavedTiming `ui `ux `*ui ]
+[; ;FLASH.c: 302: if(!FSH_VerifyWriteIntArray(&IR_SavedTiming[96],&IR_DataTiming[96]))
+"302
+[e $ ! ! != -> ( _FSH_VerifyWriteIntArray (2 , &U *U + &U _IR_SavedTiming * -> -> -> 96 `i `ui `ux -> -> # *U &U _IR_SavedTiming `ui `ux &U *U + &U _IR_DataTiming * -> -> -> 96 `i `ui `ux -> -> # *U &U _IR_DataTiming `ui `ux `i -> -> -> 0 `i `uc `i 470  ]
+[; ;FLASH.c: 303: {
+"303
+{
+[; ;FLASH.c: 304: WriteTries++;
+"304
+[e ++ _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 305: if(WriteTries > 10)
+"305
+[e $ ! > -> _WriteTries `i -> 10 `i 471  ]
+[; ;FLASH.c: 306: {
+"306
+{
+[; ;FLASH.c: 307: status = 0;
+"307
+[e = _status -> -> 0 `i `uc ]
+[; ;FLASH.c: 308: goto END;
+"308
+[e $U 452  ]
+"309
+}
+[; ;FLASH.c: 309: }
+[e $U 472  ]
+"310
+[e :U 471 ]
+[; ;FLASH.c: 310: else
+[; ;FLASH.c: 311: {
+"311
+{
+[; ;FLASH.c: 312: goto REDO4;
+"312
+[e $U 469  ]
+"313
+}
+[e :U 472 ]
+"314
+}
+[e :U 470 ]
+[; ;FLASH.c: 313: }
+[; ;FLASH.c: 314: }
+[; ;FLASH.c: 317: WriteTries = 1;
+"317
+[e = _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 319: REDO5:
+"319
+[e :U 473 ]
+[; ;FLASH.c: 321: FSH_WriteIntArray(&RF_SavedTiming[0]);
+"321
+[e ( _FSH_WriteIntArray (1 -> &U *U + &U _RF_SavedTiming * -> -> -> 0 `i `ui `ux -> -> # *U &U _RF_SavedTiming `ui `ux `*ui ]
+[; ;FLASH.c: 324: if(!FSH_VerifyWriteIntArray(&RF_SavedTiming[0],&RF_DataTiming[0]))
+"324
+[e $ ! ! != -> ( _FSH_VerifyWriteIntArray (2 , &U *U + &U _RF_SavedTiming * -> -> -> 0 `i `ui `ux -> -> # *U &U _RF_SavedTiming `ui `ux &U *U + &U _RF_DataTiming * -> -> -> 0 `i `ui `ux -> -> # *U &U _RF_DataTiming `ui `ux `i -> -> -> 0 `i `uc `i 474  ]
+[; ;FLASH.c: 325: {
+"325
+{
+[; ;FLASH.c: 326: WriteTries++;
+"326
+[e ++ _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 327: if(WriteTries > 10)
+"327
+[e $ ! > -> _WriteTries `i -> 10 `i 475  ]
+[; ;FLASH.c: 328: {
+"328
+{
+[; ;FLASH.c: 329: status = 0;
+"329
+[e = _status -> -> 0 `i `uc ]
+[; ;FLASH.c: 330: goto END;
+"330
+[e $U 452  ]
+"331
+}
+[; ;FLASH.c: 331: }
+[e $U 476  ]
+"332
+[e :U 475 ]
+[; ;FLASH.c: 332: else
+[; ;FLASH.c: 333: {
+"333
+{
+[; ;FLASH.c: 334: goto REDO5;
+"334
+[e $U 473  ]
+"335
+}
+[e :U 476 ]
+"336
+}
+[e :U 474 ]
+[; ;FLASH.c: 335: }
+[; ;FLASH.c: 336: }
+[; ;FLASH.c: 339: WriteTries = 1;
+"339
+[e = _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 341: REDO6:
+"341
+[e :U 477 ]
+[; ;FLASH.c: 343: FSH_WriteIntArray(&RF_SavedTiming[32]);
+"343
+[e ( _FSH_WriteIntArray (1 -> &U *U + &U _RF_SavedTiming * -> -> -> 32 `i `ui `ux -> -> # *U &U _RF_SavedTiming `ui `ux `*ui ]
+[; ;FLASH.c: 346: if(!FSH_VerifyWriteIntArray(&RF_SavedTiming[32],&RF_DataTiming[32]))
+"346
+[e $ ! ! != -> ( _FSH_VerifyWriteIntArray (2 , &U *U + &U _RF_SavedTiming * -> -> -> 32 `i `ui `ux -> -> # *U &U _RF_SavedTiming `ui `ux &U *U + &U _RF_DataTiming * -> -> -> 32 `i `ui `ux -> -> # *U &U _RF_DataTiming `ui `ux `i -> -> -> 0 `i `uc `i 478  ]
+[; ;FLASH.c: 347: {
+"347
+{
+[; ;FLASH.c: 348: WriteTries++;
+"348
+[e ++ _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 349: if(WriteTries > 10)
+"349
+[e $ ! > -> _WriteTries `i -> 10 `i 479  ]
+[; ;FLASH.c: 350: {
+"350
+{
+[; ;FLASH.c: 351: status = 0;
+"351
+[e = _status -> -> 0 `i `uc ]
+[; ;FLASH.c: 352: goto END;
+"352
+[e $U 452  ]
+"353
+}
+[; ;FLASH.c: 353: }
+[e $U 480  ]
+"354
+[e :U 479 ]
+[; ;FLASH.c: 354: else
+[; ;FLASH.c: 355: {
+"355
+{
+[; ;FLASH.c: 356: goto REDO6;
+"356
+[e $U 477  ]
+"357
+}
+[e :U 480 ]
+"358
+}
+[e :U 478 ]
+[; ;FLASH.c: 357: }
+[; ;FLASH.c: 358: }
+[; ;FLASH.c: 361: WriteTries = 1;
+"361
+[e = _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 363: REDO7:
+"363
+[e :U 481 ]
+[; ;FLASH.c: 365: FSH_WriteIntArray(&RF_SavedTiming[64]);
+"365
+[e ( _FSH_WriteIntArray (1 -> &U *U + &U _RF_SavedTiming * -> -> -> 64 `i `ui `ux -> -> # *U &U _RF_SavedTiming `ui `ux `*ui ]
+[; ;FLASH.c: 368: if(!FSH_VerifyWriteIntArray(&RF_SavedTiming[64],&RF_DataTiming[64]))
+"368
+[e $ ! ! != -> ( _FSH_VerifyWriteIntArray (2 , &U *U + &U _RF_SavedTiming * -> -> -> 64 `i `ui `ux -> -> # *U &U _RF_SavedTiming `ui `ux &U *U + &U _RF_DataTiming * -> -> -> 64 `i `ui `ux -> -> # *U &U _RF_DataTiming `ui `ux `i -> -> -> 0 `i `uc `i 482  ]
+[; ;FLASH.c: 369: {
+"369
+{
+[; ;FLASH.c: 370: WriteTries++;
+"370
+[e ++ _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 371: if(WriteTries > 10)
+"371
+[e $ ! > -> _WriteTries `i -> 10 `i 483  ]
+[; ;FLASH.c: 372: {
+"372
+{
+[; ;FLASH.c: 373: status = 0;
+"373
+[e = _status -> -> 0 `i `uc ]
+[; ;FLASH.c: 374: goto END;
+"374
+[e $U 452  ]
+"375
+}
+[; ;FLASH.c: 375: }
+[e $U 484  ]
+"376
+[e :U 483 ]
+[; ;FLASH.c: 376: else
+[; ;FLASH.c: 377: {
+"377
+{
+[; ;FLASH.c: 378: goto REDO7;
+"378
+[e $U 481  ]
+"379
+}
+[e :U 484 ]
+"380
+}
+[e :U 482 ]
+[; ;FLASH.c: 379: }
+[; ;FLASH.c: 380: }
+[; ;FLASH.c: 383: WriteTries = 1;
+"383
+[e = _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 385: REDO8:
+"385
+[e :U 485 ]
+[; ;FLASH.c: 387: FSH_WriteIntArray(&RF_SavedTiming[96]);
+"387
+[e ( _FSH_WriteIntArray (1 -> &U *U + &U _RF_SavedTiming * -> -> -> 96 `i `ui `ux -> -> # *U &U _RF_SavedTiming `ui `ux `*ui ]
+[; ;FLASH.c: 390: if(!FSH_VerifyWriteIntArray(&RF_SavedTiming[96],&RF_DataTiming[96]))
+"390
+[e $ ! ! != -> ( _FSH_VerifyWriteIntArray (2 , &U *U + &U _RF_SavedTiming * -> -> -> 96 `i `ui `ux -> -> # *U &U _RF_SavedTiming `ui `ux &U *U + &U _RF_DataTiming * -> -> -> 96 `i `ui `ux -> -> # *U &U _RF_DataTiming `ui `ux `i -> -> -> 0 `i `uc `i 486  ]
+[; ;FLASH.c: 391: {
+"391
+{
+[; ;FLASH.c: 392: WriteTries++;
+"392
+[e ++ _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 393: if(WriteTries > 10)
+"393
+[e $ ! > -> _WriteTries `i -> 10 `i 487  ]
+[; ;FLASH.c: 394: {
+"394
+{
+[; ;FLASH.c: 395: status = 0;
+"395
+[e = _status -> -> 0 `i `uc ]
+[; ;FLASH.c: 396: goto END;
+"396
+[e $U 452  ]
+"397
+}
+[; ;FLASH.c: 397: }
+[e $U 488  ]
+"398
+[e :U 487 ]
+[; ;FLASH.c: 398: else
+[; ;FLASH.c: 399: {
+"399
+{
+[; ;FLASH.c: 400: goto REDO8;
+"400
+[e $U 485  ]
+"401
+}
+[e :U 488 ]
+"402
+}
+[e :U 486 ]
+[; ;FLASH.c: 401: }
+[; ;FLASH.c: 402: }
+[; ;FLASH.c: 405: for(j=8;j<16;j++)
+"405
+{
+[e = _j -> -> 8 `i `uc ]
+[e $ < -> _j `i -> 16 `i 489  ]
+[e $U 490  ]
+"406
+[e :U 489 ]
+[; ;FLASH.c: 406: {
+{
+[; ;FLASH.c: 407: WriteTries = 1;
+"407
+[e = _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 409: REDO9:
+"409
+[e :U 492 ]
+[; ;FLASH.c: 410: i=0;
+"410
+[e = _i -> -> 0 `i `ui ]
+[; ;FLASH.c: 411: FlashWasteindex = i + 64*(j-8);
+"411
+[e = _FlashWasteindex + _i -> * -> 64 `i - -> _j `i -> 8 `i `ui ]
+[; ;FLASH.c: 412: FSH_AddressToBlock(&FlashWaste[FlashWasteindex]);
+"412
+[e ( _FSH_AddressToBlock (1 -> &U *U + &U _FlashWaste * -> _FlashWasteindex `ux -> -> # *U &U _FlashWaste `ui `ux `ul ]
+[; ;FLASH.c: 413: for(i = 0; i<64; i++)
+"413
+{
+[e = _i -> -> 0 `i `ui ]
+[e $ < _i -> -> 64 `i `ui 493  ]
+[e $U 494  ]
+"414
+[e :U 493 ]
+[; ;FLASH.c: 414: {
+{
+[; ;FLASH.c: 416: TABLAT = 0xDA;
+"416
+[e = _TABLAT -> -> 218 `i `uc ]
+[; ;FLASH.c: 417: asm("TBLWT*+");
+"417
+[; <" TBLWT*+ ;# ">
+"418
+}
+"413
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 64 `i `ui 493  ]
+[e :U 494 ]
+"418
+}
+[; ;FLASH.c: 418: }
+[; ;FLASH.c: 419: EECON1bits.WREN = 1;
+"419
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+[; ;FLASH.c: 420: EECON1bits.FREE = 0;
+"420
+[e = . . _EECON1bits 0 4 -> -> 0 `i `uc ]
+[; ;FLASH.c: 421: FSH_Sequence();
+"421
+[e ( _FSH_Sequence ..  ]
+[; ;FLASH.c: 422: EECON1bits.WR = 1;
+"422
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+[; ;FLASH.c: 423: EECON1bits.WREN = 1;
+"423
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+[; ;FLASH.c: 426: for(i=0; i<64;i++)
+"426
+{
+[e = _i -> -> 0 `i `ui ]
+[e $ < _i -> -> 64 `i `ui 496  ]
+[e $U 497  ]
+"427
+[e :U 496 ]
+[; ;FLASH.c: 427: {
+{
+[; ;FLASH.c: 428: if(FlashWaste[FlashWasteindex] != 0xDA)
+"428
+[e $ ! != -> *U + &U _FlashWaste * -> _FlashWasteindex `ux -> -> # *U &U _FlashWaste `ui `ux `i -> 218 `i 499  ]
+[; ;FLASH.c: 429: {
+"429
+{
+[; ;FLASH.c: 430: WriteTries++;
+"430
+[e ++ _WriteTries -> -> 1 `i `uc ]
+[; ;FLASH.c: 431: if(WriteTries > 10)
+"431
+[e $ ! > -> _WriteTries `i -> 10 `i 500  ]
+[; ;FLASH.c: 432: {
+"432
+{
+[; ;FLASH.c: 433: status = 0;
+"433
+[e = _status -> -> 0 `i `uc ]
+[; ;FLASH.c: 434: goto END;
+"434
+[e $U 452  ]
+"435
+}
+[; ;FLASH.c: 435: }
+[e $U 501  ]
+"436
+[e :U 500 ]
+[; ;FLASH.c: 436: else
+[; ;FLASH.c: 437: {
+"437
+{
+[; ;FLASH.c: 438: goto REDO9;
+"438
+[e $U 492  ]
+"439
+}
+[e :U 501 ]
+"440
+}
+[e :U 499 ]
+[; ;FLASH.c: 439: }
+[; ;FLASH.c: 440: }
+[; ;FLASH.c: 441: FlashWasteindex++;
+"441
+[e ++ _FlashWasteindex -> -> 1 `i `ui ]
+"442
+}
+"426
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 64 `i `ui 496  ]
+[e :U 497 ]
+"442
+}
+"443
+}
+"405
+[e ++ _j -> -> 1 `i `uc ]
+[e $ < -> _j `i -> 16 `i 489  ]
+[e :U 490 ]
+"443
+}
+[; ;FLASH.c: 442: }
+[; ;FLASH.c: 443: }
+[; ;FLASH.c: 444: status = 1;
+"444
+[e = _status -> -> 1 `i `uc ]
+[; ;FLASH.c: 446: END:
+"446
+[e :U 452 ]
+[; ;FLASH.c: 447: if(highint)
+"447
+[e $ ! != -> _highint `i -> -> -> 0 `i `uc `i 502  ]
+[; ;FLASH.c: 448: {
+"448
+{
+[; ;FLASH.c: 449: INTCONbits.GIE = 1;
+"449
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"450
+}
+[e :U 502 ]
+[; ;FLASH.c: 450: }
+[; ;FLASH.c: 451: if(lowint)
+"451
+[e $ ! != -> _lowint `i -> -> -> 0 `i `uc `i 503  ]
+[; ;FLASH.c: 452: {
+"452
+{
+[; ;FLASH.c: 453: INTCONbits.PEIE = 1;
+"453
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+"454
+}
+[e :U 503 ]
+[; ;FLASH.c: 454: }
+[; ;FLASH.c: 455: return status;
+"455
+[e ) _status ]
+[e $UE 450  ]
+[; ;FLASH.c: 456: }
+"456
+[e :UE 450 ]
+}
+"464
+[v _FSH_AddressToBlock `(v ~T0 @X0 1 ef1`ul ]
+"465
+{
+[; ;FLASH.c: 464: void FSH_AddressToBlock(unsigned long Address)
+[; ;FLASH.c: 465: {
+[e :U _FSH_AddressToBlock ]
+"464
+[v _Address `ul ~T0 @X0 1 r1 ]
+"465
+[f ]
+[; ;FLASH.c: 466: TBLPTRU = (Address & 0x002F0000) >> 16;
+"466
+[e = _TBLPTRU -> >> & _Address -> -> 3080192 `l `ul -> 16 `i `uc ]
+[; ;FLASH.c: 467: TBLPTRH = (Address & 0x0000FF00) >> 8;
+"467
+[e = _TBLPTRH -> >> & _Address -> -> 65280 `ui `ul -> 8 `i `uc ]
+[; ;FLASH.c: 468: TBLPTRL = (Address & 0x000000FF);
+"468
+[e = _TBLPTRL -> & _Address -> -> -> 255 `i `l `ul `uc ]
+[; ;FLASH.c: 469: }
+"469
+[e :UE 504 ]
 }
