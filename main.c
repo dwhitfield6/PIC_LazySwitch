@@ -6,6 +6,7 @@
  * Date         Revision    Comments
  * MM/DD/YY
  * --------     ---------   ----------------------------------------------------
+ * 08/30/15     2.0b        Version change only. Tagged version!
  * 08/30/15     2.0a_DW0a   Added rail voltage monitoring.
  *                          Added IR functionality and IR default code.
  *                          Increased clock from 8MHz to 32MHz. (This was a
