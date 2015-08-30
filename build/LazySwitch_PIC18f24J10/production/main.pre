@@ -4008,6 +4008,8 @@ inline void SYS_Idle(void);
 inline void SYS_Sleep(void);
 void SYS_ActivityTimer(void);
 inline void SYS_ActivityTimerReset(void);
+inline void SYS_EnableInt(void);
+inline void SYS_DisableInt(void);
 
 # 85 "MISC.h"
 void MSC_DelayMS(long US);
@@ -4233,10 +4235,10 @@ void InitButton(void);
 inline void BUT_IR_PinChangeInt(unsigned char state);
 unsigned char BUT_ReadButton(void);
 
-# 56 "MOTOR.h"
+# 63 "MOTOR.h"
 unsigned char DC_Motor;
 
-# 65
+# 72
 void InitMOTOR(void);
 void MTR_Rotate(void);
 
@@ -4786,11 +4788,11 @@ void InitFlash(void);
 void FSH_EraseBlock(unsigned long Address);
 unsigned char FSH_Write_IR_RF(void);
 void FSH_AddressToBlock(unsigned long Address);
-void FSH_WriteIntArray(unsigned int* Array);
+void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 void FSH_EraseALL(void);
 
-# 77 "main.c"
+# 80 "main.c"
 int main (void)
 {
 
@@ -4818,10 +4820,12 @@ if(RF_Saved == 90)
 if(Flash_Status == 1)
 {
 MSC_BlinkLED(4,50);
+(LATC &= ~0x10);
 }
 else
 {
 MSC_BlinkLED(6,75);
+(LATC &= ~0x10);
 }
 RF_Saved = 91;
 }
@@ -4830,10 +4834,12 @@ if(IR_Saved == 90)
 if(Flash_Status == 1)
 {
 MSC_BlinkLED(4,50);
+(LATC &= ~0x10);
 }
 else
 {
 MSC_BlinkLED(6,75);
+(LATC &= ~0x10);
 }
 IR_Saved = 91;
 }
@@ -4842,7 +4848,10 @@ System_State_Change = 0;
 if(RF_Data || IR_Data || Button_Data)
 {
 (LATC |= 0x10);
+SYS_DisableInt();
 MTR_Rotate();
+MSC_DelayMS(200);
+SYS_EnableInt();
 RF_Data = 0;
 IR_Data = 0;
 Button_Data = 0;

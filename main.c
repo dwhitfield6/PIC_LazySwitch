@@ -6,14 +6,17 @@
  * Date         Revision    Comments
  * MM/DD/YY
  * --------     ---------   ----------------------------------------------------
- * 08/27/15     2.0a_DW0a   Added rail voltage monitoring.
+ * 08/30/15     2.0a_DW0a   Added rail voltage monitoring.
  *                          Added IR functionality and IR default code.
- *                          Increased clock from 8MHz oto 32MHz. (This was a
+ *                          Increased clock from 8MHz to 32MHz. (This was a
  *                            bug in the previous versions as the system was
  *                            was always supposed to be at 32MHz.)
  *                          Added internal flash modification functionality.
  *                          Added sleep capability.
  *                          Fixed several bugs in flash write and system state.
+ *                          Fixed massive bugs in write flash functions.
+ *                          Added delay in motor activation to decrease
+ *                            twitching.
  * 08/27/15     2.0a        Version change only. Tagged version!
  * 08/26/15     2.0_DW0a    Initial project make.
  *                          Derived from project 'Catalyst_RPI_daughter'.
@@ -86,7 +89,7 @@ int main (void)
     IR_LoadCode();
     MSC_BlinkLED(4,BLINK_MEDIUM);
     MSC_RedLEDOFF();
-    
+        
     while(1)
     {
         if(System_State == RUN)
@@ -101,10 +104,12 @@ int main (void)
                     if(Flash_Status == PASS)
                     {
                         MSC_BlinkLED(4,BLINK_MEDIUM);
+                        MSC_RedLEDOFF();
                     }
                     else
                     {
                         MSC_BlinkLED(6,BLINK_SLOW);
+                        MSC_RedLEDOFF();
                     }
                     RF_Saved = OLD;
                 }
@@ -113,10 +118,12 @@ int main (void)
                     if(Flash_Status == PASS)
                     {
                         MSC_BlinkLED(4,BLINK_MEDIUM);
+                        MSC_RedLEDOFF();
                     }
                     else
                     {
                         MSC_BlinkLED(6,BLINK_SLOW);
+                        MSC_RedLEDOFF();
                     }
                     IR_Saved = OLD;
                 }
@@ -125,7 +132,10 @@ int main (void)
             if(RF_Data || IR_Data || Button_Data)
             {
                 MSC_RedLEDON();
+                SYS_DisableInt();
                 MTR_Rotate();
+                MSC_DelayMS(MOTORWAIT);
+                SYS_EnableInt();
                 RF_Data = FALSE;
                 IR_Data = FALSE;
                 Button_Data = FALSE;

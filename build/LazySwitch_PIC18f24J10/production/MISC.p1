@@ -3082,6 +3082,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SYSTEM.h: 86: inline void SYS_Sleep(void);
 [; ;SYSTEM.h: 87: void SYS_ActivityTimer(void);
 [; ;SYSTEM.h: 88: inline void SYS_ActivityTimerReset(void);
+[; ;SYSTEM.h: 89: inline void SYS_EnableInt(void);
+[; ;SYSTEM.h: 90: inline void SYS_DisableInt(void);
 [; ;MISC.h: 85: void MSC_DelayMS(long US);
 [; ;MISC.h: 86: unsigned char MSC_IsCharacter(unsigned char data);
 [; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);

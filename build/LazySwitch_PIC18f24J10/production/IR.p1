@@ -3464,6 +3464,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SYSTEM.h: 86: inline void SYS_Sleep(void);
 [; ;SYSTEM.h: 87: void SYS_ActivityTimer(void);
 [; ;SYSTEM.h: 88: inline void SYS_ActivityTimerReset(void);
+[; ;SYSTEM.h: 89: inline void SYS_EnableInt(void);
+[; ;SYSTEM.h: 90: inline void SYS_DisableInt(void);
 [; ;MISC.h: 85: void MSC_DelayMS(long US);
 [; ;MISC.h: 86: unsigned char MSC_IsCharacter(unsigned char data);
 [; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
@@ -5051,7 +5053,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FLASH.h: 614: void FSH_EraseBlock(unsigned long Address);
 [; ;FLASH.h: 615: unsigned char FSH_Write_IR_RF(void);
 [; ;FLASH.h: 616: void FSH_AddressToBlock(unsigned long Address);
-[; ;FLASH.h: 617: void FSH_WriteIntArray(unsigned int* Array);
+[; ;FLASH.h: 617: void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 [; ;FLASH.h: 618: unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 [; ;FLASH.h: 619: void FSH_EraseALL(void);
 [; ;BUTTON.h: 64: extern volatile unsigned char Button_Data;
@@ -5534,21 +5536,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 "225
 }
 [; ;IR.c: 225: }
-[; ;IR.c: 228: Flash_Status = FSH_Write_IR_RF();
+[; ;IR.c: 228: IR_Saved = 90;
 "228
-[e = _Flash_Status ( _FSH_Write_IR_RF ..  ]
-[; ;IR.c: 229: if(Flash_Status)
-"229
-[e $ ! != -> _Flash_Status `i -> -> -> 0 `i `uc `i 432  ]
-[; ;IR.c: 230: {
-"230
-{
-[; ;IR.c: 231: IR_CodeSize = IR_DataPlace;
-"231
-[e = _IR_CodeSize _IR_DataPlace ]
-[; ;IR.c: 232: IR_Saved = 90;
-"232
 [e = _IR_Saved -> -> 90 `i `uc ]
+[; ;IR.c: 229: Flash_Status = FSH_Write_IR_RF();
+"229
+[e = _Flash_Status ( _FSH_Write_IR_RF ..  ]
+[; ;IR.c: 230: if(Flash_Status)
+"230
+[e $ ! != -> _Flash_Status `i -> -> -> 0 `i `uc `i 432  ]
+[; ;IR.c: 231: {
+"231
+{
+[; ;IR.c: 232: IR_LoadCode();
+"232
+[e ( _IR_LoadCode ..  ]
 "233
 }
 [e :U 432 ]

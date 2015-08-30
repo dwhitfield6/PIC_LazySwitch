@@ -30,19 +30,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _IR_Data `Vuc ~T0 @X0 0 e ]
 "64 BUTTON.h
 [v _Button_Data `Vuc ~T0 @X0 0 e ]
-"66 MOTOR.h
+[v F3309 `(v ~T0 @X0 1 tf ]
+"90 SYSTEM.h
+[v _SYS_DisableInt `TF3309 ~T0 @X0 0 e ]
+"73 MOTOR.h
 [v _MTR_Rotate `(v ~T0 @X0 0 ef ]
-"70 LDO.h
-[v _Rail_VIN `d ~T0 @X0 0 e ]
 "85 MISC.h
 [v _MSC_DelayMS `(v ~T0 @X0 0 ef1`l ]
+[v F3306 `(v ~T0 @X0 1 tf ]
+"89 SYSTEM.h
+[v _SYS_EnableInt `TF3306 ~T0 @X0 0 e ]
+"70 LDO.h
+[v _Rail_VIN `d ~T0 @X0 0 e ]
 "87 SYSTEM.h
 [v _SYS_ActivityTimer `(v ~T0 @X0 0 ef ]
 "70 ADC.h
 [v _ADC_SampleCount `ui ~T0 @X0 0 e ]
-[v F3495 `(v ~T0 @X0 1 tf ]
+[v F3501 `(v ~T0 @X0 1 tf ]
 "81
-[v _ADC_Start `TF3495 ~T0 @X0 0 e ]
+[v _ADC_Start `TF3501 ~T0 @X0 0 e ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3089,6 +3095,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SYSTEM.h: 86: inline void SYS_Sleep(void);
 [; ;SYSTEM.h: 87: void SYS_ActivityTimer(void);
 [; ;SYSTEM.h: 88: inline void SYS_ActivityTimerReset(void);
+[; ;SYSTEM.h: 89: inline void SYS_EnableInt(void);
+[; ;SYSTEM.h: 90: inline void SYS_DisableInt(void);
 [; ;MISC.h: 85: void MSC_DelayMS(long US);
 [; ;MISC.h: 86: unsigned char MSC_IsCharacter(unsigned char data);
 [; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
@@ -3537,11 +3545,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;BUTTON.h: 75: void InitButton(void);
 [; ;BUTTON.h: 76: inline void BUT_IR_PinChangeInt(unsigned char state);
 [; ;BUTTON.h: 77: unsigned char BUT_ReadButton(void);
-"56 MOTOR.h
+"63 MOTOR.h
 [v _DC_Motor `uc ~T0 @X0 1 e ]
-[; ;MOTOR.h: 56: unsigned char DC_Motor;
-[; ;MOTOR.h: 65: void InitMOTOR(void);
-[; ;MOTOR.h: 66: void MTR_Rotate(void);
+[; ;MOTOR.h: 63: unsigned char DC_Motor;
+[; ;MOTOR.h: 72: void InitMOTOR(void);
+[; ;MOTOR.h: 73: void MTR_Rotate(void);
 [; ;ADC.h: 69: extern unsigned char ADC_CurrentSource;
 [; ;ADC.h: 70: extern unsigned int ADC_SampleCount;
 [; ;ADC.h: 79: void InitADC(void);
@@ -5103,278 +5111,299 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FLASH.h: 614: void FSH_EraseBlock(unsigned long Address);
 [; ;FLASH.h: 615: unsigned char FSH_Write_IR_RF(void);
 [; ;FLASH.h: 616: void FSH_AddressToBlock(unsigned long Address);
-[; ;FLASH.h: 617: void FSH_WriteIntArray(unsigned int* Array);
+[; ;FLASH.h: 617: void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 [; ;FLASH.h: 618: unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 [; ;FLASH.h: 619: void FSH_EraseALL(void);
-"77 main.c
+"80 main.c
 [v _main `(i ~T0 @X0 1 ef ]
-"78
+"81
 {
-[; ;main.c: 77: int main (void)
-[; ;main.c: 78: {
+[; ;main.c: 80: int main (void)
+[; ;main.c: 81: {
 [e :U _main ]
 [f ]
-[; ;main.c: 80: SYS_ConfigureOscillator();
-"80
+[; ;main.c: 83: SYS_ConfigureOscillator();
+"83
 [e ( _SYS_ConfigureOscillator ..  ]
-[; ;main.c: 81: Init_App();
-"81
+[; ;main.c: 84: Init_App();
+"84
 [e ( _Init_App ..  ]
-[; ;main.c: 82: Init_System();
-"82
-[e ( _Init_System ..  ]
-[; ;main.c: 85: RF_LoadCode();
+[; ;main.c: 85: Init_System();
 "85
-[e ( _RF_LoadCode ..  ]
-[; ;main.c: 86: IR_LoadCode();
-"86
-[e ( _IR_LoadCode ..  ]
-[; ;main.c: 87: MSC_BlinkLED(4,50);
-"87
-[e ( _MSC_BlinkLED (2 , -> -> 4 `i `ui -> -> 50 `i `ui ]
-[; ;main.c: 88: (LATC &= ~0x10);
+[e ( _Init_System ..  ]
+[; ;main.c: 88: RF_LoadCode();
 "88
-[e =& _LATC -> ~ -> 16 `i `uc ]
-[; ;main.c: 90: while(1)
+[e ( _RF_LoadCode ..  ]
+[; ;main.c: 89: IR_LoadCode();
+"89
+[e ( _IR_LoadCode ..  ]
+[; ;main.c: 90: MSC_BlinkLED(4,50);
 "90
-[e :U 396 ]
-[; ;main.c: 91: {
+[e ( _MSC_BlinkLED (2 , -> -> 4 `i `ui -> -> 50 `i `ui ]
+[; ;main.c: 91: (LATC &= ~0x10);
 "91
-{
-[; ;main.c: 92: if(System_State == 8)
-"92
-[e $ ! == -> _System_State `i -> 8 `i 398  ]
-[; ;main.c: 93: {
+[e =& _LATC -> ~ -> 16 `i `uc ]
+[; ;main.c: 93: while(1)
 "93
+[e :U 396 ]
+[; ;main.c: 94: {
+"94
 {
-[; ;main.c: 95: if(System_State_Change)
+[; ;main.c: 95: if(System_State == 8)
 "95
-[e $ ! != -> _System_State_Change `i -> -> -> 0 `i `Vuc `i 399  ]
+[e $ ! == -> _System_State `i -> 8 `i 398  ]
 [; ;main.c: 96: {
 "96
 {
-[; ;main.c: 98: (LATC &= ~0x10);
+[; ;main.c: 98: if(System_State_Change)
 "98
-[e =& _LATC -> ~ -> 16 `i `uc ]
-[; ;main.c: 99: if(RF_Saved == 90)
+[e $ ! != -> _System_State_Change `i -> -> -> 0 `i `Vuc `i 399  ]
+[; ;main.c: 99: {
 "99
-[e $ ! == -> _RF_Saved `i -> 90 `i 400  ]
-[; ;main.c: 100: {
-"100
 {
-[; ;main.c: 101: if(Flash_Status == 1)
+[; ;main.c: 101: (LATC &= ~0x10);
 "101
-[e $ ! == -> _Flash_Status `i -> 1 `i 401  ]
-[; ;main.c: 102: {
+[e =& _LATC -> ~ -> 16 `i `uc ]
+[; ;main.c: 102: if(RF_Saved == 90)
 "102
-{
-[; ;main.c: 103: MSC_BlinkLED(4,50);
+[e $ ! == -> _RF_Saved `i -> 90 `i 400  ]
+[; ;main.c: 103: {
 "103
-[e ( _MSC_BlinkLED (2 , -> -> 4 `i `ui -> -> 50 `i `ui ]
-"104
-}
-[; ;main.c: 104: }
-[e $U 402  ]
-"105
-[e :U 401 ]
-[; ;main.c: 105: else
-[; ;main.c: 106: {
-"106
 {
-[; ;main.c: 107: MSC_BlinkLED(6,75);
+[; ;main.c: 104: if(Flash_Status == 1)
+"104
+[e $ ! == -> _Flash_Status `i -> 1 `i 401  ]
+[; ;main.c: 105: {
+"105
+{
+[; ;main.c: 106: MSC_BlinkLED(4,50);
+"106
+[e ( _MSC_BlinkLED (2 , -> -> 4 `i `ui -> -> 50 `i `ui ]
+[; ;main.c: 107: (LATC &= ~0x10);
 "107
-[e ( _MSC_BlinkLED (2 , -> -> 6 `i `ui -> -> 75 `i `ui ]
+[e =& _LATC -> ~ -> 16 `i `uc ]
 "108
 }
-[e :U 402 ]
 [; ;main.c: 108: }
-[; ;main.c: 109: RF_Saved = 91;
+[e $U 402  ]
 "109
-[e = _RF_Saved -> -> 91 `i `uc ]
+[e :U 401 ]
+[; ;main.c: 109: else
+[; ;main.c: 110: {
 "110
+{
+[; ;main.c: 111: MSC_BlinkLED(6,75);
+"111
+[e ( _MSC_BlinkLED (2 , -> -> 6 `i `ui -> -> 75 `i `ui ]
+[; ;main.c: 112: (LATC &= ~0x10);
+"112
+[e =& _LATC -> ~ -> 16 `i `uc ]
+"113
+}
+[e :U 402 ]
+[; ;main.c: 113: }
+[; ;main.c: 114: RF_Saved = 91;
+"114
+[e = _RF_Saved -> -> 91 `i `uc ]
+"115
 }
 [e :U 400 ]
-[; ;main.c: 110: }
-[; ;main.c: 111: if(IR_Saved == 90)
-"111
-[e $ ! == -> _IR_Saved `i -> 90 `i 403  ]
-[; ;main.c: 112: {
-"112
-{
-[; ;main.c: 113: if(Flash_Status == 1)
-"113
-[e $ ! == -> _Flash_Status `i -> 1 `i 404  ]
-[; ;main.c: 114: {
-"114
-{
-[; ;main.c: 115: MSC_BlinkLED(4,50);
-"115
-[e ( _MSC_BlinkLED (2 , -> -> 4 `i `ui -> -> 50 `i `ui ]
+[; ;main.c: 115: }
+[; ;main.c: 116: if(IR_Saved == 90)
 "116
-}
-[; ;main.c: 116: }
-[e $U 405  ]
+[e $ ! == -> _IR_Saved `i -> 90 `i 403  ]
+[; ;main.c: 117: {
 "117
-[e :U 404 ]
-[; ;main.c: 117: else
-[; ;main.c: 118: {
-"118
 {
-[; ;main.c: 119: MSC_BlinkLED(6,75);
+[; ;main.c: 118: if(Flash_Status == 1)
+"118
+[e $ ! == -> _Flash_Status `i -> 1 `i 404  ]
+[; ;main.c: 119: {
 "119
-[e ( _MSC_BlinkLED (2 , -> -> 6 `i `ui -> -> 75 `i `ui ]
+{
+[; ;main.c: 120: MSC_BlinkLED(4,50);
 "120
-}
-[e :U 405 ]
-[; ;main.c: 120: }
-[; ;main.c: 121: IR_Saved = 91;
+[e ( _MSC_BlinkLED (2 , -> -> 4 `i `ui -> -> 50 `i `ui ]
+[; ;main.c: 121: (LATC &= ~0x10);
 "121
-[e = _IR_Saved -> -> 91 `i `uc ]
+[e =& _LATC -> ~ -> 16 `i `uc ]
 "122
 }
-[e :U 403 ]
 [; ;main.c: 122: }
-[; ;main.c: 123: System_State_Change = 0;
+[e $U 405  ]
 "123
-[e = _System_State_Change -> -> 0 `i `uc ]
+[e :U 404 ]
+[; ;main.c: 123: else
+[; ;main.c: 124: {
 "124
+{
+[; ;main.c: 125: MSC_BlinkLED(6,75);
+"125
+[e ( _MSC_BlinkLED (2 , -> -> 6 `i `ui -> -> 75 `i `ui ]
+[; ;main.c: 126: (LATC &= ~0x10);
+"126
+[e =& _LATC -> ~ -> 16 `i `uc ]
+"127
+}
+[e :U 405 ]
+[; ;main.c: 127: }
+[; ;main.c: 128: IR_Saved = 91;
+"128
+[e = _IR_Saved -> -> 91 `i `uc ]
+"129
+}
+[e :U 403 ]
+[; ;main.c: 129: }
+[; ;main.c: 130: System_State_Change = 0;
+"130
+[e = _System_State_Change -> -> 0 `i `uc ]
+"131
 }
 [e :U 399 ]
-[; ;main.c: 124: }
-[; ;main.c: 125: if(RF_Data || IR_Data || Button_Data)
-"125
-[e $ ! || || != -> _RF_Data `i -> -> -> 0 `i `Vuc `i != -> _IR_Data `i -> -> -> 0 `i `Vuc `i != -> _Button_Data `i -> -> -> 0 `i `Vuc `i 406  ]
-[; ;main.c: 126: {
-"126
-{
-[; ;main.c: 127: (LATC |= 0x10);
-"127
-[e =| _LATC -> -> 16 `i `uc ]
-[; ;main.c: 128: MTR_Rotate();
-"128
-[e ( _MTR_Rotate ..  ]
-[; ;main.c: 129: RF_Data = 0;
-"129
-[e = _RF_Data -> -> 0 `i `uc ]
-[; ;main.c: 130: IR_Data = 0;
-"130
-[e = _IR_Data -> -> 0 `i `uc ]
-[; ;main.c: 131: Button_Data = 0;
-"131
-[e = _Button_Data -> -> 0 `i `uc ]
-[; ;main.c: 132: (LATC &= ~0x10);
+[; ;main.c: 131: }
+[; ;main.c: 132: if(RF_Data || IR_Data || Button_Data)
 "132
-[e =& _LATC -> ~ -> 16 `i `uc ]
+[e $ ! || || != -> _RF_Data `i -> -> -> 0 `i `Vuc `i != -> _IR_Data `i -> -> -> 0 `i `Vuc `i != -> _Button_Data `i -> -> -> 0 `i `Vuc `i 406  ]
+[; ;main.c: 133: {
 "133
+{
+[; ;main.c: 134: (LATC |= 0x10);
+"134
+[e =| _LATC -> -> 16 `i `uc ]
+[; ;main.c: 135: SYS_DisableInt();
+"135
+[e ( _SYS_DisableInt ..  ]
+[; ;main.c: 136: MTR_Rotate();
+"136
+[e ( _MTR_Rotate ..  ]
+[; ;main.c: 137: MSC_DelayMS(200);
+"137
+[e ( _MSC_DelayMS (1 -> -> 200 `i `l ]
+[; ;main.c: 138: SYS_EnableInt();
+"138
+[e ( _SYS_EnableInt ..  ]
+[; ;main.c: 139: RF_Data = 0;
+"139
+[e = _RF_Data -> -> 0 `i `uc ]
+[; ;main.c: 140: IR_Data = 0;
+"140
+[e = _IR_Data -> -> 0 `i `uc ]
+[; ;main.c: 141: Button_Data = 0;
+"141
+[e = _Button_Data -> -> 0 `i `uc ]
+[; ;main.c: 142: (LATC &= ~0x10);
+"142
+[e =& _LATC -> ~ -> 16 `i `uc ]
+"143
 }
 [e :U 406 ]
-[; ;main.c: 133: }
-[; ;main.c: 134: if(Rail_VIN < 3.5 || Rail_VIN > 5.5 )
-"134
+[; ;main.c: 143: }
+[; ;main.c: 144: if(Rail_VIN < 3.5 || Rail_VIN > 5.5 )
+"144
 [e $ ! || < _Rail_VIN .3.5 > _Rail_VIN .5.5 407  ]
-[; ;main.c: 135: {
-"135
+[; ;main.c: 145: {
+"145
 {
-[; ;main.c: 136: MSC_DelayMS(100);
-"136
+[; ;main.c: 146: MSC_DelayMS(100);
+"146
 [e ( _MSC_DelayMS (1 -> -> 100 `i `l ]
-[; ;main.c: 137: (LATC ^= 0x10);
-"137
+[; ;main.c: 147: (LATC ^= 0x10);
+"147
 [e =^ _LATC -> -> 16 `i `uc ]
-"138
+"148
 }
 [e :U 407 ]
-[; ;main.c: 138: }
-[; ;main.c: 139: SYS_ActivityTimer();
-"139
-[e ( _SYS_ActivityTimer ..  ]
-"140
-}
-[; ;main.c: 140: }
-[e $U 408  ]
-"141
-[e :U 398 ]
-[; ;main.c: 141: else if(System_State == 10)
-[e $ ! == -> _System_State `i -> 10 `i 409  ]
-[; ;main.c: 142: {
-"142
-{
-[; ;main.c: 144: MSC_DelayMS(25);
-"144
-[e ( _MSC_DelayMS (1 -> -> 25 `i `l ]
-[; ;main.c: 145: (LATC ^= 0x10);
-"145
-[e =^ _LATC -> -> 16 `i `uc ]
-[; ;main.c: 146: if(RF_Data)
-"146
-[e $ ! != -> _RF_Data `i -> -> -> 0 `i `Vuc `i 410  ]
-[; ;main.c: 147: {
-"147
-{
-[; ;main.c: 149: RF_Data = 0;
+[; ;main.c: 148: }
+[; ;main.c: 149: SYS_ActivityTimer();
 "149
-[e = _RF_Data -> -> 0 `i `uc ]
-[; ;main.c: 150: System_State = 8;
+[e ( _SYS_ActivityTimer ..  ]
 "150
-[e = _System_State -> -> 8 `i `uc ]
-[; ;main.c: 151: System_State_Change = 1;
+}
+[; ;main.c: 150: }
+[e $U 408  ]
 "151
-[e = _System_State_Change -> -> 1 `i `uc ]
+[e :U 398 ]
+[; ;main.c: 151: else if(System_State == 10)
+[e $ ! == -> _System_State `i -> 10 `i 409  ]
+[; ;main.c: 152: {
 "152
+{
+[; ;main.c: 154: MSC_DelayMS(25);
+"154
+[e ( _MSC_DelayMS (1 -> -> 25 `i `l ]
+[; ;main.c: 155: (LATC ^= 0x10);
+"155
+[e =^ _LATC -> -> 16 `i `uc ]
+[; ;main.c: 156: if(RF_Data)
+"156
+[e $ ! != -> _RF_Data `i -> -> -> 0 `i `Vuc `i 410  ]
+[; ;main.c: 157: {
+"157
+{
+[; ;main.c: 159: RF_Data = 0;
+"159
+[e = _RF_Data -> -> 0 `i `uc ]
+[; ;main.c: 160: System_State = 8;
+"160
+[e = _System_State -> -> 8 `i `uc ]
+[; ;main.c: 161: System_State_Change = 1;
+"161
+[e = _System_State_Change -> -> 1 `i `uc ]
+"162
 }
 [e :U 410 ]
-[; ;main.c: 152: }
-[; ;main.c: 153: if(IR_Data)
-"153
-[e $ ! != -> _IR_Data `i -> -> -> 0 `i `Vuc `i 411  ]
-[; ;main.c: 154: {
-"154
-{
-[; ;main.c: 156: IR_Data = 0;
-"156
-[e = _IR_Data -> -> 0 `i `uc ]
-[; ;main.c: 157: System_State = 8;
-"157
-[e = _System_State -> -> 8 `i `uc ]
-[; ;main.c: 158: System_State_Change = 1;
-"158
-[e = _System_State_Change -> -> 1 `i `uc ]
-"159
-}
-[e :U 411 ]
-"160
-}
-[e :U 409 ]
-"162
-[e :U 408 ]
-[; ;main.c: 159: }
-[; ;main.c: 160: }
-[; ;main.c: 162: ADC_SampleCount++;
-[e ++ _ADC_SampleCount -> -> 1 `i `ui ]
-[; ;main.c: 163: if(ADC_SampleCount > 10)
+[; ;main.c: 162: }
+[; ;main.c: 163: if(IR_Data)
 "163
-[e $ ! > _ADC_SampleCount -> -> 10 `i `ui 412  ]
+[e $ ! != -> _IR_Data `i -> -> -> 0 `i `Vuc `i 411  ]
 [; ;main.c: 164: {
 "164
 {
-[; ;main.c: 165: ADC_Start();
-"165
-[e ( _ADC_Start ..  ]
-[; ;main.c: 166: ADC_SampleCount = 0;
+[; ;main.c: 166: IR_Data = 0;
 "166
-[e = _ADC_SampleCount -> -> 0 `i `ui ]
+[e = _IR_Data -> -> 0 `i `uc ]
+[; ;main.c: 167: System_State = 8;
 "167
+[e = _System_State -> -> 8 `i `uc ]
+[; ;main.c: 168: System_State_Change = 1;
+"168
+[e = _System_State_Change -> -> 1 `i `uc ]
+"169
+}
+[e :U 411 ]
+"170
+}
+[e :U 409 ]
+"172
+[e :U 408 ]
+[; ;main.c: 169: }
+[; ;main.c: 170: }
+[; ;main.c: 172: ADC_SampleCount++;
+[e ++ _ADC_SampleCount -> -> 1 `i `ui ]
+[; ;main.c: 173: if(ADC_SampleCount > 10)
+"173
+[e $ ! > _ADC_SampleCount -> -> 10 `i `ui 412  ]
+[; ;main.c: 174: {
+"174
+{
+[; ;main.c: 175: ADC_Start();
+"175
+[e ( _ADC_Start ..  ]
+[; ;main.c: 176: ADC_SampleCount = 0;
+"176
+[e = _ADC_SampleCount -> -> 0 `i `ui ]
+"177
 }
 [e :U 412 ]
-"168
+"178
 }
 [e :U 395 ]
-"90
+"93
 [e $U 396  ]
 [e :U 397 ]
-[; ;main.c: 167: }
-[; ;main.c: 168: }
-[; ;main.c: 169: }
-"169
+[; ;main.c: 177: }
+[; ;main.c: 178: }
+[; ;main.c: 179: }
+"179
 [e :UE 394 ]
 }

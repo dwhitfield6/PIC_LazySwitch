@@ -3047,11 +3047,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 58: extern char * strrichr(const char *, int);
 [; ;USER.h: 181: void Init_App(void);
 [; ;USER.h: 182: void Init_System (void);
-"56 MOTOR.h
+"63 MOTOR.h
 [v _DC_Motor `uc ~T0 @X0 1 e ]
-[; ;MOTOR.h: 56: unsigned char DC_Motor;
-[; ;MOTOR.h: 65: void InitMOTOR(void);
-[; ;MOTOR.h: 66: void MTR_Rotate(void);
+[; ;MOTOR.h: 63: unsigned char DC_Motor;
+[; ;MOTOR.h: 72: void InitMOTOR(void);
+[; ;MOTOR.h: 73: void MTR_Rotate(void);
 [; ;SYSTEM.h: 78: extern volatile unsigned char System_State;
 [; ;SYSTEM.h: 79: extern volatile unsigned char System_State_Change;
 [; ;SYSTEM.h: 84: void SYS_ConfigureOscillator(void);
@@ -3059,6 +3059,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SYSTEM.h: 86: inline void SYS_Sleep(void);
 [; ;SYSTEM.h: 87: void SYS_ActivityTimer(void);
 [; ;SYSTEM.h: 88: inline void SYS_ActivityTimerReset(void);
+[; ;SYSTEM.h: 89: inline void SYS_EnableInt(void);
+[; ;SYSTEM.h: 90: inline void SYS_DisableInt(void);
 [; ;MISC.h: 85: void MSC_DelayMS(long US);
 [; ;MISC.h: 86: unsigned char MSC_IsCharacter(unsigned char data);
 [; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
@@ -3101,9 +3103,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;MOTOR.c: 43: unsigned char DC_Motor = 0;
-[v F3414 `(v ~T0 @X0 1 tf1`uc ]
+[v F3420 `(v ~T0 @X0 1 tf1`uc ]
 "54
-[v _MTR_IN1 `TF3414 ~T0 @X0 1 e ]
+[v _MTR_IN1 `TF3420 ~T0 @X0 1 e ]
 "55
 {
 [; ;MOTOR.c: 54: inline void MTR_IN1(unsigned char state)
@@ -3143,9 +3145,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "64
 [e :UE 394 ]
 }
-[v F3417 `(v ~T0 @X0 1 tf1`uc ]
+[v F3423 `(v ~T0 @X0 1 tf1`uc ]
 "71
-[v _MTR_IN2 `TF3417 ~T0 @X0 1 e ]
+[v _MTR_IN2 `TF3423 ~T0 @X0 1 e ]
 "72
 {
 [; ;MOTOR.c: 71: inline void MTR_IN2(unsigned char state)

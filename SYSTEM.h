@@ -86,5 +86,7 @@ inline void SYS_Idle(void);
 inline void SYS_Sleep(void);
 void SYS_ActivityTimer(void);
 inline void SYS_ActivityTimerReset(void);
+inline void SYS_EnableInt(void);
+inline void SYS_DisableInt(void);
 
 #endif	/* SYSTEM_H */

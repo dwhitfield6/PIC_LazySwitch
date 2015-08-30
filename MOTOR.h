@@ -31,16 +31,23 @@
 #endif
 
 /******************************************************************************/
+/* MOTORWAIT
+ *
+ * This defines the milliseconds to wait between motor activations.
+/******************************************************************************/
+#define MOTORWAIT 200
+
+/******************************************************************************/
 /* CW_MS
  *
- * This defines the microseconds to spin the motor clockwise.
+ * This defines the milliseconds to spin the motor clockwise.
 /******************************************************************************/
 #define CW_MS 100
 
 /******************************************************************************/
 /* CCW_MS
  *
- * This defines the microseconds to spin the motor counter-clockwise.
+ * This defines the milliseconds to spin the motor counter-clockwise.
 /******************************************************************************/
 #define CCW_MS 100
 

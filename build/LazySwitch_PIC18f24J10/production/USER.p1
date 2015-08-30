@@ -68,7 +68,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _InitIR `(v ~T0 @X0 0 ef ]
 "79 LDO.h
 [v _InitLDO `(v ~T0 @X0 0 ef ]
-"65 MOTOR.h
+"72 MOTOR.h
 [v _InitMOTOR `(v ~T0 @X0 0 ef ]
 "613 FLASH.h
 [v _InitFlash `(v ~T0 @X0 0 ef ]
@@ -4719,7 +4719,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FLASH.h: 614: void FSH_EraseBlock(unsigned long Address);
 [; ;FLASH.h: 615: unsigned char FSH_Write_IR_RF(void);
 [; ;FLASH.h: 616: void FSH_AddressToBlock(unsigned long Address);
-[; ;FLASH.h: 617: void FSH_WriteIntArray(unsigned int* Array);
+[; ;FLASH.h: 617: void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 [; ;FLASH.h: 618: unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 [; ;FLASH.h: 619: void FSH_EraseALL(void);
 "83 IR.h
@@ -4957,6 +4957,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SYSTEM.h: 86: inline void SYS_Sleep(void);
 [; ;SYSTEM.h: 87: void SYS_ActivityTimer(void);
 [; ;SYSTEM.h: 88: inline void SYS_ActivityTimerReset(void);
+[; ;SYSTEM.h: 89: inline void SYS_EnableInt(void);
+[; ;SYSTEM.h: 90: inline void SYS_DisableInt(void);
 [; ;MISC.h: 85: void MSC_DelayMS(long US);
 [; ;MISC.h: 86: unsigned char MSC_IsCharacter(unsigned char data);
 [; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
@@ -4994,11 +4996,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MISC.h: 119: void MSC_BlinkLED(unsigned int blink, unsigned int speed);
 [; ;MISC.h: 120: void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 [; ;MISC.h: 121: void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
-"56 MOTOR.h
+"63 MOTOR.h
 [v _DC_Motor `uc ~T0 @X0 1 e ]
-[; ;MOTOR.h: 56: unsigned char DC_Motor;
-[; ;MOTOR.h: 65: void InitMOTOR(void);
-[; ;MOTOR.h: 66: void MTR_Rotate(void);
+[; ;MOTOR.h: 63: unsigned char DC_Motor;
+[; ;MOTOR.h: 72: void InitMOTOR(void);
+[; ;MOTOR.h: 73: void MTR_Rotate(void);
 "101 RF.h
 [v _RF_SavedTiming `Cui ~T0 @X0 -> 128 `i e@9472 ]
 [i _RF_SavedTiming

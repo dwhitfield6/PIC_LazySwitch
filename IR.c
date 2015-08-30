@@ -225,11 +225,11 @@ unsigned char IR_CheckCode(void)
             }
             
             /* The RF signal is valid for program */
+            IR_Saved = NEW;
             Flash_Status = FSH_Write_IR_RF();
             if(Flash_Status)
             {
-                IR_CodeSize = IR_DataPlace;
-                IR_Saved = NEW;
+                IR_LoadCode();
             }
             System_State = RUN;
         }

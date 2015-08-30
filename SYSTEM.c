@@ -35,6 +35,8 @@
 #endif
 
 #include "SYSTEM.h"
+#include "IR.h"
+#include "BUTTON.h"
 
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
@@ -67,6 +69,37 @@ inline void SYS_Idle(void)
 inline void SYS_ActivityTimerReset(void)
 {
     Activity_Timer = 0;
+}
+
+/******************************************************************************/
+/* SYS_DisableInt
+ *
+ * The function disables low and high priority interrupts.
+/******************************************************************************/
+inline void SYS_DisableInt(void)
+{
+    INTCONbits.GIE = 0;     // Disable high priority interrupts
+    INTCONbits.PEIE = 0;    // Disable low priority interrupts
+}
+
+/******************************************************************************/
+/* SYS_EnableInt
+ *
+ * The function disables low and high priority interrupts.
+/******************************************************************************/
+inline void SYS_EnableInt(void)
+{
+    INTCON3bits.INT1IF = 0; // Clear rising edge Flag
+    INTCON3bits.INT2IF = 0; // Clear falling edge Flag
+    INTCONbits.TMR0IF = 0;
+    IR_ReadReceiver();
+    BUT_ReadButton();
+    INTCONbits.RBIF = 0; //clear the interrupt on change flag
+    PIR1bits.TMR2IF = 0; // clear timer 2 flag
+    PIR1bits.ADIF = 0; // clear the ADC flag
+    PIR1bits.TMR1IF = 0; // clear timer 1 flag
+    INTCONbits.GIE = 1;     // Enable high priority interrupts
+    INTCONbits.PEIE = 1;    // Enable low priority interrupts
 }
 
 /******************************************************************************/

@@ -32,12 +32,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S380 . . . . ]
 "6318
 [v _INTCON2bits `VS380 ~T0 @X0 0 e@4081 ]
-[v F3480 `(v ~T0 @X0 1 tf1`uc ]
+[v F3486 `(v ~T0 @X0 1 tf1`uc ]
 "78 TIMERS.h
-[v _TMR_Timer0Int `TF3480 ~T0 @X0 0 e ]
-[v F3459 `(v ~T0 @X0 1 tf1`uc ]
+[v _TMR_Timer0Int `TF3486 ~T0 @X0 0 e ]
+[v F3465 `(v ~T0 @X0 1 tf1`uc ]
 "71
-[v _TMR_Timer0 `TF3459 ~T0 @X0 0 e ]
+[v _TMR_Timer0 `TF3465 ~T0 @X0 0 e ]
 "6373 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f24j10.h
 [s S385 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S385 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
@@ -3291,6 +3291,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SYSTEM.h: 86: inline void SYS_Sleep(void);
 [; ;SYSTEM.h: 87: void SYS_ActivityTimer(void);
 [; ;SYSTEM.h: 88: inline void SYS_ActivityTimerReset(void);
+[; ;SYSTEM.h: 89: inline void SYS_EnableInt(void);
+[; ;SYSTEM.h: 90: inline void SYS_DisableInt(void);
 [; ;MISC.h: 85: void MSC_DelayMS(long US);
 [; ;MISC.h: 86: unsigned char MSC_IsCharacter(unsigned char data);
 [; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
@@ -4902,7 +4904,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FLASH.h: 614: void FSH_EraseBlock(unsigned long Address);
 [; ;FLASH.h: 615: unsigned char FSH_Write_IR_RF(void);
 [; ;FLASH.h: 616: void FSH_AddressToBlock(unsigned long Address);
-[; ;FLASH.h: 617: void FSH_WriteIntArray(unsigned int* Array);
+[; ;FLASH.h: 617: void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 [; ;FLASH.h: 618: unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 [; ;FLASH.h: 619: void FSH_EraseALL(void);
 "45 RF.c
@@ -5557,21 +5559,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 "316
 }
 [; ;RF.c: 316: }
-[; ;RF.c: 319: Flash_Status = FSH_Write_IR_RF();
+[; ;RF.c: 319: RF_Saved = 90;
 "319
-[e = _Flash_Status ( _FSH_Write_IR_RF ..  ]
-[; ;RF.c: 320: if(Flash_Status)
-"320
-[e $ ! != -> _Flash_Status `i -> -> -> 0 `i `uc `i 441  ]
-[; ;RF.c: 321: {
-"321
-{
-[; ;RF.c: 322: RF_CodeSize = RF_DataPlace;
-"322
-[e = _RF_CodeSize _RF_DataPlace ]
-[; ;RF.c: 323: RF_Saved = 90;
-"323
 [e = _RF_Saved -> -> 90 `i `uc ]
+[; ;RF.c: 320: Flash_Status = FSH_Write_IR_RF();
+"320
+[e = _Flash_Status ( _FSH_Write_IR_RF ..  ]
+[; ;RF.c: 321: if(Flash_Status)
+"321
+[e $ ! != -> _Flash_Status `i -> -> -> 0 `i `uc `i 441  ]
+[; ;RF.c: 322: {
+"322
+{
+[; ;RF.c: 323: RF_LoadCode();
+"323
+[e ( _RF_LoadCode ..  ]
 "324
 }
 [e :U 441 ]

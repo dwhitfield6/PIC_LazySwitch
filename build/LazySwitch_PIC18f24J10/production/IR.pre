@@ -4183,6 +4183,8 @@ inline void SYS_Idle(void);
 inline void SYS_Sleep(void);
 void SYS_ActivityTimer(void);
 inline void SYS_ActivityTimerReset(void);
+inline void SYS_EnableInt(void);
+inline void SYS_DisableInt(void);
 
 # 85 "MISC.h"
 void MSC_DelayMS(long US);
@@ -4750,7 +4752,7 @@ void InitFlash(void);
 void FSH_EraseBlock(unsigned long Address);
 unsigned char FSH_Write_IR_RF(void);
 void FSH_AddressToBlock(unsigned long Address);
-void FSH_WriteIntArray(unsigned int* Array);
+void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 void FSH_EraseALL(void);
 
@@ -4910,11 +4912,11 @@ IR_DataTiming[i] = 0;
 }
 
 
+IR_Saved = 90;
 Flash_Status = FSH_Write_IR_RF();
 if(Flash_Status)
 {
-IR_CodeSize = IR_DataPlace;
-IR_Saved = 90;
+IR_LoadCode();
 }
 System_State = 8;
 }

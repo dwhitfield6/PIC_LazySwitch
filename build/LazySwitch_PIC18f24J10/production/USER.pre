@@ -4533,7 +4533,7 @@ void InitFlash(void);
 void FSH_EraseBlock(unsigned long Address);
 unsigned char FSH_Write_IR_RF(void);
 void FSH_AddressToBlock(unsigned long Address);
-void FSH_WriteIntArray(unsigned int* Array);
+void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 void FSH_EraseALL(void);
 
@@ -4649,6 +4649,8 @@ inline void SYS_Idle(void);
 inline void SYS_Sleep(void);
 void SYS_ActivityTimer(void);
 inline void SYS_ActivityTimerReset(void);
+inline void SYS_EnableInt(void);
+inline void SYS_DisableInt(void);
 
 # 85 "MISC.h"
 void MSC_DelayMS(long US);
@@ -4689,10 +4691,10 @@ void MSC_BlinkLED(unsigned int blink, unsigned int speed);
 void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 
-# 56 "MOTOR.h"
+# 63 "MOTOR.h"
 unsigned char DC_Motor;
 
-# 65
+# 72
 void InitMOTOR(void);
 void MTR_Rotate(void);
 

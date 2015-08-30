@@ -3,15 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/IR.c</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/USER.c</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/TIMERS.h</file>
             <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/main.c</file>
-            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/SYSTEM.c</file>
             <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/RF.c</file>
-            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/FLASH.c</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/SYSTEM.c</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/INTERRUPTS.c</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/MOTOR.h</file>
             <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/SYSTEM.h</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/TIMERS.c</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/MISC.c</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/MOTOR.c</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/FLASH.h</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/IR.c</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/FLASH.c</file>
             <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/RF.h</file>
             <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/IR.h</file>
-            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/FLASH.h</file>
         </group>
     </open-files>
 </project-private>

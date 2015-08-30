@@ -614,7 +614,7 @@ void InitFlash(void);
 void FSH_EraseBlock(unsigned long Address);
 unsigned char FSH_Write_IR_RF(void);
 void FSH_AddressToBlock(unsigned long Address);
-void FSH_WriteIntArray(unsigned int* Array);
+void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 void FSH_EraseALL(void);
 

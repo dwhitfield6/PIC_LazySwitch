@@ -3625,6 +3625,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SYSTEM.h: 86: inline void SYS_Sleep(void);
 [; ;SYSTEM.h: 87: void SYS_ActivityTimer(void);
 [; ;SYSTEM.h: 88: inline void SYS_ActivityTimerReset(void);
+[; ;SYSTEM.h: 89: inline void SYS_EnableInt(void);
+[; ;SYSTEM.h: 90: inline void SYS_DisableInt(void);
 [; ;MISC.h: 85: void MSC_DelayMS(long US);
 [; ;MISC.h: 86: unsigned char MSC_IsCharacter(unsigned char data);
 [; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
@@ -3671,9 +3673,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ADC.h: 83: inline void ADC_ConversionInt(unsigned char state);
 [; ;ADC.h: 84: void ADC_CalculateVoltage(void);
 [; ;ADC.h: 85: void ADC_ChangeChannel(void);
-[v F3561 `(v ~T0 @X0 1 tf ]
+[v F3567 `(v ~T0 @X0 1 tf ]
 "48 INTERRUPTS.c
-[v _high_isr `IF3561 ~T0 @X0 1 e ]
+[v _high_isr `IF3567 ~T0 @X0 1 e ]
 "49
 {
 [; ;INTERRUPTS.c: 48: void interrupt high_isr(void)
@@ -3887,9 +3889,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "117
 [e :UE 394 ]
 }
-[v F3566 `(v ~T0 @X0 1 tf ]
+[v F3572 `(v ~T0 @X0 1 tf ]
 "122
-[v _low_isr `ILF3566 ~T0 @X0 1 e ]
+[v _low_isr `ILF3572 ~T0 @X0 1 e ]
 "123
 {
 [; ;INTERRUPTS.c: 122: void low_priority interrupt low_isr(void)

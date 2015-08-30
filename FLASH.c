@@ -143,22 +143,29 @@ void FSH_EraseBlock(unsigned long Address)
  *
  * The function writes 64 bytes of an int array making 32 entries.
 /******************************************************************************/
-void FSH_WriteIntArray(unsigned int* Array)
+void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array)
 {
     unsigned char i;
-    
-    FSH_AddressToBlock(Array);  // Load table pointer
         
+    /* load address */
+    FSH_AddressToBlock(ConstArray);  // Load table pointer
+    
     for(i = 0; i<32; i++)
     {
         /* write the first quarter of the IR code*/
-        TABLAT =(Array[i] & 0xFF00) >> 8;
+        TABLAT = *Array;
         asm("TBLWT*+"); // TBLPTR is incremented after the read/write
-        TABLAT = (Array[i] & 0x00FF);
+        TABLAT = *Array >> 8;
         asm("TBLWT*+"); // TBLPTR is incremented after the read/write
+        Array++;
     }
-    EECON1bits.FREE = 0;        // Perform write only
-        
+    
+    /* load address */
+    FSH_AddressToBlock(ConstArray);  // Load table pointer
+    
+    EECON1bits.WRERR = 0;       // clear error
+    EECON1bits.FREE = 0;        // Perform write only        
+    
     asm("BSF EECON1, 2");// enable write to memory WREN
     asm("BCF INTCON, 7");// disable interrupts
     asm("MOVLW 55h");
@@ -176,13 +183,20 @@ void FSH_WriteIntArray(unsigned int* Array)
 unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array)
 {
     unsigned char i;
+    unsigned int data;
+    unsigned char failcount = 0;
         
     for(i = 0; i<32; i++)
     {
-        if(ConstArray[i] != Array[i])
+        data = ConstArray[i];
+        if(data != Array[i])
         {
-            return FAIL;
+            failcount++;
         }
+    }
+    if(failcount)
+    {
+        return FAIL;
     }
     return PASS;
 }
@@ -197,11 +211,11 @@ unsigned char FSH_Write_IR_RF(void)
 {
     unsigned int i;
     unsigned char j;
-    unsigned char highint = INTCONbits.GIE;
-    unsigned char lowint  = INTCONbits.PEIE;
     unsigned char WriteTries;
     unsigned char status = FAIL;
     unsigned int FlashWasteindex = 0;
+    unsigned char highint = INTCONbits.GIE;
+    unsigned char lowint  = INTCONbits.PEIE;
     
     INTCONbits.GIE = 0;     // Disable high priority interrupts
     INTCONbits.PEIE = 0;    // Disable low priority interrupts
@@ -242,8 +256,9 @@ unsigned char FSH_Write_IR_RF(void)
     WriteTries = 1;
     
     REDO1:
+    
     /* write array */
-    FSH_WriteIntArray(&IR_SavedTiming[0]);
+    FSH_WriteIntArray(&IR_SavedTiming[0], &IR_DataTiming[0]);
         
     /* Verify write */
     if(!FSH_VerifyWriteIntArray(&IR_SavedTiming[0],&IR_DataTiming[0]))
@@ -264,8 +279,9 @@ unsigned char FSH_Write_IR_RF(void)
     WriteTries = 1;
     
     REDO2:
+    
     /* write array */
-    FSH_WriteIntArray(&IR_SavedTiming[32]);
+    FSH_WriteIntArray(&IR_SavedTiming[32], &IR_DataTiming[32]);
         
     /* Verify write */
     if(!FSH_VerifyWriteIntArray(&IR_SavedTiming[32],&IR_DataTiming[32]))
@@ -286,8 +302,9 @@ unsigned char FSH_Write_IR_RF(void)
     WriteTries = 1;
     
     REDO3:
+    
     /* write array */
-    FSH_WriteIntArray(&IR_SavedTiming[64]);
+    FSH_WriteIntArray(&IR_SavedTiming[64], &IR_DataTiming[64]);
         
     /* Verify write */
     if(!FSH_VerifyWriteIntArray(&IR_SavedTiming[64],&IR_DataTiming[64]))
@@ -308,8 +325,9 @@ unsigned char FSH_Write_IR_RF(void)
     WriteTries = 1;
     
     REDO4:
+    
     /* write array */
-    FSH_WriteIntArray(&IR_SavedTiming[96]);
+    FSH_WriteIntArray(&IR_SavedTiming[96], &IR_DataTiming[96]);
         
     /* Verify write */
     if(!FSH_VerifyWriteIntArray(&IR_SavedTiming[96],&IR_DataTiming[96]))
@@ -330,8 +348,9 @@ unsigned char FSH_Write_IR_RF(void)
     WriteTries = 1;
     
     REDO5:
+    
     /* write array */
-    FSH_WriteIntArray(&RF_SavedTiming[0]);
+    FSH_WriteIntArray(&RF_SavedTiming[0],&RF_DataTiming[0]);
         
     /* Verify write */
     if(!FSH_VerifyWriteIntArray(&RF_SavedTiming[0],&RF_DataTiming[0]))
@@ -352,8 +371,9 @@ unsigned char FSH_Write_IR_RF(void)
     WriteTries = 1;
     
     REDO6:
+    
     /* write array */
-    FSH_WriteIntArray(&RF_SavedTiming[32]);
+    FSH_WriteIntArray(&RF_SavedTiming[32],&RF_DataTiming[32]);
         
     /* Verify write */
     if(!FSH_VerifyWriteIntArray(&RF_SavedTiming[32],&RF_DataTiming[32]))
@@ -374,8 +394,9 @@ unsigned char FSH_Write_IR_RF(void)
     WriteTries = 1;
     
     REDO7:
+    
     /* write array */
-    FSH_WriteIntArray(&RF_SavedTiming[64]);
+    FSH_WriteIntArray(&RF_SavedTiming[64],&RF_DataTiming[64]);
         
     /* Verify write */
     if(!FSH_VerifyWriteIntArray(&RF_SavedTiming[64],&RF_DataTiming[64]))
@@ -396,8 +417,9 @@ unsigned char FSH_Write_IR_RF(void)
     WriteTries = 1;
     
     REDO8:
+    
     /* write array */
-    FSH_WriteIntArray(&RF_SavedTiming[96]);
+    FSH_WriteIntArray(&RF_SavedTiming[96],&RF_DataTiming[96]);
         
     /* Verify write */
     if(!FSH_VerifyWriteIntArray(&RF_SavedTiming[96],&RF_DataTiming[96]))

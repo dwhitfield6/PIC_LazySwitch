@@ -4008,33 +4008,162 @@ inline void SYS_Idle(void);
 inline void SYS_Sleep(void);
 void SYS_ActivityTimer(void);
 inline void SYS_ActivityTimerReset(void);
+inline void SYS_EnableInt(void);
+inline void SYS_DisableInt(void);
 
-# 42 "SYSTEM.c"
+# 83 "IR.h"
+const unsigned int IR_SavedTiming[128] __attribute__((address(0x2400)))= {
+8600,
+4200,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+1200,
+450,
+1200,
+450,
+1200,
+450
+};
+
+
+
+
+extern volatile unsigned char IR_Data;
+extern unsigned int IR_DataTiming[128];
+extern unsigned char IR_DataPlace;
+extern unsigned char IRStarted;
+extern unsigned int IR_SyncLow;
+extern unsigned int IR_SyncHigh;
+extern unsigned char IR_Saved;
+extern unsigned char IR_CodeSize;
+extern unsigned char IRValue_prev;
+extern unsigned char IRChange;
+
+# 174
+void InitIR(void);
+unsigned char IR_ReadReceiver(void);
+void IR_ResetData(void);
+void IR_LoadCode(void);
+unsigned char IR_CalculateCodesize(void);
+unsigned char IR_CheckCode(void);
+void IR_CleanBuffer(void);
+
+# 64 "BUTTON.h"
+extern volatile unsigned char Button_Data;
+extern unsigned char ButtonValue_prev;
+extern unsigned char ButtonChange;
+
+# 75
+void InitButton(void);
+inline void BUT_IR_PinChangeInt(unsigned char state);
+unsigned char BUT_ReadButton(void);
+
+# 44 "SYSTEM.c"
 volatile unsigned char System_State = 8;
 volatile unsigned char System_State_Change = 0;
 unsigned long Activity_Timer = 0;
 
-# 55
+# 57
 inline void SYS_Idle(void)
 {
 OSCCON |= 0b10000000;
 asm("sleep");
 }
 
-# 67
+# 69
 inline void SYS_ActivityTimerReset(void)
 {
 Activity_Timer = 0;
 }
 
-# 77
+# 79
+inline void SYS_DisableInt(void)
+{
+INTCONbits.GIE = 0;
+INTCONbits.PEIE = 0;
+}
+
+# 90
+inline void SYS_EnableInt(void)
+{
+INTCON3bits.INT1IF = 0;
+INTCON3bits.INT2IF = 0;
+INTCONbits.TMR0IF = 0;
+IR_ReadReceiver();
+BUT_ReadButton();
+INTCONbits.RBIF = 0;
+PIR1bits.TMR2IF = 0;
+PIR1bits.ADIF = 0;
+PIR1bits.TMR1IF = 0;
+INTCONbits.GIE = 1;
+INTCONbits.PEIE = 1;
+}
+
+# 110
 inline void SYS_Sleep(void)
 {
 OSCCON &= ~0b10000000;
 asm("sleep");
 }
 
-# 88
+# 121
 void SYS_ConfigureOscillator(void)
 {
 
@@ -4042,7 +4171,7 @@ OSCTUNEbits.PLLEN = 1;
 while(!OSCCONbits.OSTS);
 }
 
-# 101
+# 134
 void SYS_ActivityTimer(void)
 {
 if(Activity_Timer > 1000)
