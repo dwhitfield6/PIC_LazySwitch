@@ -48,25 +48,6 @@ unsigned char ButtonChange = FALSE;
 /******************************************************************************/
 
 /******************************************************************************/
-/* BUT_IR_PinChangeInt
- *
- * The function controls the portB interruptt-on-change module.
-/******************************************************************************/
-inline void BUT_IR_PinChangeInt(unsigned char state)
-{
-    if(state)
-    {
-        /* Enable interrupt on change interrupt */
-        INTCONbits.RBIE = 1;
-    }
-    else
-    {
-        /* Disable interrupt on change interrupt */
-        INTCONbits.RBIE = 0;
-    }
-}
-
-/******************************************************************************/
 /* Functions
 /******************************************************************************/
 
@@ -110,6 +91,25 @@ unsigned char BUT_ReadButton(void)
     }
     ButtonValue_prev = FALSE;
     return FALSE;
+}
+
+/******************************************************************************/
+/* BUT_IR_PinChangeInt
+ *
+ * The function controls the portB interruptt-on-change module.
+/******************************************************************************/
+void BUT_IR_PinChangeInt(unsigned char state)
+{
+    if(state)
+    {
+        /* Enable interrupt on change interrupt */
+        INTCONbits.RBIE = 1;
+    }
+    else
+    {
+        /* Disable interrupt on change interrupt */
+        INTCONbits.RBIE = 0;
+    }
 }
 
 /*-----------------------------------------------------------------------------/

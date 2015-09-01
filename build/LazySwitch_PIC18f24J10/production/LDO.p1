@@ -3049,8 +3049,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 56: extern char * strichr(const char *, int);
 [; ;string.h: 57: extern char * strrchr(const char *, int);
 [; ;string.h: 58: extern char * strrichr(const char *, int);
-[; ;USER.h: 181: void Init_App(void);
-[; ;USER.h: 182: void Init_System (void);
+[; ;USER.h: 199: void Init_App(void);
+[; ;USER.h: 200: void Init_System (void);
 "41 LDO.c
 [v _Rail_VIN `d ~T0 @X0 1 e ]
 [i _Rail_VIN

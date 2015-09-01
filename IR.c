@@ -45,6 +45,7 @@
 /******************************************************************************/
 volatile unsigned char IR_Data = FALSE;
 unsigned int IR_DataTiming[IRBUFFERSIZE];
+unsigned int IR_DataHolder1[IRBUFFERSIZE];
 unsigned char IR_DataPlace = 0;
 unsigned char IRStarted = FALSE;
 unsigned int IR_SyncLow  = 0;
@@ -53,6 +54,7 @@ unsigned char IR_Saved = OLD;
 unsigned char IR_CodeSize = 0;
 unsigned char IRValue_prev = FALSE;
 unsigned char IRChange = FALSE;
+unsigned char IRProgramCodeNumber = 0;
 
 /******************************************************************************/
 /* Inline Functions
@@ -128,16 +130,56 @@ void IR_CleanBuffer(void)
 /******************************************************************************/
 void IR_LoadCode(void)
 {   
-    double Low = 0.0;
-    double High = 0.0;
+    double Low1 = 0.0;
+    double High1 = 0.0;
+    double Low2 = 0.0;
+    double High2 = 0.0;
+    double LowBound = 0.0;
+    double HighBound = 0.0; 
+    unsigned char CodeSize1;
+    unsigned char CodeSize2;
     
-    Low = (double)IR_SavedTiming[0] * (1.0 - IR_TOLERANCESMALL);
-    High = (double)IR_SavedTiming[0] * (1.0 + IR_TOLERANCESMALL);
+    Low1 = (double)IR_SavedTiming0[0] * (1.0 - IR_TOLERANCESMALL);
+    High1= (double)IR_SavedTiming0[0] * (1.0 + IR_TOLERANCESMALL);
     
-    IR_SyncLow = (unsigned int) Low;
-    IR_SyncHigh = (unsigned int) High;
+    Low2 = (double)IR_SavedTiming1[0] * (1.0 - IR_TOLERANCESMALL);
+    High2= (double)IR_SavedTiming1[0] * (1.0 + IR_TOLERANCESMALL);
     
-    IR_CodeSize = IR_CalculateCodesize();
+    LowBound = Low1;
+    if(Low2 < LowBound)
+    {
+        LowBound = Low2;
+    }
+    if(LowBound < IR_SYNCLOWBOUND)
+    {
+        LowBound = IR_SYNCLOWBOUND;
+    }
+    
+    HighBound = High1;
+    if(High2 < HighBound)
+    {
+        HighBound = High2;
+    }
+    if(HighBound < IR_SYNCHIGHBOUND)
+    {
+        HighBound = IR_SYNCHIGHBOUND;
+    }
+        
+    IR_SyncLow = (unsigned int) LowBound;
+    IR_SyncHigh = (unsigned int) HighBound;
+    
+    CodeSize1 = IR_CalculateCodesize(&IR_SavedTiming0[0]);
+    CodeSize2 = IR_CalculateCodesize(&IR_SavedTiming1[0]);
+    
+    IR_CodeSize = CodeSize1;
+    if(IR_CodeSize < CodeSize2)
+    {
+        IR_CodeSize = CodeSize2;
+    }
+    if(IR_CodeSize < IR_EDGENUM)
+    {
+        IR_CodeSize = IR_EDGENUM;
+    }
 }
 
 /******************************************************************************/
@@ -145,13 +187,13 @@ void IR_LoadCode(void)
  *
  * The function calculates the code size of the saved IR code.
 /******************************************************************************/
-unsigned char IR_CalculateCodesize(void)
+unsigned char IR_CalculateCodesize(const unsigned int* Code)
 {   
     unsigned char i;
     
     for(i=0; i<IRBUFFERSIZE;i++)
     {
-        if(IR_SavedTiming[i] == 0)
+        if(Code[i] == 0)
         {
             return i;
         }
@@ -170,33 +212,74 @@ unsigned char IR_CheckCode(void)
     unsigned char i;
     double Low = 0.0;
     double High = 0.0;
+    unsigned int data;
     
     if(System_State == RUN)
     {
         for(i=0; i<IR_CodeSize;i++)
         {
-            if(IR_SavedTiming[i] > 4000)
+            data = IR_SavedTiming0[i];
+            Low = (double)data;        
+            if(IR_SavedTiming0[i] > 4000)
             {
-                Low = (double)IR_SavedTiming[i] * (1.0 - IR_TOLERANCESMALL);
-                High = (double)IR_SavedTiming[i] * (1.0 + IR_TOLERANCESMALL);
+                Low = (double)IR_SavedTiming0[i] * (1.0 - IR_TOLERANCESMALL);
+                High = (double)IR_SavedTiming0[i] * (1.0 + IR_TOLERANCESMALL);
             }
-            else if(IR_SavedTiming[i] <= 4000 && IR_SavedTiming[i] > 1000)
+            else if(IR_SavedTiming0[i] <= 4000 && IR_SavedTiming0[i] > 1000)
             {
-                Low = (double)IR_SavedTiming[i] * (1.0 - IR_TOLERANCEMEDUIM);
-                High = (double)IR_SavedTiming[i] * (1.0 + IR_TOLERANCEMEDUIM);
+                Low = (double)IR_SavedTiming0[i] * (1.0 - IR_TOLERANCEMEDUIM);
+                High = (double)IR_SavedTiming0[i] * (1.0 + IR_TOLERANCEMEDUIM);
             }
             else
             {
-                Low = (double)IR_SavedTiming[i] * (1.0 - IR_TOLERANCELARGE);
-                High = (double)IR_SavedTiming[i] * (1.0 + IR_TOLERANCELARGE);
+                Low = (double)IR_SavedTiming0[i] * (1.0 - IR_TOLERANCELARGE);
+                High = (double)IR_SavedTiming0[i] * (1.0 + IR_TOLERANCELARGE);
             }
 
             if((double)IR_DataTiming[i] < Low || (double)IR_DataTiming[i] > High )
             {
-                return FALSE;
+                if(IR_SavedTiming0[i] == 0)
+                {
+                    return TRUE;
+                }
+                break;
+            }
+            if(i == (IR_CodeSize -1))
+            {
+                return TRUE;
             }
         }
-        return TRUE;
+        for(i=0; i<IR_CodeSize;i++)
+        {
+            if(IR_SavedTiming1[i] > 4000)
+            {
+                Low = (double)IR_SavedTiming1[i] * (1.0 - IR_TOLERANCESMALL);
+                High = (double)IR_SavedTiming1[i] * (1.0 + IR_TOLERANCESMALL);
+            }
+            else if(IR_SavedTiming0[i] <= 4000 && IR_SavedTiming0[i] > 1000)
+            {
+                Low = (double)IR_SavedTiming1[i] * (1.0 - IR_TOLERANCEMEDUIM);
+                High = (double)IR_SavedTiming1[i] * (1.0 + IR_TOLERANCEMEDUIM);
+            }
+            else
+            {
+                Low = (double)IR_SavedTiming1[i] * (1.0 - IR_TOLERANCELARGE);
+                High = (double)IR_SavedTiming1[i] * (1.0 + IR_TOLERANCELARGE);
+            }
+
+            if((double)IR_DataTiming[i] < Low || (double)IR_DataTiming[i] > High )
+            {
+                if(IR_SavedTiming1[i] == 0)
+                {
+                    return TRUE;
+                }
+                return FALSE;
+            }
+            if(i == (IR_CodeSize -1))
+            {
+                return TRUE;
+            }
+        }
     }
     else
     {
@@ -229,12 +312,18 @@ unsigned char IR_CheckCode(void)
             Flash_Status = FSH_Write_IR_RF();
             if(Flash_Status)
             {
+                IRProgramCodeNumber++;
+                if(IRProgramCodeNumber > 1)
+                {
+                    IRProgramCodeNumber = 0;
+                }
                 IR_LoadCode();
             }
             System_State = RUN;
         }
         return FALSE;
     }
+    return FALSE;
 }
 /*-----------------------------------------------------------------------------/
  End of File

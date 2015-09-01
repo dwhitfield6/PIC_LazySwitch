@@ -3992,7 +3992,7 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 181 "USER.h"
+# 199 "USER.h"
 void Init_App(void);
 void Init_System (void);
 
@@ -4003,7 +4003,7 @@ extern unsigned char ButtonChange;
 
 # 75
 void InitButton(void);
-inline void BUT_IR_PinChangeInt(unsigned char state);
+void BUT_IR_PinChangeInt(unsigned char state);
 unsigned char BUT_ReadButton(void);
 
 # 42 "BUTTON.c"
@@ -4011,22 +4011,7 @@ volatile unsigned char Button_Data = 0;
 unsigned char ButtonValue_prev = 0;
 unsigned char ButtonChange = 0;
 
-# 55
-inline void BUT_IR_PinChangeInt(unsigned char state)
-{
-if(state)
-{
-
-INTCONbits.RBIE = 1;
-}
-else
-{
-
-INTCONbits.RBIE = 0;
-}
-}
-
-# 78
+# 59
 void InitButton(void)
 {
 
@@ -4035,7 +4020,7 @@ BUT_ReadButton();
 BUT_IR_PinChangeInt(1);
 }
 
-# 92
+# 73
 unsigned char BUT_ReadButton(void)
 {
 unsigned char value = PORTB;
@@ -4057,5 +4042,20 @@ ButtonChange = 1;
 }
 ButtonValue_prev = 0;
 return 0;
+}
+
+# 101
+void BUT_IR_PinChangeInt(unsigned char state)
+{
+if(state)
+{
+
+INTCONbits.RBIE = 1;
+}
+else
+{
+
+INTCONbits.RBIE = 0;
+}
 }
 

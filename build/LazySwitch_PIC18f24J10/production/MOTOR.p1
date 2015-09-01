@@ -3045,67 +3045,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 56: extern char * strichr(const char *, int);
 [; ;string.h: 57: extern char * strrchr(const char *, int);
 [; ;string.h: 58: extern char * strrichr(const char *, int);
-[; ;USER.h: 181: void Init_App(void);
-[; ;USER.h: 182: void Init_System (void);
+[; ;USER.h: 199: void Init_App(void);
+[; ;USER.h: 200: void Init_System (void);
 "63 MOTOR.h
 [v _DC_Motor `uc ~T0 @X0 1 e ]
 [; ;MOTOR.h: 63: unsigned char DC_Motor;
 [; ;MOTOR.h: 72: void InitMOTOR(void);
 [; ;MOTOR.h: 73: void MTR_Rotate(void);
-[; ;SYSTEM.h: 78: extern volatile unsigned char System_State;
-[; ;SYSTEM.h: 79: extern volatile unsigned char System_State_Change;
-[; ;SYSTEM.h: 84: void SYS_ConfigureOscillator(void);
-[; ;SYSTEM.h: 85: inline void SYS_Idle(void);
-[; ;SYSTEM.h: 86: inline void SYS_Sleep(void);
-[; ;SYSTEM.h: 87: void SYS_ActivityTimer(void);
-[; ;SYSTEM.h: 88: inline void SYS_ActivityTimerReset(void);
-[; ;SYSTEM.h: 89: inline void SYS_EnableInt(void);
-[; ;SYSTEM.h: 90: inline void SYS_DisableInt(void);
+[; ;SYSTEM.h: 83: extern volatile unsigned char System_State;
+[; ;SYSTEM.h: 84: extern volatile unsigned char System_State_Change;
+[; ;SYSTEM.h: 89: void SYS_ConfigureOscillator(void);
+[; ;SYSTEM.h: 90: inline void SYS_Idle(void);
+[; ;SYSTEM.h: 91: inline void SYS_Sleep(void);
+[; ;SYSTEM.h: 92: void SYS_ActivityTimer(void);
+[; ;SYSTEM.h: 93: inline void SYS_ActivityTimerReset(void);
+[; ;SYSTEM.h: 94: inline void SYS_EnableInt(void);
+[; ;SYSTEM.h: 95: inline void SYS_DisableInt(void);
 [; ;MISC.h: 85: void MSC_DelayMS(long US);
-[; ;MISC.h: 86: unsigned char MSC_IsCharacter(unsigned char data);
+[; ;MISC.h: 86: void MSC_DelayNOP(unsigned int NOPs);
 [; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
 [; ;MISC.h: 88: void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
-[; ;MISC.h: 89: double MSC_Round(double input);
-[; ;MISC.h: 90: void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
-[; ;MISC.h: 91: unsigned char MSC_StringMatch(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 92: unsigned char MSC_StringMatchCaseInsensitive(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 93: unsigned char MSC_StringContains(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 94: unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 95: void MSC_LowercaseChar(unsigned char* Input);
-[; ;MISC.h: 96: void MSC_LowercaseString(unsigned char* Input);
-[; ;MISC.h: 97: void MSC_DelayNOP(unsigned int NOPs);
-[; ;MISC.h: 98: unsigned char MSC_ReverseByte(unsigned char This);
-[; ;MISC.h: 99: unsigned int MSC_ReverseInt(unsigned int This);
-[; ;MISC.h: 100: unsigned long MSC_ReverseLong(unsigned long This);
-[; ;MISC.h: 101: unsigned char MSC_GetNumber(unsigned char* This, unsigned char CommaNumber, long* result);
-[; ;MISC.h: 102: unsigned char MSC_StringAddEqual(unsigned char* Input);
-[; ;MISC.h: 103: unsigned char MSC_GetStringAfterComma(unsigned char* This, unsigned char CommaNumber, unsigned char* result);
-[; ;MISC.h: 104: unsigned char MSC_GetNumberUnsigned(unsigned char* This, unsigned char CommaNumber, unsigned long* result);
-[; ;MISC.h: 105: unsigned char MSC_IsAlphaNumericString(unsigned char* data);
-[; ;MISC.h: 106: unsigned char MSC_IsAlphaNumeric(unsigned char data);
-[; ;MISC.h: 107: unsigned char MSC_IsNumber(unsigned char data);
-[; ;MISC.h: 108: double MSC_DB_Round(double Input);
-[; ;MISC.h: 109: long MSC_Scale(long Input, long InputRangeLow, long InputRangeHigh, long OutputRangeLow, long OutputRangeHigh);
-[; ;MISC.h: 110: unsigned int MSC_BCDtoHEX(unsigned int input);
-[; ;MISC.h: 111: unsigned int MSC_HEXtoBCD(unsigned int input);
-[; ;MISC.h: 112: unsigned char MSC_BufferMatch(unsigned char* This, unsigned char* That, unsigned int size);
-[; ;MISC.h: 113: long MSC_LG_Round(long Input,unsigned char places);
-[; ;MISC.h: 114: void MSC_TestFunctionPointer(void);
-[; ;MISC.h: 115: unsigned int MSC_EndianInt(unsigned int number);
-[; ;MISC.h: 116: unsigned int MSC_EndianIntArray(unsigned char* buffer);
-[; ;MISC.h: 117: unsigned long MSC_EndianLong(unsigned long number);
-[; ;MISC.h: 118: unsigned long MSC_EndianLongArray(unsigned char* buffer);
-[; ;MISC.h: 119: void MSC_BlinkLED(unsigned int blink, unsigned int speed);
-[; ;MISC.h: 120: void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
-[; ;MISC.h: 121: void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 89: void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 90: void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 91: void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 92: void MSC_BlinkLED(unsigned int blink, unsigned int speed);
 [i _DC_Motor
 "43 MOTOR.c
 -> -> 0 `i `uc
 ]
 [; ;MOTOR.c: 43: unsigned char DC_Motor = 0;
-[v F3420 `(v ~T0 @X0 1 tf1`uc ]
+[v F3345 `(v ~T0 @X0 1 tf1`uc ]
 "54
-[v _MTR_IN1 `TF3420 ~T0 @X0 1 e ]
+[v _MTR_IN1 `TF3345 ~T0 @X0 1 e ]
 "55
 {
 [; ;MOTOR.c: 54: inline void MTR_IN1(unsigned char state)
@@ -3145,9 +3116,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "64
 [e :UE 394 ]
 }
-[v F3423 `(v ~T0 @X0 1 tf1`uc ]
+[v F3348 `(v ~T0 @X0 1 tf1`uc ]
 "71
-[v _MTR_IN2 `TF3423 ~T0 @X0 1 e ]
+[v _MTR_IN2 `TF3348 ~T0 @X0 1 e ]
 "72
 {
 [; ;MOTOR.c: 71: inline void MTR_IN2(unsigned char state)
@@ -3222,9 +3193,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MOTOR.c: 109: MTR_IN2(1);
 "109
 [e ( _MTR_IN2 (1 -> -> 1 `i `uc ]
-[; ;MOTOR.c: 110: MSC_DelayMS(100);
+[; ;MOTOR.c: 110: MSC_DelayMS(400);
 "110
-[e ( _MSC_DelayMS (1 -> -> 100 `i `l ]
+[e ( _MSC_DelayMS (1 -> -> 400 `i `l ]
 [; ;MOTOR.c: 111: DC_Motor = 1;
 "111
 [e = _DC_Motor -> -> 1 `i `uc ]
@@ -3244,9 +3215,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MOTOR.c: 116: MTR_IN2(0);
 "116
 [e ( _MTR_IN2 (1 -> -> 0 `i `uc ]
-[; ;MOTOR.c: 117: MSC_DelayMS(100);
+[; ;MOTOR.c: 117: MSC_DelayMS(400);
 "117
-[e ( _MSC_DelayMS (1 -> -> 100 `i `l ]
+[e ( _MSC_DelayMS (1 -> -> 400 `i `l ]
 [; ;MOTOR.c: 118: DC_Motor = 0;
 "118
 [e = _DC_Motor -> -> 0 `i `uc ]

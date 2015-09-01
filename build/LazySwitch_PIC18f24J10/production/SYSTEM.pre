@@ -3992,11 +3992,11 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 181 "USER.h"
+# 199 "USER.h"
 void Init_App(void);
 void Init_System (void);
 
-# 78 "SYSTEM.h"
+# 83 "SYSTEM.h"
 extern volatile unsigned char System_State;
 extern volatile unsigned char System_State_Change;
 
@@ -4011,8 +4011,8 @@ inline void SYS_ActivityTimerReset(void);
 inline void SYS_EnableInt(void);
 inline void SYS_DisableInt(void);
 
-# 83 "IR.h"
-const unsigned int IR_SavedTiming[128] __attribute__((address(0x2400)))= {
+# 84 "IR.h"
+const unsigned int IR_SavedTiming0[96] __attribute__((address(0x2400)))= {
 8600,
 4200,
 450,
@@ -4079,14 +4079,144 @@ const unsigned int IR_SavedTiming[128] __attribute__((address(0x2400)))= {
 1200,
 450,
 1200,
-450
+450,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+};
+
+
+const unsigned int IR_SavedTiming1[96] __attribute__((address(0x24C0)))= {
+8600,
+4200,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+1200,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+1200,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+1200,
+450,
+1200,
+450,
+1200,
+450,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
 };
 
 
 
 
 extern volatile unsigned char IR_Data;
-extern unsigned int IR_DataTiming[128];
+extern unsigned int IR_DataTiming[96];
+extern unsigned int IR_DataHolder1[96];
 extern unsigned char IR_DataPlace;
 extern unsigned char IRStarted;
 extern unsigned int IR_SyncLow;
@@ -4095,13 +4225,14 @@ extern unsigned char IR_Saved;
 extern unsigned char IR_CodeSize;
 extern unsigned char IRValue_prev;
 extern unsigned char IRChange;
+extern unsigned char IRProgramCodeNumber;
 
-# 174
+# 306
 void InitIR(void);
 unsigned char IR_ReadReceiver(void);
 void IR_ResetData(void);
 void IR_LoadCode(void);
-unsigned char IR_CalculateCodesize(void);
+unsigned char IR_CalculateCodesize(const unsigned int* Code);
 unsigned char IR_CheckCode(void);
 void IR_CleanBuffer(void);
 
@@ -4112,58 +4243,132 @@ extern unsigned char ButtonChange;
 
 # 75
 void InitButton(void);
-inline void BUT_IR_PinChangeInt(unsigned char state);
+void BUT_IR_PinChangeInt(unsigned char state);
 unsigned char BUT_ReadButton(void);
 
-# 44 "SYSTEM.c"
+# 101 "RF.h"
+const unsigned int RF_SavedTiming[64] __attribute__((address(0x2580))) = {
+834,
+21,
+80,
+22,
+80,
+21,
+78,
+79,
+26,
+22,
+78,
+78,
+27,
+21,
+79,
+76,
+25,
+23,
+79,
+75,
+27,
+21,
+81,
+75,
+25,
+22,
+81,
+22,
+79,
+22,
+80,
+24,
+79,
+77,
+25,
+76,
+27,
+21,
+80,
+21,
+81,
+21,
+80,
+22,
+80,
+22,
+81,
+22,
+79,
+22,
+};
+
+
+
+
+extern volatile unsigned char RF_Data;
+extern unsigned int RF_DataTiming[64];
+extern unsigned char RF_DataPlace;
+extern unsigned char RFStarted;
+extern unsigned int RF_SyncLow;
+extern unsigned int RF_SyncHigh;
+extern unsigned char RF_Saved;
+extern unsigned char RF_CodeSize;
+extern double Rail_RSSI;
+
+# 174
+void InitRF(void);
+unsigned char RF_ReadReceiver(void);
+void RF_DataInt(unsigned char state);
+void RF_Receiver(unsigned char state);
+void RF_SetBandwidth(unsigned char band);
+void RF_SetSquelch(unsigned char state);
+void RF_ResetData(void);
+void RF_LoadCode(void);
+unsigned char RF_CalculateCodesize(void);
+unsigned char RF_CheckCode(void);
+void RF_Disable(void);
+void RF_Enable(void);
+
+# 45 "SYSTEM.c"
 volatile unsigned char System_State = 8;
 volatile unsigned char System_State_Change = 0;
 unsigned long Activity_Timer = 0;
 
-# 57
-inline void SYS_Idle(void)
-{
-OSCCON |= 0b10000000;
-asm("sleep");
-}
-
-# 69
+# 59
 inline void SYS_ActivityTimerReset(void)
 {
 Activity_Timer = 0;
 }
 
-# 79
+# 69
 inline void SYS_DisableInt(void)
 {
 INTCONbits.GIE = 0;
 INTCONbits.PEIE = 0;
 }
 
-# 90
+# 80
 inline void SYS_EnableInt(void)
 {
-INTCON3bits.INT1IF = 0;
-INTCON3bits.INT2IF = 0;
-INTCONbits.TMR0IF = 0;
-IR_ReadReceiver();
-BUT_ReadButton();
-INTCONbits.RBIF = 0;
-PIR1bits.TMR2IF = 0;
-PIR1bits.ADIF = 0;
-PIR1bits.TMR1IF = 0;
-INTCONbits.GIE = 1;
+BUT_IR_PinChangeInt(1);
+RF_DataInt(1);
 INTCONbits.PEIE = 1;
+INTCONbits.GIE = 1;
 }
 
-# 110
+# 93
 inline void SYS_Sleep(void)
 {
 OSCCON &= ~0b10000000;
 asm("sleep");
 }
 
-# 121
+# 104
+inline void SYS_Idle(void)
+{
+OSCCON |= 0b10000000;
+asm("sleep");
+}
+
+# 115
 void SYS_ConfigureOscillator(void)
 {
 
@@ -4171,12 +4376,13 @@ OSCTUNEbits.PLLEN = 1;
 while(!OSCCONbits.OSTS);
 }
 
-# 134
+# 128
 void SYS_ActivityTimer(void)
 {
-if(Activity_Timer > 1000)
+if(Activity_Timer > 1000L)
 {
 SYS_ActivityTimerReset();
+SYS_EnableInt();
 SYS_Sleep();
 }
 else

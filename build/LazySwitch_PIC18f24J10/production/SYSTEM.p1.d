@@ -4,4 +4,5 @@
 USER.h  \
 SYSTEM.h  \
 IR.h  \
+RF.h  \
 BUTTON.h 

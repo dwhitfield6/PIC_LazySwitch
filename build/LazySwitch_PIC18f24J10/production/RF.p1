@@ -1,7 +1,13 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"235 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f24j10.h
-[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
-"6206
+"177 RF.h
+[v _RF_Receiver `(v ~T0 @X0 0 ef1`uc ]
+"178
+[v _RF_SetBandwidth `(v ~T0 @X0 0 ef1`uc ]
+"88 MISC.h
+[v _MSC_CleanBufferInt `(v ~T0 @X0 0 ef2`*ui`ui ]
+"179 RF.h
+[v _RF_SetSquelch `(v ~T0 @X0 0 ef1`uc ]
+"6206 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f24j10.h
 [s S378 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S378 . INT1IF INT2IF . INT1IE INT2IE . INT1IP INT2IP ]
 "6216
@@ -12,13 +18,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S377 . . . ]
 "6227
 [v _INTCON3bits `VS377 ~T0 @X0 0 e@4080 ]
-"630
-[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
-"886
-[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
-"88 MISC.h
-[v _MSC_CleanBufferInt `(v ~T0 @X0 0 ef2`*ui`ui ]
-"6297 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f24j10.h
+"6297
 [s S381 :7 `uc 1 :1 `uc 1 ]
 [n S381 . . NOT_RBPU ]
 "6301
@@ -32,12 +32,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S380 . . . . ]
 "6318
 [v _INTCON2bits `VS380 ~T0 @X0 0 e@4081 ]
-[v F3486 `(v ~T0 @X0 1 tf1`uc ]
+"176 RF.h
+[v _RF_DataInt `(v ~T0 @X0 0 ef1`uc ]
 "78 TIMERS.h
-[v _TMR_Timer0Int `TF3486 ~T0 @X0 0 e ]
-[v F3465 `(v ~T0 @X0 1 tf1`uc ]
+[v _TMR_Timer0Int `(v ~T0 @X0 0 ef1`uc ]
 "71
-[v _TMR_Timer0 `TF3465 ~T0 @X0 0 e ]
+[v _TMR_Timer0 `(v ~T0 @X0 0 ef1`uc ]
 "6373 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f24j10.h
 [s S385 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S385 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
@@ -60,12 +60,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _INTCONbits `VS384 ~T0 @X0 0 e@4082 ]
 "182 RF.h
 [v _RF_CalculateCodesize `(uc ~T0 @X0 0 ef ]
-"78 SYSTEM.h
+"83 SYSTEM.h
 [v _System_State `Vuc ~T0 @X0 0 e ]
-"604 FLASH.h
+"619 FLASH.h
 [v _Flash_Status `uc ~T0 @X0 0 e ]
-"615
+"630
 [v _FSH_Write_IR_RF `(uc ~T0 @X0 0 ef ]
+"235 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f24j10.h
+[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
+"630
+[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
+"886
+[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3103,10 +3109,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 56: extern char * strichr(const char *, int);
 [; ;string.h: 57: extern char * strrchr(const char *, int);
 [; ;string.h: 58: extern char * strrichr(const char *, int);
-[; ;USER.h: 181: void Init_App(void);
-[; ;USER.h: 182: void Init_System (void);
+[; ;USER.h: 199: void Init_App(void);
+[; ;USER.h: 200: void Init_System (void);
 "101 RF.h
-[v _RF_SavedTiming `Cui ~T0 @X0 -> 128 `i e@9472 ]
+[v _RF_SavedTiming `Cui ~T0 @X0 -> 64 `i e@9600 ]
 [i _RF_SavedTiming
 :U ..
 "102
@@ -3211,7 +3217,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 22 `i `ui
 ..
 ]
-[; ;RF.h: 101: const unsigned int RF_SavedTiming[128] __attribute__((address(0x2500))) = {
+[; ;RF.h: 101: const unsigned int RF_SavedTiming[64] __attribute__((address(0x2580))) = {
 [; ;RF.h: 102: 834,
 [; ;RF.h: 103: 21,
 [; ;RF.h: 104: 80,
@@ -3264,7 +3270,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RF.h: 151: 22,
 [; ;RF.h: 152: };
 [; ;RF.h: 157: extern volatile unsigned char RF_Data;
-[; ;RF.h: 158: extern unsigned int RF_DataTiming[128];
+[; ;RF.h: 158: extern unsigned int RF_DataTiming[64];
 [; ;RF.h: 159: extern unsigned char RF_DataPlace;
 [; ;RF.h: 160: extern unsigned char RFStarted;
 [; ;RF.h: 161: extern unsigned int RF_SyncLow;
@@ -3273,80 +3279,51 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RF.h: 164: extern unsigned char RF_CodeSize;
 [; ;RF.h: 165: extern double Rail_RSSI;
 [; ;RF.h: 174: void InitRF(void);
-[; ;RF.h: 175: inline unsigned char RF_ReadReceiver(void);
-[; ;RF.h: 176: inline void RF_DataInt(unsigned char state);
-[; ;RF.h: 177: inline void RF_Receiver(unsigned char state);
-[; ;RF.h: 178: inline void RF_SetBandwidth(unsigned char band);
-[; ;RF.h: 179: inline void RF_SetSquelch(unsigned char state);
+[; ;RF.h: 175: unsigned char RF_ReadReceiver(void);
+[; ;RF.h: 176: void RF_DataInt(unsigned char state);
+[; ;RF.h: 177: void RF_Receiver(unsigned char state);
+[; ;RF.h: 178: void RF_SetBandwidth(unsigned char band);
+[; ;RF.h: 179: void RF_SetSquelch(unsigned char state);
 [; ;RF.h: 180: void RF_ResetData(void);
 [; ;RF.h: 181: void RF_LoadCode(void);
 [; ;RF.h: 182: unsigned char RF_CalculateCodesize(void);
 [; ;RF.h: 183: unsigned char RF_CheckCode(void);
 [; ;RF.h: 184: void RF_Disable(void);
 [; ;RF.h: 185: void RF_Enable(void);
-[; ;SYSTEM.h: 78: extern volatile unsigned char System_State;
-[; ;SYSTEM.h: 79: extern volatile unsigned char System_State_Change;
-[; ;SYSTEM.h: 84: void SYS_ConfigureOscillator(void);
-[; ;SYSTEM.h: 85: inline void SYS_Idle(void);
-[; ;SYSTEM.h: 86: inline void SYS_Sleep(void);
-[; ;SYSTEM.h: 87: void SYS_ActivityTimer(void);
-[; ;SYSTEM.h: 88: inline void SYS_ActivityTimerReset(void);
-[; ;SYSTEM.h: 89: inline void SYS_EnableInt(void);
-[; ;SYSTEM.h: 90: inline void SYS_DisableInt(void);
+[; ;SYSTEM.h: 83: extern volatile unsigned char System_State;
+[; ;SYSTEM.h: 84: extern volatile unsigned char System_State_Change;
+[; ;SYSTEM.h: 89: void SYS_ConfigureOscillator(void);
+[; ;SYSTEM.h: 90: inline void SYS_Idle(void);
+[; ;SYSTEM.h: 91: inline void SYS_Sleep(void);
+[; ;SYSTEM.h: 92: void SYS_ActivityTimer(void);
+[; ;SYSTEM.h: 93: inline void SYS_ActivityTimerReset(void);
+[; ;SYSTEM.h: 94: inline void SYS_EnableInt(void);
+[; ;SYSTEM.h: 95: inline void SYS_DisableInt(void);
 [; ;MISC.h: 85: void MSC_DelayMS(long US);
-[; ;MISC.h: 86: unsigned char MSC_IsCharacter(unsigned char data);
+[; ;MISC.h: 86: void MSC_DelayNOP(unsigned int NOPs);
 [; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
 [; ;MISC.h: 88: void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
-[; ;MISC.h: 89: double MSC_Round(double input);
-[; ;MISC.h: 90: void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
-[; ;MISC.h: 91: unsigned char MSC_StringMatch(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 92: unsigned char MSC_StringMatchCaseInsensitive(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 93: unsigned char MSC_StringContains(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 94: unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 95: void MSC_LowercaseChar(unsigned char* Input);
-[; ;MISC.h: 96: void MSC_LowercaseString(unsigned char* Input);
-[; ;MISC.h: 97: void MSC_DelayNOP(unsigned int NOPs);
-[; ;MISC.h: 98: unsigned char MSC_ReverseByte(unsigned char This);
-[; ;MISC.h: 99: unsigned int MSC_ReverseInt(unsigned int This);
-[; ;MISC.h: 100: unsigned long MSC_ReverseLong(unsigned long This);
-[; ;MISC.h: 101: unsigned char MSC_GetNumber(unsigned char* This, unsigned char CommaNumber, long* result);
-[; ;MISC.h: 102: unsigned char MSC_StringAddEqual(unsigned char* Input);
-[; ;MISC.h: 103: unsigned char MSC_GetStringAfterComma(unsigned char* This, unsigned char CommaNumber, unsigned char* result);
-[; ;MISC.h: 104: unsigned char MSC_GetNumberUnsigned(unsigned char* This, unsigned char CommaNumber, unsigned long* result);
-[; ;MISC.h: 105: unsigned char MSC_IsAlphaNumericString(unsigned char* data);
-[; ;MISC.h: 106: unsigned char MSC_IsAlphaNumeric(unsigned char data);
-[; ;MISC.h: 107: unsigned char MSC_IsNumber(unsigned char data);
-[; ;MISC.h: 108: double MSC_DB_Round(double Input);
-[; ;MISC.h: 109: long MSC_Scale(long Input, long InputRangeLow, long InputRangeHigh, long OutputRangeLow, long OutputRangeHigh);
-[; ;MISC.h: 110: unsigned int MSC_BCDtoHEX(unsigned int input);
-[; ;MISC.h: 111: unsigned int MSC_HEXtoBCD(unsigned int input);
-[; ;MISC.h: 112: unsigned char MSC_BufferMatch(unsigned char* This, unsigned char* That, unsigned int size);
-[; ;MISC.h: 113: long MSC_LG_Round(long Input,unsigned char places);
-[; ;MISC.h: 114: void MSC_TestFunctionPointer(void);
-[; ;MISC.h: 115: unsigned int MSC_EndianInt(unsigned int number);
-[; ;MISC.h: 116: unsigned int MSC_EndianIntArray(unsigned char* buffer);
-[; ;MISC.h: 117: unsigned long MSC_EndianLong(unsigned long number);
-[; ;MISC.h: 118: unsigned long MSC_EndianLongArray(unsigned char* buffer);
-[; ;MISC.h: 119: void MSC_BlinkLED(unsigned int blink, unsigned int speed);
-[; ;MISC.h: 120: void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
-[; ;MISC.h: 121: void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 89: void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 90: void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 91: void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 92: void MSC_BlinkLED(unsigned int blink, unsigned int speed);
 [; ;TIMERS.h: 57: extern unsigned char Timer2Use;
 [; ;TIMERS.h: 58: extern unsigned int Timer2Post;
 [; ;TIMERS.h: 59: extern unsigned int Timer2PostCount;
 [; ;TIMERS.h: 68: void InitTimers(void);
-[; ;TIMERS.h: 69: inline unsigned char TMR_Timer0Status(void);
-[; ;TIMERS.h: 70: inline unsigned char TMR_Timer1Status(void);
-[; ;TIMERS.h: 71: inline void TMR_Timer0(unsigned char state);
-[; ;TIMERS.h: 72: inline void TMR_Timer1(unsigned char state);
-[; ;TIMERS.h: 73: inline void TMR_Timer2(unsigned char state);
-[; ;TIMERS.h: 74: inline void TMR_ResetTimer0(void);
-[; ;TIMERS.h: 75: inline void TMR_ResetTimer1(void);
-[; ;TIMERS.h: 76: inline void TMR_ResetTimer2(void);
-[; ;TIMERS.h: 77: inline void TMR_Timer2SetUse(unsigned char use);
-[; ;TIMERS.h: 78: inline void TMR_Timer0Int(unsigned char state);
-[; ;TIMERS.h: 79: inline void TMR_Timer1Int(unsigned char state);
-[; ;TIMERS.h: 80: inline void TMR_Timer2Int(unsigned char state);
-[; ;TIMERS.h: 81: inline unsigned char TMR_Timer2Free(void);
+[; ;TIMERS.h: 69: unsigned char TMR_Timer0Status(void);
+[; ;TIMERS.h: 70: unsigned char TMR_Timer1Status(void);
+[; ;TIMERS.h: 71: void TMR_Timer0(unsigned char state);
+[; ;TIMERS.h: 72: void TMR_Timer1(unsigned char state);
+[; ;TIMERS.h: 73: void TMR_Timer2(unsigned char state);
+[; ;TIMERS.h: 74: void TMR_ResetTimer0(void);
+[; ;TIMERS.h: 75: void TMR_ResetTimer1(void);
+[; ;TIMERS.h: 76: void TMR_ResetTimer2(void);
+[; ;TIMERS.h: 77: void TMR_Timer2SetUse(unsigned char use);
+[; ;TIMERS.h: 78: void TMR_Timer0Int(unsigned char state);
+[; ;TIMERS.h: 79: void TMR_Timer1Int(unsigned char state);
+[; ;TIMERS.h: 80: void TMR_Timer2Int(unsigned char state);
+[; ;TIMERS.h: 81: unsigned char TMR_Timer2Free(void);
 [; ;TIMERS.h: 82: void InitTimer0(void);
 [; ;TIMERS.h: 83: void InitTimer1(void);
 [; ;TIMERS.h: 84: void InitTimer2(void);
@@ -3354,42 +3331,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TIMERS.h: 86: void TMR_Timer1Start(void);
 [; ;TIMERS.h: 87: void TMR_Timer2Start(unsigned int time);
 [; ;TIMERS.h: 88: void TMR_Timer1Function(unsigned char mode);
-"85 FLASH.h
+[; ;TIMERS.h: 89: void TMR_Timer1Osc(unsigned char state);
+"101 FLASH.h
 [v _FlashWaste `Cuc ~T0 @X0 -> 512 `i e@9728 ]
 [i _FlashWaste
 :U ..
-"86
--> -> 218 `i `uc
-"87
--> -> 218 `i `uc
-"88
--> -> 218 `i `uc
-"89
--> -> 218 `i `uc
-"90
--> -> 218 `i `uc
-"91
--> -> 218 `i `uc
-"92
--> -> 218 `i `uc
-"93
--> -> 218 `i `uc
-"94
--> -> 218 `i `uc
-"95
--> -> 218 `i `uc
-"96
--> -> 218 `i `uc
-"97
--> -> 218 `i `uc
-"98
--> -> 218 `i `uc
-"99
--> -> 218 `i `uc
-"100
--> -> 218 `i `uc
-"101
--> -> 218 `i `uc
 "102
 -> -> 218 `i `uc
 "103
@@ -4382,25 +4328,41 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 218 `i `uc
 "597
 -> -> 218 `i `uc
+"598
+-> -> 218 `i `uc
+"599
+-> -> 218 `i `uc
+"600
+-> -> 218 `i `uc
+"601
+-> -> 218 `i `uc
+"602
+-> -> 218 `i `uc
+"603
+-> -> 218 `i `uc
+"604
+-> -> 218 `i `uc
+"605
+-> -> 218 `i `uc
+"606
+-> -> 218 `i `uc
+"607
+-> -> 218 `i `uc
+"608
+-> -> 218 `i `uc
+"609
+-> -> 218 `i `uc
+"610
+-> -> 218 `i `uc
+"611
+-> -> 218 `i `uc
+"612
+-> -> 218 `i `uc
+"613
+-> -> 218 `i `uc
 ..
 ]
-[; ;FLASH.h: 85: const unsigned char FlashWaste[512] __attribute__((address(0x2600))) = {
-[; ;FLASH.h: 86: 0xDA,
-[; ;FLASH.h: 87: 0xDA,
-[; ;FLASH.h: 88: 0xDA,
-[; ;FLASH.h: 89: 0xDA,
-[; ;FLASH.h: 90: 0xDA,
-[; ;FLASH.h: 91: 0xDA,
-[; ;FLASH.h: 92: 0xDA,
-[; ;FLASH.h: 93: 0xDA,
-[; ;FLASH.h: 94: 0xDA,
-[; ;FLASH.h: 95: 0xDA,
-[; ;FLASH.h: 96: 0xDA,
-[; ;FLASH.h: 97: 0xDA,
-[; ;FLASH.h: 98: 0xDA,
-[; ;FLASH.h: 99: 0xDA,
-[; ;FLASH.h: 100: 0xDA,
-[; ;FLASH.h: 101: 0xDA,
+[; ;FLASH.h: 101: const unsigned char FlashWaste[512] __attribute__((address(0x2600))) = {
 [; ;FLASH.h: 102: 0xDA,
 [; ;FLASH.h: 103: 0xDA,
 [; ;FLASH.h: 104: 0xDA,
@@ -4897,16 +4859,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FLASH.h: 595: 0xDA,
 [; ;FLASH.h: 596: 0xDA,
 [; ;FLASH.h: 597: 0xDA,
-[; ;FLASH.h: 598: };
-[; ;FLASH.h: 603: extern unsigned char FlashBuffer[128];
-[; ;FLASH.h: 604: extern unsigned char Flash_Status;
-[; ;FLASH.h: 613: void InitFlash(void);
-[; ;FLASH.h: 614: void FSH_EraseBlock(unsigned long Address);
-[; ;FLASH.h: 615: unsigned char FSH_Write_IR_RF(void);
-[; ;FLASH.h: 616: void FSH_AddressToBlock(unsigned long Address);
-[; ;FLASH.h: 617: void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
-[; ;FLASH.h: 618: unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
-[; ;FLASH.h: 619: void FSH_EraseALL(void);
+[; ;FLASH.h: 598: 0xDA,
+[; ;FLASH.h: 599: 0xDA,
+[; ;FLASH.h: 600: 0xDA,
+[; ;FLASH.h: 601: 0xDA,
+[; ;FLASH.h: 602: 0xDA,
+[; ;FLASH.h: 603: 0xDA,
+[; ;FLASH.h: 604: 0xDA,
+[; ;FLASH.h: 605: 0xDA,
+[; ;FLASH.h: 606: 0xDA,
+[; ;FLASH.h: 607: 0xDA,
+[; ;FLASH.h: 608: 0xDA,
+[; ;FLASH.h: 609: 0xDA,
+[; ;FLASH.h: 610: 0xDA,
+[; ;FLASH.h: 611: 0xDA,
+[; ;FLASH.h: 612: 0xDA,
+[; ;FLASH.h: 613: 0xDA,
+[; ;FLASH.h: 614: };
+[; ;FLASH.h: 619: extern unsigned char Flash_Status;
+[; ;FLASH.h: 628: void InitFlash(void);
+[; ;FLASH.h: 629: void FSH_EraseBlock(unsigned long Address);
+[; ;FLASH.h: 630: unsigned char FSH_Write_IR_RF(void);
+[; ;FLASH.h: 631: void FSH_AddressToBlock(unsigned long Address);
+[; ;FLASH.h: 632: void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
+[; ;FLASH.h: 633: unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 "45 RF.c
 [v _RF_Data `Vuc ~T0 @X0 1 e ]
 [i _RF_Data
@@ -4914,8 +4890,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;RF.c: 45: volatile unsigned char RF_Data = 0;
 "46
-[v _RF_DataTiming `ui ~T0 @X0 -> 128 `i e ]
-[; ;RF.c: 46: unsigned int RF_DataTiming[128];
+[v _RF_DataTiming `ui ~T0 @X0 -> 64 `i e ]
+[; ;RF.c: 46: unsigned int RF_DataTiming[64];
 "47
 [v _RF_DataPlace `uc ~T0 @X0 1 e ]
 [i _RF_DataPlace
@@ -4955,645 +4931,666 @@ Version 3.2 HI-TECH Software Intermediate Code
 "53
 [v _Rail_RSSI `d ~T0 @X0 1 e ]
 [; ;RF.c: 53: double Rail_RSSI;
-[v F3303 `(uc ~T0 @X0 1 tf ]
-"64
-[v _RF_ReadReceiver `TF3303 ~T0 @X0 1 e ]
-"65
-{
-[; ;RF.c: 64: inline unsigned char RF_ReadReceiver(void)
-[; ;RF.c: 65: {
-[e :U _RF_ReadReceiver ]
-[f ]
-[; ;RF.c: 66: if(PORTB & 0x02)
-"66
-[e $ ! != & -> _PORTB `i -> 2 `i -> 0 `i 395  ]
-[; ;RF.c: 67: {
-"67
-{
-[; ;RF.c: 68: return 0;
 "68
-[e ) -> -> 0 `i `uc ]
-[e $UE 394  ]
+[v _InitRF `(v ~T0 @X0 1 ef ]
 "69
-}
-[e :U 395 ]
-[; ;RF.c: 69: }
-[; ;RF.c: 70: return 1;
-"70
-[e ) -> -> 1 `i `uc ]
-[e $UE 394  ]
-[; ;RF.c: 71: }
+{
+[; ;RF.c: 68: void InitRF(void)
+[; ;RF.c: 69: {
+[e :U _InitRF ]
+[f ]
+[; ;RF.c: 71: RF_Receiver(1);
 "71
+[e ( _RF_Receiver (1 -> -> 1 `i `uc ]
+[; ;RF.c: 72: RF_SetBandwidth(2);
+"72
+[e ( _RF_SetBandwidth (1 -> -> 2 `i `uc ]
+[; ;RF.c: 73: MSC_CleanBufferInt(&RF_DataTiming,64);
+"73
+[e ( _MSC_CleanBufferInt (2 , &U _RF_DataTiming -> -> 64 `i `ui ]
+[; ;RF.c: 74: RF_SetSquelch(1);
+"74
+[e ( _RF_SetSquelch (1 -> -> 1 `i `uc ]
+[; ;RF.c: 75: INTCON3bits.INT1P = 1;
+"75
+[e = . . _INTCON3bits 1 6 -> -> 1 `i `uc ]
+[; ;RF.c: 76: INTCON3bits.INT2P = 1;
+"76
+[e = . . _INTCON3bits 1 7 -> -> 1 `i `uc ]
+[; ;RF.c: 77: INTCON2bits.INTEDG1 = 1;
+"77
+[e = . . _INTCON2bits 1 5 -> -> 1 `i `uc ]
+[; ;RF.c: 78: INTCON2bits.INTEDG2 = 0;
+"78
+[e = . . _INTCON2bits 1 4 -> -> 0 `i `uc ]
+[; ;RF.c: 79: RF_DataInt(1);
+"79
+[e ( _RF_DataInt (1 -> -> 1 `i `uc ]
+[; ;RF.c: 83: }
+"83
 [e :UE 394 ]
 }
-[v F3306 `(v ~T0 @X0 1 tf1`uc ]
-"78
-[v _RF_DataInt `TF3306 ~T0 @X0 1 e ]
-"79
-{
-[; ;RF.c: 78: inline void RF_DataInt(unsigned char state)
-[; ;RF.c: 79: {
-[e :U _RF_DataInt ]
-"78
-[v _state `uc ~T0 @X0 1 r1 ]
-"79
-[f ]
-[; ;RF.c: 80: if(state)
-"80
-[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 397  ]
-[; ;RF.c: 81: {
-"81
-{
-[; ;RF.c: 83: INTCON3bits.INT1E = 1;
-"83
-[e = . . _INTCON3bits 1 3 -> -> 1 `i `uc ]
-[; ;RF.c: 84: INTCON3bits.INT2E = 1;
-"84
-[e = . . _INTCON3bits 1 4 -> -> 1 `i `uc ]
-"85
-}
-[; ;RF.c: 85: }
-[e $U 398  ]
-"86
-[e :U 397 ]
-[; ;RF.c: 86: else
-[; ;RF.c: 87: {
-"87
-{
-[; ;RF.c: 89: INTCON3bits.INT1E = 0;
-"89
-[e = . . _INTCON3bits 1 3 -> -> 0 `i `uc ]
-[; ;RF.c: 90: INTCON3bits.INT2E = 0;
 "90
-[e = . . _INTCON3bits 1 4 -> -> 0 `i `uc ]
+[v _RF_Disable `(v ~T0 @X0 1 ef ]
 "91
-}
-[e :U 398 ]
-[; ;RF.c: 91: }
-[; ;RF.c: 92: }
+{
+[; ;RF.c: 90: void RF_Disable(void)
+[; ;RF.c: 91: {
+[e :U _RF_Disable ]
+[f ]
+[; ;RF.c: 92: RF_DataInt(0);
 "92
+[e ( _RF_DataInt (1 -> -> 0 `i `uc ]
+[; ;RF.c: 93: TMR_Timer0Int(0);
+"93
+[e ( _TMR_Timer0Int (1 -> -> 0 `i `uc ]
+[; ;RF.c: 94: TMR_Timer0(0);
+"94
+[e ( _TMR_Timer0 (1 -> -> 0 `i `uc ]
+[; ;RF.c: 95: }
+"95
+[e :UE 395 ]
+}
+"101
+[v _RF_Enable `(v ~T0 @X0 1 ef ]
+"102
+{
+[; ;RF.c: 101: void RF_Enable(void)
+[; ;RF.c: 102: {
+[e :U _RF_Enable ]
+[f ]
+[; ;RF.c: 103: INTCON3bits.INT1IF = 0;
+"103
+[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
+[; ;RF.c: 104: INTCON3bits.INT2IF = 0;
+"104
+[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
+[; ;RF.c: 105: INTCONbits.TMR0IF = 0;
+"105
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;RF.c: 106: RF_DataInt(1);
+"106
+[e ( _RF_DataInt (1 -> -> 1 `i `uc ]
+[; ;RF.c: 107: TMR_Timer0Int(1);
+"107
+[e ( _TMR_Timer0Int (1 -> -> 1 `i `uc ]
+[; ;RF.c: 108: }
+"108
 [e :UE 396 ]
 }
-[v F3309 `(v ~T0 @X0 1 tf1`uc ]
-"100
-[v _RF_Receiver `TF3309 ~T0 @X0 1 e ]
-"101
+"116
+[v _RF_ResetData `(v ~T0 @X0 1 ef ]
+"117
 {
-[; ;RF.c: 100: inline void RF_Receiver(unsigned char state)
-[; ;RF.c: 101: {
-[e :U _RF_Receiver ]
-"100
-[v _state `uc ~T0 @X0 1 r1 ]
-"101
+[; ;RF.c: 116: void RF_ResetData(void)
+[; ;RF.c: 117: {
+[e :U _RF_ResetData ]
 [f ]
-[; ;RF.c: 102: if(!state)
-"102
-[e $ ! ! != -> _state `i -> -> -> 0 `i `uc `i 400  ]
-[; ;RF.c: 103: {
-"103
-{
-[; ;RF.c: 105: LATA |= 0x04;
-"105
-[e =| _LATA -> -> 4 `i `uc ]
-"106
-}
-[; ;RF.c: 106: }
-[e $U 401  ]
-"107
-[e :U 400 ]
-[; ;RF.c: 107: else
-[; ;RF.c: 108: {
-"108
-{
-[; ;RF.c: 110: LATA &= ~0x04;
-"110
-[e =& _LATA -> ~ -> 4 `i `uc ]
-"111
-}
-[e :U 401 ]
-[; ;RF.c: 111: }
-[; ;RF.c: 112: }
-"112
-[e :UE 399 ]
-}
-[v F3312 `(v ~T0 @X0 1 tf1`uc ]
+[; ;RF.c: 118: RF_DataPlace = 0;
+"118
+[e = _RF_DataPlace -> -> 0 `i `uc ]
+[; ;RF.c: 119: RFStarted = 0;
 "119
-[v _RF_SetBandwidth `TF3312 ~T0 @X0 1 e ]
+[e = _RFStarted -> -> 0 `i `uc ]
+[; ;RF.c: 120: }
 "120
-{
-[; ;RF.c: 119: inline void RF_SetBandwidth(unsigned char band)
-[; ;RF.c: 120: {
-[e :U _RF_SetBandwidth ]
-"119
-[v _band `uc ~T0 @X0 1 r1 ]
-"120
-[f ]
-[; ;RF.c: 121: if(band == 0)
-"121
-[e $ ! == -> _band `i -> 0 `i 403  ]
-[; ;RF.c: 122: {
-"122
-{
-[; ;RF.c: 124: LATC &= ~0x40;
-"124
-[e =& _LATC -> ~ -> 64 `i `uc ]
-[; ;RF.c: 125: LATC &= ~0x80;
-"125
-[e =& _LATC -> ~ -> 128 `i `uc ]
-"126
+[e :UE 397 ]
 }
-[; ;RF.c: 126: }
-[e $U 404  ]
 "127
-[e :U 403 ]
-[; ;RF.c: 127: else if(band == 1)
-[e $ ! == -> _band `i -> 1 `i 405  ]
-[; ;RF.c: 128: {
+[v _RF_LoadCode `(v ~T0 @X0 1 ef ]
 "128
 {
-[; ;RF.c: 130: LATC |= 0x40;
+[; ;RF.c: 127: void RF_LoadCode(void)
+[; ;RF.c: 128: {
+[e :U _RF_LoadCode ]
+[f ]
+"129
+[v _Low `d ~T0 @X0 1 a ]
+[; ;RF.c: 129: double Low = 0.0;
+[e = _Low .0.0 ]
 "130
-[e =| _LATC -> -> 64 `i `uc ]
-[; ;RF.c: 131: LATC &= ~0x80;
-"131
-[e =& _LATC -> ~ -> 128 `i `uc ]
+[v _High `d ~T0 @X0 1 a ]
+[; ;RF.c: 130: double High = 0.0;
+[e = _High .0.0 ]
+[; ;RF.c: 132: Low = (double)RF_SavedTiming[0] * (1.0 - 0.02);
 "132
-}
-[; ;RF.c: 132: }
-[e $U 406  ]
+[e = _Low * -> *U + &U _RF_SavedTiming * -> -> -> 0 `i `ui `ux -> -> # *U &U _RF_SavedTiming `ui `ux `d - .1.0 .0.02 ]
+[; ;RF.c: 133: High = (double)RF_SavedTiming[0] * (1.0 + 0.02);
 "133
-[e :U 405 ]
-[; ;RF.c: 133: else if(band == 2)
-[e $ ! == -> _band `i -> 2 `i 407  ]
-[; ;RF.c: 134: {
-"134
-{
-[; ;RF.c: 136: LATC &= ~0x40;
+[e = _High * -> *U + &U _RF_SavedTiming * -> -> -> 0 `i `ui `ux -> -> # *U &U _RF_SavedTiming `ui `ux `d + .1.0 .0.02 ]
+[; ;RF.c: 135: if(Low < 300)
+"135
+[e $ ! < _Low -> -> 300 `i `d 399  ]
+[; ;RF.c: 136: {
 "136
-[e =& _LATC -> ~ -> 64 `i `uc ]
-[; ;RF.c: 137: LATC |= 0x80;
+{
+[; ;RF.c: 137: Low = 300;
 "137
-[e =| _LATC -> -> 128 `i `uc ]
+[e = _Low -> -> 300 `i `d ]
 "138
 }
+[e :U 399 ]
 [; ;RF.c: 138: }
-[e $U 408  ]
+[; ;RF.c: 139: if(High > 1400)
 "139
-[e :U 407 ]
-[; ;RF.c: 139: else
+[e $ ! > _High -> -> 1400 `i `d 400  ]
 [; ;RF.c: 140: {
 "140
 {
-[; ;RF.c: 142: LATC |= 0x40;
+[; ;RF.c: 141: High = 1400;
+"141
+[e = _High -> -> 1400 `i `d ]
 "142
-[e =| _LATC -> -> 64 `i `uc ]
-[; ;RF.c: 143: LATC |= 0x80;
-"143
-[e =| _LATC -> -> 128 `i `uc ]
+}
+[e :U 400 ]
+[; ;RF.c: 142: }
+[; ;RF.c: 144: RF_SyncLow = (unsigned int) Low;
 "144
-}
-[e :U 408 ]
-[e :U 406 ]
-[e :U 404 ]
-[; ;RF.c: 144: }
-[; ;RF.c: 145: }
+[e = _RF_SyncLow -> _Low `ui ]
+[; ;RF.c: 145: RF_SyncHigh = (unsigned int) High;
 "145
-[e :UE 402 ]
+[e = _RF_SyncHigh -> _High `ui ]
+[; ;RF.c: 147: RF_CodeSize = RF_CalculateCodesize();
+"147
+[e = _RF_CodeSize ( _RF_CalculateCodesize ..  ]
+[; ;RF.c: 148: }
+"148
+[e :UE 398 ]
 }
-[v F3315 `(v ~T0 @X0 1 tf1`uc ]
-"153
-[v _RF_SetSquelch `TF3315 ~T0 @X0 1 e ]
-"154
-{
-[; ;RF.c: 153: inline void RF_SetSquelch(unsigned char state)
-[; ;RF.c: 154: {
-[e :U _RF_SetSquelch ]
-"153
-[v _state `uc ~T0 @X0 1 r1 ]
-"154
-[f ]
-[; ;RF.c: 155: if(!state)
 "155
-[e $ ! ! != -> _state `i -> -> -> 0 `i `uc `i 410  ]
-[; ;RF.c: 156: {
+[v _RF_CalculateCodesize `(uc ~T0 @X0 1 ef ]
 "156
 {
-[; ;RF.c: 158: LATA |= 0x20;
-"158
-[e =| _LATA -> -> 32 `i `uc ]
-"159
-}
-[; ;RF.c: 159: }
-[e $U 411  ]
-"160
-[e :U 410 ]
-[; ;RF.c: 160: else
-[; ;RF.c: 161: {
-"161
-{
-[; ;RF.c: 163: LATA &= ~0x20;
-"163
-[e =& _LATA -> ~ -> 32 `i `uc ]
-"164
-}
-[e :U 411 ]
-[; ;RF.c: 164: }
-[; ;RF.c: 165: }
-"165
-[e :UE 409 ]
-}
-"177
-[v _InitRF `(v ~T0 @X0 1 ef ]
-"178
-{
-[; ;RF.c: 177: void InitRF(void)
-[; ;RF.c: 178: {
-[e :U _InitRF ]
-[f ]
-[; ;RF.c: 179: RF_Receiver(1);
-"179
-[e ( _RF_Receiver (1 -> -> 1 `i `uc ]
-[; ;RF.c: 180: RF_SetBandwidth(2);
-"180
-[e ( _RF_SetBandwidth (1 -> -> 2 `i `uc ]
-[; ;RF.c: 181: MSC_CleanBufferInt(&RF_DataTiming,128);
-"181
-[e ( _MSC_CleanBufferInt (2 , &U _RF_DataTiming -> -> 128 `i `ui ]
-[; ;RF.c: 182: RF_SetSquelch(1);
-"182
-[e ( _RF_SetSquelch (1 -> -> 1 `i `uc ]
-[; ;RF.c: 183: INTCON3bits.INT1P = 1;
-"183
-[e = . . _INTCON3bits 1 6 -> -> 1 `i `uc ]
-[; ;RF.c: 184: INTCON3bits.INT2P = 1;
-"184
-[e = . . _INTCON3bits 1 7 -> -> 1 `i `uc ]
-[; ;RF.c: 185: INTCON2bits.INTEDG1 = 1;
-"185
-[e = . . _INTCON2bits 1 5 -> -> 1 `i `uc ]
-[; ;RF.c: 186: INTCON2bits.INTEDG2 = 0;
-"186
-[e = . . _INTCON2bits 1 4 -> -> 0 `i `uc ]
-[; ;RF.c: 187: RF_DataInt(1);
-"187
-[e ( _RF_DataInt (1 -> -> 1 `i `uc ]
-[; ;RF.c: 188: }
-"188
-[e :UE 412 ]
-}
-"195
-[v _RF_Disable `(v ~T0 @X0 1 ef ]
-"196
-{
-[; ;RF.c: 195: void RF_Disable(void)
-[; ;RF.c: 196: {
-[e :U _RF_Disable ]
-[f ]
-[; ;RF.c: 197: RF_DataInt(0);
-"197
-[e ( _RF_DataInt (1 -> -> 0 `i `uc ]
-[; ;RF.c: 198: TMR_Timer0Int(0);
-"198
-[e ( _TMR_Timer0Int (1 -> -> 0 `i `uc ]
-[; ;RF.c: 199: TMR_Timer0(0);
-"199
-[e ( _TMR_Timer0 (1 -> -> 0 `i `uc ]
-[; ;RF.c: 200: }
-"200
-[e :UE 413 ]
-}
-"206
-[v _RF_Enable `(v ~T0 @X0 1 ef ]
-"207
-{
-[; ;RF.c: 206: void RF_Enable(void)
-[; ;RF.c: 207: {
-[e :U _RF_Enable ]
-[f ]
-[; ;RF.c: 208: INTCON3bits.INT1IF = 0;
-"208
-[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
-[; ;RF.c: 209: INTCON3bits.INT2IF = 0;
-"209
-[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
-[; ;RF.c: 210: INTCONbits.TMR0IF = 0;
-"210
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;RF.c: 211: RF_DataInt(1);
-"211
-[e ( _RF_DataInt (1 -> -> 1 `i `uc ]
-[; ;RF.c: 212: TMR_Timer0Int(1);
-"212
-[e ( _TMR_Timer0Int (1 -> -> 1 `i `uc ]
-[; ;RF.c: 213: }
-"213
-[e :UE 414 ]
-}
-"221
-[v _RF_ResetData `(v ~T0 @X0 1 ef ]
-"222
-{
-[; ;RF.c: 221: void RF_ResetData(void)
-[; ;RF.c: 222: {
-[e :U _RF_ResetData ]
-[f ]
-[; ;RF.c: 223: RF_DataPlace = 0;
-"223
-[e = _RF_DataPlace -> -> 0 `i `uc ]
-[; ;RF.c: 224: RFStarted = 0;
-"224
-[e = _RFStarted -> -> 0 `i `uc ]
-[; ;RF.c: 225: }
-"225
-[e :UE 415 ]
-}
-"232
-[v _RF_LoadCode `(v ~T0 @X0 1 ef ]
-"233
-{
-[; ;RF.c: 232: void RF_LoadCode(void)
-[; ;RF.c: 233: {
-[e :U _RF_LoadCode ]
-[f ]
-"234
-[v _Low `d ~T0 @X0 1 a ]
-[; ;RF.c: 234: double Low = 0.0;
-[e = _Low .0.0 ]
-"235
-[v _High `d ~T0 @X0 1 a ]
-[; ;RF.c: 235: double High = 0.0;
-[e = _High .0.0 ]
-[; ;RF.c: 237: Low = (double)RF_SavedTiming[0] * (1.0 - 0.02);
-"237
-[e = _Low * -> *U + &U _RF_SavedTiming * -> -> -> 0 `i `ui `ux -> -> # *U &U _RF_SavedTiming `ui `ux `d - .1.0 .0.02 ]
-[; ;RF.c: 238: High = (double)RF_SavedTiming[0] * (1.0 + 0.02);
-"238
-[e = _High * -> *U + &U _RF_SavedTiming * -> -> -> 0 `i `ui `ux -> -> # *U &U _RF_SavedTiming `ui `ux `d + .1.0 .0.02 ]
-[; ;RF.c: 240: RF_SyncLow = (unsigned int) Low;
-"240
-[e = _RF_SyncLow -> _Low `ui ]
-[; ;RF.c: 241: RF_SyncHigh = (unsigned int) High;
-"241
-[e = _RF_SyncHigh -> _High `ui ]
-[; ;RF.c: 243: RF_CodeSize = RF_CalculateCodesize();
-"243
-[e = _RF_CodeSize ( _RF_CalculateCodesize ..  ]
-[; ;RF.c: 244: }
-"244
-[e :UE 416 ]
-}
-"251
-[v _RF_CalculateCodesize `(uc ~T0 @X0 1 ef ]
-"252
-{
-[; ;RF.c: 251: unsigned char RF_CalculateCodesize(void)
-[; ;RF.c: 252: {
+[; ;RF.c: 155: unsigned char RF_CalculateCodesize(void)
+[; ;RF.c: 156: {
 [e :U _RF_CalculateCodesize ]
 [f ]
-"253
+"157
 [v _i `uc ~T0 @X0 1 a ]
-[; ;RF.c: 253: unsigned char i;
-[; ;RF.c: 255: for(i=0; i<128;i++)
-"255
+[; ;RF.c: 157: unsigned char i;
+[; ;RF.c: 159: for(i=0; i<64;i++)
+"159
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 128 `i 418  ]
-[e $U 419  ]
-"256
-[e :U 418 ]
-[; ;RF.c: 256: {
+[e $ < -> _i `i -> 64 `i 402  ]
+[e $U 403  ]
+"160
+[e :U 402 ]
+[; ;RF.c: 160: {
 {
-[; ;RF.c: 257: if(RF_SavedTiming[i] == 0)
+[; ;RF.c: 161: if(RF_SavedTiming[i] == 0)
+"161
+[e $ ! == *U + &U _RF_SavedTiming * -> _i `ux -> -> # *U &U _RF_SavedTiming `ui `ux -> -> 0 `i `ui 405  ]
+[; ;RF.c: 162: {
+"162
+{
+[; ;RF.c: 163: return i;
+"163
+[e ) _i ]
+[e $UE 401  ]
+"164
+}
+[e :U 405 ]
+"165
+}
+"159
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 64 `i 402  ]
+[e :U 403 ]
+"165
+}
+[; ;RF.c: 164: }
+[; ;RF.c: 165: }
+[; ;RF.c: 166: return 64;
+"166
+[e ) -> -> 64 `i `uc ]
+[e $UE 401  ]
+[; ;RF.c: 167: }
+"167
+[e :UE 401 ]
+}
+"175
+[v _RF_CheckCode `(uc ~T0 @X0 1 ef ]
+"176
+{
+[; ;RF.c: 175: unsigned char RF_CheckCode(void)
+[; ;RF.c: 176: {
+[e :U _RF_CheckCode ]
+[f ]
+"177
+[v _i `uc ~T0 @X0 1 a ]
+"178
+[v _Low `d ~T0 @X0 1 a ]
+[; ;RF.c: 177: unsigned char i;
+[; ;RF.c: 178: double Low = 0.0;
+[e = _Low .0.0 ]
+"179
+[v _High `d ~T0 @X0 1 a ]
+[; ;RF.c: 179: double High = 0.0;
+[e = _High .0.0 ]
+[; ;RF.c: 181: if(System_State == 8)
+"181
+[e $ ! == -> _System_State `i -> 8 `i 407  ]
+[; ;RF.c: 182: {
+"182
+{
+[; ;RF.c: 183: for(i=0; i<RF_CodeSize;i++)
+"183
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 411  ]
+"184
+[e :U 408 ]
+[; ;RF.c: 184: {
+{
+[; ;RF.c: 185: if(i == 0)
+"185
+[e $ ! == -> _i `i -> 0 `i 412  ]
+[; ;RF.c: 186: {
+"186
+{
+[; ;RF.c: 187: Low = (double)RF_SavedTiming[i] * (1.0 - 0.02);
+"187
+[e = _Low * -> *U + &U _RF_SavedTiming * -> _i `ux -> -> # *U &U _RF_SavedTiming `ui `ux `d - .1.0 .0.02 ]
+[; ;RF.c: 188: High = (double)RF_SavedTiming[i] * (1.0 + 0.02);
+"188
+[e = _High * -> *U + &U _RF_SavedTiming * -> _i `ux -> -> # *U &U _RF_SavedTiming `ui `ux `d + .1.0 .0.02 ]
+"189
+}
+[; ;RF.c: 189: }
+[e $U 413  ]
+"190
+[e :U 412 ]
+[; ;RF.c: 190: else
+[; ;RF.c: 191: {
+"191
+{
+[; ;RF.c: 192: Low = (double)RF_SavedTiming[i] * (1.0 - 0.5);
+"192
+[e = _Low * -> *U + &U _RF_SavedTiming * -> _i `ux -> -> # *U &U _RF_SavedTiming `ui `ux `d - .1.0 .0.5 ]
+[; ;RF.c: 193: High = (double)RF_SavedTiming[i] * (1.0 + 0.5);
+"193
+[e = _High * -> *U + &U _RF_SavedTiming * -> _i `ux -> -> # *U &U _RF_SavedTiming `ui `ux `d + .1.0 .0.5 ]
+"194
+}
+[e :U 413 ]
+[; ;RF.c: 194: }
+[; ;RF.c: 196: if((double)RF_DataTiming[i] < Low || (double)RF_DataTiming[i] > High )
+"196
+[e $ ! || < -> *U + &U _RF_DataTiming * -> _i `ux -> -> # *U &U _RF_DataTiming `ui `ux `d _Low > -> *U + &U _RF_DataTiming * -> _i `ux -> -> # *U &U _RF_DataTiming `ui `ux `d _High 414  ]
+[; ;RF.c: 197: {
+"197
+{
+[; ;RF.c: 198: return 0;
+"198
+[e ) -> -> 0 `i `uc ]
+[e $UE 406  ]
+"199
+}
+[e :U 414 ]
+"200
+}
+"183
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 411 ]
+[e $ < -> _i `i -> _RF_CodeSize `i 408  ]
+[e :U 409 ]
+"200
+}
+[; ;RF.c: 199: }
+[; ;RF.c: 200: }
+[; ;RF.c: 201: return 1;
+"201
+[e ) -> -> 1 `i `uc ]
+[e $UE 406  ]
+"202
+}
+[; ;RF.c: 202: }
+[e $U 415  ]
+"203
+[e :U 407 ]
+[; ;RF.c: 203: else
+[; ;RF.c: 204: {
+"204
+{
+[; ;RF.c: 205: if(RF_DataPlace >= 20)
+"205
+[e $ ! >= -> _RF_DataPlace `i -> 20 `i 416  ]
+[; ;RF.c: 206: {
+"206
+{
+[; ;RF.c: 207: for(i=0;i<RF_DataPlace;i++)
+"207
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 420  ]
+"208
+[e :U 417 ]
+[; ;RF.c: 208: {
+{
+[; ;RF.c: 209: if(RF_DataTiming[i] < 5)
+"209
+[e $ ! < *U + &U _RF_DataTiming * -> _i `ux -> -> # *U &U _RF_DataTiming `ui `ux -> -> 5 `i `ui 421  ]
+[; ;RF.c: 210: {
+"210
+{
+[; ;RF.c: 212: return 0;
+"212
+[e ) -> -> 0 `i `uc ]
+[e $UE 406  ]
+"213
+}
+[e :U 421 ]
+"214
+}
+"207
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 420 ]
+[e $ < -> _i `i -> _RF_DataPlace `i 417  ]
+[e :U 418 ]
+"214
+}
+[; ;RF.c: 213: }
+[; ;RF.c: 214: }
+[; ;RF.c: 216: for(i=RF_DataPlace;i<64;i++)
+"216
+{
+[e = _i _RF_DataPlace ]
+[e $ < -> _i `i -> 64 `i 422  ]
+[e $U 423  ]
+"217
+[e :U 422 ]
+[; ;RF.c: 217: {
+{
+[; ;RF.c: 219: RF_DataTiming[i] = 0;
+"219
+[e = *U + &U _RF_DataTiming * -> _i `ux -> -> # *U &U _RF_DataTiming `ui `ux -> -> 0 `i `ui ]
+"220
+}
+"216
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 64 `i 422  ]
+[e :U 423 ]
+"220
+}
+[; ;RF.c: 220: }
+[; ;RF.c: 223: RF_Saved = 90;
+"223
+[e = _RF_Saved -> -> 90 `i `uc ]
+[; ;RF.c: 224: Flash_Status = FSH_Write_IR_RF();
+"224
+[e = _Flash_Status ( _FSH_Write_IR_RF ..  ]
+[; ;RF.c: 225: if(Flash_Status)
+"225
+[e $ ! != -> _Flash_Status `i -> -> -> 0 `i `uc `i 425  ]
+[; ;RF.c: 226: {
+"226
+{
+[; ;RF.c: 227: RF_LoadCode();
+"227
+[e ( _RF_LoadCode ..  ]
+"228
+}
+[e :U 425 ]
+[; ;RF.c: 228: }
+[; ;RF.c: 229: System_State = 8;
+"229
+[e = _System_State -> -> 8 `i `uc ]
+"230
+}
+[e :U 416 ]
+[; ;RF.c: 230: }
+[; ;RF.c: 231: return 0;
+"231
+[e ) -> -> 0 `i `uc ]
+[e $UE 406  ]
+"232
+}
+[e :U 415 ]
+[; ;RF.c: 232: }
+[; ;RF.c: 233: }
+"233
+[e :UE 406 ]
+}
+"240
+[v _RF_ReadReceiver `(uc ~T0 @X0 1 ef ]
+"241
+{
+[; ;RF.c: 240: unsigned char RF_ReadReceiver(void)
+[; ;RF.c: 241: {
+[e :U _RF_ReadReceiver ]
+[f ]
+[; ;RF.c: 242: if(PORTB & 0x02)
+"242
+[e $ ! != & -> _PORTB `i -> 2 `i -> 0 `i 427  ]
+[; ;RF.c: 243: {
+"243
+{
+[; ;RF.c: 244: return 0;
+"244
+[e ) -> -> 0 `i `uc ]
+[e $UE 426  ]
+"245
+}
+[e :U 427 ]
+[; ;RF.c: 245: }
+[; ;RF.c: 246: return 1;
+"246
+[e ) -> -> 1 `i `uc ]
+[e $UE 426  ]
+[; ;RF.c: 247: }
+"247
+[e :UE 426 ]
+}
+"254
+[v _RF_DataInt `(v ~T0 @X0 1 ef1`uc ]
+"255
+{
+[; ;RF.c: 254: void RF_DataInt(unsigned char state)
+[; ;RF.c: 255: {
+[e :U _RF_DataInt ]
+"254
+[v _state `uc ~T0 @X0 1 r1 ]
+"255
+[f ]
+[; ;RF.c: 257: if(state)
 "257
-[e $ ! == *U + &U _RF_SavedTiming * -> _i `ux -> -> # *U &U _RF_SavedTiming `ui `ux -> -> 0 `i `ui 421  ]
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 429  ]
 [; ;RF.c: 258: {
 "258
 {
-[; ;RF.c: 259: return i;
-"259
-[e ) _i ]
-[e $UE 417  ]
+[; ;RF.c: 260: INTCON3bits.INT1E = 1;
 "260
-}
-[e :U 421 ]
+[e = . . _INTCON3bits 1 3 -> -> 1 `i `uc ]
+[; ;RF.c: 261: INTCON3bits.INT2E = 1;
 "261
-}
-"255
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 128 `i 418  ]
-[e :U 419 ]
-"261
-}
-[; ;RF.c: 260: }
-[; ;RF.c: 261: }
-[; ;RF.c: 262: return 128;
+[e = . . _INTCON3bits 1 4 -> -> 1 `i `uc ]
 "262
-[e ) -> -> 128 `i `uc ]
-[e $UE 417  ]
-[; ;RF.c: 263: }
+}
+[; ;RF.c: 262: }
+[e $U 430  ]
 "263
-[e :UE 417 ]
-}
-"271
-[v _RF_CheckCode `(uc ~T0 @X0 1 ef ]
-"272
-{
-[; ;RF.c: 271: unsigned char RF_CheckCode(void)
-[; ;RF.c: 272: {
-[e :U _RF_CheckCode ]
-[f ]
-"273
-[v _i `uc ~T0 @X0 1 a ]
-"274
-[v _Low `d ~T0 @X0 1 a ]
-[; ;RF.c: 273: unsigned char i;
-[; ;RF.c: 274: double Low = 0.0;
-[e = _Low .0.0 ]
-"275
-[v _High `d ~T0 @X0 1 a ]
-[; ;RF.c: 275: double High = 0.0;
-[e = _High .0.0 ]
-[; ;RF.c: 277: if(System_State == 8)
-"277
-[e $ ! == -> _System_State `i -> 8 `i 423  ]
-[; ;RF.c: 278: {
-"278
-{
-[; ;RF.c: 279: for(i=0; i<RF_CodeSize;i++)
-"279
-{
-[e = _i -> -> 0 `i `uc ]
-[e $U 427  ]
-"280
-[e :U 424 ]
-[; ;RF.c: 280: {
-{
-[; ;RF.c: 281: if(i == 0)
-"281
-[e $ ! == -> _i `i -> 0 `i 428  ]
-[; ;RF.c: 282: {
-"282
-{
-[; ;RF.c: 283: Low = (double)RF_SavedTiming[i] * (1.0 - 0.02);
-"283
-[e = _Low * -> *U + &U _RF_SavedTiming * -> _i `ux -> -> # *U &U _RF_SavedTiming `ui `ux `d - .1.0 .0.02 ]
-[; ;RF.c: 284: High = (double)RF_SavedTiming[i] * (1.0 + 0.02);
-"284
-[e = _High * -> *U + &U _RF_SavedTiming * -> _i `ux -> -> # *U &U _RF_SavedTiming `ui `ux `d + .1.0 .0.02 ]
-"285
-}
-[; ;RF.c: 285: }
-[e $U 429  ]
-"286
-[e :U 428 ]
-[; ;RF.c: 286: else
-[; ;RF.c: 287: {
-"287
-{
-[; ;RF.c: 288: Low = (double)RF_SavedTiming[i] * (1.0 - 0.5);
-"288
-[e = _Low * -> *U + &U _RF_SavedTiming * -> _i `ux -> -> # *U &U _RF_SavedTiming `ui `ux `d - .1.0 .0.5 ]
-[; ;RF.c: 289: High = (double)RF_SavedTiming[i] * (1.0 + 0.5);
-"289
-[e = _High * -> *U + &U _RF_SavedTiming * -> _i `ux -> -> # *U &U _RF_SavedTiming `ui `ux `d + .1.0 .0.5 ]
-"290
-}
 [e :U 429 ]
-[; ;RF.c: 290: }
-[; ;RF.c: 292: if((double)RF_DataTiming[i] < Low || (double)RF_DataTiming[i] > High )
-"292
-[e $ ! || < -> *U + &U _RF_DataTiming * -> _i `ux -> -> # *U &U _RF_DataTiming `ui `ux `d _Low > -> *U + &U _RF_DataTiming * -> _i `ux -> -> # *U &U _RF_DataTiming `ui `ux `d _High 430  ]
-[; ;RF.c: 293: {
-"293
+[; ;RF.c: 263: else
+[; ;RF.c: 264: {
+"264
 {
-[; ;RF.c: 294: return 0;
-"294
-[e ) -> -> 0 `i `uc ]
-[e $UE 422  ]
-"295
+[; ;RF.c: 266: INTCON3bits.INT1E = 0;
+"266
+[e = . . _INTCON3bits 1 3 -> -> 0 `i `uc ]
+[; ;RF.c: 267: INTCON3bits.INT2E = 0;
+"267
+[e = . . _INTCON3bits 1 4 -> -> 0 `i `uc ]
+"268
 }
 [e :U 430 ]
-"296
+[; ;RF.c: 268: }
+[; ;RF.c: 273: }
+"273
+[e :UE 428 ]
 }
-"279
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 427 ]
-[e $ < -> _i `i -> _RF_CodeSize `i 424  ]
-[e :U 425 ]
-"296
-}
-[; ;RF.c: 295: }
-[; ;RF.c: 296: }
-[; ;RF.c: 297: return 1;
-"297
-[e ) -> -> 1 `i `uc ]
-[e $UE 422  ]
-"298
-}
-[; ;RF.c: 298: }
-[e $U 431  ]
-"299
-[e :U 423 ]
-[; ;RF.c: 299: else
-[; ;RF.c: 300: {
-"300
+"281
+[v _RF_Receiver `(v ~T0 @X0 1 ef1`uc ]
+"282
 {
-[; ;RF.c: 301: if(RF_DataPlace >= 20)
-"301
-[e $ ! >= -> _RF_DataPlace `i -> 20 `i 432  ]
-[; ;RF.c: 302: {
-"302
+[; ;RF.c: 281: void RF_Receiver(unsigned char state)
+[; ;RF.c: 282: {
+[e :U _RF_Receiver ]
+"281
+[v _state `uc ~T0 @X0 1 r1 ]
+"282
+[f ]
+[; ;RF.c: 283: if(!state)
+"283
+[e $ ! ! != -> _state `i -> -> -> 0 `i `uc `i 432  ]
+[; ;RF.c: 284: {
+"284
 {
-[; ;RF.c: 303: for(i=0;i<RF_DataPlace;i++)
-"303
-{
-[e = _i -> -> 0 `i `uc ]
-[e $U 436  ]
-"304
-[e :U 433 ]
-[; ;RF.c: 304: {
-{
-[; ;RF.c: 305: if(RF_DataTiming[i] < 5)
-"305
-[e $ ! < *U + &U _RF_DataTiming * -> _i `ux -> -> # *U &U _RF_DataTiming `ui `ux -> -> 5 `i `ui 437  ]
-[; ;RF.c: 306: {
-"306
-{
-[; ;RF.c: 308: return 0;
-"308
-[e ) -> -> 0 `i `uc ]
-[e $UE 422  ]
-"309
+[; ;RF.c: 286: LATA |= 0x04;
+"286
+[e =| _LATA -> -> 4 `i `uc ]
+"287
 }
-[e :U 437 ]
-"310
-}
-"303
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 436 ]
-[e $ < -> _i `i -> _RF_DataPlace `i 433  ]
-[e :U 434 ]
-"310
-}
-[; ;RF.c: 309: }
-[; ;RF.c: 310: }
-[; ;RF.c: 312: for(i=RF_DataPlace;i<128;i++)
-"312
-{
-[e = _i _RF_DataPlace ]
-[e $ < -> _i `i -> 128 `i 438  ]
-[e $U 439  ]
-"313
-[e :U 438 ]
-[; ;RF.c: 313: {
-{
-[; ;RF.c: 315: RF_DataTiming[i] = 0;
-"315
-[e = *U + &U _RF_DataTiming * -> _i `ux -> -> # *U &U _RF_DataTiming `ui `ux -> -> 0 `i `ui ]
-"316
-}
-"312
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 128 `i 438  ]
-[e :U 439 ]
-"316
-}
-[; ;RF.c: 316: }
-[; ;RF.c: 319: RF_Saved = 90;
-"319
-[e = _RF_Saved -> -> 90 `i `uc ]
-[; ;RF.c: 320: Flash_Status = FSH_Write_IR_RF();
-"320
-[e = _Flash_Status ( _FSH_Write_IR_RF ..  ]
-[; ;RF.c: 321: if(Flash_Status)
-"321
-[e $ ! != -> _Flash_Status `i -> -> -> 0 `i `uc `i 441  ]
-[; ;RF.c: 322: {
-"322
-{
-[; ;RF.c: 323: RF_LoadCode();
-"323
-[e ( _RF_LoadCode ..  ]
-"324
-}
-[e :U 441 ]
-[; ;RF.c: 324: }
-[; ;RF.c: 325: System_State = 8;
-"325
-[e = _System_State -> -> 8 `i `uc ]
-"326
-}
+[; ;RF.c: 287: }
+[e $U 433  ]
+"288
 [e :U 432 ]
-[; ;RF.c: 326: }
-[; ;RF.c: 327: return 0;
-"327
-[e ) -> -> 0 `i `uc ]
-[e $UE 422  ]
-"328
+[; ;RF.c: 288: else
+[; ;RF.c: 289: {
+"289
+{
+[; ;RF.c: 291: LATA &= ~0x04;
+"291
+[e =& _LATA -> ~ -> 4 `i `uc ]
+"292
 }
-[e :U 431 ]
-[; ;RF.c: 328: }
-[; ;RF.c: 329: }
-"329
-[e :UE 422 ]
+[e :U 433 ]
+[; ;RF.c: 292: }
+[; ;RF.c: 293: }
+"293
+[e :UE 431 ]
+}
+"300
+[v _RF_SetBandwidth `(v ~T0 @X0 1 ef1`uc ]
+"301
+{
+[; ;RF.c: 300: void RF_SetBandwidth(unsigned char band)
+[; ;RF.c: 301: {
+[e :U _RF_SetBandwidth ]
+"300
+[v _band `uc ~T0 @X0 1 r1 ]
+"301
+[f ]
+[; ;RF.c: 302: if(band == 0)
+"302
+[e $ ! == -> _band `i -> 0 `i 435  ]
+[; ;RF.c: 303: {
+"303
+{
+[; ;RF.c: 305: LATC &= ~0x40;
+"305
+[e =& _LATC -> ~ -> 64 `i `uc ]
+[; ;RF.c: 306: LATC &= ~0x80;
+"306
+[e =& _LATC -> ~ -> 128 `i `uc ]
+"307
+}
+[; ;RF.c: 307: }
+[e $U 436  ]
+"308
+[e :U 435 ]
+[; ;RF.c: 308: else if(band == 1)
+[e $ ! == -> _band `i -> 1 `i 437  ]
+[; ;RF.c: 309: {
+"309
+{
+[; ;RF.c: 311: LATC |= 0x40;
+"311
+[e =| _LATC -> -> 64 `i `uc ]
+[; ;RF.c: 312: LATC &= ~0x80;
+"312
+[e =& _LATC -> ~ -> 128 `i `uc ]
+"313
+}
+[; ;RF.c: 313: }
+[e $U 438  ]
+"314
+[e :U 437 ]
+[; ;RF.c: 314: else if(band == 2)
+[e $ ! == -> _band `i -> 2 `i 439  ]
+[; ;RF.c: 315: {
+"315
+{
+[; ;RF.c: 317: LATC &= ~0x40;
+"317
+[e =& _LATC -> ~ -> 64 `i `uc ]
+[; ;RF.c: 318: LATC |= 0x80;
+"318
+[e =| _LATC -> -> 128 `i `uc ]
+"319
+}
+[; ;RF.c: 319: }
+[e $U 440  ]
+"320
+[e :U 439 ]
+[; ;RF.c: 320: else
+[; ;RF.c: 321: {
+"321
+{
+[; ;RF.c: 323: LATC |= 0x40;
+"323
+[e =| _LATC -> -> 64 `i `uc ]
+[; ;RF.c: 324: LATC |= 0x80;
+"324
+[e =| _LATC -> -> 128 `i `uc ]
+"325
+}
+[e :U 440 ]
+[e :U 438 ]
+[e :U 436 ]
+[; ;RF.c: 325: }
+[; ;RF.c: 326: }
+"326
+[e :UE 434 ]
+}
+"334
+[v _RF_SetSquelch `(v ~T0 @X0 1 ef1`uc ]
+"335
+{
+[; ;RF.c: 334: void RF_SetSquelch(unsigned char state)
+[; ;RF.c: 335: {
+[e :U _RF_SetSquelch ]
+"334
+[v _state `uc ~T0 @X0 1 r1 ]
+"335
+[f ]
+[; ;RF.c: 336: if(!state)
+"336
+[e $ ! ! != -> _state `i -> -> -> 0 `i `uc `i 442  ]
+[; ;RF.c: 337: {
+"337
+{
+[; ;RF.c: 339: LATA |= 0x20;
+"339
+[e =| _LATA -> -> 32 `i `uc ]
+"340
+}
+[; ;RF.c: 340: }
+[e $U 443  ]
+"341
+[e :U 442 ]
+[; ;RF.c: 341: else
+[; ;RF.c: 342: {
+"342
+{
+[; ;RF.c: 344: LATA &= ~0x20;
+"344
+[e =& _LATA -> ~ -> 32 `i `uc ]
+"345
+}
+[e :U 443 ]
+[; ;RF.c: 345: }
+[; ;RF.c: 346: }
+"346
+[e :UE 441 ]
 }

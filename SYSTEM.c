@@ -37,6 +37,7 @@
 #include "SYSTEM.h"
 #include "IR.h"
 #include "BUTTON.h"
+#include "RF.h"
 
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
@@ -48,17 +49,6 @@ unsigned long Activity_Timer = 0;
 /******************************************************************************/
 /* Functions
 /******************************************************************************/
-
-/******************************************************************************/
-/* SYS_Idle
- *
- * The function puts the device in idle mode.
-/******************************************************************************/
-inline void SYS_Idle(void)
-{
-    OSCCON |= 0b10000000;  // enter idle mode on sleep instruction
-    asm("sleep");
-}
 
 /******************************************************************************/
 /* SYS_ActivityTimerReset
@@ -89,17 +79,10 @@ inline void SYS_DisableInt(void)
 /******************************************************************************/
 inline void SYS_EnableInt(void)
 {
-    INTCON3bits.INT1IF = 0; // Clear rising edge Flag
-    INTCON3bits.INT2IF = 0; // Clear falling edge Flag
-    INTCONbits.TMR0IF = 0;
-    IR_ReadReceiver();
-    BUT_ReadButton();
-    INTCONbits.RBIF = 0; //clear the interrupt on change flag
-    PIR1bits.TMR2IF = 0; // clear timer 2 flag
-    PIR1bits.ADIF = 0; // clear the ADC flag
-    PIR1bits.TMR1IF = 0; // clear timer 1 flag
-    INTCONbits.GIE = 1;     // Enable high priority interrupts
+    BUT_IR_PinChangeInt(ON);
+    RF_DataInt(ON);
     INTCONbits.PEIE = 1;    // Enable low priority interrupts
+    INTCONbits.GIE = 1;     // Enable high priority interrupts
 }
 
 /******************************************************************************/
@@ -110,6 +93,17 @@ inline void SYS_EnableInt(void)
 inline void SYS_Sleep(void)
 {
     OSCCON &= ~0b10000000;  // enter sleep mode on sleep instruction
+    asm("sleep");
+}
+
+/******************************************************************************/
+/* SYS_Idle
+ *
+ * The function puts the device in idle mode.
+/******************************************************************************/
+inline void SYS_Idle(void)
+{
+    OSCCON |= 0b10000000;  // enter idle mode on sleep instruction
     asm("sleep");
 }
 
@@ -136,6 +130,7 @@ void SYS_ActivityTimer(void)
     if(Activity_Timer > ActivityTimeout)
     {
         SYS_ActivityTimerReset();
+        SYS_EnableInt();
         SYS_Sleep();
     }
     else

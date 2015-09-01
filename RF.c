@@ -57,115 +57,6 @@ double Rail_RSSI;
 /******************************************************************************/
 
 /******************************************************************************/
-/* RF_ReadReceiver
- *
- * The function reads the RF receiver.
-/******************************************************************************/
-inline unsigned char RF_ReadReceiver(void)
-{
-    if(PORTB & RF_DATA1)
-    {
-        return 0;
-    }
-    return 1;
-}
-
-/******************************************************************************/
-/* RF_DataInt
- *
- * The function controls the RF data interrupts.
-/******************************************************************************/
-inline void RF_DataInt(unsigned char state)
-{
-    if(state)
-    {
-        /* Enable falling edge and rising edge interrupts */
-        INTCON3bits.INT1E = 1;
-        INTCON3bits.INT2E = 1;
-    }
-    else
-    {
-        /* Disable falling edge and rising edge interrupts */
-        INTCON3bits.INT1E = 0;
-        INTCON3bits.INT2E = 0;
-    }
-}
-
-
-/******************************************************************************/
-/* RF_Receiver
- *
- * The function controls the RF receiver state.
-/******************************************************************************/
-inline void RF_Receiver(unsigned char state)
-{
-    if(!state)
-    {
-        /* Shutdown the RF receiver */
-        LATA |= RF_SHDN;
-    }
-    else
-    {
-        /* Turn on the RF receiver */
-        LATA &= ~RF_SHDN;
-    }
-}
-
-/******************************************************************************/
-/* RF_SetBandwidth
- *
- * The function controls the demodulator filter bandwidth.
-/******************************************************************************/
-inline void RF_SetBandwidth(unsigned char band)
-{
-    if(band == VERYSLOW)
-    {
-        /* Optimized for 1.8 kbps Bit rate */
-        LATC &= ~RF_SEL0;
-        LATC &= ~RF_SEL1;
-    }
-    else if(band == SLOW)
-    {
-        /* Optimized for 3.6 kbps Bit rate */
-        LATC |= RF_SEL0;
-        LATC &= ~RF_SEL1;
-    }
-    else if(band == FAST)
-    {
-        /* Optimized for 7.2 kbps Bit rate */
-        LATC &= ~RF_SEL0;
-        LATC |= RF_SEL1;
-    }
-    else
-    {
-        /* Optimized for 14.4 kbps Bit rate */
-        LATC |= RF_SEL0;
-        LATC |= RF_SEL1;
-    }
-}
-
-/******************************************************************************/
-/* RF_SetSquelch
- *
- * The function controls the squelch pin in the RF receiver. When enabled,
- *  the random received activity is decreased.
-/******************************************************************************/
-inline void RF_SetSquelch(unsigned char state)
-{
-    if(!state)
-    {
-        /* Shutdown the RF receiver */
-        LATA |= RF_Squelch;
-    }
-    else
-    {
-        /* Turn on the RF receiver */
-        LATA &= ~RF_Squelch;
-    }
-}
-
-
-/******************************************************************************/
 /* Functions
 /******************************************************************************/
 
@@ -176,6 +67,7 @@ inline void RF_SetSquelch(unsigned char state)
 /******************************************************************************/
 void InitRF(void)
 {
+#ifdef RF_CAPABLE
     RF_Receiver(ON);
     RF_SetBandwidth(FAST);
     MSC_CleanBufferInt(&RF_DataTiming,RFBUFFERSIZE);
@@ -185,6 +77,9 @@ void InitRF(void)
     INTCON2bits.INTEDG1 = 1; // Rising edge
     INTCON2bits.INTEDG2 = 0; // Falling edge
     RF_DataInt(ON);
+#else
+    RF_Receiver(OFF);
+#endif
 }
 
 /******************************************************************************/
@@ -236,6 +131,15 @@ void RF_LoadCode(void)
     
     Low = (double)RF_SavedTiming[0] * (1.0 - RF_TOLERANCESMALL);
     High = (double)RF_SavedTiming[0] * (1.0 + RF_TOLERANCESMALL);
+    
+    if(Low < RF_PROGRAMSYNCLOW)
+    {
+        Low = RF_PROGRAMSYNCLOW;
+    }
+    if(High > RF_PROGRAMSYNCHIGH)
+    {
+        High = RF_PROGRAMSYNCHIGH;
+    }
     
     RF_SyncLow = (unsigned int) Low;
     RF_SyncHigh = (unsigned int) High;
@@ -325,6 +229,119 @@ unsigned char RF_CheckCode(void)
             System_State = RUN;
         }
         return FALSE;
+    }
+}
+
+/******************************************************************************/
+/* RF_ReadReceiver
+ *
+ * The function reads the RF receiver.
+/******************************************************************************/
+unsigned char RF_ReadReceiver(void)
+{
+    if(PORTB & RF_DATA1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+/******************************************************************************/
+/* RF_DataInt
+ *
+ * The function controls the RF data interrupts.
+/******************************************************************************/
+void RF_DataInt(unsigned char state)
+{
+#ifdef RF_CAPABLE
+    if(state)
+    {
+        /* Enable falling edge and rising edge interrupts */
+        INTCON3bits.INT1E = 1;
+        INTCON3bits.INT2E = 1;
+    }
+    else
+    {
+        /* Disable falling edge and rising edge interrupts */
+        INTCON3bits.INT1E = 0;
+        INTCON3bits.INT2E = 0;
+    }
+#else
+    INTCON3bits.INT1E = 0;
+    INTCON3bits.INT2E = 0;
+#endif
+}
+
+
+/******************************************************************************/
+/* RF_Receiver
+ *
+ * The function controls the RF receiver state.
+/******************************************************************************/
+void RF_Receiver(unsigned char state)
+{
+    if(!state)
+    {
+        /* Shutdown the RF receiver */
+        LATA |= RF_SHDN;
+    }
+    else
+    {
+        /* Turn on the RF receiver */
+        LATA &= ~RF_SHDN;
+    }
+}
+
+/******************************************************************************/
+/* RF_SetBandwidth
+ *
+ * The function controls the demodulator filter bandwidth.
+/******************************************************************************/
+void RF_SetBandwidth(unsigned char band)
+{
+    if(band == VERYSLOW)
+    {
+        /* Optimized for 1.8 kbps Bit rate */
+        LATC &= ~RF_SEL0;
+        LATC &= ~RF_SEL1;
+    }
+    else if(band == SLOW)
+    {
+        /* Optimized for 3.6 kbps Bit rate */
+        LATC |= RF_SEL0;
+        LATC &= ~RF_SEL1;
+    }
+    else if(band == FAST)
+    {
+        /* Optimized for 7.2 kbps Bit rate */
+        LATC &= ~RF_SEL0;
+        LATC |= RF_SEL1;
+    }
+    else
+    {
+        /* Optimized for 14.4 kbps Bit rate */
+        LATC |= RF_SEL0;
+        LATC |= RF_SEL1;
+    }
+}
+
+/******************************************************************************/
+/* RF_SetSquelch
+ *
+ * The function controls the squelch pin in the RF receiver. When enabled,
+ *  the random received activity is decreased.
+/******************************************************************************/
+void RF_SetSquelch(unsigned char state)
+{
+    if(!state)
+    {
+        /* Shutdown the RF receiver */
+        LATA |= RF_Squelch;
+    }
+    else
+    {
+        /* Turn on the RF receiver */
+        LATA &= ~RF_Squelch;
     }
 }
 

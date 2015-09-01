@@ -38,7 +38,12 @@
  *
  * This defines the activity timeout before sleep is called.
 /******************************************************************************/
-#define ActivityTimeout     1000
+#ifdef RF_CAPABLE
+    #define ActivityTimeout     1000L
+#else
+    #define ActivityTimeout     20000L
+#endif
+
 
 /******************************************************************************/
 /* System frequency

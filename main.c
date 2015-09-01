@@ -6,6 +6,10 @@
  * Date         Revision    Comments
  * MM/DD/YY
  * --------     ---------   ----------------------------------------------------
+ * 09/01/15     2.0c        Tagged version!
+ *                          Added capability to save 2 IR codes.
+ *                          Added macro to turn off RF capability.
+ *                          Fixed multiple interrupt bugs.
  * 08/30/15     2.0b        Version change only. Tagged version!
  * 08/30/15     2.0a_DW0a   Added rail voltage monitoring.
  *                          Added IR functionality and IR default code.
@@ -128,6 +132,7 @@ int main (void)
                     }
                     IR_Saved = OLD;
                 }
+                SYS_EnableInt();
                 System_State_Change = FALSE;
             }
             if(RF_Data || IR_Data || Button_Data)

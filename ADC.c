@@ -37,6 +37,7 @@
 #include "ADC.h"
 #include "LDO.h"
 #include "RF.h"
+#include "IR.h"
 
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
@@ -47,68 +48,6 @@ unsigned int ADC_SampleCount = 0;
 /******************************************************************************/
 /* Inline Functions
 /******************************************************************************/
-
-/******************************************************************************/
-/* ADC_Module
- *
- * The function controls the ADC module.
-/******************************************************************************/
-inline void ADC_Module(unsigned char state)
-{
-    if(state)
-    {
-        /* Turn on the ADC module */
-        ADCON0bits.ADON = TRUE;
-    }
-    else
-    {
-        /* Turn off the ADC module */
-        ADCON0bits.ADON = FALSE;
-    }
-}
-
-/******************************************************************************/
-/* ADC_Start
- *
- * The function starts an ADC conversion.
-/******************************************************************************/
-inline void ADC_Start(void)
-{
-    ADCON0bits.GO = 1; // A/D conversion in progress
-}
-
-/******************************************************************************/
-/* ADC_ConversionStatus
- *
- * The function returns the status of an ADC conversion.
-/******************************************************************************/
-inline unsigned char ADC_ConversionStatus(void)
-{
-    if(ADCON0bits.GO == 1)
-    {
-        return TRUE; // A/D conversion in progress
-    }
-    return FALSE;
-}
-
-/******************************************************************************/
-/* ADC_ConversionInt
- *
- * The function controls the ADC interrupt.
-/******************************************************************************/
-inline void ADC_ConversionInt(unsigned char state)
-{
-    if(state)
-    {
-        /* Enable the ADC interrupt */
-        PIE1bits.ADIE = TRUE;
-    }
-    else
-    {
-        /* Disable the ADC interrupt */
-        PIE1bits.ADIE = FALSE;
-    }
-}
 
 /******************************************************************************/
 /* Functions
@@ -139,7 +78,7 @@ void InitADC(void)
 /******************************************************************************/
 void ADC_CalculateVoltage(void)
 {
-    unsigned int ADCcounts;
+    unsigned int ADCcounts = 0;
     double Voltage;
     
     ADCcounts = ADRESH;
@@ -150,10 +89,12 @@ void ADC_CalculateVoltage(void)
     if(ADC_CurrentSource == VIN)
     {
         Rail_VIN = Voltage * (R11 + R10) / R11;
+        NOP();
     }
     else
     {
         Rail_RSSI = Voltage;
+        NOP();
     }
     ADC_ChangeChannel();
 }
@@ -176,6 +117,69 @@ void ADC_ChangeChannel(void)
         ADCON0bits.CHS = ADC_VIN_AN;
     }
 }
+
+/******************************************************************************/
+/* ADC_Module
+ *
+ * The function controls the ADC module.
+/******************************************************************************/
+void ADC_Module(unsigned char state)
+{
+    if(state)
+    {
+        /* Turn on the ADC module */
+        ADCON0bits.ADON = TRUE;
+    }
+    else
+    {
+        /* Turn off the ADC module */
+        ADCON0bits.ADON = FALSE;
+    }
+}
+
+/******************************************************************************/
+/* ADC_Start
+ *
+ * The function starts an ADC conversion.
+/******************************************************************************/
+void ADC_Start(void)
+{
+    ADCON0bits.GO = 1; // A/D conversion in progress
+}
+
+/******************************************************************************/
+/* ADC_ConversionStatus
+ *
+ * The function returns the status of an ADC conversion.
+/******************************************************************************/
+unsigned char ADC_ConversionStatus(void)
+{
+    if(ADCON0bits.GO == 1)
+    {
+        return TRUE; // A/D conversion in progress
+    }
+    return FALSE;
+}
+
+/******************************************************************************/
+/* ADC_ConversionInt
+ *
+ * The function controls the ADC interrupt.
+/******************************************************************************/
+void ADC_ConversionInt(unsigned char state)
+{
+    if(state)
+    {
+        /* Enable the ADC interrupt */
+        PIE1bits.ADIE = TRUE;
+    }
+    else
+    {
+        /* Disable the ADC interrupt */
+        PIE1bits.ADIE = FALSE;
+    }
+}
+
 /*-----------------------------------------------------------------------------/
  End of File
 /-----------------------------------------------------------------------------*/

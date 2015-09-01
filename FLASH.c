@@ -42,7 +42,6 @@
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
 /******************************************************************************/
-unsigned char FlashBuffer[128];
 unsigned char Flash_Status = FAIL;
 
 /******************************************************************************/
@@ -63,31 +62,6 @@ void InitFlash(void)
     /* Nothing to do here */
     Nop();
 }
-
-/******************************************************************************/
-/* FSH_EraseALL
- *
- * The function erases all flash.
-/******************************************************************************/
-void FSH_EraseALL(void)
-{
-    unsigned long i;
-    
-    for(i=0;i<LARGEST_MEM_ADR;i+=0x400)
-    {
-        FSH_AddressToBlock(i);  // Load table pointer
-        
-        asm("BSF EECON1, 2");// enable write to memory WREN
-        asm("BSF EECON1, 4");// enable Row Erase operation FREE
-        asm("BCF INTCON, 7");// disable interrupts
-        asm("MOVLW 55h");
-        asm("MOVWF EECON2");// write 55h
-        asm("MOVLW 0AAh");//
-        asm("MOVWF EECON2");// write 0AAh
-        asm("BSF EECON1, 1");// start erase (CPU stall) WR
-        asm("BSF INTCON, 7");// re-enable interrupts
-    }
-}
     
 /******************************************************************************/
 /* FSH_EraseBlock
@@ -100,7 +74,12 @@ void FSH_EraseBlock(unsigned long Address)
     unsigned char highint = INTCONbits.GIE;
     unsigned char lowint  = INTCONbits.PEIE;
     unsigned char WriteTries;
-    unsigned long i;
+    
+    if(Address < CodeAddressLow || Address >= CodeAddressHigh)
+    {
+        /* make sure we only write to our allocated ir/rf code memory */
+        RESET(); // reset because this is a fatal error
+    }
     
     INTCONbits.GIE = 0;     // Disable high priority interrupts
     INTCONbits.PEIE = 0;    // Disable low priority interrupts
@@ -146,9 +125,16 @@ void FSH_EraseBlock(unsigned long Address)
 void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array)
 {
     unsigned char i;
-        
+    unsigned long address = ConstArray;
+    
     /* load address */
-    FSH_AddressToBlock(ConstArray);  // Load table pointer
+    FSH_AddressToBlock(address);  // Load table pointer
+    
+    if(address < CodeAddressLow || address >= CodeAddressHigh)
+    {
+        /* make sure we only write to our allocated ir/rf code memory */
+        RESET(); // reset because this is a fatal error
+    }
     
     for(i = 0; i<32; i++)
     {
@@ -161,7 +147,7 @@ void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array)
     }
     
     /* load address */
-    FSH_AddressToBlock(ConstArray);  // Load table pointer
+    FSH_AddressToBlock(address);  // Load table pointer
     
     EECON1bits.WRERR = 0;       // clear error
     EECON1bits.FREE = 0;        // Perform write only        
@@ -172,7 +158,7 @@ void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array)
     asm("MOVWF EECON2");// write 55h
     asm("MOVLW 0AAh");//
     asm("MOVWF EECON2");// write 0AAh
-    asm("BSF EECON1, 1");// start erase (CPU stall) WR
+    asm("BSF EECON1, 1");// start write (CPU stall) WR
 }
 
 /******************************************************************************/
@@ -212,6 +198,7 @@ unsigned char FSH_Write_IR_RF(void)
     unsigned int i;
     unsigned char j;
     unsigned char WriteTries;
+    unsigned int *RAMaddress;
     unsigned char status = FAIL;
     unsigned int FlashWasteindex = 0;
     unsigned char highint = INTCONbits.GIE;
@@ -240,28 +227,53 @@ unsigned char FSH_Write_IR_RF(void)
         /* the IR code is new so load the old RF code for reflash */
         RF_ResetData();
         MSC_BufferCopyIntConst(&RF_SavedTiming,&RF_DataTiming, RFBUFFERSIZE, 0);
+        if(IRProgramCodeNumber == 0)
+        {
+            MSC_BufferCopyIntConst(&IR_SavedTiming1,&IR_DataHolder1, IRBUFFERSIZE, 0);
+        }
+        else if(IRProgramCodeNumber == 1)
+        {
+            MSC_BufferCopyIntConst(&IR_SavedTiming0,&IR_DataHolder1, IRBUFFERSIZE, 0);
+        }
     }
     else
     {
         /* the RF code is new so load the old IR code for reflash */
         IR_ResetData();
-        MSC_BufferCopyIntConst(&IR_SavedTiming,&IR_DataTiming, IRBUFFERSIZE, 0);
+        MSC_BufferCopyIntConst(&IR_SavedTiming0,&IR_DataTiming, IRBUFFERSIZE, 0);
+        MSC_BufferCopyIntConst(&IR_SavedTiming1,&IR_DataHolder1, IRBUFFERSIZE, 0);
     }
     
-    FSH_EraseBlock(&IR_SavedTiming);
+    FSH_EraseBlock(&IR_SavedTiming0[0]);
     
     /* the write is 64 bytes at a time so this occurs in 16 different phases */
     
-    /*~~~~~~~~~~~~~~~~~~~~ write 1 of 16 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /*~~~~~~~~~~~~~~~~ write 1 of 16 (IR code 1 part 1) ~~~~~~~~~~~~~~~~~~~~~*/
     WriteTries = 1;
     
     REDO1:
     
+    if(IR_Saved == NEW)
+    {
+        if(IRProgramCodeNumber == 0)
+        {
+            RAMaddress = &IR_DataTiming[0];
+        }
+        else
+        {
+            RAMaddress = &IR_DataHolder1[0];
+        }
+    }
+    else
+    {
+        RAMaddress = &IR_DataTiming[0];
+    }
+    
     /* write array */
-    FSH_WriteIntArray(&IR_SavedTiming[0], &IR_DataTiming[0]);
+    FSH_WriteIntArray(&IR_SavedTiming0[0], RAMaddress);
         
     /* Verify write */
-    if(!FSH_VerifyWriteIntArray(&IR_SavedTiming[0],&IR_DataTiming[0]))
+    if(!FSH_VerifyWriteIntArray(&IR_SavedTiming0[0],RAMaddress))
     {
         WriteTries++;
         if(WriteTries > WRITETRIES)
@@ -275,16 +287,16 @@ unsigned char FSH_Write_IR_RF(void)
         }
     }
     
-    /*~~~~~~~~~~~~~~~~~~~~ write 2 of 16 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-    WriteTries = 1;
-    
+    /*~~~~~~~~~~~~~~~~ write 2 of 16 (IR code 1 part 2) ~~~~~~~~~~~~~~~~~~~~~*/
+    WriteTries = 1; 
+    RAMaddress+=32;
+            
     REDO2:
-    
     /* write array */
-    FSH_WriteIntArray(&IR_SavedTiming[32], &IR_DataTiming[32]);
+    FSH_WriteIntArray(&IR_SavedTiming0[32], RAMaddress);
         
     /* Verify write */
-    if(!FSH_VerifyWriteIntArray(&IR_SavedTiming[32],&IR_DataTiming[32]))
+    if(!FSH_VerifyWriteIntArray(&IR_SavedTiming0[32], RAMaddress))
     {
         WriteTries++;
         if(WriteTries > WRITETRIES)
@@ -298,16 +310,17 @@ unsigned char FSH_Write_IR_RF(void)
         }
     }
     
-    /*~~~~~~~~~~~~~~~~~~~~ write 3 of 16 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+        /*~~~~~~~~~~~~~~~~ write 3 of 16 (IR code 1 part 3) ~~~~~~~~~~~~~~~~~~~~~*/
     WriteTries = 1;
-    
+    RAMaddress+=32;
+        
     REDO3:
     
     /* write array */
-    FSH_WriteIntArray(&IR_SavedTiming[64], &IR_DataTiming[64]);
+    FSH_WriteIntArray(&IR_SavedTiming0[64], RAMaddress);
         
     /* Verify write */
-    if(!FSH_VerifyWriteIntArray(&IR_SavedTiming[64],&IR_DataTiming[64]))
+    if(!FSH_VerifyWriteIntArray(&IR_SavedTiming0[64],RAMaddress))
     {
         WriteTries++;
         if(WriteTries > WRITETRIES)
@@ -320,17 +333,33 @@ unsigned char FSH_Write_IR_RF(void)
             goto REDO3;
         }
     }
-    
-    /*~~~~~~~~~~~~~~~~~~~~ write 4 of 16 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+       
+    /*~~~~~~~~~~~~~~~~ write 4 of 16 (IR code 2 part 1) ~~~~~~~~~~~~~~~~~~~~~*/
     WriteTries = 1;
     
     REDO4:
     
+    if(IR_Saved == NEW)
+    {
+        if(IRProgramCodeNumber == 1)
+        {
+            RAMaddress = &IR_DataTiming[0];
+        }
+        else
+        {
+            RAMaddress = &IR_DataHolder1[0];
+        }
+    }
+    else
+    {
+        RAMaddress = &IR_DataHolder1[0];
+    }
+    
     /* write array */
-    FSH_WriteIntArray(&IR_SavedTiming[96], &IR_DataTiming[96]);
+    FSH_WriteIntArray(&IR_SavedTiming1[0], RAMaddress);
         
     /* Verify write */
-    if(!FSH_VerifyWriteIntArray(&IR_SavedTiming[96],&IR_DataTiming[96]))
+    if(!FSH_VerifyWriteIntArray(&IR_SavedTiming1[0], RAMaddress))
     {
         WriteTries++;
         if(WriteTries > WRITETRIES)
@@ -344,10 +373,58 @@ unsigned char FSH_Write_IR_RF(void)
         }
     }
     
-    /*~~~~~~~~~~~~~~~~~~~~ write 5 of 16 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /*~~~~~~~~~~~~~~~~ write 5 of 16 (IR code 2 part 2) ~~~~~~~~~~~~~~~~~~~~~*/
+    WriteTries = 1;
+    RAMaddress+=32;
+            
+    REDO5:
+    
+    /* write array */
+    FSH_WriteIntArray(&IR_SavedTiming1[32], RAMaddress);
+        
+    /* Verify write */
+    if(!FSH_VerifyWriteIntArray(&IR_SavedTiming1[32], RAMaddress))
+    {
+        WriteTries++;
+        if(WriteTries > WRITETRIES)
+        {
+            status = FAIL;
+            goto END;
+        }
+        else
+        {
+            goto REDO5;
+        }
+    }
+    
+    /*~~~~~~~~~~~~~~~~ write 6 of 16 (IR code 2 part 1) ~~~~~~~~~~~~~~~~~~~~~*/
+    WriteTries = 1;
+    RAMaddress+=32;
+    
+    REDO6:
+    
+    /* write array */
+    FSH_WriteIntArray(&IR_SavedTiming1[64], RAMaddress);
+        
+    /* Verify write */
+    if(!FSH_VerifyWriteIntArray(&IR_SavedTiming1[64], RAMaddress))
+    {
+        WriteTries++;
+        if(WriteTries > WRITETRIES)
+        {
+            status = FAIL;
+            goto END;
+        }
+        else
+        {
+            goto REDO6;
+        }
+    }
+    
+    /*~~~~~~~~~~~~~~~~ write 7 of 16 (RF code part 1) ~~~~~~~~~~~~~~~~~~~~~*/
     WriteTries = 1;
     
-    REDO5:
+    REDO7:
     
     /* write array */
     FSH_WriteIntArray(&RF_SavedTiming[0],&RF_DataTiming[0]);
@@ -363,66 +440,20 @@ unsigned char FSH_Write_IR_RF(void)
         }
         else
         {
-            goto REDO5;
+            goto REDO7;
         }
     }
     
-    /*~~~~~~~~~~~~~~~~~~~~ write 6 of 16 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /*~~~~~~~~~~~~~~~~ write 8 of 16 (RF code part 2) ~~~~~~~~~~~~~~~~~~~~~*/
     WriteTries = 1;
     
-    REDO6:
+    REDO8:
     
     /* write array */
     FSH_WriteIntArray(&RF_SavedTiming[32],&RF_DataTiming[32]);
         
     /* Verify write */
     if(!FSH_VerifyWriteIntArray(&RF_SavedTiming[32],&RF_DataTiming[32]))
-    {
-        WriteTries++;
-        if(WriteTries > WRITETRIES)
-        {
-            status = FAIL;
-            goto END;
-        }
-        else
-        {
-            goto REDO6;
-        }
-    }
-    
-    /*~~~~~~~~~~~~~~~~~~~~ write 7 of 16 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-    WriteTries = 1;
-    
-    REDO7:
-    
-    /* write array */
-    FSH_WriteIntArray(&RF_SavedTiming[64],&RF_DataTiming[64]);
-        
-    /* Verify write */
-    if(!FSH_VerifyWriteIntArray(&RF_SavedTiming[64],&RF_DataTiming[64]))
-    {
-        WriteTries++;
-        if(WriteTries > WRITETRIES)
-        {
-            status = FAIL;
-            goto END;
-        }
-        else
-        {
-            goto REDO7;
-        }
-    }
-    
-    /*~~~~~~~~~~~~~~~~~~~~ write 8 of 16 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-    WriteTries = 1;
-    
-    REDO8:
-    
-    /* write array */
-    FSH_WriteIntArray(&RF_SavedTiming[96],&RF_DataTiming[96]);
-        
-    /* Verify write */
-    if(!FSH_VerifyWriteIntArray(&RF_SavedTiming[96],&RF_DataTiming[96]))
     {
         WriteTries++;
         if(WriteTries > WRITETRIES)
@@ -451,6 +482,8 @@ unsigned char FSH_Write_IR_RF(void)
             TABLAT = WASTEFLAG;
             asm("TBLWT*+"); // TBLPTR is incremented after the read/write
         }
+        FSH_AddressToBlock(&FlashWaste[FlashWasteindex]);  // Load table pointer
+        
         EECON1bits.FREE = 0;        // Perform write only
 
         asm("BSF EECON1, 2");// enable write to memory WREN

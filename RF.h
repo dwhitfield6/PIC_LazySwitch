@@ -47,7 +47,7 @@
  *
  * This sets the noise floor for a program RF signal sync bit.
 /******************************************************************************/
-#define RF_PROGRAMSYNCLOW    400
+#define RF_PROGRAMSYNCLOW    300
 
 /******************************************************************************/
 /* RF_PROGRAMSYNCHIGH
@@ -55,7 +55,7 @@
  *
  * This sets the timeout of an RF signal during program.
 /******************************************************************************/
-#define RF_PROGRAMSYNCHIGH   1000
+#define RF_PROGRAMSYNCHIGH   1400
 
 /******************************************************************************/
 /* RF_EDGENUM
@@ -70,7 +70,7 @@
  *
  * This sets the size of the RF buffer.
 /******************************************************************************/
-#define RFBUFFERSIZE    128
+#define RFBUFFERSIZE    64
 
 /******************************************************************************/
 /* Baud Rates
@@ -98,7 +98,7 @@
 /******************************************************************************/
 /* Default RF code timing (Westek RFA-108 channel code E)                     */
 /******************************************************************************/
-const unsigned int RF_SavedTiming[RFBUFFERSIZE] __at(0x2500) = {                        
+const unsigned int RF_SavedTiming[RFBUFFERSIZE] __at(0x2580) = {                        
                                                 834,    //    [    0    ]
                                                 21,    //    [    1    ]
                                                 80,    //    [    2    ]
@@ -172,11 +172,11 @@ extern double Rail_RSSI;
 /* Function prototypes                                                        */
 /******************************************************************************/
 void InitRF(void);
-inline unsigned char RF_ReadReceiver(void);
-inline void RF_DataInt(unsigned char state);
-inline void RF_Receiver(unsigned char state);
-inline void RF_SetBandwidth(unsigned char band);
-inline void RF_SetSquelch(unsigned char state);
+unsigned char RF_ReadReceiver(void);
+void RF_DataInt(unsigned char state);
+void RF_Receiver(unsigned char state);
+void RF_SetBandwidth(unsigned char band);
+void RF_SetSquelch(unsigned char state);
 void RF_ResetData(void);
 void RF_LoadCode(void);
 unsigned char RF_CalculateCodesize(void);

@@ -73,7 +73,7 @@ extern unsigned char ButtonChange;
 /* Function prototypes                                                        */
 /******************************************************************************/
 void InitButton(void);
-inline void BUT_IR_PinChangeInt(unsigned char state);
+void BUT_IR_PinChangeInt(unsigned char state);
 unsigned char BUT_ReadButton(void);
 
 #endif	/* BUTTON_H */

@@ -1,5 +1,25 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"6373 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f24j10.h
+"6297 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f24j10.h
+[s S381 :7 `uc 1 :1 `uc 1 ]
+[n S381 . . NOT_RBPU ]
+"6301
+[s S382 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S382 . RBIP . TMR0IP . INTEDG2 INTEDG1 INTEDG0 nRBPU ]
+"6311
+[s S383 :2 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
+[n S383 . . T0IP . RBPU ]
+"6296
+[u S380 `S381 1 `S382 1 `S383 1 ]
+[n S380 . . . . ]
+"6318
+[v _INTCON2bits `VS380 ~T0 @X0 0 e@4081 ]
+"77 BUTTON.h
+[v _BUT_ReadButton `(uc ~T0 @X0 0 ef ]
+"76
+[v _BUT_IR_PinChangeInt `(v ~T0 @X0 0 ef1`uc ]
+"235 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f24j10.h
+[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
+"6373
 [s S385 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S385 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
 "6383
@@ -19,24 +39,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S384 . . . . . . ]
 "6419
 [v _INTCONbits `VS384 ~T0 @X0 0 e@4082 ]
-"6297
-[s S381 :7 `uc 1 :1 `uc 1 ]
-[n S381 . . NOT_RBPU ]
-"6301
-[s S382 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S382 . RBIP . TMR0IP . INTEDG2 INTEDG1 INTEDG0 nRBPU ]
-"6311
-[s S383 :2 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
-[n S383 . . T0IP . RBPU ]
-"6296
-[u S380 `S381 1 `S382 1 `S383 1 ]
-[n S380 . . . . ]
-"6318
-[v _INTCON2bits `VS380 ~T0 @X0 0 e@4081 ]
-"77 BUTTON.h
-[v _BUT_ReadButton `(uc ~T0 @X0 0 ef ]
-"235 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f24j10.h
-[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3074,13 +3076,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 56: extern char * strichr(const char *, int);
 [; ;string.h: 57: extern char * strrchr(const char *, int);
 [; ;string.h: 58: extern char * strrichr(const char *, int);
-[; ;USER.h: 181: void Init_App(void);
-[; ;USER.h: 182: void Init_System (void);
+[; ;USER.h: 199: void Init_App(void);
+[; ;USER.h: 200: void Init_System (void);
 [; ;BUTTON.h: 64: extern volatile unsigned char Button_Data;
 [; ;BUTTON.h: 65: extern unsigned char ButtonValue_prev;
 [; ;BUTTON.h: 66: extern unsigned char ButtonChange;
 [; ;BUTTON.h: 75: void InitButton(void);
-[; ;BUTTON.h: 76: inline void BUT_IR_PinChangeInt(unsigned char state);
+[; ;BUTTON.h: 76: void BUT_IR_PinChangeInt(unsigned char state);
 [; ;BUTTON.h: 77: unsigned char BUT_ReadButton(void);
 "42 BUTTON.c
 [v _Button_Data `Vuc ~T0 @X0 1 e ]
@@ -3100,132 +3102,131 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;BUTTON.c: 44: unsigned char ButtonChange = 0;
-[v F3296 `(v ~T0 @X0 1 tf1`uc ]
-"55
-[v _BUT_IR_PinChangeInt `TF3296 ~T0 @X0 1 e ]
-"56
-{
-[; ;BUTTON.c: 55: inline void BUT_IR_PinChangeInt(unsigned char state)
-[; ;BUTTON.c: 56: {
-[e :U _BUT_IR_PinChangeInt ]
-"55
-[v _state `uc ~T0 @X0 1 r1 ]
-"56
-[f ]
-[; ;BUTTON.c: 57: if(state)
-"57
-[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 395  ]
-[; ;BUTTON.c: 58: {
-"58
-{
-[; ;BUTTON.c: 60: INTCONbits.RBIE = 1;
-"60
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-"61
-}
-[; ;BUTTON.c: 61: }
-[e $U 396  ]
-"62
-[e :U 395 ]
-[; ;BUTTON.c: 62: else
-[; ;BUTTON.c: 63: {
-"63
-{
-[; ;BUTTON.c: 65: INTCONbits.RBIE = 0;
-"65
-[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
-"66
-}
-[e :U 396 ]
-[; ;BUTTON.c: 66: }
-[; ;BUTTON.c: 67: }
-"67
-[e :UE 394 ]
-}
-"78
+"59
 [v _InitButton `(v ~T0 @X0 1 ef ]
-"79
+"60
 {
-[; ;BUTTON.c: 78: void InitButton(void)
-[; ;BUTTON.c: 79: {
+[; ;BUTTON.c: 59: void InitButton(void)
+[; ;BUTTON.c: 60: {
 [e :U _InitButton ]
 [f ]
-[; ;BUTTON.c: 81: INTCON2bits.RBIP = 0;
-"81
+[; ;BUTTON.c: 62: INTCON2bits.RBIP = 0;
+"62
 [e = . . _INTCON2bits 1 0 -> -> 0 `i `uc ]
-[; ;BUTTON.c: 82: BUT_ReadButton();
-"82
+[; ;BUTTON.c: 63: BUT_ReadButton();
+"63
 [e ( _BUT_ReadButton ..  ]
-[; ;BUTTON.c: 83: BUT_IR_PinChangeInt(1);
-"83
+[; ;BUTTON.c: 64: BUT_IR_PinChangeInt(1);
+"64
 [e ( _BUT_IR_PinChangeInt (1 -> -> 1 `i `uc ]
-[; ;BUTTON.c: 84: }
-"84
-[e :UE 397 ]
+[; ;BUTTON.c: 65: }
+"65
+[e :UE 394 ]
 }
-"92
+"73
 [v _BUT_ReadButton `(uc ~T0 @X0 1 ef ]
-"93
+"74
 {
-[; ;BUTTON.c: 92: unsigned char BUT_ReadButton(void)
-[; ;BUTTON.c: 93: {
+[; ;BUTTON.c: 73: unsigned char BUT_ReadButton(void)
+[; ;BUTTON.c: 74: {
 [e :U _BUT_ReadButton ]
 [f ]
-"94
+"75
 [v _value `uc ~T0 @X0 1 a ]
-[; ;BUTTON.c: 94: unsigned char value = PORTB;
+[; ;BUTTON.c: 75: unsigned char value = PORTB;
 [e = _value _PORTB ]
-[; ;BUTTON.c: 95: if((value & 0x20) == 0)
-"95
-[e $ ! == & -> _value `i -> 32 `i -> 0 `i 399  ]
-[; ;BUTTON.c: 96: {
-"96
+[; ;BUTTON.c: 76: if((value & 0x20) == 0)
+"76
+[e $ ! == & -> _value `i -> 32 `i -> 0 `i 396  ]
+[; ;BUTTON.c: 77: {
+"77
 {
-[; ;BUTTON.c: 98: if(ButtonValue_prev == 0)
-"98
-[e $ ! == -> _ButtonValue_prev `i -> 0 `i 400  ]
-[; ;BUTTON.c: 99: {
-"99
+[; ;BUTTON.c: 79: if(ButtonValue_prev == 0)
+"79
+[e $ ! == -> _ButtonValue_prev `i -> 0 `i 397  ]
+[; ;BUTTON.c: 80: {
+"80
 {
-[; ;BUTTON.c: 100: ButtonChange = 1;
-"100
+[; ;BUTTON.c: 81: ButtonChange = 1;
+"81
 [e = _ButtonChange -> -> 1 `i `uc ]
-"101
+"82
 }
-[e :U 400 ]
-[; ;BUTTON.c: 101: }
-[; ;BUTTON.c: 102: ButtonValue_prev = 1;
-"102
+[e :U 397 ]
+[; ;BUTTON.c: 82: }
+[; ;BUTTON.c: 83: ButtonValue_prev = 1;
+"83
 [e = _ButtonValue_prev -> -> 1 `i `uc ]
-[; ;BUTTON.c: 103: return 1;
-"103
+[; ;BUTTON.c: 84: return 1;
+"84
 [e ) -> -> 1 `i `uc ]
-[e $UE 398  ]
-"104
+[e $UE 395  ]
+"85
 }
-[e :U 399 ]
-[; ;BUTTON.c: 104: }
-[; ;BUTTON.c: 107: if(ButtonValue_prev == 1)
-"107
-[e $ ! == -> _ButtonValue_prev `i -> 1 `i 401  ]
-[; ;BUTTON.c: 108: {
-"108
+[e :U 396 ]
+[; ;BUTTON.c: 85: }
+[; ;BUTTON.c: 88: if(ButtonValue_prev == 1)
+"88
+[e $ ! == -> _ButtonValue_prev `i -> 1 `i 398  ]
+[; ;BUTTON.c: 89: {
+"89
 {
-[; ;BUTTON.c: 109: ButtonChange = 1;
-"109
+[; ;BUTTON.c: 90: ButtonChange = 1;
+"90
 [e = _ButtonChange -> -> 1 `i `uc ]
-"110
+"91
+}
+[e :U 398 ]
+[; ;BUTTON.c: 91: }
+[; ;BUTTON.c: 92: ButtonValue_prev = 0;
+"92
+[e = _ButtonValue_prev -> -> 0 `i `uc ]
+[; ;BUTTON.c: 93: return 0;
+"93
+[e ) -> -> 0 `i `uc ]
+[e $UE 395  ]
+[; ;BUTTON.c: 94: }
+"94
+[e :UE 395 ]
+}
+"101
+[v _BUT_IR_PinChangeInt `(v ~T0 @X0 1 ef1`uc ]
+"102
+{
+[; ;BUTTON.c: 101: void BUT_IR_PinChangeInt(unsigned char state)
+[; ;BUTTON.c: 102: {
+[e :U _BUT_IR_PinChangeInt ]
+"101
+[v _state `uc ~T0 @X0 1 r1 ]
+"102
+[f ]
+[; ;BUTTON.c: 103: if(state)
+"103
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 400  ]
+[; ;BUTTON.c: 104: {
+"104
+{
+[; ;BUTTON.c: 106: INTCONbits.RBIE = 1;
+"106
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+"107
+}
+[; ;BUTTON.c: 107: }
+[e $U 401  ]
+"108
+[e :U 400 ]
+[; ;BUTTON.c: 108: else
+[; ;BUTTON.c: 109: {
+"109
+{
+[; ;BUTTON.c: 111: INTCONbits.RBIE = 0;
+"111
+[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+"112
 }
 [e :U 401 ]
-[; ;BUTTON.c: 110: }
-[; ;BUTTON.c: 111: ButtonValue_prev = 0;
-"111
-[e = _ButtonValue_prev -> -> 0 `i `uc ]
-[; ;BUTTON.c: 112: return 0;
-"112
-[e ) -> -> 0 `i `uc ]
-[e $UE 398  ]
+[; ;BUTTON.c: 112: }
 [; ;BUTTON.c: 113: }
 "113
-[e :UE 398 ]
+[e :UE 399 ]
 }

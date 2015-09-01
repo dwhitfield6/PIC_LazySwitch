@@ -31,6 +31,22 @@
 #endif
 
 /******************************************************************************/
+/* CodeAddressHigh
+
+ *
+ * This is the high bound of the code flash memory allocation.
+/******************************************************************************/
+#define CodeAddressHigh   0x2800
+
+/******************************************************************************/
+/* CodeAddressLow
+
+ *
+ * This is the low bound of the code flash memory allocation.
+/******************************************************************************/
+#define CodeAddressLow   0x2400
+
+/******************************************************************************/
 /* WRITETRIES
 
  *
@@ -80,7 +96,7 @@
  * 1024 - (IRBUFFERSIZE * 2 + RFBUFFERSIZE * 2) = 512;
  * 
  * - Place:
- * start address of IR_SavedTiming + 512 = 0x2600;      
+ * start address of IR_SavedTiming0 + 512 = 0x2600;      
 /******************************************************************************/
 const unsigned char FlashWaste[512] __at(0x2600) = {
                                             WASTEFLAG,    //    [    0    ]
@@ -600,7 +616,6 @@ const unsigned char FlashWaste[512] __at(0x2600) = {
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
 /******************************************************************************/
-extern unsigned char FlashBuffer[128];
 extern unsigned char Flash_Status;
 
 /******************************************************************************/
@@ -616,6 +631,5 @@ unsigned char FSH_Write_IR_RF(void);
 void FSH_AddressToBlock(unsigned long Address);
 void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
-void FSH_EraseALL(void);
 
 #endif	/* BUTTON_H */

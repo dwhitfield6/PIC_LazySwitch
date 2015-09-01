@@ -64,19 +64,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _InitRF `(v ~T0 @X0 0 ef ]
 "75 BUTTON.h
 [v _InitButton `(v ~T0 @X0 0 ef ]
-"174 IR.h
+"306 IR.h
 [v _InitIR `(v ~T0 @X0 0 ef ]
 "79 LDO.h
 [v _InitLDO `(v ~T0 @X0 0 ef ]
 "72 MOTOR.h
 [v _InitMOTOR `(v ~T0 @X0 0 ef ]
-"613 FLASH.h
+"628 FLASH.h
 [v _InitFlash `(v ~T0 @X0 0 ef ]
 "79 ADC.h
 [v _InitADC `(v ~T0 @X0 0 ef ]
 "77 BUTTON.h
 [v _BUT_ReadButton `(uc ~T0 @X0 0 ef ]
-"175 IR.h
+"307 IR.h
 [v _IR_ReadReceiver `(uc ~T0 @X0 0 ef ]
 "6373 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f24j10.h
 [s S385 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -3161,50 +3161,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 56: extern char * strichr(const char *, int);
 [; ;string.h: 57: extern char * strrchr(const char *, int);
 [; ;string.h: 58: extern char * strrichr(const char *, int);
-[; ;USER.h: 181: void Init_App(void);
-[; ;USER.h: 182: void Init_System (void);
+[; ;USER.h: 199: void Init_App(void);
+[; ;USER.h: 200: void Init_System (void);
 [; ;BUTTON.h: 64: extern volatile unsigned char Button_Data;
 [; ;BUTTON.h: 65: extern unsigned char ButtonValue_prev;
 [; ;BUTTON.h: 66: extern unsigned char ButtonChange;
 [; ;BUTTON.h: 75: void InitButton(void);
-[; ;BUTTON.h: 76: inline void BUT_IR_PinChangeInt(unsigned char state);
+[; ;BUTTON.h: 76: void BUT_IR_PinChangeInt(unsigned char state);
 [; ;BUTTON.h: 77: unsigned char BUT_ReadButton(void);
-"85 FLASH.h
+"101 FLASH.h
 [v _FlashWaste `Cuc ~T0 @X0 -> 512 `i e@9728 ]
 [i _FlashWaste
 :U ..
-"86
--> -> 218 `i `uc
-"87
--> -> 218 `i `uc
-"88
--> -> 218 `i `uc
-"89
--> -> 218 `i `uc
-"90
--> -> 218 `i `uc
-"91
--> -> 218 `i `uc
-"92
--> -> 218 `i `uc
-"93
--> -> 218 `i `uc
-"94
--> -> 218 `i `uc
-"95
--> -> 218 `i `uc
-"96
--> -> 218 `i `uc
-"97
--> -> 218 `i `uc
-"98
--> -> 218 `i `uc
-"99
--> -> 218 `i `uc
-"100
--> -> 218 `i `uc
-"101
--> -> 218 `i `uc
 "102
 -> -> 218 `i `uc
 "103
@@ -4197,25 +4165,41 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 218 `i `uc
 "597
 -> -> 218 `i `uc
+"598
+-> -> 218 `i `uc
+"599
+-> -> 218 `i `uc
+"600
+-> -> 218 `i `uc
+"601
+-> -> 218 `i `uc
+"602
+-> -> 218 `i `uc
+"603
+-> -> 218 `i `uc
+"604
+-> -> 218 `i `uc
+"605
+-> -> 218 `i `uc
+"606
+-> -> 218 `i `uc
+"607
+-> -> 218 `i `uc
+"608
+-> -> 218 `i `uc
+"609
+-> -> 218 `i `uc
+"610
+-> -> 218 `i `uc
+"611
+-> -> 218 `i `uc
+"612
+-> -> 218 `i `uc
+"613
+-> -> 218 `i `uc
 ..
 ]
-[; ;FLASH.h: 85: const unsigned char FlashWaste[512] __attribute__((address(0x2600))) = {
-[; ;FLASH.h: 86: 0xDA,
-[; ;FLASH.h: 87: 0xDA,
-[; ;FLASH.h: 88: 0xDA,
-[; ;FLASH.h: 89: 0xDA,
-[; ;FLASH.h: 90: 0xDA,
-[; ;FLASH.h: 91: 0xDA,
-[; ;FLASH.h: 92: 0xDA,
-[; ;FLASH.h: 93: 0xDA,
-[; ;FLASH.h: 94: 0xDA,
-[; ;FLASH.h: 95: 0xDA,
-[; ;FLASH.h: 96: 0xDA,
-[; ;FLASH.h: 97: 0xDA,
-[; ;FLASH.h: 98: 0xDA,
-[; ;FLASH.h: 99: 0xDA,
-[; ;FLASH.h: 100: 0xDA,
-[; ;FLASH.h: 101: 0xDA,
+[; ;FLASH.h: 101: const unsigned char FlashWaste[512] __attribute__((address(0x2600))) = {
 [; ;FLASH.h: 102: 0xDA,
 [; ;FLASH.h: 103: 0xDA,
 [; ;FLASH.h: 104: 0xDA,
@@ -4712,66 +4696,78 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FLASH.h: 595: 0xDA,
 [; ;FLASH.h: 596: 0xDA,
 [; ;FLASH.h: 597: 0xDA,
-[; ;FLASH.h: 598: };
-[; ;FLASH.h: 603: extern unsigned char FlashBuffer[128];
-[; ;FLASH.h: 604: extern unsigned char Flash_Status;
-[; ;FLASH.h: 613: void InitFlash(void);
-[; ;FLASH.h: 614: void FSH_EraseBlock(unsigned long Address);
-[; ;FLASH.h: 615: unsigned char FSH_Write_IR_RF(void);
-[; ;FLASH.h: 616: void FSH_AddressToBlock(unsigned long Address);
-[; ;FLASH.h: 617: void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
-[; ;FLASH.h: 618: unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
-[; ;FLASH.h: 619: void FSH_EraseALL(void);
-"83 IR.h
-[v _IR_SavedTiming `Cui ~T0 @X0 -> 128 `i e@9216 ]
-[i _IR_SavedTiming
+[; ;FLASH.h: 598: 0xDA,
+[; ;FLASH.h: 599: 0xDA,
+[; ;FLASH.h: 600: 0xDA,
+[; ;FLASH.h: 601: 0xDA,
+[; ;FLASH.h: 602: 0xDA,
+[; ;FLASH.h: 603: 0xDA,
+[; ;FLASH.h: 604: 0xDA,
+[; ;FLASH.h: 605: 0xDA,
+[; ;FLASH.h: 606: 0xDA,
+[; ;FLASH.h: 607: 0xDA,
+[; ;FLASH.h: 608: 0xDA,
+[; ;FLASH.h: 609: 0xDA,
+[; ;FLASH.h: 610: 0xDA,
+[; ;FLASH.h: 611: 0xDA,
+[; ;FLASH.h: 612: 0xDA,
+[; ;FLASH.h: 613: 0xDA,
+[; ;FLASH.h: 614: };
+[; ;FLASH.h: 619: extern unsigned char Flash_Status;
+[; ;FLASH.h: 628: void InitFlash(void);
+[; ;FLASH.h: 629: void FSH_EraseBlock(unsigned long Address);
+[; ;FLASH.h: 630: unsigned char FSH_Write_IR_RF(void);
+[; ;FLASH.h: 631: void FSH_AddressToBlock(unsigned long Address);
+[; ;FLASH.h: 632: void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
+[; ;FLASH.h: 633: unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
+"84 IR.h
+[v _IR_SavedTiming0 `Cui ~T0 @X0 -> 96 `i e@9216 ]
+[i _IR_SavedTiming0
 :U ..
-"84
--> -> 8600 `i `ui
 "85
--> -> 4200 `i `ui
+-> -> 8600 `i `ui
 "86
--> -> 450 `i `ui
+-> -> 4200 `i `ui
 "87
--> -> 1200 `i `ui
-"88
 -> -> 450 `i `ui
+"88
+-> -> 1200 `i `ui
 "89
 -> -> 450 `i `ui
 "90
 -> -> 450 `i `ui
 "91
--> -> 1200 `i `ui
+-> -> 450 `i `ui
 "92
--> -> 450 `i `ui
-"93
 -> -> 1200 `i `ui
-"94
+"93
 -> -> 450 `i `ui
+"94
+-> -> 1200 `i `ui
 "95
 -> -> 450 `i `ui
 "96
 -> -> 450 `i `ui
 "97
--> -> 1200 `i `ui
-"98
 -> -> 450 `i `ui
+"98
+-> -> 1200 `i `ui
 "99
 -> -> 450 `i `ui
 "100
 -> -> 450 `i `ui
 "101
--> -> 1200 `i `ui
-"102
 -> -> 450 `i `ui
+"102
+-> -> 1200 `i `ui
 "103
 -> -> 450 `i `ui
 "104
 -> -> 450 `i `ui
 "105
--> -> 1200 `i `ui
-"106
 -> -> 450 `i `ui
+"106
+-> -> 1200 `i `ui
 "107
 -> -> 450 `i `ui
 "108
@@ -4781,17 +4777,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 "110
 -> -> 450 `i `ui
 "111
--> -> 1200 `i `ui
-"112
 -> -> 450 `i `ui
+"112
+-> -> 1200 `i `ui
 "113
 -> -> 450 `i `ui
 "114
 -> -> 450 `i `ui
 "115
--> -> 1200 `i `ui
-"116
 -> -> 450 `i `ui
+"116
+-> -> 1200 `i `ui
 "117
 -> -> 450 `i `ui
 "118
@@ -4801,17 +4797,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 "120
 -> -> 450 `i `ui
 "121
--> -> 1200 `i `ui
-"122
 -> -> 450 `i `ui
+"122
+-> -> 1200 `i `ui
 "123
 -> -> 450 `i `ui
 "124
 -> -> 450 `i `ui
 "125
--> -> 1200 `i `ui
-"126
 -> -> 450 `i `ui
+"126
+-> -> 1200 `i `ui
 "127
 -> -> 450 `i `ui
 "128
@@ -4829,83 +4825,142 @@ Version 3.2 HI-TECH Software Intermediate Code
 "134
 -> -> 450 `i `ui
 "135
--> -> 1200 `i `ui
-"136
 -> -> 450 `i `ui
+"136
+-> -> 1200 `i `ui
 "137
 -> -> 450 `i `ui
 "138
 -> -> 450 `i `ui
 "139
--> -> 1200 `i `ui
-"140
 -> -> 450 `i `ui
+"140
+-> -> 1200 `i `ui
 "141
 -> -> 450 `i `ui
 "142
 -> -> 450 `i `ui
 "143
--> -> 1200 `i `ui
+-> -> 450 `i `ui
 "144
--> -> 450 `i `ui
+-> -> 1200 `i `ui
 "145
--> -> 1200 `i `ui
+-> -> 450 `i `ui
 "146
--> -> 450 `i `ui
-"147
 -> -> 1200 `i `ui
-"148
+"147
 -> -> 450 `i `ui
+"148
+-> -> 1200 `i `ui
 "149
+-> -> 450 `i `ui
+"150
 -> -> 1200 `i `ui
 "151
 -> -> 450 `i `ui
+"152
+-> -> 0 `i `ui
+"153
+-> -> 0 `i `ui
+"154
+-> -> 0 `i `ui
+"155
+-> -> 0 `i `ui
+"156
+-> -> 0 `i `ui
+"157
+-> -> 0 `i `ui
+"158
+-> -> 0 `i `ui
+"159
+-> -> 0 `i `ui
+"160
+-> -> 0 `i `ui
+"161
+-> -> 0 `i `ui
+"162
+-> -> 0 `i `ui
+"163
+-> -> 0 `i `ui
+"164
+-> -> 0 `i `ui
+"165
+-> -> 0 `i `ui
+"166
+-> -> 0 `i `ui
+"167
+-> -> 0 `i `ui
+"168
+-> -> 0 `i `ui
+"169
+-> -> 0 `i `ui
+"170
+-> -> 0 `i `ui
+"171
+-> -> 0 `i `ui
+"172
+-> -> 0 `i `ui
+"173
+-> -> 0 `i `ui
+"174
+-> -> 0 `i `ui
+"175
+-> -> 0 `i `ui
+"176
+-> -> 0 `i `ui
+"177
+-> -> 0 `i `ui
+"178
+-> -> 0 `i `ui
+"179
+-> -> 0 `i `ui
+"181
+-> -> 0 `i `ui
 ..
 ]
-[; ;IR.h: 83: const unsigned int IR_SavedTiming[128] __attribute__((address(0x2400)))= {
-[; ;IR.h: 84: 8600,
-[; ;IR.h: 85: 4200,
-[; ;IR.h: 86: 450,
-[; ;IR.h: 87: 1200,
-[; ;IR.h: 88: 450,
+[; ;IR.h: 84: const unsigned int IR_SavedTiming0[96] __attribute__((address(0x2400)))= {
+[; ;IR.h: 85: 8600,
+[; ;IR.h: 86: 4200,
+[; ;IR.h: 87: 450,
+[; ;IR.h: 88: 1200,
 [; ;IR.h: 89: 450,
 [; ;IR.h: 90: 450,
-[; ;IR.h: 91: 1200,
-[; ;IR.h: 92: 450,
-[; ;IR.h: 93: 1200,
-[; ;IR.h: 94: 450,
+[; ;IR.h: 91: 450,
+[; ;IR.h: 92: 1200,
+[; ;IR.h: 93: 450,
+[; ;IR.h: 94: 1200,
 [; ;IR.h: 95: 450,
 [; ;IR.h: 96: 450,
-[; ;IR.h: 97: 1200,
-[; ;IR.h: 98: 450,
+[; ;IR.h: 97: 450,
+[; ;IR.h: 98: 1200,
 [; ;IR.h: 99: 450,
 [; ;IR.h: 100: 450,
-[; ;IR.h: 101: 1200,
-[; ;IR.h: 102: 450,
+[; ;IR.h: 101: 450,
+[; ;IR.h: 102: 1200,
 [; ;IR.h: 103: 450,
 [; ;IR.h: 104: 450,
-[; ;IR.h: 105: 1200,
-[; ;IR.h: 106: 450,
+[; ;IR.h: 105: 450,
+[; ;IR.h: 106: 1200,
 [; ;IR.h: 107: 450,
 [; ;IR.h: 108: 450,
 [; ;IR.h: 109: 450,
 [; ;IR.h: 110: 450,
-[; ;IR.h: 111: 1200,
-[; ;IR.h: 112: 450,
+[; ;IR.h: 111: 450,
+[; ;IR.h: 112: 1200,
 [; ;IR.h: 113: 450,
 [; ;IR.h: 114: 450,
-[; ;IR.h: 115: 1200,
-[; ;IR.h: 116: 450,
+[; ;IR.h: 115: 450,
+[; ;IR.h: 116: 1200,
 [; ;IR.h: 117: 450,
 [; ;IR.h: 118: 450,
 [; ;IR.h: 119: 450,
 [; ;IR.h: 120: 450,
-[; ;IR.h: 121: 1200,
-[; ;IR.h: 122: 450,
+[; ;IR.h: 121: 450,
+[; ;IR.h: 122: 1200,
 [; ;IR.h: 123: 450,
 [; ;IR.h: 124: 450,
-[; ;IR.h: 125: 1200,
-[; ;IR.h: 126: 450,
+[; ;IR.h: 125: 450,
+[; ;IR.h: 126: 1200,
 [; ;IR.h: 127: 450,
 [; ;IR.h: 128: 450,
 [; ;IR.h: 129: 450,
@@ -4914,95 +4969,394 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;IR.h: 132: 450,
 [; ;IR.h: 133: 450,
 [; ;IR.h: 134: 450,
-[; ;IR.h: 135: 1200,
-[; ;IR.h: 136: 450,
+[; ;IR.h: 135: 450,
+[; ;IR.h: 136: 1200,
 [; ;IR.h: 137: 450,
 [; ;IR.h: 138: 450,
-[; ;IR.h: 139: 1200,
-[; ;IR.h: 140: 450,
+[; ;IR.h: 139: 450,
+[; ;IR.h: 140: 1200,
 [; ;IR.h: 141: 450,
 [; ;IR.h: 142: 450,
-[; ;IR.h: 143: 1200,
-[; ;IR.h: 144: 450,
-[; ;IR.h: 145: 1200,
-[; ;IR.h: 146: 450,
-[; ;IR.h: 147: 1200,
-[; ;IR.h: 148: 450,
-[; ;IR.h: 149: 1200,
-[; ;IR.h: 150: 450
-[; ;IR.h: 151: };
-[; ;IR.h: 156: extern volatile unsigned char IR_Data;
-[; ;IR.h: 157: extern unsigned int IR_DataTiming[128];
-[; ;IR.h: 158: extern unsigned char IR_DataPlace;
-[; ;IR.h: 159: extern unsigned char IRStarted;
-[; ;IR.h: 160: extern unsigned int IR_SyncLow;
-[; ;IR.h: 161: extern unsigned int IR_SyncHigh;
-[; ;IR.h: 162: extern unsigned char IR_Saved;
-[; ;IR.h: 163: extern unsigned char IR_CodeSize;
-[; ;IR.h: 164: extern unsigned char IRValue_prev;
-[; ;IR.h: 165: extern unsigned char IRChange;
-[; ;IR.h: 174: void InitIR(void);
-[; ;IR.h: 175: unsigned char IR_ReadReceiver(void);
-[; ;IR.h: 176: void IR_ResetData(void);
-[; ;IR.h: 177: void IR_LoadCode(void);
-[; ;IR.h: 178: unsigned char IR_CalculateCodesize(void);
-[; ;IR.h: 179: unsigned char IR_CheckCode(void);
-[; ;IR.h: 180: void IR_CleanBuffer(void);
+[; ;IR.h: 143: 450,
+[; ;IR.h: 144: 1200,
+[; ;IR.h: 145: 450,
+[; ;IR.h: 146: 1200,
+[; ;IR.h: 147: 450,
+[; ;IR.h: 148: 1200,
+[; ;IR.h: 149: 450,
+[; ;IR.h: 150: 1200,
+[; ;IR.h: 151: 450,
+[; ;IR.h: 152: 0,
+[; ;IR.h: 153: 0,
+[; ;IR.h: 154: 0,
+[; ;IR.h: 155: 0,
+[; ;IR.h: 156: 0,
+[; ;IR.h: 157: 0,
+[; ;IR.h: 158: 0,
+[; ;IR.h: 159: 0,
+[; ;IR.h: 160: 0,
+[; ;IR.h: 161: 0,
+[; ;IR.h: 162: 0,
+[; ;IR.h: 163: 0,
+[; ;IR.h: 164: 0,
+[; ;IR.h: 165: 0,
+[; ;IR.h: 166: 0,
+[; ;IR.h: 167: 0,
+[; ;IR.h: 168: 0,
+[; ;IR.h: 169: 0,
+[; ;IR.h: 170: 0,
+[; ;IR.h: 171: 0,
+[; ;IR.h: 172: 0,
+[; ;IR.h: 173: 0,
+[; ;IR.h: 174: 0,
+[; ;IR.h: 175: 0,
+[; ;IR.h: 176: 0,
+[; ;IR.h: 177: 0,
+[; ;IR.h: 178: 0,
+[; ;IR.h: 179: 0,
+[; ;IR.h: 180: 0
+[; ;IR.h: 181: };
+"184
+[v _IR_SavedTiming1 `Cui ~T0 @X0 -> 96 `i e@9408 ]
+[i _IR_SavedTiming1
+:U ..
+"185
+-> -> 8600 `i `ui
+"186
+-> -> 4200 `i `ui
+"187
+-> -> 450 `i `ui
+"188
+-> -> 450 `i `ui
+"189
+-> -> 450 `i `ui
+"190
+-> -> 450 `i `ui
+"191
+-> -> 450 `i `ui
+"192
+-> -> 450 `i `ui
+"193
+-> -> 450 `i `ui
+"194
+-> -> 1200 `i `ui
+"195
+-> -> 450 `i `ui
+"196
+-> -> 1200 `i `ui
+"197
+-> -> 450 `i `ui
+"198
+-> -> 1200 `i `ui
+"199
+-> -> 450 `i `ui
+"200
+-> -> 450 `i `ui
+"201
+-> -> 450 `i `ui
+"202
+-> -> 450 `i `ui
+"203
+-> -> 450 `i `ui
+"204
+-> -> 1200 `i `ui
+"205
+-> -> 450 `i `ui
+"206
+-> -> 1200 `i `ui
+"207
+-> -> 450 `i `ui
+"208
+-> -> 1200 `i `ui
+"209
+-> -> 450 `i `ui
+"210
+-> -> 450 `i `ui
+"211
+-> -> 450 `i `ui
+"212
+-> -> 450 `i `ui
+"213
+-> -> 450 `i `ui
+"214
+-> -> 450 `i `ui
+"215
+-> -> 450 `i `ui
+"216
+-> -> 1200 `i `ui
+"217
+-> -> 450 `i `ui
+"218
+-> -> 1200 `i `ui
+"219
+-> -> 450 `i `ui
+"220
+-> -> 450 `i `ui
+"221
+-> -> 450 `i `ui
+"222
+-> -> 1200 `i `ui
+"223
+-> -> 450 `i `ui
+"224
+-> -> 450 `i `ui
+"225
+-> -> 450 `i `ui
+"226
+-> -> 1200 `i `ui
+"227
+-> -> 450 `i `ui
+"228
+-> -> 450 `i `ui
+"229
+-> -> 450 `i `ui
+"230
+-> -> 450 `i `ui
+"231
+-> -> 450 `i `ui
+"232
+-> -> 450 `i `ui
+"233
+-> -> 450 `i `ui
+"234
+-> -> 450 `i `ui
+"235
+-> -> 450 `i `ui
+"236
+-> -> 1200 `i `ui
+"237
+-> -> 450 `i `ui
+"238
+-> -> 450 `i `ui
+"239
+-> -> 450 `i `ui
+"240
+-> -> 1200 `i `ui
+"241
+-> -> 450 `i `ui
+"242
+-> -> 450 `i `ui
+"243
+-> -> 450 `i `ui
+"244
+-> -> 1200 `i `ui
+"245
+-> -> 450 `i `ui
+"246
+-> -> 1200 `i `ui
+"247
+-> -> 450 `i `ui
+"248
+-> -> 1200 `i `ui
+"249
+-> -> 450 `i `ui
+"250
+-> -> 1200 `i `ui
+"251
+-> -> 450 `i `ui
+"252
+-> -> 0 `i `ui
+"253
+-> -> 0 `i `ui
+"254
+-> -> 0 `i `ui
+"255
+-> -> 0 `i `ui
+"256
+-> -> 0 `i `ui
+"257
+-> -> 0 `i `ui
+"258
+-> -> 0 `i `ui
+"259
+-> -> 0 `i `ui
+"260
+-> -> 0 `i `ui
+"261
+-> -> 0 `i `ui
+"262
+-> -> 0 `i `ui
+"263
+-> -> 0 `i `ui
+"264
+-> -> 0 `i `ui
+"265
+-> -> 0 `i `ui
+"266
+-> -> 0 `i `ui
+"267
+-> -> 0 `i `ui
+"268
+-> -> 0 `i `ui
+"269
+-> -> 0 `i `ui
+"270
+-> -> 0 `i `ui
+"271
+-> -> 0 `i `ui
+"272
+-> -> 0 `i `ui
+"273
+-> -> 0 `i `ui
+"274
+-> -> 0 `i `ui
+"275
+-> -> 0 `i `ui
+"276
+-> -> 0 `i `ui
+"277
+-> -> 0 `i `ui
+"278
+-> -> 0 `i `ui
+"279
+-> -> 0 `i `ui
+"281
+-> -> 0 `i `ui
+..
+]
+[; ;IR.h: 184: const unsigned int IR_SavedTiming1[96] __attribute__((address(0x24C0)))= {
+[; ;IR.h: 185: 8600,
+[; ;IR.h: 186: 4200,
+[; ;IR.h: 187: 450,
+[; ;IR.h: 188: 450,
+[; ;IR.h: 189: 450,
+[; ;IR.h: 190: 450,
+[; ;IR.h: 191: 450,
+[; ;IR.h: 192: 450,
+[; ;IR.h: 193: 450,
+[; ;IR.h: 194: 1200,
+[; ;IR.h: 195: 450,
+[; ;IR.h: 196: 1200,
+[; ;IR.h: 197: 450,
+[; ;IR.h: 198: 1200,
+[; ;IR.h: 199: 450,
+[; ;IR.h: 200: 450,
+[; ;IR.h: 201: 450,
+[; ;IR.h: 202: 450,
+[; ;IR.h: 203: 450,
+[; ;IR.h: 204: 1200,
+[; ;IR.h: 205: 450,
+[; ;IR.h: 206: 1200,
+[; ;IR.h: 207: 450,
+[; ;IR.h: 208: 1200,
+[; ;IR.h: 209: 450,
+[; ;IR.h: 210: 450,
+[; ;IR.h: 211: 450,
+[; ;IR.h: 212: 450,
+[; ;IR.h: 213: 450,
+[; ;IR.h: 214: 450,
+[; ;IR.h: 215: 450,
+[; ;IR.h: 216: 1200,
+[; ;IR.h: 217: 450,
+[; ;IR.h: 218: 1200,
+[; ;IR.h: 219: 450,
+[; ;IR.h: 220: 450,
+[; ;IR.h: 221: 450,
+[; ;IR.h: 222: 1200,
+[; ;IR.h: 223: 450,
+[; ;IR.h: 224: 450,
+[; ;IR.h: 225: 450,
+[; ;IR.h: 226: 1200,
+[; ;IR.h: 227: 450,
+[; ;IR.h: 228: 450,
+[; ;IR.h: 229: 450,
+[; ;IR.h: 230: 450,
+[; ;IR.h: 231: 450,
+[; ;IR.h: 232: 450,
+[; ;IR.h: 233: 450,
+[; ;IR.h: 234: 450,
+[; ;IR.h: 235: 450,
+[; ;IR.h: 236: 1200,
+[; ;IR.h: 237: 450,
+[; ;IR.h: 238: 450,
+[; ;IR.h: 239: 450,
+[; ;IR.h: 240: 1200,
+[; ;IR.h: 241: 450,
+[; ;IR.h: 242: 450,
+[; ;IR.h: 243: 450,
+[; ;IR.h: 244: 1200,
+[; ;IR.h: 245: 450,
+[; ;IR.h: 246: 1200,
+[; ;IR.h: 247: 450,
+[; ;IR.h: 248: 1200,
+[; ;IR.h: 249: 450,
+[; ;IR.h: 250: 1200,
+[; ;IR.h: 251: 450,
+[; ;IR.h: 252: 0,
+[; ;IR.h: 253: 0,
+[; ;IR.h: 254: 0,
+[; ;IR.h: 255: 0,
+[; ;IR.h: 256: 0,
+[; ;IR.h: 257: 0,
+[; ;IR.h: 258: 0,
+[; ;IR.h: 259: 0,
+[; ;IR.h: 260: 0,
+[; ;IR.h: 261: 0,
+[; ;IR.h: 262: 0,
+[; ;IR.h: 263: 0,
+[; ;IR.h: 264: 0,
+[; ;IR.h: 265: 0,
+[; ;IR.h: 266: 0,
+[; ;IR.h: 267: 0,
+[; ;IR.h: 268: 0,
+[; ;IR.h: 269: 0,
+[; ;IR.h: 270: 0,
+[; ;IR.h: 271: 0,
+[; ;IR.h: 272: 0,
+[; ;IR.h: 273: 0,
+[; ;IR.h: 274: 0,
+[; ;IR.h: 275: 0,
+[; ;IR.h: 276: 0,
+[; ;IR.h: 277: 0,
+[; ;IR.h: 278: 0,
+[; ;IR.h: 279: 0,
+[; ;IR.h: 280: 0
+[; ;IR.h: 281: };
+[; ;IR.h: 286: extern volatile unsigned char IR_Data;
+[; ;IR.h: 287: extern unsigned int IR_DataTiming[96];
+[; ;IR.h: 288: extern unsigned int IR_DataHolder1[96];
+[; ;IR.h: 289: extern unsigned char IR_DataPlace;
+[; ;IR.h: 290: extern unsigned char IRStarted;
+[; ;IR.h: 291: extern unsigned int IR_SyncLow;
+[; ;IR.h: 292: extern unsigned int IR_SyncHigh;
+[; ;IR.h: 293: extern unsigned char IR_Saved;
+[; ;IR.h: 294: extern unsigned char IR_CodeSize;
+[; ;IR.h: 295: extern unsigned char IRValue_prev;
+[; ;IR.h: 296: extern unsigned char IRChange;
+[; ;IR.h: 297: extern unsigned char IRProgramCodeNumber;
+[; ;IR.h: 306: void InitIR(void);
+[; ;IR.h: 307: unsigned char IR_ReadReceiver(void);
+[; ;IR.h: 308: void IR_ResetData(void);
+[; ;IR.h: 309: void IR_LoadCode(void);
+[; ;IR.h: 310: unsigned char IR_CalculateCodesize(const unsigned int* Code);
+[; ;IR.h: 311: unsigned char IR_CheckCode(void);
+[; ;IR.h: 312: void IR_CleanBuffer(void);
 [; ;LDO.h: 70: extern double Rail_VIN;
 [; ;LDO.h: 79: void InitLDO(void);
-[; ;SYSTEM.h: 78: extern volatile unsigned char System_State;
-[; ;SYSTEM.h: 79: extern volatile unsigned char System_State_Change;
-[; ;SYSTEM.h: 84: void SYS_ConfigureOscillator(void);
-[; ;SYSTEM.h: 85: inline void SYS_Idle(void);
-[; ;SYSTEM.h: 86: inline void SYS_Sleep(void);
-[; ;SYSTEM.h: 87: void SYS_ActivityTimer(void);
-[; ;SYSTEM.h: 88: inline void SYS_ActivityTimerReset(void);
-[; ;SYSTEM.h: 89: inline void SYS_EnableInt(void);
-[; ;SYSTEM.h: 90: inline void SYS_DisableInt(void);
+[; ;SYSTEM.h: 83: extern volatile unsigned char System_State;
+[; ;SYSTEM.h: 84: extern volatile unsigned char System_State_Change;
+[; ;SYSTEM.h: 89: void SYS_ConfigureOscillator(void);
+[; ;SYSTEM.h: 90: inline void SYS_Idle(void);
+[; ;SYSTEM.h: 91: inline void SYS_Sleep(void);
+[; ;SYSTEM.h: 92: void SYS_ActivityTimer(void);
+[; ;SYSTEM.h: 93: inline void SYS_ActivityTimerReset(void);
+[; ;SYSTEM.h: 94: inline void SYS_EnableInt(void);
+[; ;SYSTEM.h: 95: inline void SYS_DisableInt(void);
 [; ;MISC.h: 85: void MSC_DelayMS(long US);
-[; ;MISC.h: 86: unsigned char MSC_IsCharacter(unsigned char data);
+[; ;MISC.h: 86: void MSC_DelayNOP(unsigned int NOPs);
 [; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
 [; ;MISC.h: 88: void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
-[; ;MISC.h: 89: double MSC_Round(double input);
-[; ;MISC.h: 90: void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
-[; ;MISC.h: 91: unsigned char MSC_StringMatch(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 92: unsigned char MSC_StringMatchCaseInsensitive(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 93: unsigned char MSC_StringContains(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 94: unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
-[; ;MISC.h: 95: void MSC_LowercaseChar(unsigned char* Input);
-[; ;MISC.h: 96: void MSC_LowercaseString(unsigned char* Input);
-[; ;MISC.h: 97: void MSC_DelayNOP(unsigned int NOPs);
-[; ;MISC.h: 98: unsigned char MSC_ReverseByte(unsigned char This);
-[; ;MISC.h: 99: unsigned int MSC_ReverseInt(unsigned int This);
-[; ;MISC.h: 100: unsigned long MSC_ReverseLong(unsigned long This);
-[; ;MISC.h: 101: unsigned char MSC_GetNumber(unsigned char* This, unsigned char CommaNumber, long* result);
-[; ;MISC.h: 102: unsigned char MSC_StringAddEqual(unsigned char* Input);
-[; ;MISC.h: 103: unsigned char MSC_GetStringAfterComma(unsigned char* This, unsigned char CommaNumber, unsigned char* result);
-[; ;MISC.h: 104: unsigned char MSC_GetNumberUnsigned(unsigned char* This, unsigned char CommaNumber, unsigned long* result);
-[; ;MISC.h: 105: unsigned char MSC_IsAlphaNumericString(unsigned char* data);
-[; ;MISC.h: 106: unsigned char MSC_IsAlphaNumeric(unsigned char data);
-[; ;MISC.h: 107: unsigned char MSC_IsNumber(unsigned char data);
-[; ;MISC.h: 108: double MSC_DB_Round(double Input);
-[; ;MISC.h: 109: long MSC_Scale(long Input, long InputRangeLow, long InputRangeHigh, long OutputRangeLow, long OutputRangeHigh);
-[; ;MISC.h: 110: unsigned int MSC_BCDtoHEX(unsigned int input);
-[; ;MISC.h: 111: unsigned int MSC_HEXtoBCD(unsigned int input);
-[; ;MISC.h: 112: unsigned char MSC_BufferMatch(unsigned char* This, unsigned char* That, unsigned int size);
-[; ;MISC.h: 113: long MSC_LG_Round(long Input,unsigned char places);
-[; ;MISC.h: 114: void MSC_TestFunctionPointer(void);
-[; ;MISC.h: 115: unsigned int MSC_EndianInt(unsigned int number);
-[; ;MISC.h: 116: unsigned int MSC_EndianIntArray(unsigned char* buffer);
-[; ;MISC.h: 117: unsigned long MSC_EndianLong(unsigned long number);
-[; ;MISC.h: 118: unsigned long MSC_EndianLongArray(unsigned char* buffer);
-[; ;MISC.h: 119: void MSC_BlinkLED(unsigned int blink, unsigned int speed);
-[; ;MISC.h: 120: void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
-[; ;MISC.h: 121: void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 89: void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 90: void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 91: void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 92: void MSC_BlinkLED(unsigned int blink, unsigned int speed);
 "63 MOTOR.h
 [v _DC_Motor `uc ~T0 @X0 1 e ]
 [; ;MOTOR.h: 63: unsigned char DC_Motor;
 [; ;MOTOR.h: 72: void InitMOTOR(void);
 [; ;MOTOR.h: 73: void MTR_Rotate(void);
 "101 RF.h
-[v _RF_SavedTiming `Cui ~T0 @X0 -> 128 `i e@9472 ]
+[v _RF_SavedTiming `Cui ~T0 @X0 -> 64 `i e@9600 ]
 [i _RF_SavedTiming
 :U ..
 "102
@@ -5107,7 +5461,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 22 `i `ui
 ..
 ]
-[; ;RF.h: 101: const unsigned int RF_SavedTiming[128] __attribute__((address(0x2500))) = {
+[; ;RF.h: 101: const unsigned int RF_SavedTiming[64] __attribute__((address(0x2580))) = {
 [; ;RF.h: 102: 834,
 [; ;RF.h: 103: 21,
 [; ;RF.h: 104: 80,
@@ -5160,7 +5514,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RF.h: 151: 22,
 [; ;RF.h: 152: };
 [; ;RF.h: 157: extern volatile unsigned char RF_Data;
-[; ;RF.h: 158: extern unsigned int RF_DataTiming[128];
+[; ;RF.h: 158: extern unsigned int RF_DataTiming[64];
 [; ;RF.h: 159: extern unsigned char RF_DataPlace;
 [; ;RF.h: 160: extern unsigned char RFStarted;
 [; ;RF.h: 161: extern unsigned int RF_SyncLow;
@@ -5169,11 +5523,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RF.h: 164: extern unsigned char RF_CodeSize;
 [; ;RF.h: 165: extern double Rail_RSSI;
 [; ;RF.h: 174: void InitRF(void);
-[; ;RF.h: 175: inline unsigned char RF_ReadReceiver(void);
-[; ;RF.h: 176: inline void RF_DataInt(unsigned char state);
-[; ;RF.h: 177: inline void RF_Receiver(unsigned char state);
-[; ;RF.h: 178: inline void RF_SetBandwidth(unsigned char band);
-[; ;RF.h: 179: inline void RF_SetSquelch(unsigned char state);
+[; ;RF.h: 175: unsigned char RF_ReadReceiver(void);
+[; ;RF.h: 176: void RF_DataInt(unsigned char state);
+[; ;RF.h: 177: void RF_Receiver(unsigned char state);
+[; ;RF.h: 178: void RF_SetBandwidth(unsigned char band);
+[; ;RF.h: 179: void RF_SetSquelch(unsigned char state);
 [; ;RF.h: 180: void RF_ResetData(void);
 [; ;RF.h: 181: void RF_LoadCode(void);
 [; ;RF.h: 182: unsigned char RF_CalculateCodesize(void);
@@ -5184,19 +5538,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TIMERS.h: 58: extern unsigned int Timer2Post;
 [; ;TIMERS.h: 59: extern unsigned int Timer2PostCount;
 [; ;TIMERS.h: 68: void InitTimers(void);
-[; ;TIMERS.h: 69: inline unsigned char TMR_Timer0Status(void);
-[; ;TIMERS.h: 70: inline unsigned char TMR_Timer1Status(void);
-[; ;TIMERS.h: 71: inline void TMR_Timer0(unsigned char state);
-[; ;TIMERS.h: 72: inline void TMR_Timer1(unsigned char state);
-[; ;TIMERS.h: 73: inline void TMR_Timer2(unsigned char state);
-[; ;TIMERS.h: 74: inline void TMR_ResetTimer0(void);
-[; ;TIMERS.h: 75: inline void TMR_ResetTimer1(void);
-[; ;TIMERS.h: 76: inline void TMR_ResetTimer2(void);
-[; ;TIMERS.h: 77: inline void TMR_Timer2SetUse(unsigned char use);
-[; ;TIMERS.h: 78: inline void TMR_Timer0Int(unsigned char state);
-[; ;TIMERS.h: 79: inline void TMR_Timer1Int(unsigned char state);
-[; ;TIMERS.h: 80: inline void TMR_Timer2Int(unsigned char state);
-[; ;TIMERS.h: 81: inline unsigned char TMR_Timer2Free(void);
+[; ;TIMERS.h: 69: unsigned char TMR_Timer0Status(void);
+[; ;TIMERS.h: 70: unsigned char TMR_Timer1Status(void);
+[; ;TIMERS.h: 71: void TMR_Timer0(unsigned char state);
+[; ;TIMERS.h: 72: void TMR_Timer1(unsigned char state);
+[; ;TIMERS.h: 73: void TMR_Timer2(unsigned char state);
+[; ;TIMERS.h: 74: void TMR_ResetTimer0(void);
+[; ;TIMERS.h: 75: void TMR_ResetTimer1(void);
+[; ;TIMERS.h: 76: void TMR_ResetTimer2(void);
+[; ;TIMERS.h: 77: void TMR_Timer2SetUse(unsigned char use);
+[; ;TIMERS.h: 78: void TMR_Timer0Int(unsigned char state);
+[; ;TIMERS.h: 79: void TMR_Timer1Int(unsigned char state);
+[; ;TIMERS.h: 80: void TMR_Timer2Int(unsigned char state);
+[; ;TIMERS.h: 81: unsigned char TMR_Timer2Free(void);
 [; ;TIMERS.h: 82: void InitTimer0(void);
 [; ;TIMERS.h: 83: void InitTimer1(void);
 [; ;TIMERS.h: 84: void InitTimer2(void);
@@ -5204,13 +5558,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TIMERS.h: 86: void TMR_Timer1Start(void);
 [; ;TIMERS.h: 87: void TMR_Timer2Start(unsigned int time);
 [; ;TIMERS.h: 88: void TMR_Timer1Function(unsigned char mode);
+[; ;TIMERS.h: 89: void TMR_Timer1Osc(unsigned char state);
 [; ;ADC.h: 69: extern unsigned char ADC_CurrentSource;
 [; ;ADC.h: 70: extern unsigned int ADC_SampleCount;
 [; ;ADC.h: 79: void InitADC(void);
-[; ;ADC.h: 80: inline void ADC_Module(unsigned char state);
-[; ;ADC.h: 81: inline void ADC_Start(void);
-[; ;ADC.h: 82: inline unsigned char ADC_ConversionStatus(void);
-[; ;ADC.h: 83: inline void ADC_ConversionInt(unsigned char state);
+[; ;ADC.h: 80: void ADC_Module(unsigned char state);
+[; ;ADC.h: 81: void ADC_Start(void);
+[; ;ADC.h: 82: unsigned char ADC_ConversionStatus(void);
+[; ;ADC.h: 83: void ADC_ConversionInt(unsigned char state);
 [; ;ADC.h: 84: void ADC_CalculateVoltage(void);
 [; ;ADC.h: 85: void ADC_ChangeChannel(void);
 "52 USER.c

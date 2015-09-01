@@ -77,10 +77,10 @@ extern unsigned int ADC_SampleCount;
 /* Function prototypes                                                        */
 /******************************************************************************/
 void InitADC(void);
-inline void ADC_Module(unsigned char state);
-inline void ADC_Start(void);
-inline unsigned char ADC_ConversionStatus(void);
-inline void ADC_ConversionInt(unsigned char state);
+void ADC_Module(unsigned char state);
+void ADC_Start(void);
+unsigned char ADC_ConversionStatus(void);
+void ADC_ConversionInt(unsigned char state);
 void ADC_CalculateVoltage(void);
 void ADC_ChangeChannel(void);
 

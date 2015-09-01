@@ -3992,7 +3992,7 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 181 "USER.h"
+# 199 "USER.h"
 void Init_App(void);
 void Init_System (void);
 
@@ -4003,11 +4003,11 @@ extern unsigned char ButtonChange;
 
 # 75
 void InitButton(void);
-inline void BUT_IR_PinChangeInt(unsigned char state);
+void BUT_IR_PinChangeInt(unsigned char state);
 unsigned char BUT_ReadButton(void);
 
-# 83 "IR.h"
-const unsigned int IR_SavedTiming[128] __attribute__((address(0x2400)))= {
+# 84 "IR.h"
+const unsigned int IR_SavedTiming0[96] __attribute__((address(0x2400)))= {
 8600,
 4200,
 450,
@@ -4074,14 +4074,144 @@ const unsigned int IR_SavedTiming[128] __attribute__((address(0x2400)))= {
 1200,
 450,
 1200,
-450
+450,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+};
+
+
+const unsigned int IR_SavedTiming1[96] __attribute__((address(0x24C0)))= {
+8600,
+4200,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+1200,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+1200,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+450,
+450,
+1200,
+450,
+1200,
+450,
+1200,
+450,
+1200,
+450,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
 };
 
 
 
 
 extern volatile unsigned char IR_Data;
-extern unsigned int IR_DataTiming[128];
+extern unsigned int IR_DataTiming[96];
+extern unsigned int IR_DataHolder1[96];
 extern unsigned char IR_DataPlace;
 extern unsigned char IRStarted;
 extern unsigned int IR_SyncLow;
@@ -4090,18 +4220,19 @@ extern unsigned char IR_Saved;
 extern unsigned char IR_CodeSize;
 extern unsigned char IRValue_prev;
 extern unsigned char IRChange;
+extern unsigned char IRProgramCodeNumber;
 
-# 174
+# 306
 void InitIR(void);
 unsigned char IR_ReadReceiver(void);
 void IR_ResetData(void);
 void IR_LoadCode(void);
-unsigned char IR_CalculateCodesize(void);
+unsigned char IR_CalculateCodesize(const unsigned int* Code);
 unsigned char IR_CheckCode(void);
 void IR_CleanBuffer(void);
 
 # 101 "RF.h"
-const unsigned int RF_SavedTiming[128] __attribute__((address(0x2500))) = {
+const unsigned int RF_SavedTiming[64] __attribute__((address(0x2580))) = {
 834,
 21,
 80,
@@ -4158,7 +4289,7 @@ const unsigned int RF_SavedTiming[128] __attribute__((address(0x2500))) = {
 
 
 extern volatile unsigned char RF_Data;
-extern unsigned int RF_DataTiming[128];
+extern unsigned int RF_DataTiming[64];
 extern unsigned char RF_DataPlace;
 extern unsigned char RFStarted;
 extern unsigned int RF_SyncLow;
@@ -4169,11 +4300,11 @@ extern double Rail_RSSI;
 
 # 174
 void InitRF(void);
-inline unsigned char RF_ReadReceiver(void);
-inline void RF_DataInt(unsigned char state);
-inline void RF_Receiver(unsigned char state);
-inline void RF_SetBandwidth(unsigned char band);
-inline void RF_SetSquelch(unsigned char state);
+unsigned char RF_ReadReceiver(void);
+void RF_DataInt(unsigned char state);
+void RF_Receiver(unsigned char state);
+void RF_SetBandwidth(unsigned char band);
+void RF_SetSquelch(unsigned char state);
 void RF_ResetData(void);
 void RF_LoadCode(void);
 unsigned char RF_CalculateCodesize(void);
@@ -4188,19 +4319,19 @@ extern unsigned int Timer2PostCount;
 
 # 68
 void InitTimers(void);
-inline unsigned char TMR_Timer0Status(void);
-inline unsigned char TMR_Timer1Status(void);
-inline void TMR_Timer0(unsigned char state);
-inline void TMR_Timer1(unsigned char state);
-inline void TMR_Timer2(unsigned char state);
-inline void TMR_ResetTimer0(void);
-inline void TMR_ResetTimer1(void);
-inline void TMR_ResetTimer2(void);
-inline void TMR_Timer2SetUse(unsigned char use);
-inline void TMR_Timer0Int(unsigned char state);
-inline void TMR_Timer1Int(unsigned char state);
-inline void TMR_Timer2Int(unsigned char state);
-inline unsigned char TMR_Timer2Free(void);
+unsigned char TMR_Timer0Status(void);
+unsigned char TMR_Timer1Status(void);
+void TMR_Timer0(unsigned char state);
+void TMR_Timer1(unsigned char state);
+void TMR_Timer2(unsigned char state);
+void TMR_ResetTimer0(void);
+void TMR_ResetTimer1(void);
+void TMR_ResetTimer2(void);
+void TMR_Timer2SetUse(unsigned char use);
+void TMR_Timer0Int(unsigned char state);
+void TMR_Timer1Int(unsigned char state);
+void TMR_Timer2Int(unsigned char state);
+unsigned char TMR_Timer2Free(void);
 void InitTimer0(void);
 void InitTimer1(void);
 void InitTimer2(void);
@@ -4208,8 +4339,9 @@ void TMR_Timer0Start(void);
 void TMR_Timer1Start(void);
 void TMR_Timer2Start(unsigned int time);
 void TMR_Timer1Function(unsigned char mode);
+void TMR_Timer1Osc(unsigned char state);
 
-# 78 "SYSTEM.h"
+# 83 "SYSTEM.h"
 extern volatile unsigned char System_State;
 extern volatile unsigned char System_State_Change;
 
@@ -4226,42 +4358,13 @@ inline void SYS_DisableInt(void);
 
 # 85 "MISC.h"
 void MSC_DelayMS(long US);
-unsigned char MSC_IsCharacter(unsigned char data);
+void MSC_DelayNOP(unsigned int NOPs);
 void MSC_CleanBuffer(unsigned char* data, unsigned int count);
 void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
-double MSC_Round(double input);
 void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
-unsigned char MSC_StringMatch(const unsigned char* This, const unsigned char* That);
-unsigned char MSC_StringMatchCaseInsensitive(const unsigned char* This, const unsigned char* That);
-unsigned char MSC_StringContains(const unsigned char* This, const unsigned char* That);
-unsigned char MSC_StringContainsCaseInsensitive(const unsigned char* This, const unsigned char* That);
-void MSC_LowercaseChar(unsigned char* Input);
-void MSC_LowercaseString(unsigned char* Input);
-void MSC_DelayNOP(unsigned int NOPs);
-unsigned char MSC_ReverseByte(unsigned char This);
-unsigned int MSC_ReverseInt(unsigned int This);
-unsigned long MSC_ReverseLong(unsigned long This);
-unsigned char MSC_GetNumber(unsigned char* This, unsigned char CommaNumber, long* result);
-unsigned char MSC_StringAddEqual(unsigned char* Input);
-unsigned char MSC_GetStringAfterComma(unsigned char* This, unsigned char CommaNumber, unsigned char* result);
-unsigned char MSC_GetNumberUnsigned(unsigned char* This, unsigned char CommaNumber, unsigned long* result);
-unsigned char MSC_IsAlphaNumericString(unsigned char* data);
-unsigned char MSC_IsAlphaNumeric(unsigned char data);
-unsigned char MSC_IsNumber(unsigned char data);
-double MSC_DB_Round(double Input);
-long MSC_Scale(long Input, long InputRangeLow, long InputRangeHigh, long OutputRangeLow, long OutputRangeHigh);
-unsigned int MSC_BCDtoHEX(unsigned int input);
-unsigned int MSC_HEXtoBCD(unsigned int input);
-unsigned char MSC_BufferMatch(unsigned char* This, unsigned char* That, unsigned int size);
-long MSC_LG_Round(long Input,unsigned char places);
-void MSC_TestFunctionPointer(void);
-unsigned int MSC_EndianInt(unsigned int number);
-unsigned int MSC_EndianIntArray(unsigned char* buffer);
-unsigned long MSC_EndianLong(unsigned long number);
-unsigned long MSC_EndianLongArray(unsigned char* buffer);
-void MSC_BlinkLED(unsigned int blink, unsigned int speed);
 void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
 void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+void MSC_BlinkLED(unsigned int blink, unsigned int speed);
 
 # 69 "ADC.h"
 extern unsigned char ADC_CurrentSource;
@@ -4269,10 +4372,10 @@ extern unsigned int ADC_SampleCount;
 
 # 79
 void InitADC(void);
-inline void ADC_Module(unsigned char state);
-inline void ADC_Start(void);
-inline unsigned char ADC_ConversionStatus(void);
-inline void ADC_ConversionInt(unsigned char state);
+void ADC_Module(unsigned char state);
+void ADC_Start(void);
+unsigned char ADC_ConversionStatus(void);
+void ADC_ConversionInt(unsigned char state);
 void ADC_CalculateVoltage(void);
 void ADC_ChangeChannel(void);
 
@@ -4305,7 +4408,7 @@ RFStarted = 1;
 }
 else
 {
-if(RFtemp >= 400 && RFtemp <= 1000)
+if(RFtemp >= 300 && RFtemp <= 1400)
 {
 RFStarted = 1;
 }
@@ -4314,7 +4417,7 @@ RFStarted = 1;
 if(RFStarted)
 {
 SYS_ActivityTimerReset();
-if(RF_DataPlace < 128)
+if(RF_DataPlace < 64)
 {
 RF_DataTiming[RF_DataPlace] = RFtemp;
 RF_DataPlace++;
@@ -4418,6 +4521,7 @@ if(System_State == 8)
 {
 if(IRtemp >= IR_SyncLow && IRtemp <= IR_SyncHigh)
 {
+RF_DataInt(0);
 IRStarted = 1;
 }
 }
@@ -4425,6 +4529,7 @@ else
 {
 if(IRtemp >= 6000 && IRtemp <= 10000)
 {
+RF_DataInt(0);
 IRStarted = 1;
 }
 }
@@ -4432,7 +4537,7 @@ IRStarted = 1;
 if(IRStarted)
 {
 RF_Disable();
-if(IR_DataPlace < 128)
+if(IR_DataPlace < 96)
 {
 IR_DataTiming[IR_DataPlace] = IRtemp;
 IR_DataPlace++;
@@ -4440,12 +4545,7 @@ if(System_State == 8)
 {
 if(IR_DataPlace >= IR_CodeSize)
 {
-if(!IR_Data)
-{
-IR_Data = IR_CheckCode();
-}
-TMR_Timer1(0);
-IR_ResetData();
+PIR1bits.TMR1IF = 1;
 }
 }
 }
@@ -4494,7 +4594,12 @@ PIR1bits.ADIF = 0;
 else if(PIR1bits.TMR1IF)
 {
 
+BUT_IR_PinChangeInt(0);
 TMR_Timer1(0);
+SYS_ActivityTimerReset();
+BUT_ReadButton();
+IR_ReadReceiver();
+INTCONbits.RBIF = 0;
 if(System_State == 10)
 {
 if(IR_DataPlace >= 40)
@@ -4503,9 +4608,22 @@ if(IR_DataPlace >= 40)
 IR_Data = IR_CheckCode();
 }
 }
+else
+{
+if(!IR_Data)
+{
+if(IR_DataPlace >= IR_CodeSize)
+{
+IR_Data = IR_CheckCode();
+}
+}
+}
 TMR_ResetTimer1();
 IR_ResetData();
-IR_CleanBuffer();
+INTCON3bits.INT1IF = 0;
+INTCON3bits.INT2IF = 0;
+RF_DataInt(1);
+BUT_IR_PinChangeInt(1);
 PIR1bits.TMR1IF = 0;
 }
 else

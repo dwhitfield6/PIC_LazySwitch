@@ -1,7 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"5832 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f24j10.h
-[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
-"6373
+"6373 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f24j10.h
 [s S385 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S385 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
 "6383
@@ -21,32 +19,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S384 . . . . . . ]
 "6419
 [v _INTCONbits `VS384 ~T0 @X0 0 e@4082 ]
-"6206
-[s S378 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S378 . INT1IF INT2IF . INT1IE INT2IE . INT1IP INT2IP ]
-"6216
-[s S379 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S379 . INT1F INT2F . INT1E INT2E . INT1P INT2P ]
-"6205
-[u S377 `S378 1 `S379 1 ]
-[n S377 . . . ]
-"6227
-[v _INTCON3bits `VS377 ~T0 @X0 0 e@4080 ]
-"175 IR.h
-[v _IR_ReadReceiver `(uc ~T0 @X0 0 ef ]
-"77 BUTTON.h
-[v _BUT_ReadButton `(uc ~T0 @X0 0 ef ]
-"1715 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f24j10.h
-[s S83 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S83 . TMR1IF TMR2IF CCP1IF SSP1IF TXIF RCIF ADIF ]
-"1724
-[s S84 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S84 . . SSPIF TX1IF RC1IF ]
-"1714
-[u S82 `S83 1 `S84 1 ]
-[n S82 . . . ]
-"1731
-[v _PIR1bits `VS82 ~T0 @X0 0 e@3998 ]
+"76 BUTTON.h
+[v _BUT_IR_PinChangeInt `(v ~T0 @X0 0 ef1`uc ]
+"176 RF.h
+[v _RF_DataInt `(v ~T0 @X0 0 ef1`uc ]
+"5832 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f24j10.h
+[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
 "1619
 [s S78 :6 `uc 1 :1 `uc 1 ]
 [n S78 . . PLLEN ]
@@ -3103,67 +3081,65 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 56: extern char * strichr(const char *, int);
 [; ;string.h: 57: extern char * strrchr(const char *, int);
 [; ;string.h: 58: extern char * strrichr(const char *, int);
-[; ;USER.h: 181: void Init_App(void);
-[; ;USER.h: 182: void Init_System (void);
-[; ;SYSTEM.h: 78: extern volatile unsigned char System_State;
-[; ;SYSTEM.h: 79: extern volatile unsigned char System_State_Change;
-[; ;SYSTEM.h: 84: void SYS_ConfigureOscillator(void);
-[; ;SYSTEM.h: 85: inline void SYS_Idle(void);
-[; ;SYSTEM.h: 86: inline void SYS_Sleep(void);
-[; ;SYSTEM.h: 87: void SYS_ActivityTimer(void);
-[; ;SYSTEM.h: 88: inline void SYS_ActivityTimerReset(void);
-[; ;SYSTEM.h: 89: inline void SYS_EnableInt(void);
-[; ;SYSTEM.h: 90: inline void SYS_DisableInt(void);
-"83 IR.h
-[v _IR_SavedTiming `Cui ~T0 @X0 -> 128 `i e@9216 ]
-[i _IR_SavedTiming
+[; ;USER.h: 199: void Init_App(void);
+[; ;USER.h: 200: void Init_System (void);
+[; ;SYSTEM.h: 83: extern volatile unsigned char System_State;
+[; ;SYSTEM.h: 84: extern volatile unsigned char System_State_Change;
+[; ;SYSTEM.h: 89: void SYS_ConfigureOscillator(void);
+[; ;SYSTEM.h: 90: inline void SYS_Idle(void);
+[; ;SYSTEM.h: 91: inline void SYS_Sleep(void);
+[; ;SYSTEM.h: 92: void SYS_ActivityTimer(void);
+[; ;SYSTEM.h: 93: inline void SYS_ActivityTimerReset(void);
+[; ;SYSTEM.h: 94: inline void SYS_EnableInt(void);
+[; ;SYSTEM.h: 95: inline void SYS_DisableInt(void);
+"84 IR.h
+[v _IR_SavedTiming0 `Cui ~T0 @X0 -> 96 `i e@9216 ]
+[i _IR_SavedTiming0
 :U ..
-"84
--> -> 8600 `i `ui
 "85
--> -> 4200 `i `ui
+-> -> 8600 `i `ui
 "86
--> -> 450 `i `ui
+-> -> 4200 `i `ui
 "87
--> -> 1200 `i `ui
-"88
 -> -> 450 `i `ui
+"88
+-> -> 1200 `i `ui
 "89
 -> -> 450 `i `ui
 "90
 -> -> 450 `i `ui
 "91
--> -> 1200 `i `ui
+-> -> 450 `i `ui
 "92
--> -> 450 `i `ui
-"93
 -> -> 1200 `i `ui
-"94
+"93
 -> -> 450 `i `ui
+"94
+-> -> 1200 `i `ui
 "95
 -> -> 450 `i `ui
 "96
 -> -> 450 `i `ui
 "97
--> -> 1200 `i `ui
-"98
 -> -> 450 `i `ui
+"98
+-> -> 1200 `i `ui
 "99
 -> -> 450 `i `ui
 "100
 -> -> 450 `i `ui
 "101
--> -> 1200 `i `ui
-"102
 -> -> 450 `i `ui
+"102
+-> -> 1200 `i `ui
 "103
 -> -> 450 `i `ui
 "104
 -> -> 450 `i `ui
 "105
--> -> 1200 `i `ui
-"106
 -> -> 450 `i `ui
+"106
+-> -> 1200 `i `ui
 "107
 -> -> 450 `i `ui
 "108
@@ -3173,17 +3149,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 "110
 -> -> 450 `i `ui
 "111
--> -> 1200 `i `ui
-"112
 -> -> 450 `i `ui
+"112
+-> -> 1200 `i `ui
 "113
 -> -> 450 `i `ui
 "114
 -> -> 450 `i `ui
 "115
--> -> 1200 `i `ui
-"116
 -> -> 450 `i `ui
+"116
+-> -> 1200 `i `ui
 "117
 -> -> 450 `i `ui
 "118
@@ -3193,17 +3169,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 "120
 -> -> 450 `i `ui
 "121
--> -> 1200 `i `ui
-"122
 -> -> 450 `i `ui
+"122
+-> -> 1200 `i `ui
 "123
 -> -> 450 `i `ui
 "124
 -> -> 450 `i `ui
 "125
--> -> 1200 `i `ui
-"126
 -> -> 450 `i `ui
+"126
+-> -> 1200 `i `ui
 "127
 -> -> 450 `i `ui
 "128
@@ -3221,83 +3197,142 @@ Version 3.2 HI-TECH Software Intermediate Code
 "134
 -> -> 450 `i `ui
 "135
--> -> 1200 `i `ui
-"136
 -> -> 450 `i `ui
+"136
+-> -> 1200 `i `ui
 "137
 -> -> 450 `i `ui
 "138
 -> -> 450 `i `ui
 "139
--> -> 1200 `i `ui
-"140
 -> -> 450 `i `ui
+"140
+-> -> 1200 `i `ui
 "141
 -> -> 450 `i `ui
 "142
 -> -> 450 `i `ui
 "143
--> -> 1200 `i `ui
+-> -> 450 `i `ui
 "144
--> -> 450 `i `ui
+-> -> 1200 `i `ui
 "145
--> -> 1200 `i `ui
+-> -> 450 `i `ui
 "146
--> -> 450 `i `ui
-"147
 -> -> 1200 `i `ui
-"148
+"147
 -> -> 450 `i `ui
+"148
+-> -> 1200 `i `ui
 "149
+-> -> 450 `i `ui
+"150
 -> -> 1200 `i `ui
 "151
 -> -> 450 `i `ui
+"152
+-> -> 0 `i `ui
+"153
+-> -> 0 `i `ui
+"154
+-> -> 0 `i `ui
+"155
+-> -> 0 `i `ui
+"156
+-> -> 0 `i `ui
+"157
+-> -> 0 `i `ui
+"158
+-> -> 0 `i `ui
+"159
+-> -> 0 `i `ui
+"160
+-> -> 0 `i `ui
+"161
+-> -> 0 `i `ui
+"162
+-> -> 0 `i `ui
+"163
+-> -> 0 `i `ui
+"164
+-> -> 0 `i `ui
+"165
+-> -> 0 `i `ui
+"166
+-> -> 0 `i `ui
+"167
+-> -> 0 `i `ui
+"168
+-> -> 0 `i `ui
+"169
+-> -> 0 `i `ui
+"170
+-> -> 0 `i `ui
+"171
+-> -> 0 `i `ui
+"172
+-> -> 0 `i `ui
+"173
+-> -> 0 `i `ui
+"174
+-> -> 0 `i `ui
+"175
+-> -> 0 `i `ui
+"176
+-> -> 0 `i `ui
+"177
+-> -> 0 `i `ui
+"178
+-> -> 0 `i `ui
+"179
+-> -> 0 `i `ui
+"181
+-> -> 0 `i `ui
 ..
 ]
-[; ;IR.h: 83: const unsigned int IR_SavedTiming[128] __attribute__((address(0x2400)))= {
-[; ;IR.h: 84: 8600,
-[; ;IR.h: 85: 4200,
-[; ;IR.h: 86: 450,
-[; ;IR.h: 87: 1200,
-[; ;IR.h: 88: 450,
+[; ;IR.h: 84: const unsigned int IR_SavedTiming0[96] __attribute__((address(0x2400)))= {
+[; ;IR.h: 85: 8600,
+[; ;IR.h: 86: 4200,
+[; ;IR.h: 87: 450,
+[; ;IR.h: 88: 1200,
 [; ;IR.h: 89: 450,
 [; ;IR.h: 90: 450,
-[; ;IR.h: 91: 1200,
-[; ;IR.h: 92: 450,
-[; ;IR.h: 93: 1200,
-[; ;IR.h: 94: 450,
+[; ;IR.h: 91: 450,
+[; ;IR.h: 92: 1200,
+[; ;IR.h: 93: 450,
+[; ;IR.h: 94: 1200,
 [; ;IR.h: 95: 450,
 [; ;IR.h: 96: 450,
-[; ;IR.h: 97: 1200,
-[; ;IR.h: 98: 450,
+[; ;IR.h: 97: 450,
+[; ;IR.h: 98: 1200,
 [; ;IR.h: 99: 450,
 [; ;IR.h: 100: 450,
-[; ;IR.h: 101: 1200,
-[; ;IR.h: 102: 450,
+[; ;IR.h: 101: 450,
+[; ;IR.h: 102: 1200,
 [; ;IR.h: 103: 450,
 [; ;IR.h: 104: 450,
-[; ;IR.h: 105: 1200,
-[; ;IR.h: 106: 450,
+[; ;IR.h: 105: 450,
+[; ;IR.h: 106: 1200,
 [; ;IR.h: 107: 450,
 [; ;IR.h: 108: 450,
 [; ;IR.h: 109: 450,
 [; ;IR.h: 110: 450,
-[; ;IR.h: 111: 1200,
-[; ;IR.h: 112: 450,
+[; ;IR.h: 111: 450,
+[; ;IR.h: 112: 1200,
 [; ;IR.h: 113: 450,
 [; ;IR.h: 114: 450,
-[; ;IR.h: 115: 1200,
-[; ;IR.h: 116: 450,
+[; ;IR.h: 115: 450,
+[; ;IR.h: 116: 1200,
 [; ;IR.h: 117: 450,
 [; ;IR.h: 118: 450,
 [; ;IR.h: 119: 450,
 [; ;IR.h: 120: 450,
-[; ;IR.h: 121: 1200,
-[; ;IR.h: 122: 450,
+[; ;IR.h: 121: 450,
+[; ;IR.h: 122: 1200,
 [; ;IR.h: 123: 450,
 [; ;IR.h: 124: 450,
-[; ;IR.h: 125: 1200,
-[; ;IR.h: 126: 450,
+[; ;IR.h: 125: 450,
+[; ;IR.h: 126: 1200,
 [; ;IR.h: 127: 450,
 [; ;IR.h: 128: 450,
 [; ;IR.h: 129: 450,
@@ -3306,243 +3341,732 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;IR.h: 132: 450,
 [; ;IR.h: 133: 450,
 [; ;IR.h: 134: 450,
-[; ;IR.h: 135: 1200,
-[; ;IR.h: 136: 450,
+[; ;IR.h: 135: 450,
+[; ;IR.h: 136: 1200,
 [; ;IR.h: 137: 450,
 [; ;IR.h: 138: 450,
-[; ;IR.h: 139: 1200,
-[; ;IR.h: 140: 450,
+[; ;IR.h: 139: 450,
+[; ;IR.h: 140: 1200,
 [; ;IR.h: 141: 450,
 [; ;IR.h: 142: 450,
-[; ;IR.h: 143: 1200,
-[; ;IR.h: 144: 450,
-[; ;IR.h: 145: 1200,
-[; ;IR.h: 146: 450,
-[; ;IR.h: 147: 1200,
-[; ;IR.h: 148: 450,
-[; ;IR.h: 149: 1200,
-[; ;IR.h: 150: 450
-[; ;IR.h: 151: };
-[; ;IR.h: 156: extern volatile unsigned char IR_Data;
-[; ;IR.h: 157: extern unsigned int IR_DataTiming[128];
-[; ;IR.h: 158: extern unsigned char IR_DataPlace;
-[; ;IR.h: 159: extern unsigned char IRStarted;
-[; ;IR.h: 160: extern unsigned int IR_SyncLow;
-[; ;IR.h: 161: extern unsigned int IR_SyncHigh;
-[; ;IR.h: 162: extern unsigned char IR_Saved;
-[; ;IR.h: 163: extern unsigned char IR_CodeSize;
-[; ;IR.h: 164: extern unsigned char IRValue_prev;
-[; ;IR.h: 165: extern unsigned char IRChange;
-[; ;IR.h: 174: void InitIR(void);
-[; ;IR.h: 175: unsigned char IR_ReadReceiver(void);
-[; ;IR.h: 176: void IR_ResetData(void);
-[; ;IR.h: 177: void IR_LoadCode(void);
-[; ;IR.h: 178: unsigned char IR_CalculateCodesize(void);
-[; ;IR.h: 179: unsigned char IR_CheckCode(void);
-[; ;IR.h: 180: void IR_CleanBuffer(void);
+[; ;IR.h: 143: 450,
+[; ;IR.h: 144: 1200,
+[; ;IR.h: 145: 450,
+[; ;IR.h: 146: 1200,
+[; ;IR.h: 147: 450,
+[; ;IR.h: 148: 1200,
+[; ;IR.h: 149: 450,
+[; ;IR.h: 150: 1200,
+[; ;IR.h: 151: 450,
+[; ;IR.h: 152: 0,
+[; ;IR.h: 153: 0,
+[; ;IR.h: 154: 0,
+[; ;IR.h: 155: 0,
+[; ;IR.h: 156: 0,
+[; ;IR.h: 157: 0,
+[; ;IR.h: 158: 0,
+[; ;IR.h: 159: 0,
+[; ;IR.h: 160: 0,
+[; ;IR.h: 161: 0,
+[; ;IR.h: 162: 0,
+[; ;IR.h: 163: 0,
+[; ;IR.h: 164: 0,
+[; ;IR.h: 165: 0,
+[; ;IR.h: 166: 0,
+[; ;IR.h: 167: 0,
+[; ;IR.h: 168: 0,
+[; ;IR.h: 169: 0,
+[; ;IR.h: 170: 0,
+[; ;IR.h: 171: 0,
+[; ;IR.h: 172: 0,
+[; ;IR.h: 173: 0,
+[; ;IR.h: 174: 0,
+[; ;IR.h: 175: 0,
+[; ;IR.h: 176: 0,
+[; ;IR.h: 177: 0,
+[; ;IR.h: 178: 0,
+[; ;IR.h: 179: 0,
+[; ;IR.h: 180: 0
+[; ;IR.h: 181: };
+"184
+[v _IR_SavedTiming1 `Cui ~T0 @X0 -> 96 `i e@9408 ]
+[i _IR_SavedTiming1
+:U ..
+"185
+-> -> 8600 `i `ui
+"186
+-> -> 4200 `i `ui
+"187
+-> -> 450 `i `ui
+"188
+-> -> 450 `i `ui
+"189
+-> -> 450 `i `ui
+"190
+-> -> 450 `i `ui
+"191
+-> -> 450 `i `ui
+"192
+-> -> 450 `i `ui
+"193
+-> -> 450 `i `ui
+"194
+-> -> 1200 `i `ui
+"195
+-> -> 450 `i `ui
+"196
+-> -> 1200 `i `ui
+"197
+-> -> 450 `i `ui
+"198
+-> -> 1200 `i `ui
+"199
+-> -> 450 `i `ui
+"200
+-> -> 450 `i `ui
+"201
+-> -> 450 `i `ui
+"202
+-> -> 450 `i `ui
+"203
+-> -> 450 `i `ui
+"204
+-> -> 1200 `i `ui
+"205
+-> -> 450 `i `ui
+"206
+-> -> 1200 `i `ui
+"207
+-> -> 450 `i `ui
+"208
+-> -> 1200 `i `ui
+"209
+-> -> 450 `i `ui
+"210
+-> -> 450 `i `ui
+"211
+-> -> 450 `i `ui
+"212
+-> -> 450 `i `ui
+"213
+-> -> 450 `i `ui
+"214
+-> -> 450 `i `ui
+"215
+-> -> 450 `i `ui
+"216
+-> -> 1200 `i `ui
+"217
+-> -> 450 `i `ui
+"218
+-> -> 1200 `i `ui
+"219
+-> -> 450 `i `ui
+"220
+-> -> 450 `i `ui
+"221
+-> -> 450 `i `ui
+"222
+-> -> 1200 `i `ui
+"223
+-> -> 450 `i `ui
+"224
+-> -> 450 `i `ui
+"225
+-> -> 450 `i `ui
+"226
+-> -> 1200 `i `ui
+"227
+-> -> 450 `i `ui
+"228
+-> -> 450 `i `ui
+"229
+-> -> 450 `i `ui
+"230
+-> -> 450 `i `ui
+"231
+-> -> 450 `i `ui
+"232
+-> -> 450 `i `ui
+"233
+-> -> 450 `i `ui
+"234
+-> -> 450 `i `ui
+"235
+-> -> 450 `i `ui
+"236
+-> -> 1200 `i `ui
+"237
+-> -> 450 `i `ui
+"238
+-> -> 450 `i `ui
+"239
+-> -> 450 `i `ui
+"240
+-> -> 1200 `i `ui
+"241
+-> -> 450 `i `ui
+"242
+-> -> 450 `i `ui
+"243
+-> -> 450 `i `ui
+"244
+-> -> 1200 `i `ui
+"245
+-> -> 450 `i `ui
+"246
+-> -> 1200 `i `ui
+"247
+-> -> 450 `i `ui
+"248
+-> -> 1200 `i `ui
+"249
+-> -> 450 `i `ui
+"250
+-> -> 1200 `i `ui
+"251
+-> -> 450 `i `ui
+"252
+-> -> 0 `i `ui
+"253
+-> -> 0 `i `ui
+"254
+-> -> 0 `i `ui
+"255
+-> -> 0 `i `ui
+"256
+-> -> 0 `i `ui
+"257
+-> -> 0 `i `ui
+"258
+-> -> 0 `i `ui
+"259
+-> -> 0 `i `ui
+"260
+-> -> 0 `i `ui
+"261
+-> -> 0 `i `ui
+"262
+-> -> 0 `i `ui
+"263
+-> -> 0 `i `ui
+"264
+-> -> 0 `i `ui
+"265
+-> -> 0 `i `ui
+"266
+-> -> 0 `i `ui
+"267
+-> -> 0 `i `ui
+"268
+-> -> 0 `i `ui
+"269
+-> -> 0 `i `ui
+"270
+-> -> 0 `i `ui
+"271
+-> -> 0 `i `ui
+"272
+-> -> 0 `i `ui
+"273
+-> -> 0 `i `ui
+"274
+-> -> 0 `i `ui
+"275
+-> -> 0 `i `ui
+"276
+-> -> 0 `i `ui
+"277
+-> -> 0 `i `ui
+"278
+-> -> 0 `i `ui
+"279
+-> -> 0 `i `ui
+"281
+-> -> 0 `i `ui
+..
+]
+[; ;IR.h: 184: const unsigned int IR_SavedTiming1[96] __attribute__((address(0x24C0)))= {
+[; ;IR.h: 185: 8600,
+[; ;IR.h: 186: 4200,
+[; ;IR.h: 187: 450,
+[; ;IR.h: 188: 450,
+[; ;IR.h: 189: 450,
+[; ;IR.h: 190: 450,
+[; ;IR.h: 191: 450,
+[; ;IR.h: 192: 450,
+[; ;IR.h: 193: 450,
+[; ;IR.h: 194: 1200,
+[; ;IR.h: 195: 450,
+[; ;IR.h: 196: 1200,
+[; ;IR.h: 197: 450,
+[; ;IR.h: 198: 1200,
+[; ;IR.h: 199: 450,
+[; ;IR.h: 200: 450,
+[; ;IR.h: 201: 450,
+[; ;IR.h: 202: 450,
+[; ;IR.h: 203: 450,
+[; ;IR.h: 204: 1200,
+[; ;IR.h: 205: 450,
+[; ;IR.h: 206: 1200,
+[; ;IR.h: 207: 450,
+[; ;IR.h: 208: 1200,
+[; ;IR.h: 209: 450,
+[; ;IR.h: 210: 450,
+[; ;IR.h: 211: 450,
+[; ;IR.h: 212: 450,
+[; ;IR.h: 213: 450,
+[; ;IR.h: 214: 450,
+[; ;IR.h: 215: 450,
+[; ;IR.h: 216: 1200,
+[; ;IR.h: 217: 450,
+[; ;IR.h: 218: 1200,
+[; ;IR.h: 219: 450,
+[; ;IR.h: 220: 450,
+[; ;IR.h: 221: 450,
+[; ;IR.h: 222: 1200,
+[; ;IR.h: 223: 450,
+[; ;IR.h: 224: 450,
+[; ;IR.h: 225: 450,
+[; ;IR.h: 226: 1200,
+[; ;IR.h: 227: 450,
+[; ;IR.h: 228: 450,
+[; ;IR.h: 229: 450,
+[; ;IR.h: 230: 450,
+[; ;IR.h: 231: 450,
+[; ;IR.h: 232: 450,
+[; ;IR.h: 233: 450,
+[; ;IR.h: 234: 450,
+[; ;IR.h: 235: 450,
+[; ;IR.h: 236: 1200,
+[; ;IR.h: 237: 450,
+[; ;IR.h: 238: 450,
+[; ;IR.h: 239: 450,
+[; ;IR.h: 240: 1200,
+[; ;IR.h: 241: 450,
+[; ;IR.h: 242: 450,
+[; ;IR.h: 243: 450,
+[; ;IR.h: 244: 1200,
+[; ;IR.h: 245: 450,
+[; ;IR.h: 246: 1200,
+[; ;IR.h: 247: 450,
+[; ;IR.h: 248: 1200,
+[; ;IR.h: 249: 450,
+[; ;IR.h: 250: 1200,
+[; ;IR.h: 251: 450,
+[; ;IR.h: 252: 0,
+[; ;IR.h: 253: 0,
+[; ;IR.h: 254: 0,
+[; ;IR.h: 255: 0,
+[; ;IR.h: 256: 0,
+[; ;IR.h: 257: 0,
+[; ;IR.h: 258: 0,
+[; ;IR.h: 259: 0,
+[; ;IR.h: 260: 0,
+[; ;IR.h: 261: 0,
+[; ;IR.h: 262: 0,
+[; ;IR.h: 263: 0,
+[; ;IR.h: 264: 0,
+[; ;IR.h: 265: 0,
+[; ;IR.h: 266: 0,
+[; ;IR.h: 267: 0,
+[; ;IR.h: 268: 0,
+[; ;IR.h: 269: 0,
+[; ;IR.h: 270: 0,
+[; ;IR.h: 271: 0,
+[; ;IR.h: 272: 0,
+[; ;IR.h: 273: 0,
+[; ;IR.h: 274: 0,
+[; ;IR.h: 275: 0,
+[; ;IR.h: 276: 0,
+[; ;IR.h: 277: 0,
+[; ;IR.h: 278: 0,
+[; ;IR.h: 279: 0,
+[; ;IR.h: 280: 0
+[; ;IR.h: 281: };
+[; ;IR.h: 286: extern volatile unsigned char IR_Data;
+[; ;IR.h: 287: extern unsigned int IR_DataTiming[96];
+[; ;IR.h: 288: extern unsigned int IR_DataHolder1[96];
+[; ;IR.h: 289: extern unsigned char IR_DataPlace;
+[; ;IR.h: 290: extern unsigned char IRStarted;
+[; ;IR.h: 291: extern unsigned int IR_SyncLow;
+[; ;IR.h: 292: extern unsigned int IR_SyncHigh;
+[; ;IR.h: 293: extern unsigned char IR_Saved;
+[; ;IR.h: 294: extern unsigned char IR_CodeSize;
+[; ;IR.h: 295: extern unsigned char IRValue_prev;
+[; ;IR.h: 296: extern unsigned char IRChange;
+[; ;IR.h: 297: extern unsigned char IRProgramCodeNumber;
+[; ;IR.h: 306: void InitIR(void);
+[; ;IR.h: 307: unsigned char IR_ReadReceiver(void);
+[; ;IR.h: 308: void IR_ResetData(void);
+[; ;IR.h: 309: void IR_LoadCode(void);
+[; ;IR.h: 310: unsigned char IR_CalculateCodesize(const unsigned int* Code);
+[; ;IR.h: 311: unsigned char IR_CheckCode(void);
+[; ;IR.h: 312: void IR_CleanBuffer(void);
 [; ;BUTTON.h: 64: extern volatile unsigned char Button_Data;
 [; ;BUTTON.h: 65: extern unsigned char ButtonValue_prev;
 [; ;BUTTON.h: 66: extern unsigned char ButtonChange;
 [; ;BUTTON.h: 75: void InitButton(void);
-[; ;BUTTON.h: 76: inline void BUT_IR_PinChangeInt(unsigned char state);
+[; ;BUTTON.h: 76: void BUT_IR_PinChangeInt(unsigned char state);
 [; ;BUTTON.h: 77: unsigned char BUT_ReadButton(void);
-"44 SYSTEM.c
+"101 RF.h
+[v _RF_SavedTiming `Cui ~T0 @X0 -> 64 `i e@9600 ]
+[i _RF_SavedTiming
+:U ..
+"102
+-> -> 834 `i `ui
+"103
+-> -> 21 `i `ui
+"104
+-> -> 80 `i `ui
+"105
+-> -> 22 `i `ui
+"106
+-> -> 80 `i `ui
+"107
+-> -> 21 `i `ui
+"108
+-> -> 78 `i `ui
+"109
+-> -> 79 `i `ui
+"110
+-> -> 26 `i `ui
+"111
+-> -> 22 `i `ui
+"112
+-> -> 78 `i `ui
+"113
+-> -> 78 `i `ui
+"114
+-> -> 27 `i `ui
+"115
+-> -> 21 `i `ui
+"116
+-> -> 79 `i `ui
+"117
+-> -> 76 `i `ui
+"118
+-> -> 25 `i `ui
+"119
+-> -> 23 `i `ui
+"120
+-> -> 79 `i `ui
+"121
+-> -> 75 `i `ui
+"122
+-> -> 27 `i `ui
+"123
+-> -> 21 `i `ui
+"124
+-> -> 81 `i `ui
+"125
+-> -> 75 `i `ui
+"126
+-> -> 25 `i `ui
+"127
+-> -> 22 `i `ui
+"128
+-> -> 81 `i `ui
+"129
+-> -> 22 `i `ui
+"130
+-> -> 79 `i `ui
+"131
+-> -> 22 `i `ui
+"132
+-> -> 80 `i `ui
+"133
+-> -> 24 `i `ui
+"134
+-> -> 79 `i `ui
+"135
+-> -> 77 `i `ui
+"136
+-> -> 25 `i `ui
+"137
+-> -> 76 `i `ui
+"138
+-> -> 27 `i `ui
+"139
+-> -> 21 `i `ui
+"140
+-> -> 80 `i `ui
+"141
+-> -> 21 `i `ui
+"142
+-> -> 81 `i `ui
+"143
+-> -> 21 `i `ui
+"144
+-> -> 80 `i `ui
+"145
+-> -> 22 `i `ui
+"146
+-> -> 80 `i `ui
+"147
+-> -> 22 `i `ui
+"148
+-> -> 81 `i `ui
+"149
+-> -> 22 `i `ui
+"150
+-> -> 79 `i `ui
+"151
+-> -> 22 `i `ui
+..
+]
+[; ;RF.h: 101: const unsigned int RF_SavedTiming[64] __attribute__((address(0x2580))) = {
+[; ;RF.h: 102: 834,
+[; ;RF.h: 103: 21,
+[; ;RF.h: 104: 80,
+[; ;RF.h: 105: 22,
+[; ;RF.h: 106: 80,
+[; ;RF.h: 107: 21,
+[; ;RF.h: 108: 78,
+[; ;RF.h: 109: 79,
+[; ;RF.h: 110: 26,
+[; ;RF.h: 111: 22,
+[; ;RF.h: 112: 78,
+[; ;RF.h: 113: 78,
+[; ;RF.h: 114: 27,
+[; ;RF.h: 115: 21,
+[; ;RF.h: 116: 79,
+[; ;RF.h: 117: 76,
+[; ;RF.h: 118: 25,
+[; ;RF.h: 119: 23,
+[; ;RF.h: 120: 79,
+[; ;RF.h: 121: 75,
+[; ;RF.h: 122: 27,
+[; ;RF.h: 123: 21,
+[; ;RF.h: 124: 81,
+[; ;RF.h: 125: 75,
+[; ;RF.h: 126: 25,
+[; ;RF.h: 127: 22,
+[; ;RF.h: 128: 81,
+[; ;RF.h: 129: 22,
+[; ;RF.h: 130: 79,
+[; ;RF.h: 131: 22,
+[; ;RF.h: 132: 80,
+[; ;RF.h: 133: 24,
+[; ;RF.h: 134: 79,
+[; ;RF.h: 135: 77,
+[; ;RF.h: 136: 25,
+[; ;RF.h: 137: 76,
+[; ;RF.h: 138: 27,
+[; ;RF.h: 139: 21,
+[; ;RF.h: 140: 80,
+[; ;RF.h: 141: 21,
+[; ;RF.h: 142: 81,
+[; ;RF.h: 143: 21,
+[; ;RF.h: 144: 80,
+[; ;RF.h: 145: 22,
+[; ;RF.h: 146: 80,
+[; ;RF.h: 147: 22,
+[; ;RF.h: 148: 81,
+[; ;RF.h: 149: 22,
+[; ;RF.h: 150: 79,
+[; ;RF.h: 151: 22,
+[; ;RF.h: 152: };
+[; ;RF.h: 157: extern volatile unsigned char RF_Data;
+[; ;RF.h: 158: extern unsigned int RF_DataTiming[64];
+[; ;RF.h: 159: extern unsigned char RF_DataPlace;
+[; ;RF.h: 160: extern unsigned char RFStarted;
+[; ;RF.h: 161: extern unsigned int RF_SyncLow;
+[; ;RF.h: 162: extern unsigned int RF_SyncHigh;
+[; ;RF.h: 163: extern unsigned char RF_Saved;
+[; ;RF.h: 164: extern unsigned char RF_CodeSize;
+[; ;RF.h: 165: extern double Rail_RSSI;
+[; ;RF.h: 174: void InitRF(void);
+[; ;RF.h: 175: unsigned char RF_ReadReceiver(void);
+[; ;RF.h: 176: void RF_DataInt(unsigned char state);
+[; ;RF.h: 177: void RF_Receiver(unsigned char state);
+[; ;RF.h: 178: void RF_SetBandwidth(unsigned char band);
+[; ;RF.h: 179: void RF_SetSquelch(unsigned char state);
+[; ;RF.h: 180: void RF_ResetData(void);
+[; ;RF.h: 181: void RF_LoadCode(void);
+[; ;RF.h: 182: unsigned char RF_CalculateCodesize(void);
+[; ;RF.h: 183: unsigned char RF_CheckCode(void);
+[; ;RF.h: 184: void RF_Disable(void);
+[; ;RF.h: 185: void RF_Enable(void);
+"45 SYSTEM.c
 [v _System_State `Vuc ~T0 @X0 1 e ]
 [i _System_State
 -> -> 8 `i `uc
 ]
-[; ;SYSTEM.c: 44: volatile unsigned char System_State = 8;
-"45
+[; ;SYSTEM.c: 45: volatile unsigned char System_State = 8;
+"46
 [v _System_State_Change `Vuc ~T0 @X0 1 e ]
 [i _System_State_Change
 -> -> 0 `i `uc
 ]
-[; ;SYSTEM.c: 45: volatile unsigned char System_State_Change = 0;
-"46
+[; ;SYSTEM.c: 46: volatile unsigned char System_State_Change = 0;
+"47
 [v _Activity_Timer `ul ~T0 @X0 1 e ]
 [i _Activity_Timer
 -> -> -> 0 `i `l `ul
 ]
-[; ;SYSTEM.c: 46: unsigned long Activity_Timer = 0;
-[v F3295 `(v ~T0 @X0 1 tf ]
-"57
-[v _SYS_Idle `TF3295 ~T0 @X0 1 e ]
-"58
-{
-[; ;SYSTEM.c: 57: inline void SYS_Idle(void)
-[; ;SYSTEM.c: 58: {
-[e :U _SYS_Idle ]
-[f ]
-[; ;SYSTEM.c: 59: OSCCON |= 0b10000000;
-"59
-[e =| _OSCCON -> -> 128 `i `uc ]
-[; ;SYSTEM.c: 60: asm("sleep");
-"60
-[; <" sleep ;# ">
-[; ;SYSTEM.c: 61: }
-"61
-[e :UE 394 ]
-}
+[; ;SYSTEM.c: 47: unsigned long Activity_Timer = 0;
 [v F3303 `(v ~T0 @X0 1 tf ]
-"69
+"59
 [v _SYS_ActivityTimerReset `TF3303 ~T0 @X0 1 e ]
-"70
+"60
 {
-[; ;SYSTEM.c: 69: inline void SYS_ActivityTimerReset(void)
-[; ;SYSTEM.c: 70: {
+[; ;SYSTEM.c: 59: inline void SYS_ActivityTimerReset(void)
+[; ;SYSTEM.c: 60: {
 [e :U _SYS_ActivityTimerReset ]
 [f ]
-[; ;SYSTEM.c: 71: Activity_Timer = 0;
-"71
+[; ;SYSTEM.c: 61: Activity_Timer = 0;
+"61
 [e = _Activity_Timer -> -> -> 0 `i `l `ul ]
-[; ;SYSTEM.c: 72: }
-"72
-[e :UE 395 ]
+[; ;SYSTEM.c: 62: }
+"62
+[e :UE 394 ]
 }
 [v F3309 `(v ~T0 @X0 1 tf ]
-"79
+"69
 [v _SYS_DisableInt `TF3309 ~T0 @X0 1 e ]
-"80
+"70
 {
-[; ;SYSTEM.c: 79: inline void SYS_DisableInt(void)
-[; ;SYSTEM.c: 80: {
+[; ;SYSTEM.c: 69: inline void SYS_DisableInt(void)
+[; ;SYSTEM.c: 70: {
 [e :U _SYS_DisableInt ]
 [f ]
-[; ;SYSTEM.c: 81: INTCONbits.GIE = 0;
-"81
+[; ;SYSTEM.c: 71: INTCONbits.GIE = 0;
+"71
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;SYSTEM.c: 82: INTCONbits.PEIE = 0;
-"82
+[; ;SYSTEM.c: 72: INTCONbits.PEIE = 0;
+"72
 [e = . . _INTCONbits 1 6 -> -> 0 `i `uc ]
-[; ;SYSTEM.c: 83: }
-"83
-[e :UE 396 ]
+[; ;SYSTEM.c: 73: }
+"73
+[e :UE 395 ]
 }
 [v F3306 `(v ~T0 @X0 1 tf ]
-"90
+"80
 [v _SYS_EnableInt `TF3306 ~T0 @X0 1 e ]
-"91
+"81
 {
-[; ;SYSTEM.c: 90: inline void SYS_EnableInt(void)
-[; ;SYSTEM.c: 91: {
+[; ;SYSTEM.c: 80: inline void SYS_EnableInt(void)
+[; ;SYSTEM.c: 81: {
 [e :U _SYS_EnableInt ]
 [f ]
-[; ;SYSTEM.c: 92: INTCON3bits.INT1IF = 0;
-"92
-[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
-[; ;SYSTEM.c: 93: INTCON3bits.INT2IF = 0;
-"93
-[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
-[; ;SYSTEM.c: 94: INTCONbits.TMR0IF = 0;
-"94
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;SYSTEM.c: 95: IR_ReadReceiver();
-"95
-[e ( _IR_ReadReceiver ..  ]
-[; ;SYSTEM.c: 96: BUT_ReadButton();
-"96
-[e ( _BUT_ReadButton ..  ]
-[; ;SYSTEM.c: 97: INTCONbits.RBIF = 0;
-"97
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-[; ;SYSTEM.c: 98: PIR1bits.TMR2IF = 0;
-"98
-[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
-[; ;SYSTEM.c: 99: PIR1bits.ADIF = 0;
-"99
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;SYSTEM.c: 100: PIR1bits.TMR1IF = 0;
-"100
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;SYSTEM.c: 101: INTCONbits.GIE = 1;
-"101
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;SYSTEM.c: 102: INTCONbits.PEIE = 1;
-"102
+[; ;SYSTEM.c: 82: BUT_IR_PinChangeInt(1);
+"82
+[e ( _BUT_IR_PinChangeInt (1 -> -> 1 `i `uc ]
+[; ;SYSTEM.c: 83: RF_DataInt(1);
+"83
+[e ( _RF_DataInt (1 -> -> 1 `i `uc ]
+[; ;SYSTEM.c: 84: INTCONbits.PEIE = 1;
+"84
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;SYSTEM.c: 103: }
-"103
-[e :UE 397 ]
+[; ;SYSTEM.c: 85: INTCONbits.GIE = 1;
+"85
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;SYSTEM.c: 86: }
+"86
+[e :UE 396 ]
 }
 [v F3298 `(v ~T0 @X0 1 tf ]
-"110
+"93
 [v _SYS_Sleep `TF3298 ~T0 @X0 1 e ]
-"111
+"94
 {
-[; ;SYSTEM.c: 110: inline void SYS_Sleep(void)
-[; ;SYSTEM.c: 111: {
+[; ;SYSTEM.c: 93: inline void SYS_Sleep(void)
+[; ;SYSTEM.c: 94: {
 [e :U _SYS_Sleep ]
 [f ]
-[; ;SYSTEM.c: 112: OSCCON &= ~0b10000000;
-"112
+[; ;SYSTEM.c: 95: OSCCON &= ~0b10000000;
+"95
 [e =& _OSCCON -> ~ -> 128 `i `uc ]
-[; ;SYSTEM.c: 113: asm("sleep");
-"113
+[; ;SYSTEM.c: 96: asm("sleep");
+"96
 [; <" sleep ;# ">
-[; ;SYSTEM.c: 114: }
-"114
+[; ;SYSTEM.c: 97: }
+"97
+[e :UE 397 ]
+}
+[v F3295 `(v ~T0 @X0 1 tf ]
+"104
+[v _SYS_Idle `TF3295 ~T0 @X0 1 e ]
+"105
+{
+[; ;SYSTEM.c: 104: inline void SYS_Idle(void)
+[; ;SYSTEM.c: 105: {
+[e :U _SYS_Idle ]
+[f ]
+[; ;SYSTEM.c: 106: OSCCON |= 0b10000000;
+"106
+[e =| _OSCCON -> -> 128 `i `uc ]
+[; ;SYSTEM.c: 107: asm("sleep");
+"107
+[; <" sleep ;# ">
+[; ;SYSTEM.c: 108: }
+"108
 [e :UE 398 ]
 }
-"121
+"115
 [v _SYS_ConfigureOscillator `(v ~T0 @X0 1 ef ]
-"122
+"116
 {
-[; ;SYSTEM.c: 121: void SYS_ConfigureOscillator(void)
-[; ;SYSTEM.c: 122: {
+[; ;SYSTEM.c: 115: void SYS_ConfigureOscillator(void)
+[; ;SYSTEM.c: 116: {
 [e :U _SYS_ConfigureOscillator ]
 [f ]
-[; ;SYSTEM.c: 124: OSCTUNEbits.PLLEN = 1;
-"124
+[; ;SYSTEM.c: 118: OSCTUNEbits.PLLEN = 1;
+"118
 [e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
-[; ;SYSTEM.c: 125: while(!OSCCONbits.OSTS);
-"125
+[; ;SYSTEM.c: 119: while(!OSCCONbits.OSTS);
+"119
 [e $U 400  ]
 [e :U 401 ]
 [e :U 400 ]
 [e $ ! != -> . . _OSCCONbits 0 2 `i -> -> -> 0 `i `Vuc `i 401  ]
 [e :U 402 ]
-[; ;SYSTEM.c: 126: }
-"126
+[; ;SYSTEM.c: 120: }
+"120
 [e :UE 399 ]
 }
-"134
+"128
 [v _SYS_ActivityTimer `(v ~T0 @X0 1 ef ]
-"135
+"129
 {
-[; ;SYSTEM.c: 134: void SYS_ActivityTimer(void)
-[; ;SYSTEM.c: 135: {
+[; ;SYSTEM.c: 128: void SYS_ActivityTimer(void)
+[; ;SYSTEM.c: 129: {
 [e :U _SYS_ActivityTimer ]
 [f ]
-[; ;SYSTEM.c: 136: if(Activity_Timer > 1000)
+[; ;SYSTEM.c: 130: if(Activity_Timer > 1000L)
+"130
+[e $ ! > _Activity_Timer -> -> 1000 `l `ul 404  ]
+[; ;SYSTEM.c: 131: {
+"131
+{
+[; ;SYSTEM.c: 132: SYS_ActivityTimerReset();
+"132
+[e ( _SYS_ActivityTimerReset ..  ]
+[; ;SYSTEM.c: 133: SYS_EnableInt();
+"133
+[e ( _SYS_EnableInt ..  ]
+[; ;SYSTEM.c: 134: SYS_Sleep();
+"134
+[e ( _SYS_Sleep ..  ]
+"135
+}
+[; ;SYSTEM.c: 135: }
+[e $U 405  ]
 "136
-[e $ ! > _Activity_Timer -> -> -> 1000 `i `l `ul 404  ]
+[e :U 404 ]
+[; ;SYSTEM.c: 136: else
 [; ;SYSTEM.c: 137: {
 "137
 {
-[; ;SYSTEM.c: 138: SYS_ActivityTimerReset();
+[; ;SYSTEM.c: 138: Activity_Timer++;
 "138
-[e ( _SYS_ActivityTimerReset ..  ]
-[; ;SYSTEM.c: 139: SYS_Sleep();
-"139
-[e ( _SYS_Sleep ..  ]
-"140
-}
-[; ;SYSTEM.c: 140: }
-[e $U 405  ]
-"141
-[e :U 404 ]
-[; ;SYSTEM.c: 141: else
-[; ;SYSTEM.c: 142: {
-"142
-{
-[; ;SYSTEM.c: 143: Activity_Timer++;
-"143
 [e ++ _Activity_Timer -> -> -> 1 `i `l `ul ]
-"144
+"139
 }
 [e :U 405 ]
-[; ;SYSTEM.c: 144: }
-[; ;SYSTEM.c: 145: }
-"145
+[; ;SYSTEM.c: 139: }
+[; ;SYSTEM.c: 140: }
+"140
 [e :UE 403 ]
 }

@@ -66,19 +66,19 @@ extern unsigned int Timer2PostCount;
 /* Function prototypes                                                        */
 /******************************************************************************/
 void InitTimers(void);
-inline unsigned char TMR_Timer0Status(void);
-inline unsigned char TMR_Timer1Status(void);
-inline void TMR_Timer0(unsigned char state);
-inline void TMR_Timer1(unsigned char state);
-inline void TMR_Timer2(unsigned char state);
-inline void TMR_ResetTimer0(void);
-inline void TMR_ResetTimer1(void);
-inline void TMR_ResetTimer2(void);
-inline void TMR_Timer2SetUse(unsigned char use);
-inline void TMR_Timer0Int(unsigned char state);
-inline void TMR_Timer1Int(unsigned char state);
-inline void TMR_Timer2Int(unsigned char state);
-inline unsigned char TMR_Timer2Free(void);
+unsigned char TMR_Timer0Status(void);
+unsigned char TMR_Timer1Status(void);
+void TMR_Timer0(unsigned char state);
+void TMR_Timer1(unsigned char state);
+void TMR_Timer2(unsigned char state);
+void TMR_ResetTimer0(void);
+void TMR_ResetTimer1(void);
+void TMR_ResetTimer2(void);
+void TMR_Timer2SetUse(unsigned char use);
+void TMR_Timer0Int(unsigned char state);
+void TMR_Timer1Int(unsigned char state);
+void TMR_Timer2Int(unsigned char state);
+unsigned char TMR_Timer2Free(void);
 void InitTimer0(void);
 void InitTimer1(void);
 void InitTimer2(void);
@@ -86,5 +86,6 @@ void TMR_Timer0Start(void);
 void TMR_Timer1Start(void);
 void TMR_Timer2Start(unsigned int time);
 void TMR_Timer1Function(unsigned char mode);
+void TMR_Timer1Osc(unsigned char state);
 
 #endif	/* IR_H */

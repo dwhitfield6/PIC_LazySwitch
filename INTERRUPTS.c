@@ -188,13 +188,15 @@ void low_priority interrupt low_isr(void)
                     {
                         if(IRtemp >= IR_SyncLow && IRtemp <= IR_SyncHigh)
                         {
+                            RF_DataInt(OFF);
                             IRStarted = TRUE;
                         }
                     }
                     else
                     {
-                        if(IRtemp >= IR_PROGRAMSYNCLOW && IRtemp <= IR_PROGRAMSYNCHIGH)
+                        if(IRtemp >= IR_SYNCLOWBOUND && IRtemp <= IR_SYNCHIGHBOUND)
                         {
+                            RF_DataInt(OFF);
                             IRStarted = TRUE;
                         }
                     }
@@ -210,12 +212,7 @@ void low_priority interrupt low_isr(void)
                         {
                             if(IR_DataPlace >= IR_CodeSize)
                             {
-                                if(!IR_Data)
-                                {
-                                    IR_Data = IR_CheckCode();
-                                }
-                                TMR_Timer1(OFF);
-                                IR_ResetData();
+                                PIR1bits.TMR1IF = 1; // set timer 1 interrupt
                             }
                         }
                     }
@@ -264,7 +261,12 @@ void low_priority interrupt low_isr(void)
     else if(PIR1bits.TMR1IF)
     {
         /* IR timeout occurred */
+        BUT_IR_PinChangeInt(OFF);
         TMR_Timer1(OFF);
+        SYS_ActivityTimerReset();
+        BUT_ReadButton();
+        IR_ReadReceiver();
+        INTCONbits.RBIF = 0; //clear the interrupt on change flag
         if(System_State == PROGRAM)
         {
             if(IR_DataPlace >= IR_EDGENUM)
@@ -273,9 +275,22 @@ void low_priority interrupt low_isr(void)
                 IR_Data = IR_CheckCode();
             }
         }
+        else
+        {
+            if(!IR_Data)
+            {
+                if(IR_DataPlace >= IR_CodeSize)
+                {
+                    IR_Data = IR_CheckCode();
+                }
+            }
+        }
         TMR_ResetTimer1();
         IR_ResetData();
-        IR_CleanBuffer();
+        INTCON3bits.INT1IF = 0; // Clear rising edge Flag
+        INTCON3bits.INT2IF = 0; // Clear falling edge Flag
+        RF_DataInt(ON);
+        BUT_IR_PinChangeInt(ON);
         PIR1bits.TMR1IF = 0; // clear timer 1 flag
     }
     else

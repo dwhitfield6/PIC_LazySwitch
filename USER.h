@@ -32,6 +32,24 @@
 #endif
 
 /******************************************************************************/
+/* Build environment
+ *
+ * This code was built with MPLABX, XC8 Pro compiler. Without Pro compiler,
+ *   the code is too big to fit on the mcu.
+/******************************************************************************/
+
+/******************************************************************************/
+/* System Options
+ *
+ * This enables or disables the RF implementation. IR is always enabled in
+ *  firmware.
+ * 
+ * Options: 
+ * RF_CAPABLE : enables 315MHz RF remote receiving.
+/******************************************************************************/
+#define RF_CAPABLE
+
+/******************************************************************************/
 /* PCB board
  *
  * This code is used with boards:
@@ -52,7 +70,7 @@
  *
  * This defines the Firmware version.
 /******************************************************************************/
-#define Version "2.0b"
+#define Version "2.0c"
 
 /******************************************************************************/
 /* Defines                                                                    */

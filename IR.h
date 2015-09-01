@@ -43,20 +43,20 @@
 #define IR_TOLERANCESMALL    0.3
 
 /******************************************************************************/
-/* IR_PROGRAMSYNCLOW
+/* IR_SYNCLOWBOUND
 
  *
  * This sets the noise floor for a program IR signal sync bit.
 /******************************************************************************/
-#define IR_PROGRAMSYNCLOW    6000
+#define IR_SYNCLOWBOUND    6000
 
 /******************************************************************************/
-/* IR_PROGRAMSYNCHIGH
+/* IR_SYNCHIGHBOUND
 
  *
  * This sets the timeout of an IR signal during program.
 /******************************************************************************/
-#define IR_PROGRAMSYNCHIGH   10000
+#define IR_SYNCHIGHBOUND   10000
 
 /******************************************************************************/
 /* IR_EDGENUM
@@ -71,16 +71,17 @@
  *
  * This sets the size of the IR buffer.
 /******************************************************************************/
-#define IRBUFFERSIZE    128
+#define IRBUFFERSIZE    96
 
 /******************************************************************************/
 /* Defines                                                                    */
 /******************************************************************************/
 
 /******************************************************************************/
-/* Default IR code timing (Pioneer CXC3173 plus button)                       */
+/* Default IR codes                                                           */
 /******************************************************************************/
-const unsigned int IR_SavedTiming[IRBUFFERSIZE] __at(0x2400)= {                        
+/*~~~~~~~~~~~~~~ Pioneer CXC3173 plus button ~~~~~~~~~~~~~~~~~~~~~~~~*/
+const unsigned int IR_SavedTiming0[IRBUFFERSIZE] __at(0x2400)= {                        
                                                     8600,    //    [    0    ]
                                                     4200,    //    [    1    ]
                                                     450,    //    [    2    ]
@@ -147,7 +148,136 @@ const unsigned int IR_SavedTiming[IRBUFFERSIZE] __at(0x2400)= {
                                                     1200,    //    [    63    ]
                                                     450,    //    [    64    ]
                                                     1200,    //    [    65    ]
-                                                    450    //    [    66    ]
+                                                    450,    //    [    66    ]
+                                                    0,    //    [    67    ]
+                                                    0,    //    [    68    ]
+                                                    0,    //    [    69    ]
+                                                    0,    //    [    70    ]
+                                                    0,    //    [    71    ]
+                                                    0,    //    [    72    ]
+                                                    0,    //    [    73    ]
+                                                    0,    //    [    74    ]
+                                                    0,    //    [    75    ]
+                                                    0,    //    [    76    ]
+                                                    0,    //    [    77    ]
+                                                    0,    //    [    78    ]
+                                                    0,    //    [    79    ]
+                                                    0,    //    [    80    ]
+                                                    0,    //    [    81    ]
+                                                    0,    //    [    82    ]
+                                                    0,    //    [    83    ]
+                                                    0,    //    [    84    ]
+                                                    0,    //    [    85    ]
+                                                    0,    //    [    86    ]
+                                                    0,    //    [    87    ]
+                                                    0,    //    [    88    ]
+                                                    0,    //    [    89    ]
+                                                    0,    //    [    90    ]
+                                                    0,    //    [    91    ]
+                                                    0,    //    [    92    ]
+                                                    0,    //    [    93    ]
+                                                    0,    //    [    94    ]
+                                                    0    //    [    95    ]
+};
+
+/*~~~~~~~~~~~~~~ Sanyo tv up channel button ~~~~~~~~~~~~~~~~~~~~~~~~*/
+const unsigned int IR_SavedTiming1[IRBUFFERSIZE] __at(0x24C0)= {                        
+                                                    8600,    //    [    0    ]
+                                                    4200,    //    [    1    ]
+                                                    450,    //    [    2    ]
+                                                    450,    //    [    3    ]
+                                                    450,    //    [    4    ]
+                                                    450,    //    [    5    ]
+                                                    450,    //    [    6    ]
+                                                    450,    //    [    7    ]
+                                                    450,    //    [    8    ]
+                                                    1200,    //    [    9    ]
+                                                    450,    //    [    10    ]
+                                                    1200,    //    [    11    ]
+                                                    450,    //    [    12    ]
+                                                    1200,    //    [    13    ]
+                                                    450,    //    [    14    ]
+                                                    450,    //    [    15    ]
+                                                    450,    //    [    16    ]
+                                                    450,    //    [    17    ]
+                                                    450,    //    [    18    ]
+                                                    1200,    //    [    19    ]
+                                                    450,    //    [    20    ]
+                                                    1200,    //    [    21    ]
+                                                    450,    //    [    22    ]
+                                                    1200,    //    [    23    ]
+                                                    450,    //    [    24    ]
+                                                    450,    //    [    25    ]
+                                                    450,    //    [    26    ]
+                                                    450,    //    [    27    ]
+                                                    450,    //    [    28    ]
+                                                    450,    //    [    29    ]
+                                                    450,    //    [    30    ]
+                                                    1200,    //    [    31    ]
+                                                    450,    //    [    32    ]
+                                                    1200,    //    [    33    ]
+                                                    450,    //    [    34    ]
+                                                    450,    //    [    35    ]
+                                                    450,    //    [    36    ]
+                                                    1200,    //    [    37    ]
+                                                    450,    //    [    38    ]
+                                                    450,    //    [    39    ]
+                                                    450,    //    [    40    ]
+                                                    1200,    //    [    41    ]
+                                                    450,    //    [    42    ]
+                                                    450,    //    [    43    ]
+                                                    450,    //    [    44    ]
+                                                    450,    //    [    45    ]
+                                                    450,    //    [    46    ]
+                                                    450,    //    [    47    ]
+                                                    450,    //    [    48    ]
+                                                    450,    //    [    49    ]
+                                                    450,    //    [    50    ]
+                                                    1200,    //    [    51    ]
+                                                    450,    //    [    52    ]
+                                                    450,    //    [    53    ]
+                                                    450,    //    [    54    ]
+                                                    1200,    //    [    55    ]
+                                                    450,    //    [    56    ]
+                                                    450,    //    [    57    ]
+                                                    450,    //    [    58    ]
+                                                    1200,    //    [    59    ]
+                                                    450,    //    [    60    ]
+                                                    1200,    //    [    61    ]
+                                                    450,    //    [    62    ]
+                                                    1200,    //    [    63    ]
+                                                    450,    //    [    64    ]
+                                                    1200,    //    [    65    ]
+                                                    450,    //    [    66    ]
+                                                    0,    //    [    67    ]
+                                                    0,    //    [    68    ]
+                                                    0,    //    [    69    ]
+                                                    0,    //    [    70    ]
+                                                    0,    //    [    71    ]
+                                                    0,    //    [    72    ]
+                                                    0,    //    [    73    ]
+                                                    0,    //    [    74    ]
+                                                    0,    //    [    75    ]
+                                                    0,    //    [    76    ]
+                                                    0,    //    [    77    ]
+                                                    0,    //    [    78    ]
+                                                    0,    //    [    79    ]
+                                                    0,    //    [    80    ]
+                                                    0,    //    [    81    ]
+                                                    0,    //    [    82    ]
+                                                    0,    //    [    83    ]
+                                                    0,    //    [    84    ]
+                                                    0,    //    [    85    ]
+                                                    0,    //    [    86    ]
+                                                    0,    //    [    87    ]
+                                                    0,    //    [    88    ]
+                                                    0,    //    [    89    ]
+                                                    0,    //    [    90    ]
+                                                    0,    //    [    91    ]
+                                                    0,    //    [    92    ]
+                                                    0,    //    [    93    ]
+                                                    0,    //    [    94    ]
+                                                    0    //    [    95    ]
 };
 
 /******************************************************************************/
@@ -155,6 +285,7 @@ const unsigned int IR_SavedTiming[IRBUFFERSIZE] __at(0x2400)= {
 /******************************************************************************/
 extern volatile unsigned char IR_Data;
 extern unsigned int IR_DataTiming[IRBUFFERSIZE];
+extern unsigned int IR_DataHolder1[IRBUFFERSIZE];
 extern unsigned char IR_DataPlace;
 extern unsigned char IRStarted;
 extern unsigned int IR_SyncLow;
@@ -163,6 +294,7 @@ extern unsigned char IR_Saved;
 extern unsigned char IR_CodeSize;
 extern unsigned char IRValue_prev;
 extern unsigned char IRChange;
+extern unsigned char IRProgramCodeNumber;
 
 /******************************************************************************/
 /* Macro Functions                                                            */
@@ -175,7 +307,7 @@ void InitIR(void);
 unsigned char IR_ReadReceiver(void);
 void IR_ResetData(void);
 void IR_LoadCode(void);
-unsigned char IR_CalculateCodesize(void);
+unsigned char IR_CalculateCodesize(const unsigned int* Code);
 unsigned char IR_CheckCode(void);
 void IR_CleanBuffer(void);
 
