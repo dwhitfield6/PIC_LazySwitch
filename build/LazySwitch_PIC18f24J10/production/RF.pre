@@ -4678,7 +4678,7 @@ void InitRF(void)
 RF_Receiver(1);
 RF_SetBandwidth(2);
 MSC_CleanBufferInt(&RF_DataTiming,64);
-RF_SetSquelch(1);
+RF_SetSquelch(0);
 INTCON3bits.INT1P = 1;
 INTCON3bits.INT2P = 1;
 INTCON2bits.INTEDG1 = 1;
@@ -4726,9 +4726,9 @@ if(Low < 300)
 {
 Low = 300;
 }
-if(High > 1400)
+if(High > 2000)
 {
-High = 1400;
+High = 2000;
 }
 
 RF_SyncLow = (unsigned int) Low;

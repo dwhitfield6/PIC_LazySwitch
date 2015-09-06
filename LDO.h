@@ -26,7 +26,7 @@
 #if defined(__XC) || defined(HI_TECH_C)
 #include <stdint.h>        /* For uint8_t definition */
 #include <stdbool.h>       /* For true/false definition */
-#include <stdio.h>       /* For true/false definition */
+#include <stdio.h>         /* For true/false definition */
 #include <string.h>
 #endif
 
@@ -35,7 +35,7 @@
  *
  * This is low voltage limit on VIN.
 /******************************************************************************/
-#define VIN_LOW_LIMIT 3.5
+#define VIN_LOW_LIMIT 3.4
 
 /******************************************************************************/
 /* VIN_HIGH_LIMIT

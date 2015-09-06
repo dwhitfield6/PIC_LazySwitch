@@ -4948,9 +4948,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RF.c: 73: MSC_CleanBufferInt(&RF_DataTiming,64);
 "73
 [e ( _MSC_CleanBufferInt (2 , &U _RF_DataTiming -> -> 64 `i `ui ]
-[; ;RF.c: 74: RF_SetSquelch(1);
+[; ;RF.c: 74: RF_SetSquelch(0);
 "74
-[e ( _RF_SetSquelch (1 -> -> 1 `i `uc ]
+[e ( _RF_SetSquelch (1 -> -> 0 `i `uc ]
 [; ;RF.c: 75: INTCON3bits.INT1P = 1;
 "75
 [e = . . _INTCON3bits 1 6 -> -> 1 `i `uc ]
@@ -5071,15 +5071,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 399 ]
 [; ;RF.c: 138: }
-[; ;RF.c: 139: if(High > 1400)
+[; ;RF.c: 139: if(High > 2000)
 "139
-[e $ ! > _High -> -> 1400 `i `d 400  ]
+[e $ ! > _High -> -> 2000 `i `d 400  ]
 [; ;RF.c: 140: {
 "140
 {
-[; ;RF.c: 141: High = 1400;
+[; ;RF.c: 141: High = 2000;
 "141
-[e = _High -> -> 1400 `i `d ]
+[e = _High -> -> 2000 `i `d ]
 "142
 }
 [e :U 400 ]

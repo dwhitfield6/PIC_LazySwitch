@@ -6,6 +6,11 @@
  * Date         Revision    Comments
  * MM/DD/YY
  * --------     ---------   ----------------------------------------------------
+ * 09/05/15     2.0c_DW0a   Increased RF sync window for use with other
+ *                            protocols.
+ *                          Turn off LED when sleep is entered.
+ *                          Use high gain RF for longer range.
+ *                          Lowered Vin spec to 3.4 volts.
  * 09/01/15     2.0c        Tagged version!
  *                          Added capability to save 2 IR codes.
  *                          Added macro to turn off RF capability.
@@ -146,6 +151,7 @@ int main (void)
                 IR_Data = FALSE;
                 Button_Data = FALSE;
                 MSC_RedLEDOFF();
+                RF_Enable();
             }
             if(Rail_VIN < VIN_LOW_LIMIT || Rail_VIN > VIN_HIGH_LIMIT )
             {

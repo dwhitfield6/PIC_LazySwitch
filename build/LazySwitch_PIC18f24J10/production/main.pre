@@ -4892,7 +4892,7 @@ void FSH_AddressToBlock(unsigned long Address);
 void FSH_WriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 unsigned char FSH_VerifyWriteIntArray(const unsigned int* ConstArray, unsigned int* Array);
 
-# 85 "main.c"
+# 90 "main.c"
 int main (void)
 {
 
@@ -4957,8 +4957,9 @@ RF_Data = 0;
 IR_Data = 0;
 Button_Data = 0;
 (LATC &= ~0x10);
+RF_Enable();
 }
-if(Rail_VIN < 3.5 || Rail_VIN > 5.5 )
+if(Rail_VIN < 3.4 || Rail_VIN > 5.5 )
 {
 MSC_DelayMS(100);
 (LATC ^= 0x10);

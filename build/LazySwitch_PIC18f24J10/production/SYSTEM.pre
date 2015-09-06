@@ -4011,6 +4011,16 @@ inline void SYS_ActivityTimerReset(void);
 inline void SYS_EnableInt(void);
 inline void SYS_DisableInt(void);
 
+# 85 "MISC.h"
+void MSC_DelayMS(long US);
+void MSC_DelayNOP(unsigned int NOPs);
+void MSC_CleanBuffer(unsigned char* data, unsigned int count);
+void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
+void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
+void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+void MSC_BlinkLED(unsigned int blink, unsigned int speed);
+
 # 84 "IR.h"
 const unsigned int IR_SavedTiming0[96] __attribute__((address(0x2400)))= {
 8600,
@@ -4327,25 +4337,25 @@ unsigned char RF_CheckCode(void);
 void RF_Disable(void);
 void RF_Enable(void);
 
-# 45 "SYSTEM.c"
+# 46 "SYSTEM.c"
 volatile unsigned char System_State = 8;
 volatile unsigned char System_State_Change = 0;
 unsigned long Activity_Timer = 0;
 
-# 59
+# 60
 inline void SYS_ActivityTimerReset(void)
 {
 Activity_Timer = 0;
 }
 
-# 69
+# 70
 inline void SYS_DisableInt(void)
 {
 INTCONbits.GIE = 0;
 INTCONbits.PEIE = 0;
 }
 
-# 80
+# 81
 inline void SYS_EnableInt(void)
 {
 BUT_IR_PinChangeInt(1);
@@ -4354,21 +4364,21 @@ INTCONbits.PEIE = 1;
 INTCONbits.GIE = 1;
 }
 
-# 93
+# 94
 inline void SYS_Sleep(void)
 {
 OSCCON &= ~0b10000000;
 asm("sleep");
 }
 
-# 104
+# 105
 inline void SYS_Idle(void)
 {
 OSCCON |= 0b10000000;
 asm("sleep");
 }
 
-# 115
+# 116
 void SYS_ConfigureOscillator(void)
 {
 
@@ -4376,12 +4386,13 @@ OSCTUNEbits.PLLEN = 1;
 while(!OSCCONbits.OSTS);
 }
 
-# 128
+# 129
 void SYS_ActivityTimer(void)
 {
 if(Activity_Timer > 1000L)
 {
 SYS_ActivityTimerReset();
+(LATC &= ~0x10);
 SYS_EnableInt();
 SYS_Sleep();
 }

@@ -71,7 +71,7 @@ void InitRF(void)
     RF_Receiver(ON);
     RF_SetBandwidth(FAST);
     MSC_CleanBufferInt(&RF_DataTiming,RFBUFFERSIZE);
-    RF_SetSquelch(ON);      // Low sensitivity
+    RF_SetSquelch(OFF);      // Low sensitivity
     INTCON3bits.INT1P = 1;  // High priority interrupt
     INTCON3bits.INT2P = 1;  // High priority interrupt
     INTCON2bits.INTEDG1 = 1; // Rising edge

@@ -55,7 +55,7 @@
  *
  * This sets the timeout of an RF signal during program.
 /******************************************************************************/
-#define RF_PROGRAMSYNCHIGH   1400
+#define RF_PROGRAMSYNCHIGH   2000
 
 /******************************************************************************/
 /* RF_EDGENUM

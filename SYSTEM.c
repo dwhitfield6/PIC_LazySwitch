@@ -34,6 +34,7 @@
 #include <string.h>
 #endif
 
+#include "MISC.h"
 #include "SYSTEM.h"
 #include "IR.h"
 #include "BUTTON.h"
@@ -130,6 +131,7 @@ void SYS_ActivityTimer(void)
     if(Activity_Timer > ActivityTimeout)
     {
         SYS_ActivityTimerReset();
+        MSC_RedLEDOFF();
         SYS_EnableInt();
         SYS_Sleep();
     }

@@ -91,6 +91,10 @@ void interrupt high_isr(void)
                         if(!RF_Data)
                         {
                             RF_Data = RF_CheckCode();
+                            if(RF_Data)
+                            {
+                                RF_Disable();
+                            }
                         }
                         TMR_Timer0(OFF);
                         RF_ResetData();

@@ -41,6 +41,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RF_Data `Vuc ~T0 @X0 0 e ]
 "183
 [v _RF_CheckCode `(uc ~T0 @X0 0 ef ]
+"184
+[v _RF_Disable `(v ~T0 @X0 0 ef ]
 "71 TIMERS.h
 [v _TMR_Timer0 `(v ~T0 @X0 0 ef1`uc ]
 "180 RF.h
@@ -102,8 +104,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _IR_SyncHigh `ui ~T0 @X0 0 e ]
 "176 RF.h
 [v _RF_DataInt `(v ~T0 @X0 0 ef1`uc ]
-"184
-[v _RF_Disable `(v ~T0 @X0 0 ef ]
 "289 IR.h
 [v _IR_DataPlace `uc ~T0 @X0 0 e ]
 "287
@@ -4107,9 +4107,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;INTERRUPTS.c: 75: {
 "75
 {
-[; ;INTERRUPTS.c: 76: if(RFtemp >= 300 && RFtemp <= 1400)
+[; ;INTERRUPTS.c: 76: if(RFtemp >= 300 && RFtemp <= 2000)
 "76
-[e $ ! && >= _RFtemp -> -> 300 `i `ui <= _RFtemp -> -> 1400 `i `ui 402  ]
+[e $ ! && >= _RFtemp -> -> 300 `i `ui <= _RFtemp -> -> 2000 `i `ui 402  ]
 [; ;INTERRUPTS.c: 77: {
 "77
 {
@@ -4164,618 +4164,631 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;INTERRUPTS.c: 93: RF_Data = RF_CheckCode();
 "93
 [e = _RF_Data ( _RF_CheckCode ..  ]
+[; ;INTERRUPTS.c: 94: if(RF_Data)
 "94
-}
-[e :U 406 ]
-[; ;INTERRUPTS.c: 94: }
-[; ;INTERRUPTS.c: 95: TMR_Timer0(0);
+[e $ ! != -> _RF_Data `i -> -> -> 0 `i `Vuc `i 407  ]
+[; ;INTERRUPTS.c: 95: {
 "95
-[e ( _TMR_Timer0 (1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 96: RF_ResetData();
+{
+[; ;INTERRUPTS.c: 96: RF_Disable();
 "96
-[e ( _RF_ResetData ..  ]
+[e ( _RF_Disable ..  ]
 "97
 }
-[e :U 405 ]
+[e :U 407 ]
 "98
 }
-[e :U 404 ]
-"99
-}
-[e :U 403 ]
-"100
-}
-[e :U 397 ]
+[e :U 406 ]
 [; ;INTERRUPTS.c: 97: }
 [; ;INTERRUPTS.c: 98: }
-[; ;INTERRUPTS.c: 99: }
-[; ;INTERRUPTS.c: 100: }
-[; ;INTERRUPTS.c: 101: INTCON3bits.INT1IF = 0;
+[; ;INTERRUPTS.c: 99: TMR_Timer0(0);
+"99
+[e ( _TMR_Timer0 (1 -> -> 0 `i `uc ]
+[; ;INTERRUPTS.c: 100: RF_ResetData();
+"100
+[e ( _RF_ResetData ..  ]
 "101
-[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 102: INTCON3bits.INT2IF = 0;
+}
+[e :U 405 ]
 "102
-[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
+}
+[e :U 404 ]
 "103
 }
-[; ;INTERRUPTS.c: 103: }
-[e $U 407  ]
+[e :U 403 ]
 "104
-[e :U 395 ]
-[; ;INTERRUPTS.c: 104: else if(INTCONbits.TMR0IF)
-[e $ ! != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i 408  ]
-[; ;INTERRUPTS.c: 105: {
+}
+[e :U 397 ]
+[; ;INTERRUPTS.c: 101: }
+[; ;INTERRUPTS.c: 102: }
+[; ;INTERRUPTS.c: 103: }
+[; ;INTERRUPTS.c: 104: }
+[; ;INTERRUPTS.c: 105: INTCON3bits.INT1IF = 0;
 "105
-{
-[; ;INTERRUPTS.c: 107: TMR_Timer0(0);
+[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
+[; ;INTERRUPTS.c: 106: INTCON3bits.INT2IF = 0;
+"106
+[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
 "107
-[e ( _TMR_Timer0 (1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 108: TMR_ResetTimer0();
+}
+[; ;INTERRUPTS.c: 107: }
+[e $U 408  ]
 "108
-[e ( _TMR_ResetTimer0 ..  ]
-[; ;INTERRUPTS.c: 109: RF_ResetData();
+[e :U 395 ]
+[; ;INTERRUPTS.c: 108: else if(INTCONbits.TMR0IF)
+[e $ ! != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i 409  ]
+[; ;INTERRUPTS.c: 109: {
 "109
-[e ( _RF_ResetData ..  ]
-[; ;INTERRUPTS.c: 110: INTCONbits.TMR0IF = 0;
-"110
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"111
-}
-[; ;INTERRUPTS.c: 111: }
-[e $U 409  ]
-"112
-[e :U 408 ]
-[; ;INTERRUPTS.c: 112: else
-[; ;INTERRUPTS.c: 113: {
-"113
 {
-[; ;INTERRUPTS.c: 115: __nop();
+[; ;INTERRUPTS.c: 111: TMR_Timer0(0);
+"111
+[e ( _TMR_Timer0 (1 -> -> 0 `i `uc ]
+[; ;INTERRUPTS.c: 112: TMR_ResetTimer0();
+"112
+[e ( _TMR_ResetTimer0 ..  ]
+[; ;INTERRUPTS.c: 113: RF_ResetData();
+"113
+[e ( _RF_ResetData ..  ]
+[; ;INTERRUPTS.c: 114: INTCONbits.TMR0IF = 0;
+"114
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
 "115
-[e ( ___nop ..  ]
-"116
 }
+[; ;INTERRUPTS.c: 115: }
+[e $U 410  ]
+"116
 [e :U 409 ]
-[e :U 407 ]
-[; ;INTERRUPTS.c: 116: }
-[; ;INTERRUPTS.c: 117: }
+[; ;INTERRUPTS.c: 116: else
+[; ;INTERRUPTS.c: 117: {
 "117
+{
+[; ;INTERRUPTS.c: 119: __nop();
+"119
+[e ( ___nop ..  ]
+"120
+}
+[e :U 410 ]
+[e :U 408 ]
+[; ;INTERRUPTS.c: 120: }
+[; ;INTERRUPTS.c: 121: }
+"121
 [e :UE 394 ]
 }
 [v F3479 `(v ~T0 @X0 1 tf ]
-"122
+"126
 [v _low_isr `ILF3479 ~T0 @X0 1 e ]
-"123
+"127
 {
-[; ;INTERRUPTS.c: 122: void low_priority interrupt low_isr(void)
-[; ;INTERRUPTS.c: 123: {
+[; ;INTERRUPTS.c: 126: void low_priority interrupt low_isr(void)
+[; ;INTERRUPTS.c: 127: {
 [e :U _low_isr ]
 [f ]
-"124
-[v _button_state `uc ~T0 @X0 1 a ]
-"125
-[v _IR_state `uc ~T0 @X0 1 a ]
-"126
-[v _IRtemp `ui ~T0 @X0 1 a ]
-[; ;INTERRUPTS.c: 124: unsigned char button_state;
-[; ;INTERRUPTS.c: 125: unsigned char IR_state;
-[; ;INTERRUPTS.c: 126: unsigned int IRtemp = 0;
-[e = _IRtemp -> -> 0 `i `ui ]
-[; ;INTERRUPTS.c: 128: if(INTCONbits.RBIF)
 "128
-[e $ ! != -> . . _INTCONbits 0 0 `i -> -> -> 0 `i `Vuc `i 411  ]
-[; ;INTERRUPTS.c: 129: {
+[v _button_state `uc ~T0 @X0 1 a ]
 "129
+[v _IR_state `uc ~T0 @X0 1 a ]
+"130
+[v _IRtemp `ui ~T0 @X0 1 a ]
+[; ;INTERRUPTS.c: 128: unsigned char button_state;
+[; ;INTERRUPTS.c: 129: unsigned char IR_state;
+[; ;INTERRUPTS.c: 130: unsigned int IRtemp = 0;
+[e = _IRtemp -> -> 0 `i `ui ]
+[; ;INTERRUPTS.c: 132: if(INTCONbits.RBIF)
+"132
+[e $ ! != -> . . _INTCONbits 0 0 `i -> -> -> 0 `i `Vuc `i 412  ]
+[; ;INTERRUPTS.c: 133: {
+"133
 {
-[; ;INTERRUPTS.c: 134: button_state = BUT_ReadButton();
-"134
-[e = _button_state ( _BUT_ReadButton ..  ]
-[; ;INTERRUPTS.c: 135: IR_state = IR_ReadReceiver();
-"135
-[e = _IR_state ( _IR_ReadReceiver ..  ]
-[; ;INTERRUPTS.c: 136: SYS_ActivityTimerReset();
-"136
-[e ( _SYS_ActivityTimerReset ..  ]
-[; ;INTERRUPTS.c: 137: if(ButtonChange)
-"137
-[e $ ! != -> _ButtonChange `i -> -> -> 0 `i `uc `i 412  ]
-[; ;INTERRUPTS.c: 138: {
+[; ;INTERRUPTS.c: 138: button_state = BUT_ReadButton();
 "138
-{
-[; ;INTERRUPTS.c: 140: TMR_Timer2(0);
+[e = _button_state ( _BUT_ReadButton ..  ]
+[; ;INTERRUPTS.c: 139: IR_state = IR_ReadReceiver();
+"139
+[e = _IR_state ( _IR_ReadReceiver ..  ]
+[; ;INTERRUPTS.c: 140: SYS_ActivityTimerReset();
 "140
-[e ( _TMR_Timer2 (1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 141: if(button_state)
+[e ( _SYS_ActivityTimerReset ..  ]
+[; ;INTERRUPTS.c: 141: if(ButtonChange)
 "141
-[e $ ! != -> _button_state `i -> -> -> 0 `i `uc `i 413  ]
+[e $ ! != -> _ButtonChange `i -> -> -> 0 `i `uc `i 413  ]
 [; ;INTERRUPTS.c: 142: {
 "142
 {
-[; ;INTERRUPTS.c: 144: if(System_State == 8)
+[; ;INTERRUPTS.c: 144: TMR_Timer2(0);
 "144
-[e $ ! == -> _System_State `i -> 8 `i 414  ]
-[; ;INTERRUPTS.c: 145: {
+[e ( _TMR_Timer2 (1 -> -> 0 `i `uc ]
+[; ;INTERRUPTS.c: 145: if(button_state)
 "145
-{
-[; ;INTERRUPTS.c: 146: Timer2Use = 17;
+[e $ ! != -> _button_state `i -> -> -> 0 `i `uc `i 414  ]
+[; ;INTERRUPTS.c: 146: {
 "146
-[e = _Timer2Use -> -> 17 `i `uc ]
-[; ;INTERRUPTS.c: 147: TMR_Timer2Start(400);
-"147
-[e ( _TMR_Timer2Start (1 -> -> 400 `i `ui ]
+{
+[; ;INTERRUPTS.c: 148: if(System_State == 8)
 "148
-}
-[; ;INTERRUPTS.c: 148: }
-[e $U 415  ]
+[e $ ! == -> _System_State `i -> 8 `i 415  ]
+[; ;INTERRUPTS.c: 149: {
 "149
-[e :U 414 ]
-[; ;INTERRUPTS.c: 149: else
-[; ;INTERRUPTS.c: 150: {
+{
+[; ;INTERRUPTS.c: 150: Timer2Use = 17;
 "150
-{
-[; ;INTERRUPTS.c: 151: Timer2Use = 19;
+[e = _Timer2Use -> -> 17 `i `uc ]
+[; ;INTERRUPTS.c: 151: TMR_Timer2Start(400);
 "151
-[e = _Timer2Use -> -> 19 `i `uc ]
-[; ;INTERRUPTS.c: 152: TMR_Timer2Start(8);
+[e ( _TMR_Timer2Start (1 -> -> 400 `i `ui ]
 "152
-[e ( _TMR_Timer2Start (1 -> -> 8 `i `ui ]
-"153
 }
-[e :U 415 ]
-"154
-}
-[; ;INTERRUPTS.c: 153: }
-[; ;INTERRUPTS.c: 154: }
+[; ;INTERRUPTS.c: 152: }
 [e $U 416  ]
+"153
+[e :U 415 ]
+[; ;INTERRUPTS.c: 153: else
+[; ;INTERRUPTS.c: 154: {
+"154
+{
+[; ;INTERRUPTS.c: 155: Timer2Use = 19;
 "155
-[e :U 413 ]
-[; ;INTERRUPTS.c: 155: else
-[; ;INTERRUPTS.c: 156: {
-"156
-{
-[; ;INTERRUPTS.c: 157: if(System_State != 10)
-"157
-[e $ ! != -> _System_State `i -> 10 `i 417  ]
-[; ;INTERRUPTS.c: 158: {
-"158
-{
-[; ;INTERRUPTS.c: 160: Button_Data = 1;
-"160
-[e = _Button_Data -> -> 1 `i `uc ]
-[; ;INTERRUPTS.c: 161: Timer2Use = 19;
-"161
 [e = _Timer2Use -> -> 19 `i `uc ]
-[; ;INTERRUPTS.c: 162: TMR_Timer2Start(8);
-"162
+[; ;INTERRUPTS.c: 156: TMR_Timer2Start(8);
+"156
 [e ( _TMR_Timer2Start (1 -> -> 8 `i `ui ]
-"163
-}
-[; ;INTERRUPTS.c: 163: }
-[e $U 418  ]
-"164
-[e :U 417 ]
-[; ;INTERRUPTS.c: 164: else
-[; ;INTERRUPTS.c: 165: {
-"165
-{
-[; ;INTERRUPTS.c: 166: Timer2Use = 18;
-"166
-[e = _Timer2Use -> -> 18 `i `uc ]
-[; ;INTERRUPTS.c: 167: TMR_Timer2Start(500);
-"167
-[e ( _TMR_Timer2Start (1 -> -> 500 `i `ui ]
-"168
-}
-[e :U 418 ]
-"169
+"157
 }
 [e :U 416 ]
-[; ;INTERRUPTS.c: 168: }
-[; ;INTERRUPTS.c: 169: }
-[; ;INTERRUPTS.c: 170: ButtonChange = 0;
-"170
-[e = _ButtonChange -> -> 0 `i `uc ]
-"171
+"158
 }
-[; ;INTERRUPTS.c: 171: }
+[; ;INTERRUPTS.c: 157: }
+[; ;INTERRUPTS.c: 158: }
+[e $U 417  ]
+"159
+[e :U 414 ]
+[; ;INTERRUPTS.c: 159: else
+[; ;INTERRUPTS.c: 160: {
+"160
+{
+[; ;INTERRUPTS.c: 161: if(System_State != 10)
+"161
+[e $ ! != -> _System_State `i -> 10 `i 418  ]
+[; ;INTERRUPTS.c: 162: {
+"162
+{
+[; ;INTERRUPTS.c: 164: Button_Data = 1;
+"164
+[e = _Button_Data -> -> 1 `i `uc ]
+[; ;INTERRUPTS.c: 165: Timer2Use = 19;
+"165
+[e = _Timer2Use -> -> 19 `i `uc ]
+[; ;INTERRUPTS.c: 166: TMR_Timer2Start(8);
+"166
+[e ( _TMR_Timer2Start (1 -> -> 8 `i `ui ]
+"167
+}
+[; ;INTERRUPTS.c: 167: }
 [e $U 419  ]
+"168
+[e :U 418 ]
+[; ;INTERRUPTS.c: 168: else
+[; ;INTERRUPTS.c: 169: {
+"169
+{
+[; ;INTERRUPTS.c: 170: Timer2Use = 18;
+"170
+[e = _Timer2Use -> -> 18 `i `uc ]
+[; ;INTERRUPTS.c: 171: TMR_Timer2Start(500);
+"171
+[e ( _TMR_Timer2Start (1 -> -> 500 `i `ui ]
 "172
-[e :U 412 ]
-[; ;INTERRUPTS.c: 172: else if(IRChange)
-[e $ ! != -> _IRChange `i -> -> -> 0 `i `uc `i 420  ]
-[; ;INTERRUPTS.c: 173: {
-"173
-{
-[; ;INTERRUPTS.c: 175: if(!TMR_Timer1Status())
-"175
-[e $ ! ! != -> ( _TMR_Timer1Status ..  `i -> -> -> 0 `i `uc `i 421  ]
-[; ;INTERRUPTS.c: 176: {
-"176
-{
-[; ;INTERRUPTS.c: 178: TMR_Timer1Start();
-"178
-[e ( _TMR_Timer1Start ..  ]
-"179
 }
-[; ;INTERRUPTS.c: 179: }
-[e $U 422  ]
+[e :U 419 ]
+"173
+}
+[e :U 417 ]
+[; ;INTERRUPTS.c: 172: }
+[; ;INTERRUPTS.c: 173: }
+[; ;INTERRUPTS.c: 174: ButtonChange = 0;
+"174
+[e = _ButtonChange -> -> 0 `i `uc ]
+"175
+}
+[; ;INTERRUPTS.c: 175: }
+[e $U 420  ]
+"176
+[e :U 413 ]
+[; ;INTERRUPTS.c: 176: else if(IRChange)
+[e $ ! != -> _IRChange `i -> -> -> 0 `i `uc `i 421  ]
+[; ;INTERRUPTS.c: 177: {
+"177
+{
+[; ;INTERRUPTS.c: 179: if(!TMR_Timer1Status())
+"179
+[e $ ! ! != -> ( _TMR_Timer1Status ..  `i -> -> -> 0 `i `uc `i 422  ]
+[; ;INTERRUPTS.c: 180: {
 "180
-[e :U 421 ]
-[; ;INTERRUPTS.c: 180: else
-[; ;INTERRUPTS.c: 181: {
-"181
 {
-[; ;INTERRUPTS.c: 182: IRtemp = TMR1L;
+[; ;INTERRUPTS.c: 182: TMR_Timer1Start();
 "182
-[e = _IRtemp -> _TMR1L `ui ]
-[; ;INTERRUPTS.c: 183: IRtemp += (unsigned int)TMR1H << 8;
+[e ( _TMR_Timer1Start ..  ]
 "183
-[e =+ _IRtemp << -> _TMR1H `ui -> 8 `i ]
-[; ;INTERRUPTS.c: 184: TMR_ResetTimer1();
+}
+[; ;INTERRUPTS.c: 183: }
+[e $U 423  ]
 "184
-[e ( _TMR_ResetTimer1 ..  ]
-[; ;INTERRUPTS.c: 185: if(!IRStarted)
+[e :U 422 ]
+[; ;INTERRUPTS.c: 184: else
+[; ;INTERRUPTS.c: 185: {
 "185
-[e $ ! ! != -> _IRStarted `i -> -> -> 0 `i `uc `i 423  ]
-[; ;INTERRUPTS.c: 186: {
+{
+[; ;INTERRUPTS.c: 186: IRtemp = TMR1L;
 "186
-{
-[; ;INTERRUPTS.c: 187: if(System_State == 8)
+[e = _IRtemp -> _TMR1L `ui ]
+[; ;INTERRUPTS.c: 187: IRtemp += (unsigned int)TMR1H << 8;
 "187
-[e $ ! == -> _System_State `i -> 8 `i 424  ]
-[; ;INTERRUPTS.c: 188: {
+[e =+ _IRtemp << -> _TMR1H `ui -> 8 `i ]
+[; ;INTERRUPTS.c: 188: TMR_ResetTimer1();
 "188
-{
-[; ;INTERRUPTS.c: 189: if(IRtemp >= IR_SyncLow && IRtemp <= IR_SyncHigh)
+[e ( _TMR_ResetTimer1 ..  ]
+[; ;INTERRUPTS.c: 189: if(!IRStarted)
 "189
-[e $ ! && >= _IRtemp _IR_SyncLow <= _IRtemp _IR_SyncHigh 425  ]
+[e $ ! ! != -> _IRStarted `i -> -> -> 0 `i `uc `i 424  ]
 [; ;INTERRUPTS.c: 190: {
 "190
 {
-[; ;INTERRUPTS.c: 191: RF_DataInt(0);
+[; ;INTERRUPTS.c: 191: if(System_State == 8)
 "191
-[e ( _RF_DataInt (1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 192: IRStarted = 1;
+[e $ ! == -> _System_State `i -> 8 `i 425  ]
+[; ;INTERRUPTS.c: 192: {
 "192
-[e = _IRStarted -> -> 1 `i `uc ]
+{
+[; ;INTERRUPTS.c: 193: if(IRtemp >= IR_SyncLow && IRtemp <= IR_SyncHigh)
 "193
-}
-[e :U 425 ]
+[e $ ! && >= _IRtemp _IR_SyncLow <= _IRtemp _IR_SyncHigh 426  ]
+[; ;INTERRUPTS.c: 194: {
 "194
-}
-[; ;INTERRUPTS.c: 193: }
-[; ;INTERRUPTS.c: 194: }
-[e $U 426  ]
+{
+[; ;INTERRUPTS.c: 195: RF_DataInt(0);
 "195
-[e :U 424 ]
-[; ;INTERRUPTS.c: 195: else
-[; ;INTERRUPTS.c: 196: {
-"196
-{
-[; ;INTERRUPTS.c: 197: if(IRtemp >= 6000 && IRtemp <= 10000)
-"197
-[e $ ! && >= _IRtemp -> -> 6000 `i `ui <= _IRtemp -> -> 10000 `i `ui 427  ]
-[; ;INTERRUPTS.c: 198: {
-"198
-{
-[; ;INTERRUPTS.c: 199: RF_DataInt(0);
-"199
 [e ( _RF_DataInt (1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 200: IRStarted = 1;
-"200
+[; ;INTERRUPTS.c: 196: IRStarted = 1;
+"196
 [e = _IRStarted -> -> 1 `i `uc ]
-"201
-}
-[e :U 427 ]
-"202
+"197
 }
 [e :U 426 ]
-"203
+"198
 }
-[e :U 423 ]
-[; ;INTERRUPTS.c: 201: }
-[; ;INTERRUPTS.c: 202: }
-[; ;INTERRUPTS.c: 203: }
-[; ;INTERRUPTS.c: 204: if(IRStarted)
+[; ;INTERRUPTS.c: 197: }
+[; ;INTERRUPTS.c: 198: }
+[e $U 427  ]
+"199
+[e :U 425 ]
+[; ;INTERRUPTS.c: 199: else
+[; ;INTERRUPTS.c: 200: {
+"200
+{
+[; ;INTERRUPTS.c: 201: if(IRtemp >= 6000 && IRtemp <= 10000)
+"201
+[e $ ! && >= _IRtemp -> -> 6000 `i `ui <= _IRtemp -> -> 10000 `i `ui 428  ]
+[; ;INTERRUPTS.c: 202: {
+"202
+{
+[; ;INTERRUPTS.c: 203: RF_DataInt(0);
+"203
+[e ( _RF_DataInt (1 -> -> 0 `i `uc ]
+[; ;INTERRUPTS.c: 204: IRStarted = 1;
 "204
-[e $ ! != -> _IRStarted `i -> -> -> 0 `i `uc `i 428  ]
-[; ;INTERRUPTS.c: 205: {
+[e = _IRStarted -> -> 1 `i `uc ]
 "205
-{
-[; ;INTERRUPTS.c: 206: RF_Disable();
+}
+[e :U 428 ]
 "206
-[e ( _RF_Disable ..  ]
-[; ;INTERRUPTS.c: 207: if(IR_DataPlace < 96)
+}
+[e :U 427 ]
 "207
-[e $ ! < -> _IR_DataPlace `i -> 96 `i 429  ]
-[; ;INTERRUPTS.c: 208: {
+}
+[e :U 424 ]
+[; ;INTERRUPTS.c: 205: }
+[; ;INTERRUPTS.c: 206: }
+[; ;INTERRUPTS.c: 207: }
+[; ;INTERRUPTS.c: 208: if(IRStarted)
 "208
-{
-[; ;INTERRUPTS.c: 209: IR_DataTiming[IR_DataPlace] = IRtemp;
+[e $ ! != -> _IRStarted `i -> -> -> 0 `i `uc `i 429  ]
+[; ;INTERRUPTS.c: 209: {
 "209
-[e = *U + &U _IR_DataTiming * -> _IR_DataPlace `ux -> -> # *U &U _IR_DataTiming `ui `ux _IRtemp ]
-[; ;INTERRUPTS.c: 210: IR_DataPlace++;
+{
+[; ;INTERRUPTS.c: 210: RF_Disable();
 "210
-[e ++ _IR_DataPlace -> -> 1 `i `uc ]
-[; ;INTERRUPTS.c: 211: if(System_State == 8)
+[e ( _RF_Disable ..  ]
+[; ;INTERRUPTS.c: 211: if(IR_DataPlace < 96)
 "211
-[e $ ! == -> _System_State `i -> 8 `i 430  ]
+[e $ ! < -> _IR_DataPlace `i -> 96 `i 430  ]
 [; ;INTERRUPTS.c: 212: {
 "212
 {
-[; ;INTERRUPTS.c: 213: if(IR_DataPlace >= IR_CodeSize)
+[; ;INTERRUPTS.c: 213: IR_DataTiming[IR_DataPlace] = IRtemp;
 "213
-[e $ ! >= -> _IR_DataPlace `i -> _IR_CodeSize `i 431  ]
-[; ;INTERRUPTS.c: 214: {
+[e = *U + &U _IR_DataTiming * -> _IR_DataPlace `ux -> -> # *U &U _IR_DataTiming `ui `ux _IRtemp ]
+[; ;INTERRUPTS.c: 214: IR_DataPlace++;
 "214
-{
-[; ;INTERRUPTS.c: 215: PIR1bits.TMR1IF = 1;
+[e ++ _IR_DataPlace -> -> 1 `i `uc ]
+[; ;INTERRUPTS.c: 215: if(System_State == 8)
 "215
-[e = . . _PIR1bits 0 0 -> -> 1 `i `uc ]
+[e $ ! == -> _System_State `i -> 8 `i 431  ]
+[; ;INTERRUPTS.c: 216: {
 "216
-}
-[e :U 431 ]
+{
+[; ;INTERRUPTS.c: 217: if(IR_DataPlace >= IR_CodeSize)
 "217
-}
-[e :U 430 ]
+[e $ ! >= -> _IR_DataPlace `i -> _IR_CodeSize `i 432  ]
+[; ;INTERRUPTS.c: 218: {
 "218
-}
-[e :U 429 ]
+{
+[; ;INTERRUPTS.c: 219: PIR1bits.TMR1IF = 1;
 "219
-}
-[e :U 428 ]
+[e = . . _PIR1bits 0 0 -> -> 1 `i `uc ]
 "220
 }
-[e :U 422 ]
-[; ;INTERRUPTS.c: 216: }
-[; ;INTERRUPTS.c: 217: }
-[; ;INTERRUPTS.c: 218: }
-[; ;INTERRUPTS.c: 219: }
-[; ;INTERRUPTS.c: 220: }
-[; ;INTERRUPTS.c: 221: IRChange = 0;
+[e :U 432 ]
 "221
-[e = _IRChange -> -> 0 `i `uc ]
+}
+[e :U 431 ]
 "222
 }
-[; ;INTERRUPTS.c: 222: }
-[e $U 432  ]
+[e :U 430 ]
 "223
-[e :U 420 ]
-[; ;INTERRUPTS.c: 223: else
-[; ;INTERRUPTS.c: 224: {
+}
+[e :U 429 ]
 "224
-{
-[; ;INTERRUPTS.c: 226: __nop();
+}
+[e :U 423 ]
+[; ;INTERRUPTS.c: 220: }
+[; ;INTERRUPTS.c: 221: }
+[; ;INTERRUPTS.c: 222: }
+[; ;INTERRUPTS.c: 223: }
+[; ;INTERRUPTS.c: 224: }
+[; ;INTERRUPTS.c: 225: IRChange = 0;
+"225
+[e = _IRChange -> -> 0 `i `uc ]
 "226
-[e ( ___nop ..  ]
-"227
 }
-[e :U 432 ]
-[e :U 419 ]
-[; ;INTERRUPTS.c: 227: }
-[; ;INTERRUPTS.c: 228: INTCONbits.RBIF = 0;
-"228
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-"229
-}
-[; ;INTERRUPTS.c: 229: }
+[; ;INTERRUPTS.c: 226: }
 [e $U 433  ]
+"227
+[e :U 421 ]
+[; ;INTERRUPTS.c: 227: else
+[; ;INTERRUPTS.c: 228: {
+"228
+{
+[; ;INTERRUPTS.c: 230: __nop();
 "230
-[e :U 411 ]
-[; ;INTERRUPTS.c: 230: else if(PIR1bits.TMR2IF)
-[e $ ! != -> . . _PIR1bits 0 1 `i -> -> -> 0 `i `Vuc `i 434  ]
-[; ;INTERRUPTS.c: 231: {
+[e ( ___nop ..  ]
 "231
-{
-[; ;INTERRUPTS.c: 233: if(Timer2PostCount >= Timer2Post)
+}
+[e :U 433 ]
+[e :U 420 ]
+[; ;INTERRUPTS.c: 231: }
+[; ;INTERRUPTS.c: 232: INTCONbits.RBIF = 0;
+"232
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
 "233
-[e $ ! >= _Timer2PostCount _Timer2Post 435  ]
-[; ;INTERRUPTS.c: 234: {
+}
+[; ;INTERRUPTS.c: 233: }
+[e $U 434  ]
 "234
-{
-[; ;INTERRUPTS.c: 235: TMR_Timer2(0);
+[e :U 412 ]
+[; ;INTERRUPTS.c: 234: else if(PIR1bits.TMR2IF)
+[e $ ! != -> . . _PIR1bits 0 1 `i -> -> -> 0 `i `Vuc `i 435  ]
+[; ;INTERRUPTS.c: 235: {
 "235
-[e ( _TMR_Timer2 (1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 236: if(Timer2Use == 17)
-"236
-[e $ ! == -> _Timer2Use `i -> 17 `i 436  ]
-[; ;INTERRUPTS.c: 237: {
+{
+[; ;INTERRUPTS.c: 237: if(Timer2PostCount >= Timer2Post)
 "237
+[e $ ! >= _Timer2PostCount _Timer2Post 436  ]
+[; ;INTERRUPTS.c: 238: {
+"238
 {
-[; ;INTERRUPTS.c: 239: System_State = 10;
+[; ;INTERRUPTS.c: 239: TMR_Timer2(0);
 "239
-[e = _System_State -> -> 10 `i `uc ]
-[; ;INTERRUPTS.c: 240: System_State_Change = 1;
+[e ( _TMR_Timer2 (1 -> -> 0 `i `uc ]
+[; ;INTERRUPTS.c: 240: if(Timer2Use == 17)
 "240
-[e = _System_State_Change -> -> 1 `i `uc ]
+[e $ ! == -> _Timer2Use `i -> 17 `i 437  ]
+[; ;INTERRUPTS.c: 241: {
 "241
-}
-[; ;INTERRUPTS.c: 241: }
-[e $U 437  ]
-"242
-[e :U 436 ]
-[; ;INTERRUPTS.c: 242: else if(Timer2Use == 18)
-[e $ ! == -> _Timer2Use `i -> 18 `i 438  ]
-[; ;INTERRUPTS.c: 243: {
+{
+[; ;INTERRUPTS.c: 243: System_State = 10;
 "243
-{
-[; ;INTERRUPTS.c: 244: System_State = 8;
+[e = _System_State -> -> 10 `i `uc ]
+[; ;INTERRUPTS.c: 244: System_State_Change = 1;
 "244
-[e = _System_State -> -> 8 `i `uc ]
-[; ;INTERRUPTS.c: 245: System_State_Change = 1;
-"245
 [e = _System_State_Change -> -> 1 `i `uc ]
+"245
+}
+[; ;INTERRUPTS.c: 245: }
+[e $U 438  ]
 "246
-}
-[e :U 438 ]
-"247
 [e :U 437 ]
-}
-[; ;INTERRUPTS.c: 246: }
-[; ;INTERRUPTS.c: 247: }
-[e $U 439  ]
-"248
-[e :U 435 ]
-[; ;INTERRUPTS.c: 248: else
-[; ;INTERRUPTS.c: 249: {
-"249
+[; ;INTERRUPTS.c: 246: else if(Timer2Use == 18)
+[e $ ! == -> _Timer2Use `i -> 18 `i 439  ]
+[; ;INTERRUPTS.c: 247: {
+"247
 {
-[; ;INTERRUPTS.c: 250: SYS_ActivityTimerReset();
+[; ;INTERRUPTS.c: 248: System_State = 8;
+"248
+[e = _System_State -> -> 8 `i `uc ]
+[; ;INTERRUPTS.c: 249: System_State_Change = 1;
+"249
+[e = _System_State_Change -> -> 1 `i `uc ]
 "250
-[e ( _SYS_ActivityTimerReset ..  ]
-[; ;INTERRUPTS.c: 251: Timer2PostCount++;
-"251
-[e ++ _Timer2PostCount -> -> 1 `i `ui ]
-"252
 }
 [e :U 439 ]
-[; ;INTERRUPTS.c: 252: }
-[; ;INTERRUPTS.c: 253: PIR1bits.TMR2IF = 0;
-"253
-[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
-"254
+"251
+[e :U 438 ]
 }
-[; ;INTERRUPTS.c: 254: }
+[; ;INTERRUPTS.c: 250: }
+[; ;INTERRUPTS.c: 251: }
 [e $U 440  ]
-"255
-[e :U 434 ]
-[; ;INTERRUPTS.c: 255: else if(PIR1bits.ADIF)
-[e $ ! != -> . . _PIR1bits 0 6 `i -> -> -> 0 `i `Vuc `i 441  ]
-[; ;INTERRUPTS.c: 256: {
-"256
+"252
+[e :U 436 ]
+[; ;INTERRUPTS.c: 252: else
+[; ;INTERRUPTS.c: 253: {
+"253
 {
-[; ;INTERRUPTS.c: 258: ADC_CalculateVoltage();
-"258
-[e ( _ADC_CalculateVoltage ..  ]
-[; ;INTERRUPTS.c: 259: PIR1bits.ADIF = 0;
-"259
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-"260
-}
-[; ;INTERRUPTS.c: 260: }
-[e $U 442  ]
-"261
-[e :U 441 ]
-[; ;INTERRUPTS.c: 261: else if(PIR1bits.TMR1IF)
-[e $ ! != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i 443  ]
-[; ;INTERRUPTS.c: 262: {
-"262
-{
-[; ;INTERRUPTS.c: 264: BUT_IR_PinChangeInt(0);
-"264
-[e ( _BUT_IR_PinChangeInt (1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 265: TMR_Timer1(0);
-"265
-[e ( _TMR_Timer1 (1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 266: SYS_ActivityTimerReset();
-"266
+[; ;INTERRUPTS.c: 254: SYS_ActivityTimerReset();
+"254
 [e ( _SYS_ActivityTimerReset ..  ]
-[; ;INTERRUPTS.c: 267: BUT_ReadButton();
-"267
-[e ( _BUT_ReadButton ..  ]
-[; ;INTERRUPTS.c: 268: IR_ReadReceiver();
+[; ;INTERRUPTS.c: 255: Timer2PostCount++;
+"255
+[e ++ _Timer2PostCount -> -> 1 `i `ui ]
+"256
+}
+[e :U 440 ]
+[; ;INTERRUPTS.c: 256: }
+[; ;INTERRUPTS.c: 257: PIR1bits.TMR2IF = 0;
+"257
+[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+"258
+}
+[; ;INTERRUPTS.c: 258: }
+[e $U 441  ]
+"259
+[e :U 435 ]
+[; ;INTERRUPTS.c: 259: else if(PIR1bits.ADIF)
+[e $ ! != -> . . _PIR1bits 0 6 `i -> -> -> 0 `i `Vuc `i 442  ]
+[; ;INTERRUPTS.c: 260: {
+"260
+{
+[; ;INTERRUPTS.c: 262: ADC_CalculateVoltage();
+"262
+[e ( _ADC_CalculateVoltage ..  ]
+[; ;INTERRUPTS.c: 263: PIR1bits.ADIF = 0;
+"263
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+"264
+}
+[; ;INTERRUPTS.c: 264: }
+[e $U 443  ]
+"265
+[e :U 442 ]
+[; ;INTERRUPTS.c: 265: else if(PIR1bits.TMR1IF)
+[e $ ! != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i 444  ]
+[; ;INTERRUPTS.c: 266: {
+"266
+{
+[; ;INTERRUPTS.c: 268: BUT_IR_PinChangeInt(0);
 "268
-[e ( _IR_ReadReceiver ..  ]
-[; ;INTERRUPTS.c: 269: INTCONbits.RBIF = 0;
+[e ( _BUT_IR_PinChangeInt (1 -> -> 0 `i `uc ]
+[; ;INTERRUPTS.c: 269: TMR_Timer1(0);
 "269
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 270: if(System_State == 10)
+[e ( _TMR_Timer1 (1 -> -> 0 `i `uc ]
+[; ;INTERRUPTS.c: 270: SYS_ActivityTimerReset();
 "270
-[e $ ! == -> _System_State `i -> 10 `i 444  ]
-[; ;INTERRUPTS.c: 271: {
+[e ( _SYS_ActivityTimerReset ..  ]
+[; ;INTERRUPTS.c: 271: BUT_ReadButton();
 "271
-{
-[; ;INTERRUPTS.c: 272: if(IR_DataPlace >= 40)
+[e ( _BUT_ReadButton ..  ]
+[; ;INTERRUPTS.c: 272: IR_ReadReceiver();
 "272
-[e $ ! >= -> _IR_DataPlace `i -> 40 `i 445  ]
-[; ;INTERRUPTS.c: 273: {
+[e ( _IR_ReadReceiver ..  ]
+[; ;INTERRUPTS.c: 273: INTCONbits.RBIF = 0;
 "273
-{
-[; ;INTERRUPTS.c: 275: IR_Data = IR_CheckCode();
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+[; ;INTERRUPTS.c: 274: if(System_State == 10)
+"274
+[e $ ! == -> _System_State `i -> 10 `i 445  ]
+[; ;INTERRUPTS.c: 275: {
 "275
-[e = _IR_Data ( _IR_CheckCode ..  ]
+{
+[; ;INTERRUPTS.c: 276: if(IR_DataPlace >= 40)
 "276
-}
-[e :U 445 ]
+[e $ ! >= -> _IR_DataPlace `i -> 40 `i 446  ]
+[; ;INTERRUPTS.c: 277: {
 "277
-}
-[; ;INTERRUPTS.c: 276: }
-[; ;INTERRUPTS.c: 277: }
-[e $U 446  ]
-"278
-[e :U 444 ]
-[; ;INTERRUPTS.c: 278: else
-[; ;INTERRUPTS.c: 279: {
+{
+[; ;INTERRUPTS.c: 279: IR_Data = IR_CheckCode();
 "279
-{
-[; ;INTERRUPTS.c: 280: if(!IR_Data)
+[e = _IR_Data ( _IR_CheckCode ..  ]
 "280
-[e $ ! ! != -> _IR_Data `i -> -> -> 0 `i `Vuc `i 447  ]
-[; ;INTERRUPTS.c: 281: {
+}
+[e :U 446 ]
 "281
-{
-[; ;INTERRUPTS.c: 282: if(IR_DataPlace >= IR_CodeSize)
+}
+[; ;INTERRUPTS.c: 280: }
+[; ;INTERRUPTS.c: 281: }
+[e $U 447  ]
 "282
-[e $ ! >= -> _IR_DataPlace `i -> _IR_CodeSize `i 448  ]
+[e :U 445 ]
+[; ;INTERRUPTS.c: 282: else
 [; ;INTERRUPTS.c: 283: {
 "283
 {
-[; ;INTERRUPTS.c: 284: IR_Data = IR_CheckCode();
+[; ;INTERRUPTS.c: 284: if(!IR_Data)
 "284
-[e = _IR_Data ( _IR_CheckCode ..  ]
+[e $ ! ! != -> _IR_Data `i -> -> -> 0 `i `Vuc `i 448  ]
+[; ;INTERRUPTS.c: 285: {
 "285
-}
-[e :U 448 ]
-"286
-}
-[e :U 447 ]
-"287
-}
-[e :U 446 ]
-[; ;INTERRUPTS.c: 285: }
-[; ;INTERRUPTS.c: 286: }
-[; ;INTERRUPTS.c: 287: }
-[; ;INTERRUPTS.c: 288: TMR_ResetTimer1();
-"288
-[e ( _TMR_ResetTimer1 ..  ]
-[; ;INTERRUPTS.c: 289: IR_ResetData();
-"289
-[e ( _IR_ResetData ..  ]
-[; ;INTERRUPTS.c: 290: INTCON3bits.INT1IF = 0;
-"290
-[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 291: INTCON3bits.INT2IF = 0;
-"291
-[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
-[; ;INTERRUPTS.c: 292: RF_DataInt(1);
-"292
-[e ( _RF_DataInt (1 -> -> 1 `i `uc ]
-[; ;INTERRUPTS.c: 293: BUT_IR_PinChangeInt(1);
-"293
-[e ( _BUT_IR_PinChangeInt (1 -> -> 1 `i `uc ]
-[; ;INTERRUPTS.c: 294: PIR1bits.TMR1IF = 0;
-"294
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-"295
-}
-[; ;INTERRUPTS.c: 295: }
-[e $U 449  ]
-"296
-[e :U 443 ]
-[; ;INTERRUPTS.c: 296: else
-[; ;INTERRUPTS.c: 297: {
-"297
 {
-[; ;INTERRUPTS.c: 299: __nop();
-"299
-[e ( ___nop ..  ]
-"300
+[; ;INTERRUPTS.c: 286: if(IR_DataPlace >= IR_CodeSize)
+"286
+[e $ ! >= -> _IR_DataPlace `i -> _IR_CodeSize `i 449  ]
+[; ;INTERRUPTS.c: 287: {
+"287
+{
+[; ;INTERRUPTS.c: 288: IR_Data = IR_CheckCode();
+"288
+[e = _IR_Data ( _IR_CheckCode ..  ]
+"289
 }
 [e :U 449 ]
-[e :U 442 ]
-[e :U 440 ]
-[e :U 433 ]
-[; ;INTERRUPTS.c: 300: }
-[; ;INTERRUPTS.c: 301: }
+"290
+}
+[e :U 448 ]
+"291
+}
+[e :U 447 ]
+[; ;INTERRUPTS.c: 289: }
+[; ;INTERRUPTS.c: 290: }
+[; ;INTERRUPTS.c: 291: }
+[; ;INTERRUPTS.c: 292: TMR_ResetTimer1();
+"292
+[e ( _TMR_ResetTimer1 ..  ]
+[; ;INTERRUPTS.c: 293: IR_ResetData();
+"293
+[e ( _IR_ResetData ..  ]
+[; ;INTERRUPTS.c: 294: INTCON3bits.INT1IF = 0;
+"294
+[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
+[; ;INTERRUPTS.c: 295: INTCON3bits.INT2IF = 0;
+"295
+[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
+[; ;INTERRUPTS.c: 296: RF_DataInt(1);
+"296
+[e ( _RF_DataInt (1 -> -> 1 `i `uc ]
+[; ;INTERRUPTS.c: 297: BUT_IR_PinChangeInt(1);
+"297
+[e ( _BUT_IR_PinChangeInt (1 -> -> 1 `i `uc ]
+[; ;INTERRUPTS.c: 298: PIR1bits.TMR1IF = 0;
+"298
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+"299
+}
+[; ;INTERRUPTS.c: 299: }
+[e $U 450  ]
+"300
+[e :U 444 ]
+[; ;INTERRUPTS.c: 300: else
+[; ;INTERRUPTS.c: 301: {
 "301
-[e :UE 410 ]
+{
+[; ;INTERRUPTS.c: 303: __nop();
+"303
+[e ( ___nop ..  ]
+"304
+}
+[e :U 450 ]
+[e :U 443 ]
+[e :U 441 ]
+[e :U 434 ]
+[; ;INTERRUPTS.c: 304: }
+[; ;INTERRUPTS.c: 305: }
+"305
+[e :UE 411 ]
 }

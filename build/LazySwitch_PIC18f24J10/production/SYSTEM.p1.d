@@ -3,6 +3,7 @@
  SYSTEM.c  \
 USER.h  \
 SYSTEM.h  \
+MISC.h  \
 IR.h  \
 RF.h  \
 BUTTON.h 

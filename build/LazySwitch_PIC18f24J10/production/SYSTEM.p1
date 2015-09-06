@@ -44,6 +44,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S365 . . . ]
 "5850
 [v _OSCCONbits `VS365 ~T0 @X0 0 e@4051 ]
+"886
+[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3092,6 +3094,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SYSTEM.h: 93: inline void SYS_ActivityTimerReset(void);
 [; ;SYSTEM.h: 94: inline void SYS_EnableInt(void);
 [; ;SYSTEM.h: 95: inline void SYS_DisableInt(void);
+[; ;MISC.h: 85: void MSC_DelayMS(long US);
+[; ;MISC.h: 86: void MSC_DelayNOP(unsigned int NOPs);
+[; ;MISC.h: 87: void MSC_CleanBuffer(unsigned char* data, unsigned int count);
+[; ;MISC.h: 88: void MSC_CleanBufferInt(unsigned int* data, unsigned int count);
+[; ;MISC.h: 89: void MSC_BufferCopy(unsigned char* from,unsigned char* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 90: void MSC_BufferCopyInt(unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 91: void MSC_BufferCopyIntConst(const unsigned int* from,unsigned int* to, unsigned int count, unsigned int shift);
+[; ;MISC.h: 92: void MSC_BlinkLED(unsigned int blink, unsigned int speed);
 "84 IR.h
 [v _IR_SavedTiming0 `Cui ~T0 @X0 -> 96 `i e@9216 ]
 [i _IR_SavedTiming0
@@ -3888,185 +3898,188 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;RF.h: 183: unsigned char RF_CheckCode(void);
 [; ;RF.h: 184: void RF_Disable(void);
 [; ;RF.h: 185: void RF_Enable(void);
-"45 SYSTEM.c
+"46 SYSTEM.c
 [v _System_State `Vuc ~T0 @X0 1 e ]
 [i _System_State
 -> -> 8 `i `uc
 ]
-[; ;SYSTEM.c: 45: volatile unsigned char System_State = 8;
-"46
+[; ;SYSTEM.c: 46: volatile unsigned char System_State = 8;
+"47
 [v _System_State_Change `Vuc ~T0 @X0 1 e ]
 [i _System_State_Change
 -> -> 0 `i `uc
 ]
-[; ;SYSTEM.c: 46: volatile unsigned char System_State_Change = 0;
-"47
+[; ;SYSTEM.c: 47: volatile unsigned char System_State_Change = 0;
+"48
 [v _Activity_Timer `ul ~T0 @X0 1 e ]
 [i _Activity_Timer
 -> -> -> 0 `i `l `ul
 ]
-[; ;SYSTEM.c: 47: unsigned long Activity_Timer = 0;
+[; ;SYSTEM.c: 48: unsigned long Activity_Timer = 0;
 [v F3303 `(v ~T0 @X0 1 tf ]
-"59
-[v _SYS_ActivityTimerReset `TF3303 ~T0 @X0 1 e ]
 "60
+[v _SYS_ActivityTimerReset `TF3303 ~T0 @X0 1 e ]
+"61
 {
-[; ;SYSTEM.c: 59: inline void SYS_ActivityTimerReset(void)
-[; ;SYSTEM.c: 60: {
+[; ;SYSTEM.c: 60: inline void SYS_ActivityTimerReset(void)
+[; ;SYSTEM.c: 61: {
 [e :U _SYS_ActivityTimerReset ]
 [f ]
-[; ;SYSTEM.c: 61: Activity_Timer = 0;
-"61
-[e = _Activity_Timer -> -> -> 0 `i `l `ul ]
-[; ;SYSTEM.c: 62: }
+[; ;SYSTEM.c: 62: Activity_Timer = 0;
 "62
+[e = _Activity_Timer -> -> -> 0 `i `l `ul ]
+[; ;SYSTEM.c: 63: }
+"63
 [e :UE 394 ]
 }
 [v F3309 `(v ~T0 @X0 1 tf ]
-"69
-[v _SYS_DisableInt `TF3309 ~T0 @X0 1 e ]
 "70
+[v _SYS_DisableInt `TF3309 ~T0 @X0 1 e ]
+"71
 {
-[; ;SYSTEM.c: 69: inline void SYS_DisableInt(void)
-[; ;SYSTEM.c: 70: {
+[; ;SYSTEM.c: 70: inline void SYS_DisableInt(void)
+[; ;SYSTEM.c: 71: {
 [e :U _SYS_DisableInt ]
 [f ]
-[; ;SYSTEM.c: 71: INTCONbits.GIE = 0;
-"71
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;SYSTEM.c: 72: INTCONbits.PEIE = 0;
+[; ;SYSTEM.c: 72: INTCONbits.GIE = 0;
 "72
-[e = . . _INTCONbits 1 6 -> -> 0 `i `uc ]
-[; ;SYSTEM.c: 73: }
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;SYSTEM.c: 73: INTCONbits.PEIE = 0;
 "73
+[e = . . _INTCONbits 1 6 -> -> 0 `i `uc ]
+[; ;SYSTEM.c: 74: }
+"74
 [e :UE 395 ]
 }
 [v F3306 `(v ~T0 @X0 1 tf ]
-"80
-[v _SYS_EnableInt `TF3306 ~T0 @X0 1 e ]
 "81
+[v _SYS_EnableInt `TF3306 ~T0 @X0 1 e ]
+"82
 {
-[; ;SYSTEM.c: 80: inline void SYS_EnableInt(void)
-[; ;SYSTEM.c: 81: {
+[; ;SYSTEM.c: 81: inline void SYS_EnableInt(void)
+[; ;SYSTEM.c: 82: {
 [e :U _SYS_EnableInt ]
 [f ]
-[; ;SYSTEM.c: 82: BUT_IR_PinChangeInt(1);
-"82
-[e ( _BUT_IR_PinChangeInt (1 -> -> 1 `i `uc ]
-[; ;SYSTEM.c: 83: RF_DataInt(1);
+[; ;SYSTEM.c: 83: BUT_IR_PinChangeInt(1);
 "83
-[e ( _RF_DataInt (1 -> -> 1 `i `uc ]
-[; ;SYSTEM.c: 84: INTCONbits.PEIE = 1;
+[e ( _BUT_IR_PinChangeInt (1 -> -> 1 `i `uc ]
+[; ;SYSTEM.c: 84: RF_DataInt(1);
 "84
-[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;SYSTEM.c: 85: INTCONbits.GIE = 1;
+[e ( _RF_DataInt (1 -> -> 1 `i `uc ]
+[; ;SYSTEM.c: 85: INTCONbits.PEIE = 1;
 "85
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;SYSTEM.c: 86: }
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+[; ;SYSTEM.c: 86: INTCONbits.GIE = 1;
 "86
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;SYSTEM.c: 87: }
+"87
 [e :UE 396 ]
 }
 [v F3298 `(v ~T0 @X0 1 tf ]
-"93
-[v _SYS_Sleep `TF3298 ~T0 @X0 1 e ]
 "94
+[v _SYS_Sleep `TF3298 ~T0 @X0 1 e ]
+"95
 {
-[; ;SYSTEM.c: 93: inline void SYS_Sleep(void)
-[; ;SYSTEM.c: 94: {
+[; ;SYSTEM.c: 94: inline void SYS_Sleep(void)
+[; ;SYSTEM.c: 95: {
 [e :U _SYS_Sleep ]
 [f ]
-[; ;SYSTEM.c: 95: OSCCON &= ~0b10000000;
-"95
-[e =& _OSCCON -> ~ -> 128 `i `uc ]
-[; ;SYSTEM.c: 96: asm("sleep");
+[; ;SYSTEM.c: 96: OSCCON &= ~0b10000000;
 "96
-[; <" sleep ;# ">
-[; ;SYSTEM.c: 97: }
+[e =& _OSCCON -> ~ -> 128 `i `uc ]
+[; ;SYSTEM.c: 97: asm("sleep");
 "97
+[; <" sleep ;# ">
+[; ;SYSTEM.c: 98: }
+"98
 [e :UE 397 ]
 }
 [v F3295 `(v ~T0 @X0 1 tf ]
-"104
-[v _SYS_Idle `TF3295 ~T0 @X0 1 e ]
 "105
+[v _SYS_Idle `TF3295 ~T0 @X0 1 e ]
+"106
 {
-[; ;SYSTEM.c: 104: inline void SYS_Idle(void)
-[; ;SYSTEM.c: 105: {
+[; ;SYSTEM.c: 105: inline void SYS_Idle(void)
+[; ;SYSTEM.c: 106: {
 [e :U _SYS_Idle ]
 [f ]
-[; ;SYSTEM.c: 106: OSCCON |= 0b10000000;
-"106
-[e =| _OSCCON -> -> 128 `i `uc ]
-[; ;SYSTEM.c: 107: asm("sleep");
+[; ;SYSTEM.c: 107: OSCCON |= 0b10000000;
 "107
-[; <" sleep ;# ">
-[; ;SYSTEM.c: 108: }
+[e =| _OSCCON -> -> 128 `i `uc ]
+[; ;SYSTEM.c: 108: asm("sleep");
 "108
+[; <" sleep ;# ">
+[; ;SYSTEM.c: 109: }
+"109
 [e :UE 398 ]
 }
-"115
-[v _SYS_ConfigureOscillator `(v ~T0 @X0 1 ef ]
 "116
+[v _SYS_ConfigureOscillator `(v ~T0 @X0 1 ef ]
+"117
 {
-[; ;SYSTEM.c: 115: void SYS_ConfigureOscillator(void)
-[; ;SYSTEM.c: 116: {
+[; ;SYSTEM.c: 116: void SYS_ConfigureOscillator(void)
+[; ;SYSTEM.c: 117: {
 [e :U _SYS_ConfigureOscillator ]
 [f ]
-[; ;SYSTEM.c: 118: OSCTUNEbits.PLLEN = 1;
-"118
-[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
-[; ;SYSTEM.c: 119: while(!OSCCONbits.OSTS);
+[; ;SYSTEM.c: 119: OSCTUNEbits.PLLEN = 1;
 "119
+[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
+[; ;SYSTEM.c: 120: while(!OSCCONbits.OSTS);
+"120
 [e $U 400  ]
 [e :U 401 ]
 [e :U 400 ]
 [e $ ! != -> . . _OSCCONbits 0 2 `i -> -> -> 0 `i `Vuc `i 401  ]
 [e :U 402 ]
-[; ;SYSTEM.c: 120: }
-"120
+[; ;SYSTEM.c: 121: }
+"121
 [e :UE 399 ]
 }
-"128
-[v _SYS_ActivityTimer `(v ~T0 @X0 1 ef ]
 "129
+[v _SYS_ActivityTimer `(v ~T0 @X0 1 ef ]
+"130
 {
-[; ;SYSTEM.c: 128: void SYS_ActivityTimer(void)
-[; ;SYSTEM.c: 129: {
+[; ;SYSTEM.c: 129: void SYS_ActivityTimer(void)
+[; ;SYSTEM.c: 130: {
 [e :U _SYS_ActivityTimer ]
 [f ]
-[; ;SYSTEM.c: 130: if(Activity_Timer > 1000L)
-"130
-[e $ ! > _Activity_Timer -> -> 1000 `l `ul 404  ]
-[; ;SYSTEM.c: 131: {
+[; ;SYSTEM.c: 131: if(Activity_Timer > 1000L)
 "131
-{
-[; ;SYSTEM.c: 132: SYS_ActivityTimerReset();
+[e $ ! > _Activity_Timer -> -> 1000 `l `ul 404  ]
+[; ;SYSTEM.c: 132: {
 "132
-[e ( _SYS_ActivityTimerReset ..  ]
-[; ;SYSTEM.c: 133: SYS_EnableInt();
-"133
-[e ( _SYS_EnableInt ..  ]
-[; ;SYSTEM.c: 134: SYS_Sleep();
-"134
-[e ( _SYS_Sleep ..  ]
-"135
-}
-[; ;SYSTEM.c: 135: }
-[e $U 405  ]
-"136
-[e :U 404 ]
-[; ;SYSTEM.c: 136: else
-[; ;SYSTEM.c: 137: {
-"137
 {
-[; ;SYSTEM.c: 138: Activity_Timer++;
+[; ;SYSTEM.c: 133: SYS_ActivityTimerReset();
+"133
+[e ( _SYS_ActivityTimerReset ..  ]
+[; ;SYSTEM.c: 134: (LATC &= ~0x10);
+"134
+[e =& _LATC -> ~ -> 16 `i `uc ]
+[; ;SYSTEM.c: 135: SYS_EnableInt();
+"135
+[e ( _SYS_EnableInt ..  ]
+[; ;SYSTEM.c: 136: SYS_Sleep();
+"136
+[e ( _SYS_Sleep ..  ]
+"137
+}
+[; ;SYSTEM.c: 137: }
+[e $U 405  ]
 "138
-[e ++ _Activity_Timer -> -> -> 1 `i `l `ul ]
+[e :U 404 ]
+[; ;SYSTEM.c: 138: else
+[; ;SYSTEM.c: 139: {
 "139
+{
+[; ;SYSTEM.c: 140: Activity_Timer++;
+"140
+[e ++ _Activity_Timer -> -> -> 1 `i `l `ul ]
+"141
 }
 [e :U 405 ]
-[; ;SYSTEM.c: 139: }
-[; ;SYSTEM.c: 140: }
-"140
+[; ;SYSTEM.c: 141: }
+[; ;SYSTEM.c: 142: }
+"142
 [e :UE 403 ]
 }
