@@ -6,7 +6,7 @@
  * Date         Revision    Comments
  * MM/DD/YY
  * --------     ---------   ----------------------------------------------------
- * 09/10/15     2.0c        Version change only. Tagged version!
+ * 09/10/15     2.0d        Version change only. Tagged version!
  * 09/05/15     2.0c_DW0a   Increased RF sync window for use with other
  *                            protocols.
  *                          Turn off LED when sleep is entered.
