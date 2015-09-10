@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/main.c</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/SYSTEM.c</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/MISC.h</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/RF.c</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/RF.h</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/INTERRUPTS.c</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/TIMERS.c</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/USER.h</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/ADC.h</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/LDO.h</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/MISC.c</file>
+            <file>file:/C:/Users/David/Documents/GitHub/PIC_LazySwitch/USER.c</file>
+        </group>
     </open-files>
 </project-private>
