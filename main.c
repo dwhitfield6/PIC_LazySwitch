@@ -6,6 +6,7 @@
  * Date         Revision    Comments
  * MM/DD/YY
  * --------     ---------   ----------------------------------------------------
+ * 10/21/15     2.0d_DW0a   Fixed ISR bug.
  * 09/10/15     2.0d        Version change only. Tagged version!
  * 09/05/15     2.0c_DW0a   Increased RF sync window for use with other
  *                            protocols.

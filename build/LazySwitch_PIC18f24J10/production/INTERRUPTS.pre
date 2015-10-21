@@ -4384,7 +4384,7 @@ void interrupt high_isr(void)
 {
 unsigned int RFtemp = 0;
 
-if(INTCON3bits.INT1IF || INTCON3bits.INT2IF)
+if((INTCON3bits.INT1IF && INTCON3bits.INT1E) || (INTCON3bits.INT2IF && INTCON3bits.INT2E))
 {
 
 if(!TMR_Timer0Status())
@@ -4440,7 +4440,7 @@ RF_ResetData();
 INTCON3bits.INT1IF = 0;
 INTCON3bits.INT2IF = 0;
 }
-else if(INTCONbits.TMR0IF)
+else if(INTCONbits.TMR0IF && INTCONbits.TMR0IE)
 {
 
 TMR_Timer0(0);
@@ -4464,7 +4464,7 @@ unsigned char button_state;
 unsigned char IR_state;
 unsigned int IRtemp = 0;
 
-if(INTCONbits.RBIF)
+if(INTCONbits.RBIF && INTCONbits.RBIE)
 {
 
 # 138
@@ -4564,7 +4564,7 @@ __nop();
 }
 INTCONbits.RBIF = 0;
 }
-else if(PIR1bits.TMR2IF)
+else if(PIR1bits.TMR2IF && PIE1bits.TMR2IE)
 {
 
 if(Timer2PostCount >= Timer2Post)
@@ -4589,13 +4589,13 @@ Timer2PostCount++;
 }
 PIR1bits.TMR2IF = 0;
 }
-else if(PIR1bits.ADIF)
+else if(PIR1bits.ADIF && PIE1bits.ADIE)
 {
 
 ADC_CalculateVoltage();
 PIR1bits.ADIF = 0;
 }
-else if(PIR1bits.TMR1IF)
+else if(PIR1bits.TMR1IF && PIE1bits.TMR1IE)
 {
 
 BUT_IR_PinChangeInt(0);

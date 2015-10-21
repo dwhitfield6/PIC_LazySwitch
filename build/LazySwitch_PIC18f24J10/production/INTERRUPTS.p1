@@ -121,6 +121,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S82 . . . ]
 "1731
 [v _PIR1bits `VS82 ~T0 @X0 0 e@3998 ]
+"1639
+[s S80 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S80 . TMR1IE TMR2IE CCP1IE SSP1IE TXIE RCIE ADIE ]
+"1648
+[s S81 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S81 . . SSPIE TX1IE RC1IE ]
+"1638
+[u S79 `S80 1 `S81 1 ]
+[n S79 . . . ]
+"1655
+[v _PIE1bits `VS79 ~T0 @X0 0 e@3997 ]
 "59 TIMERS.h
 [v _Timer2PostCount `ui ~T0 @X0 0 e ]
 "58
@@ -4038,9 +4049,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RFtemp `ui ~T0 @X0 1 a ]
 [; ;INTERRUPTS.c: 50: unsigned int RFtemp = 0;
 [e = _RFtemp -> -> 0 `i `ui ]
-[; ;INTERRUPTS.c: 52: if(INTCON3bits.INT1IF || INTCON3bits.INT2IF)
+[; ;INTERRUPTS.c: 52: if((INTCON3bits.INT1IF && INTCON3bits.INT1E) || (INTCON3bits.INT2IF && INTCON3bits.INT2E))
 "52
-[e $ ! || != -> . . _INTCON3bits 0 0 `i -> -> -> 0 `i `Vuc `i != -> . . _INTCON3bits 0 1 `i -> -> -> 0 `i `Vuc `i 395  ]
+[e $ ! || && != -> . . _INTCON3bits 0 0 `i -> -> -> 0 `i `Vuc `i != -> . . _INTCON3bits 1 3 `i -> -> -> 0 `i `Vuc `i && != -> . . _INTCON3bits 0 1 `i -> -> -> 0 `i `Vuc `i != -> . . _INTCON3bits 1 4 `i -> -> -> 0 `i `Vuc `i 395  ]
 [; ;INTERRUPTS.c: 53: {
 "53
 {
@@ -4215,8 +4226,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 408  ]
 "108
 [e :U 395 ]
-[; ;INTERRUPTS.c: 108: else if(INTCONbits.TMR0IF)
-[e $ ! != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i 409  ]
+[; ;INTERRUPTS.c: 108: else if(INTCONbits.TMR0IF && INTCONbits.TMR0IE)
+[e $ ! && != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i != -> . . _INTCONbits 0 5 `i -> -> -> 0 `i `Vuc `i 409  ]
 [; ;INTERRUPTS.c: 109: {
 "109
 {
@@ -4273,9 +4284,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;INTERRUPTS.c: 129: unsigned char IR_state;
 [; ;INTERRUPTS.c: 130: unsigned int IRtemp = 0;
 [e = _IRtemp -> -> 0 `i `ui ]
-[; ;INTERRUPTS.c: 132: if(INTCONbits.RBIF)
+[; ;INTERRUPTS.c: 132: if(INTCONbits.RBIF && INTCONbits.RBIE)
 "132
-[e $ ! != -> . . _INTCONbits 0 0 `i -> -> -> 0 `i `Vuc `i 412  ]
+[e $ ! && != -> . . _INTCONbits 0 0 `i -> -> -> 0 `i `Vuc `i != -> . . _INTCONbits 0 3 `i -> -> -> 0 `i `Vuc `i 412  ]
 [; ;INTERRUPTS.c: 133: {
 "133
 {
@@ -4574,8 +4585,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 434  ]
 "234
 [e :U 412 ]
-[; ;INTERRUPTS.c: 234: else if(PIR1bits.TMR2IF)
-[e $ ! != -> . . _PIR1bits 0 1 `i -> -> -> 0 `i `Vuc `i 435  ]
+[; ;INTERRUPTS.c: 234: else if(PIR1bits.TMR2IF && PIE1bits.TMR2IE)
+[e $ ! && != -> . . _PIR1bits 0 1 `i -> -> -> 0 `i `Vuc `i != -> . . _PIE1bits 0 1 `i -> -> -> 0 `i `Vuc `i 435  ]
 [; ;INTERRUPTS.c: 235: {
 "235
 {
@@ -4651,8 +4662,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 441  ]
 "259
 [e :U 435 ]
-[; ;INTERRUPTS.c: 259: else if(PIR1bits.ADIF)
-[e $ ! != -> . . _PIR1bits 0 6 `i -> -> -> 0 `i `Vuc `i 442  ]
+[; ;INTERRUPTS.c: 259: else if(PIR1bits.ADIF && PIE1bits.ADIE)
+[e $ ! && != -> . . _PIR1bits 0 6 `i -> -> -> 0 `i `Vuc `i != -> . . _PIE1bits 0 6 `i -> -> -> 0 `i `Vuc `i 442  ]
 [; ;INTERRUPTS.c: 260: {
 "260
 {
@@ -4668,8 +4679,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 443  ]
 "265
 [e :U 442 ]
-[; ;INTERRUPTS.c: 265: else if(PIR1bits.TMR1IF)
-[e $ ! != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i 444  ]
+[; ;INTERRUPTS.c: 265: else if(PIR1bits.TMR1IF && PIE1bits.TMR1IE)
+[e $ ! && != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i != -> . . _PIE1bits 0 0 `i -> -> -> 0 `i `Vuc `i 444  ]
 [; ;INTERRUPTS.c: 266: {
 "266
 {

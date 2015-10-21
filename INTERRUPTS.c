@@ -49,7 +49,7 @@ void interrupt high_isr(void)
 {
     unsigned int RFtemp = 0;
     
-    if(INTCON3bits.INT1IF || INTCON3bits.INT2IF)
+    if((INTCON3bits.INT1IF && INTCON3bits.INT1E) || (INTCON3bits.INT2IF && INTCON3bits.INT2E))
     {
         /* RF data interrupt */
         if(!TMR_Timer0Status())
@@ -105,7 +105,7 @@ void interrupt high_isr(void)
         INTCON3bits.INT1IF = 0; // Clear rising edge Flag
         INTCON3bits.INT2IF = 0; // Clear falling edge Flag
     }
-    else if(INTCONbits.TMR0IF)
+    else if(INTCONbits.TMR0IF && INTCONbits.TMR0IE)
     {
         /* RF timeout occurred */
         TMR_Timer0(OFF);
@@ -129,7 +129,7 @@ void low_priority interrupt low_isr(void)
     unsigned char IR_state;
     unsigned int IRtemp = 0;
     
-    if(INTCONbits.RBIF)
+    if(INTCONbits.RBIF && INTCONbits.RBIE)
     {
         /* interrupt on change pin 
          * This means there was a change on the button pin or IR pin 
@@ -231,7 +231,7 @@ void low_priority interrupt low_isr(void)
         }
         INTCONbits.RBIF = 0; //clear the interrupt on change flag
     }
-    else if(PIR1bits.TMR2IF)
+    else if(PIR1bits.TMR2IF && PIE1bits.TMR2IE)
     {
         /* timer 2 interrupt */
         if(Timer2PostCount >= Timer2Post)
@@ -256,13 +256,13 @@ void low_priority interrupt low_isr(void)
         }
         PIR1bits.TMR2IF = 0; // clear timer 2 flag
     }
-    else if(PIR1bits.ADIF)
+    else if(PIR1bits.ADIF && PIE1bits.ADIE)
     {
         /* ADC interrupt */
         ADC_CalculateVoltage();
         PIR1bits.ADIF = 0; // clear the ADC flag
     }
-    else if(PIR1bits.TMR1IF)
+    else if(PIR1bits.TMR1IF && PIE1bits.TMR1IE)
     {
         /* IR timeout occurred */
         BUT_IR_PinChangeInt(OFF);
